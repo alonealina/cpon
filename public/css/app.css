@@ -1,0 +1,370 @@
+footer {
+    text-align:center;
+    background-color: #FFA500;
+    color: white;
+}
+
+.banner_list {
+    height: 500px;
+}
+
+table a, table a:hover {
+    color: white;
+    text-decoration:none;
+    font-size: 20px;
+}
+
+table {
+    margin:50px auto;
+}
+
+td {
+    width: 400px;
+    height: 50px;
+}
+
+p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+hr {
+    margin:3px 0;
+}
+
+.center {
+    text-align:center;
+}
+
+.button_black {
+    text-align:center;
+}
+
+.button_black a {
+    font-size: 20px;
+    font-weight: bold;
+    display:block;
+    width:400px;
+    height:50px;
+    margin:10px auto;
+    line-height:50px;
+    background:black;
+    color:#fff;
+    border-radius:25px;
+    box-shadow:0 5px 0 gold;
+    text-decoration:none;
+    text-align:center;
+}
+
+.button_orange a {
+    font-size: 15px;
+    font-weight: bold;
+    display:block;
+    width:auto;
+    height:30px;
+    margin:10px 50px;
+    line-height:30px;
+    background:orange;
+    color:#fff;
+    border-radius:25px;
+    box-shadow:0 5px 0 gold;
+    text-decoration:none;
+    text-align:center;
+}
+
+.flexible-list {
+    display: flex;
+    margin: 0 auto;
+    padding: 0 0px;
+    min-width: 1120px;
+    max-width: 1400px;
+}
+
+.flexible-list-side {
+    min-width: 200px;
+    max-width: 220px;
+}
+
+.flexible-list-sidebar {
+    border: 3px solid;
+    border-color: orange;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.flexible-list-sidebar hr {
+    border: 1px solid;
+    border-color: orange;
+    width: 40%;
+}
+
+.flexible-list-main {
+    margin-left: 10px;
+    width: 100%;
+    min-width: 800px;
+    max-width: 1040px;
+}
+
+.filter_name {
+    font-weight: bold;
+}
+
+label {
+    cursor: pointer;
+    padding:5px;
+    border: 1px solid #434343;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
+.check_box {
+    display: none;
+}
+.check_box:checked + .label {
+    background-color: orange;
+}
+
+.notice_home a, .notice_home a:hover,
+.recommend_restaurant a, .recommend_restaurant a:hover,
+.new_restaurant a, .new_restaurant a:hover,
+.search_restaurant a, .search_restaurant a:hover,
+.menu_list_bar a, .menu_list_bar a:hover {
+    color: black;
+    text-decoration:none;
+}
+
+.recommend_restaurant img,
+.new_restaurant img,
+.search_restaurant img {
+    width:270px;
+    height:150px;
+}
+
+.menu_detail img {
+    width:240px;
+    height:240px;
+}
+
+.notice_show {
+    width:700px;
+    margin:10px auto;
+}
+
+.notice_title {
+    font-weight: bold;
+}
+
+.notice_title_big {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.notice_content {
+    font-weight: bold;
+}
+
+.cpon_notice {
+    font-size: 50px;
+    font-weight: bold;
+    text-align:center;
+    background-color: grey;
+    color:white;
+    height:300px;
+    line-height: 300px;
+}
+
+.restaurant_name {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.recommend_list, .new_list, .search_list, #menu_list_recommend, #menu_list_all {
+    display:flex;
+    flex-wrap:wrap;
+}
+
+.recommend_list {
+    margin-bottom: 10px;
+}
+.recommend_restaurant, .new_restaurant, .search_restaurant {
+    width: 30%;
+    margin: 10px;
+}
+
+.recommend_name, .new_name, .search_name {
+    margin-top: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+.recommend_address, .new_address, .search_address {
+    font-size: 12px;
+    height: 36px;
+}
+
+.menu_detail {
+    width: 23%;
+    margin: 10px;
+}
+
+.menu_name {
+    font-size: 20px;
+}
+
+.menu_price {
+    font-weight: bold;
+}
+
+.recommend_mark {
+    font-size: 10px;
+    font-weight: bold;
+    display:block;
+    width:50px;
+    height:15px;
+    margin:10px 0;
+    background:green;
+    color:#fff;
+    border-radius:25px;
+    text-decoration:none;
+    text-align:center;
+}
+
+
+/*以下ヘッダーの検索フォームについて*/
+
+
+
+/*以下メニューバーについて*/
+
+.menu_list_bar {
+    margin-top: 10px;
+    font-weight: bold;
+}
+.menu_list_bar ul{
+    display: table;
+    margin: 0;
+    padding: 0;
+    width: 30%;
+
+}
+.menu_list_bar li{
+    display: table-cell;
+    min-width: 50px;
+}
+.menu_list_bar a{
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    color: #555;
+    padding-bottom: 5px;
+    text-align:center;
+}
+.menu_list_bar li.current{
+    border-bottom: 3px solid black;
+}
+
+.menu_list_bar li{
+    border-bottom: 3px solid #dcdcdc;
+}
+
+.menu_list_bar li:hover{
+    color: #dcdcdc;
+    border-bottom: 3px solid #a9a9a9;
+}
+
+
+/*以下スライダー機能について*/
+
+.slider {/*横幅94%で左右に余白を持たせて中央寄せ*/
+    width:94%;
+    margin:0 auto;
+    padding: 0px 20px;
+}
+
+.slider img {
+    width:50%;/*スライダー内の画像を横幅100%に*/
+    height:auto;
+}
+
+.slider li {
+    height:120px;
+}
+/*slickのJSで書かれるタグ内、スライド左右の余白調整*/
+
+.slider .slick-slide {
+    margin:0 10px;
+}
+
+.slider_banner {/*横幅94%で左右に余白を持たせて中央寄せ*/
+width:94%;
+    margin:0 auto;
+    padding: 0px 20px;
+}
+
+.slider_banner img {
+    width:100%;/*スライダー内の画像を横幅100%に*/
+    height:auto;
+}
+
+.slider_banner li {
+    height:150px;
+}
+/*slickのJSで書かれるタグ内、スライド左右の余白調整*/
+
+.slider_banner .slick-slide {
+    margin:0 10px;
+}
+
+
+/*矢印の設定*/
+
+/*戻る、次へ矢印の位置*/
+.slick-prev, 
+.slick-next {
+    position: absolute;/*絶対配置にする*/
+    top: 42%;
+    cursor: pointer;/*マウスカーソルを指マークに*/
+    outline: none;/*クリックをしたら出てくる枠線を消す*/
+    border-top: 2px solid #666;/*矢印の色*/
+    border-right: 2px solid #666;/*矢印の色*/
+    height: 15px;
+    width: 15px;
+}
+
+.slick-prev {/*戻る矢印の位置と形状*/
+    left: -1.5%;
+    transform: rotate(-135deg);
+}
+
+.slick-next {/*次へ矢印の位置と形状*/
+    right: -1.5%;
+    transform: rotate(45deg);
+}
+
+/*ドットナビゲーションの設定*/
+
+.slick-dots {
+    text-align:center;
+}
+
+.slick-dots li {
+    display:inline-block;
+    margin:0 5px;
+    height:10px;
+}
+
+.slick-dots button {
+    color: transparent;
+    outline: none;
+    width:8px;/*ドットボタンのサイズ*/
+    height:8px;/*ドットボタンのサイズ*/
+    display:block;
+    border-radius:50%;
+    background:#ccc;/*ドットボタンの色*/
+}
+
+.slick-dots .slick-active button{
+    background:#333;/*ドットボタンの現在地表示の色*/
+}
