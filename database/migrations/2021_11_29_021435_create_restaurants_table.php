@@ -20,6 +20,7 @@ class CreateRestaurantsTable extends Migration
             $table->string('address');
             $table->time('open_time');
             $table->time('close_time');
+            $table->integer('category_id');
             $table->string('url');
             $table->string('tel', 20);
             $table->string('adress_remarks');
