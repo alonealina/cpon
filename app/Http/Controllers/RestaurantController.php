@@ -51,7 +51,7 @@ class RestaurantController extends Controller
         $restaurant = Restaurant::find($id);
         $category = Category::find($restaurant->category_id);
         $recommend_menus = Menu::where('recommend_flg', 1)
-            ->where('restaurant_id', $id)->take(4)->get();
+            ->where('restaurant_id', $id)->take(8)->get();
         $restaurant_id = $id;
 
         return view('restaurant/recommend', [
