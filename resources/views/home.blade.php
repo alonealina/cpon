@@ -23,11 +23,11 @@
             <form id="form2" name="filter_form" action="{{ route('filter') }}" method="get">
                 絞り込み
                 <hr>
-                <input type="radio" name="search_radio" value="現在地から探す"> 現在地から探す<br>
-                <input type="radio" name="search_radio" value="地域から探す"> 地域から探す<br>
-                <input type="radio" name="search_radio" value="駅から探す"> 駅から探す<br>
-                <input type="radio" name="search_radio" value="OPENのみ"> OPENのみ<br>
-                <input type="radio" name="search_radio" value="高評価(4.0以上)"> 高評価(4.0以上)<br>
+                <input type="radio" name="search_radio" value="current"> 現在地から探す<br>
+                <input type="radio" name="search_radio" value="area"> 地域から探す<br>
+                <input type="radio" name="search_radio" value="station"> 駅から探す<br>
+                <input type="radio" name="search_radio" value="open_only"> OPENのみ<br>
+                <input type="radio" name="search_radio" value="4_or_more"> 高評価(4.0以上)<br>
 
                 <div class="filter_name">利用シーン</div>
                 <input type="checkbox" class="check_box" id="one_person" name="one_person"/>
@@ -86,7 +86,11 @@
                 <label class="label" for="karaoke">カラオケ</label>
 
                 <div class="filter_name">キーワード</div>
+                {!! Form::text('freeword' ,'', ['class' => 'filter_freeword', 'placeholder' => '入力してください'] ) !!}
                 <div class="filter_name">オープン時間</div>
+                <div class="filter_time">
+                {{ Form::select('open', array_merge(['指定なし'], range(0, 23))) }} ～ {{ Form::select('close', array_merge(['指定なし'], range(0, 23))) }}
+                </div>
                 <div class="button_orange">
                 <a href="#" onclick="clickFilterButton()">検索</a>
                 </div>

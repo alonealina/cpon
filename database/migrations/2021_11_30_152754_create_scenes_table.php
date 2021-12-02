@@ -15,6 +15,7 @@ class CreateScenesTable extends Migration
     {
         Schema::create('scenes', function (Blueprint $table) {
             $table->id();
+            $table->integer('restaurant_id');
             $table->integer('one_person');
             $table->integer('family');
             $table->integer('with_friend');

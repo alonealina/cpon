@@ -109,6 +109,10 @@ hr {
     font-weight: bold;
 }
 
+select {
+    font-size: 12px;
+}
+
 label {
     cursor: pointer;
     padding:5px;

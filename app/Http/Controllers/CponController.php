@@ -61,13 +61,50 @@ class CponController extends Controller
     public function filter(Request $request)
     {
         $categories = Category::all();
-        $freeword = $request->input('freeword');
-        $restaurants = Restaurant::join('scenes', 'restaurants.id', '=', 'scenes.restaurant_id ')
-            ->join('commitments', 'restaurants.id', '=', 'commitments.restaurant_id ')
-            ->where('restaurants.name', 'like', "%$freeword%")
-            ->paginate(24);
+        $filter_array = $request->all();
+        $search_radio = null;
 
-        return view('filter', [
+        if (isset($filter_array['search_radio'])) {
+            $search_radio = $filter_array['search_radio'];
+        }
+
+        $freeword = $filter_array['freeword'];
+        $open = $filter_array['open'];
+        $close = $filter_array['close'];
+        unset($filter_array['search_radio'], $filter_array['freeword'], $filter_array['open'], $filter_array['close']);
+        
+        $query = Restaurant::join('scenes', 'restaurants.id', '=', 'scenes.restaurant_id')
+            ->join('commitments', 'restaurants.id', '=', 'commitments.restaurant_id');
+
+        foreach ($filter_array as $key => $value) {
+            $query->orWhere($key , 1);
+        }
+
+        if (!empty($freeword)) {
+            $query->orWhereIn('restaurants.id', function($q) use($freeword) {
+                return $q->from('menus')
+                    ->select('restaurant_id')
+                    ->where('name', 'like', "%$freeword%")
+                    ->groupBy('restaurant_id');
+                })
+                ->orwhere('restaurants.name', 'like', "%$freeword%");    
+        }
+
+        if ($search_radio == 'open_only') {
+            $query->whereTime('close_time', '>=', date("H:i:s"));
+            $query->whereTime('open_time', '<=', date("H:i:s"));
+        } 
+
+        if ($open != 0) {
+            $query->whereTime('close_time', '>=', $open - 1 . ':00');
+        } 
+        if ($close != 0) {
+            $query->whereTime('open_time', '<=', $close - 1 . ':00');
+        }
+
+        $restaurants = $query->paginate(24);
+
+        return view('search', [
             'categories' => $categories,
             'restaurants' => $restaurants,
         ]);

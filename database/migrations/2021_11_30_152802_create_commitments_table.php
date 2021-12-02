@@ -15,6 +15,7 @@ class CreateCommitmentsTable extends Migration
     {
         Schema::create('commitments', function (Blueprint $table) {
             $table->id();
+            $table->integer('restaurant_id');
             $table->integer('all_eat');
             $table->integer('all_drink');
             $table->integer('private_room');
