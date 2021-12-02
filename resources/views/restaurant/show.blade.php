@@ -14,10 +14,11 @@
         @endif
         {{ $restaurant->open_hm }}～{{ $restaurant->close_hm }}
     </div>
-    <div class="restaurant_comment">評価・{{ $category->name }}</div>
+    <div class="restaurant_comment">{{ $avg_star }} ({{ $comments->total() }} 評価)・{{ $category->name }}</div>
     <div class="restaurant_inquiry">ご予約・お問合せ　<a href="{{ $restaurant->url }}" target=”_blank”>{{ $restaurant->url }}</a>　{{ $restaurant->tel }}</div>
 </div>
 
 @yield('menu_list')
+@yield('comment_form')
 
 @endsection

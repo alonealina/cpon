@@ -17,11 +17,12 @@
 //     menuListAll.hidden = false;
 // });
 
-//
 function clickFilterButton() {
- 
     document.filter_form.submit();
- 
+}
+
+function clickCommentButton() {
+    document.comment_form.submit();
 }
 
 

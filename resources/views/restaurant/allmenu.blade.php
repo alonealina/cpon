@@ -29,4 +29,6 @@
 {{ $menus->links('pagination::bootstrap-4') }}
 </div>
 
+@include('restaurant.comment_list')
+
 @endsection

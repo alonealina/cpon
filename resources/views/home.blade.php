@@ -20,10 +20,9 @@
 <div class="flexible-list">
     <aside id="column-side" class="flexible-list-side">
         <div class="flexible-list-sidebar">
-            <form id="form2" name="filter_form" action="{{ route('filter') }}" method="get">
+            <form id="form" name="filter_form" action="{{ route('filter') }}" method="get">
                 絞り込み
                 <hr>
-                <input type="radio" name="search_radio" value="current"> 現在地から探す<br>
                 <input type="radio" name="search_radio" value="area"> 地域から探す<br>
                 <input type="radio" name="search_radio" value="station"> 駅から探す<br>
                 <input type="radio" name="search_radio" value="open_only"> OPENのみ<br>

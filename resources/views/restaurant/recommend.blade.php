@@ -25,4 +25,6 @@
     @endforeach
 </div>
 
+@include('restaurant.comment_list')
+
 @endsection

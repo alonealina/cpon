@@ -13,14 +13,14 @@
         <header class="mb-4">
             <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
                 <a class="navbar-brand" href="/">Cポンポータル</a>
-                
-                <form id="form2" action="{{ route('search') }}" method="get">
+
+                <form id="form" action="{{ route('search') }}" method="get">
                     {!! Form::text('freeword' ,'', ['class' => 's', 'placeholder' => '店舗名・商品で検索'] ) !!}
                     <button type="submit" id="sbtn2"><i class="fas fa-search"></i></button>
                 </form>
             </nav>
         </header>
-        
+
         <div class="container">
             @yield('content')
         </div>
