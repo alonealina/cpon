@@ -129,6 +129,7 @@ class RestaurantController extends Controller
         try {
             $comment->fill($fill_data)->save();
             DB::commit();
+            return redirect()->to('restaurants/'.$request['restaurant_id'].'/comment')->with('flashmessage', '登録が完了いたしました。');
         } catch (\Exception $e) {
             DB::rollback();
         }

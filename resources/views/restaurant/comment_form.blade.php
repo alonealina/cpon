@@ -3,7 +3,8 @@
 @section('comment_form')
 
 <div class="comment_form">
-    <form id="form" name="comment_form" action="{{ route('restaurant.comment_store') }}" method="get">
+    <form id="form" name="comment_form" action="{{ route('restaurant.comment_store') }}" method="post">
+        @csrf
         {{ Form::hidden('restaurant_id', $restaurant_id) }}
         <div class="comment_form_title">コメントの投稿</div>
         <div class="fivestar_title">注文の評価</div>
@@ -25,5 +26,36 @@
             <a href="#" onclick="clickCommentButton()">コメントを投稿する</a>
         </div>
     </form>
+</div>
+
+@if(Session::has('flashmessage'))
+aaa
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<script>
+  $(window).load(function() {
+  $('#modal_box').modal('show');
+  });
+</script>
+ 
+
+@else
+bbb
+@endif
+<!-- モーダルウィンドウの中身 -->
+<div class="modal fade" id="modal_box" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+  <div class="modal-content">
+  <div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <h4 class="modal-title">受講生 APP</h4>
+  </div>
+  <div class="modal-body">
+  {{ session('flashmessage') }}
+  </div>
+  <div class="modal-footer">
+  <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+  </div>
+  </div>
+  </div>
 </div>
 @endsection
