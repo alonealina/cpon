@@ -7,21 +7,27 @@
         @csrf
         {{ Form::hidden('restaurant_id', $restaurant_id) }}
         <div class="comment_form_title">コメントの投稿</div>
+        @if($errors->has('fivestar'))
+            <div class="comment_error">{{ $errors->first('fivestar') }}</div>
+        @endif
         <div class="fivestar_title">注文の評価</div>
         <div class="rate-form">
-            <input id="star5" type="radio" name="fivestar" value="5">
+            <input id="star5" type="radio" name="fivestar" value="5" {{ old('fivestar') == 5 ? 'checked' : '' }}>
             <label for="star5">★</label>
-            <input id="star4" type="radio" name="fivestar" value="4">
+            <input id="star4" type="radio" name="fivestar" value="4" {{ old('fivestar') == 4 ? 'checked' : '' }}>
             <label for="star4">★</label>
-            <input id="star3" type="radio" name="fivestar" value="3">
+            <input id="star3" type="radio" name="fivestar" value="3" {{ old('fivestar') == 3 ? 'checked' : '' }}>
             <label for="star3">★</label>
-            <input id="star2" type="radio" name="fivestar" value="2">
+            <input id="star2" type="radio" name="fivestar" value="2" {{ old('fivestar') == 2 ? 'checked' : '' }}>
             <label for="star2">★</label>
-            <input id="star1" type="radio" name="fivestar" value="1">
+            <input id="star1" type="radio" name="fivestar" value="1" {{ old('fivestar') == 1 ? 'checked' : '' }}>
             <label for="star1">★</label>
         </div>
         <div class="comment_create_title">コメント記載</div>
-        {{ Form::textarea('comment', null, ['class' => 'form-control', 'rows' => 6]) }}
+        @if($errors->has('comment'))
+            <div class="comment_error">{{ $errors->first('comment') }}</div>
+        @endif
+        {{ Form::textarea('comment', old('comment'), ['class' => 'form-control', 'rows' => 6]) }}
         <div class="button_black">
             <a href="#" onclick="clickCommentButton()">コメントを投稿する</a>
         </div>

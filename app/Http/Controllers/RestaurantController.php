@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use App\Models\Restaurant;
 use App\Models\Category;
 use App\Models\Menu;
@@ -116,6 +117,18 @@ class RestaurantController extends Controller
      */
     public function comment_store(Request $request)
     {
+        $rules = [
+            'fivestar' => 'required',
+            'comment' => 'required',
+        ];
+
+        $messages = [
+            'fivestar.required' => '評価を選択してください',
+            'comment.required' => 'コメントを入力してください',
+        ];
+
+        Validator::make($request->all(), $rules, $messages)->validate();
+
         $comment = new Comment;
         $request = $request->all();
         $fill_data = [

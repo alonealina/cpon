@@ -285,6 +285,13 @@ label {
     text-align:center;
 }
 
+.comment_error {
+    font-size: 25px;
+    font-weight: bold;
+    color:red;
+    text-align: center;
+}
+
 
 /*以下ヘッダーの検索フォームについて*/
 
