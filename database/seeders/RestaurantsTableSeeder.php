@@ -17,6 +17,7 @@ class RestaurantsTableSeeder extends Seeder
         for($i = 1; $i <= 10; $i++) {
             DB::table('restaurants')->insert([
                 'name' => 'オススメ店舗テスト'. $i,
+                'pref' => '大阪府',
                 'zip' => '532-0000',
                 'address' => '住所',
                 'open_time' => '10:00',

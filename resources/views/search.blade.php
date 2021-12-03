@@ -8,7 +8,7 @@
     <a href="{{ route('restaurant.show', ['id' => $restaurant->id]) }}">
         <img src="{{ asset('img/tempo1.png') }}" alt="">
         <div class="search_name">{{ $restaurant->name }}</div>
-        <div class="search_address">〒{{ $restaurant->zip }} {{ $restaurant->address }}</div>
+        <div class="search_address">〒{{ $restaurant->zip }} {{ $restaurant->pref }}{{ $restaurant->address }}</div>
         <div class="search_time">{{ $restaurant->open_hm }} - {{ $restaurant->close_hm }}　
             @if($restaurant->opening_flg)
             OPEN

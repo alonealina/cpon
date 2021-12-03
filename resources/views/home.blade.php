@@ -23,10 +23,17 @@
             <form id="form" name="filter_form" action="{{ route('filter') }}" method="get">
                 絞り込み
                 <hr>
-                <input type="radio" name="search_radio" value="area"> 地域から探す<br>
-                <input type="radio" name="search_radio" value="station"> 駅から探す<br>
-                <input type="radio" name="search_radio" value="open_only"> OPENのみ<br>
-                <input type="radio" name="search_radio" value="4_or_more"> 高評価(4.0以上)<br>
+                <input type="radio" name="search_radio" value="area" onchange="searchFormChange();"> 地域から探す<br>
+                <div id="pref_list">
+                    <select name="pref">
+                    @foreach (config('const.Prefs') as $name)
+                    <option value="{{ $name }}">{{ $name }}</option>
+                    @endforeach
+                    </select>
+                </div>
+                <input type="radio" name="search_radio" value="station" onchange="searchFormChange();"> 駅から探す<br>
+                <input type="radio" name="search_radio" value="open_only" onchange="searchFormChange();"> OPENのみ<br>
+                <input type="radio" name="search_radio" value="4_or_more" onchange="searchFormChange();"> 高評価(4.0以上)<br>
 
                 <div class="filter_name">利用シーン</div>
                 <input type="checkbox" class="check_box" id="one_person" name="one_person"/>

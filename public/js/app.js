@@ -24,7 +24,15 @@ function clickFilterButton() {
 function clickCommentButton() {
     document.comment_form.submit();
 }
-
+function searchFormChange() {
+    var radio = document.getElementsByName('search_radio');
+    var prefList = document.getElementById('pref_list');
+    if(radio[0].checked) {
+        prefList.style.display = "block";
+    }else if(radio[1].checked || radio[2].checked || radio[3].checked) {
+        prefList.style.display = "none";
+    }
+}
 
 // 以下スライダー機能について
 

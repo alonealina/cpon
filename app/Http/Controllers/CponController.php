@@ -72,7 +72,8 @@ class CponController extends Controller
         $freeword = $filter_array['freeword'];
         $open = $filter_array['open'];
         $close = $filter_array['close'];
-        unset($filter_array['search_radio'], $filter_array['freeword'], $filter_array['open'], $filter_array['close']);
+        $pref = $filter_array['pref'];
+        unset($filter_array['search_radio'], $filter_array['freeword'], $filter_array['open'], $filter_array['close'], $filter_array['pref']);
         
         $query = Restaurant::join('scenes', 'restaurants.id', '=', 'scenes.restaurant_id')
             ->join('commitments', 'restaurants.id', '=', 'commitments.restaurant_id');
@@ -91,10 +92,11 @@ class CponController extends Controller
                 ->orwhere('restaurants.name', 'like', "%$freeword%");    
         }
 
-        if ($search_radio == 'open_only') {
+        if ($search_radio == 'area') {
+            $query->where('pref', $pref);
+        } elseif ($search_radio == 'open_only') {
             $query->whereTime('close_time', '>=', date("H:i:s"));
             $query->whereTime('open_time', '<=', date("H:i:s"));
-
         } elseif ($search_radio == '4_or_more') {
             $avg_star_4 = Comment::selectRaw('restaurant_id, AVG(fivestar) as avg_star')
                 ->groupBy('restaurant_id')

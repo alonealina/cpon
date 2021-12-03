@@ -296,6 +296,10 @@ label {
     text-align:center;
 }
 
+#pref_list {
+    display: none;
+}
+
 /*以下ヘッダーの検索フォームについて*/
 
 

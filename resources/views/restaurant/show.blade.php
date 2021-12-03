@@ -5,8 +5,8 @@
 
 <div class="restaurant_show">
     <div class="restaurant_name">{{ $restaurant->name }}</div>
-    <div class="restaurant_address">〒{{ $restaurant->zip }}　{{ $restaurant->address }}　
-        <a href="https://www.google.com/maps/dir/{{ $restaurant->address }}" target=”_blank”>地図アプリで見る</a>
+    <div class="restaurant_address">〒{{ $restaurant->zip }}　{{ $restaurant->pref }}{{ $restaurant->address }}
+        <a href="https://www.google.com/maps/dir/{{ $restaurant->pref }}{{ $restaurant->address }}" target=”_blank”>地図アプリで見る</a>
     </div>
     <div class="restaurant_time">
         @if($restaurant->opening_flg)
