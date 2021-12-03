@@ -31,7 +31,12 @@
             @endif
             {{ $comment->fivestar }}
             </div>
-            <b>{{ $comment->comment }}</b>
+            <div class="comment_content"><b>{{ $comment->comment }}</b></div>
+            @if (!empty($comment->filename))
+            <a href="../../uploads/{{ $comment->filename }}" data-lightbox="group{{ $comment->id }}">
+                <img src="../../uploads/{{ $comment->filename }}" width="100px" height="100px">
+            </a>
+            @endif
         </div>
         <hr>
         @endforeach

@@ -28,7 +28,10 @@
             <div class="comment_error">{{ $errors->first('comment') }}</div>
         @endif
         {{ Form::textarea('comment', old('comment'), ['class' => 'form-control', 'rows' => 6]) }}
-        <input type="file" name="comment_img">
+        @if($errors->has('comment_img'))
+            <div class="comment_error">{{ $errors->first('comment_img') }}</div>
+        @endif
+        <div class="file_button"><input type="file" name="comment_img"></div>
         <div class="button_black">
             <a href="#" onclick="clickCommentButton()">コメントを投稿する</a>
         </div>

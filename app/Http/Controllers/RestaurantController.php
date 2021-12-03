@@ -120,11 +120,13 @@ class RestaurantController extends Controller
         $rules = [
             'fivestar' => 'required',
             'comment' => 'required',
+            'comment_img' => 'max:10240'
         ];
 
         $messages = [
             'fivestar.required' => '評価を選択してください',
             'comment.required' => 'コメントを入力してください',
+            'comment_img.max' => 'ファイルは10MB未満でお願いします',
         ];
 
         Validator::make($request->all(), $rules, $messages)->validate();
