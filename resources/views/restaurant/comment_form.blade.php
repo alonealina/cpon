@@ -28,34 +28,28 @@
     </form>
 </div>
 
-@if(Session::has('flashmessage'))
-aaa
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-<script>
-  $(window).load(function() {
-  $('#modal_box').modal('show');
-  });
-</script>
- 
 
-@else
-bbb
+
+
+@if(Session::has('flashmessage'))
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script>
+window.onload = function () {
+    $('#overlay, .modal-window').fadeIn();
+  $('.js-close').click(function () {
+    window.location.href = '/';
+  });
+};
+</script>
+
 @endif
-<!-- モーダルウィンドウの中身 -->
-<div class="modal fade" id="modal_box" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-  <div class="modal-content">
-  <div class="modal-header">
-  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  <h4 class="modal-title">受講生 APP</h4>
-  </div>
-  <div class="modal-body">
-  {{ session('flashmessage') }}
-  </div>
-  <div class="modal-footer">
-  <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
-  </div>
-  </div>
-  </div>
+
+<div id="overlay" class="overlay"></div>
+<!-- モーダルウィンドウ -->
+<div class="modal-window">
+<div class="modal-text">コメントの投稿が完了しました</div>
+<button class="js-close button-close">TOPへ戻る</button>
 </div>
+
 @endsection
