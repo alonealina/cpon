@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Notice;
 use App\Models\Restaurant;
+use App\Models\Comment;
 
 class CponController extends Controller
 {
@@ -93,6 +94,16 @@ class CponController extends Controller
         if ($search_radio == 'open_only') {
             $query->whereTime('close_time', '>=', date("H:i:s"));
             $query->whereTime('open_time', '<=', date("H:i:s"));
+
+        } elseif ($search_radio == '4_or_more') {
+            $avg_star_4 = Comment::selectRaw('restaurant_id, AVG(fivestar) as avg_star')
+                ->groupBy('restaurant_id')
+                ->having('avg_star', '>=', 4)->get();
+            $id_list = [];
+            foreach ($avg_star_4 as $value) {
+                $id_list[] = $value->restaurant_id;
+            }
+            $query->WhereIn('restaurants.id', $id_list);
         } 
 
         if ($open != 0) {
