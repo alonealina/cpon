@@ -3,7 +3,7 @@
 @section('comment_form')
 
 <div class="comment_form">
-    <form id="form" name="comment_form" action="{{ route('restaurant.comment_store') }}" method="post">
+    <form id="form" name="comment_form" action="{{ route('restaurant.comment_store') }}" method="post" enctype="multipart/form-data">
         @csrf
         {{ Form::hidden('restaurant_id', $restaurant_id) }}
         <div class="comment_form_title">コメントの投稿</div>
@@ -28,6 +28,7 @@
             <div class="comment_error">{{ $errors->first('comment') }}</div>
         @endif
         {{ Form::textarea('comment', old('comment'), ['class' => 'form-control', 'rows' => 6]) }}
+        <input type="file" name="comment_img">
         <div class="button_black">
             <a href="#" onclick="clickCommentButton()">コメントを投稿する</a>
         </div>

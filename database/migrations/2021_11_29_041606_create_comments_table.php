@@ -19,6 +19,7 @@ class CreateCommentsTable extends Migration
             $table->integer('user_id');
             $table->integer('fivestar');
             $table->text('comment');
+            $table->string('filename');
             $table->timestamps();
         });
     }

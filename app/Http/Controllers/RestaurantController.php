@@ -130,14 +130,24 @@ class RestaurantController extends Controller
         Validator::make($request->all(), $rules, $messages)->validate();
 
         $comment = new Comment;
+
+        if ($file = $request->comment_img) {
+            $fileName = time() . $file->getClientOriginalName();
+            $target_path = public_path('uploads/');
+            $file->move($target_path, $fileName);
+        } else {
+            $fileName = "";
+        }
+
         $request = $request->all();
         $fill_data = [
             'restaurant_id' => $request['restaurant_id'],
             'fivestar' => $request['fivestar'],
             'comment' => $request['comment'],
+            'filename' => $fileName,
             'user_id' => 1
-            
         ];
+
         DB::beginTransaction();
         try {
             $comment->fill($fill_data)->save();
