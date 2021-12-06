@@ -2,7 +2,7 @@
 
 @section('restaurant_list')
 
-<p>新着店舗情報</p>
+<p class="restaurant_list_title">新着店舗情報</p>
 <div class="new_list">
     @foreach ($news as $new)
     <div class="new_restaurant">

@@ -69,8 +69,10 @@ class RestaurantController extends Controller
     {
         $restaurant = Restaurant::find($id);
         $category = Category::find($restaurant->category_id);
-        $menus = Menu::where('restaurant_id', $id)->paginate(12);
-        $comments = Comment::where('restaurant_id', $id)->paginate(5);
+        $menus = Menu::where('restaurant_id', $id)->paginate(12, ["*"], 'menupage')
+            ->appends(["commentpage" => \Request::get('commentpage')]);
+        $comments = Comment::where('restaurant_id', $id)->paginate(5, ["*"], 'commentpage')
+            ->appends(["menupage" => \Request::get('menupage')]);
         $avg_star = Comment::where('restaurant_id', $id)
             ->selectRaw('CAST(AVG(fivestar) AS DECIMAL(2,1)) AS star_avg')->first()->star_avg;
         $restaurant_id = $id;

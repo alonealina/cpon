@@ -12,12 +12,14 @@
     <div id="registration_pc">
         <body>
             <header class="mb-4">
+                <div class="header_black"></div>
+                <div class="header_orange"></div>
                 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
                     <a class="navbar-brand" href="/">Cポンポータル</a>
 
-                    <form id="form" action="{{ route('search') }}" method="get">
-                        {!! Form::text('freeword' ,'', ['class' => 's', 'placeholder' => '店舗名・商品で検索'] ) !!}
-                        <button type="submit" id="sbtn2"><i class="fas fa-search"></i></button>
+                    <form id="freeword_form" action="{{ route('search') }}" method="get">
+                        {!! Form::text('freeword' ,'', ['class' => 'freeword_text', 'placeholder' => '店舗名・商品で検索'] ) !!}
+                        <button type="submit" class="fas_search_button"><i class="fas fa-search"></i></button>
                     </form>
                 </nav>
             </header>

@@ -17,6 +17,41 @@ body {
     font-family: "ヒラギノ角ゴシック";
 }
 
+.header_black {
+    height: 10px;
+    background-color: #343434;
+}
+
+.header_orange {
+    height: 15px;
+    background-color: #FFB01A;
+}
+
+#freeword_form {
+    height:40px;
+    width:650px;
+}
+
+.freeword_text {
+    height:40px;
+    width:600px;
+    border-radius:20px;
+    padding-left: 20px;
+}
+
+.fa-search {
+    color : white;
+}
+
+.fas_search_button {
+    background-color: #FFB01A;
+    border-radius:20px;
+    border:none;
+    width:30px;
+    height:30px;
+    margin-left:-50px;
+}
+
 footer {
     text-align:center;
     background-color: #FFA500;
@@ -45,6 +80,11 @@ td {
 p {
     font-size: 20px;
     font-weight: bold;
+}
+
+.restaurant_list_title {
+    font-size: 25px;
+    margin-left: 10px;
 }
 
 hr {
@@ -190,7 +230,7 @@ hr {
     font-weight: bold;
 }
 
-input[type="text"] {
+.filter_freeword {
     width: 70%;
     border: 1px solid #aaa;
     border-radius: 8px;
@@ -257,12 +297,21 @@ label {
     height:240px;
 }
 
+.notice_home {
+    margin-top:20px;
+}
+
 .notice_show {
     width:700px;
     margin:10px auto;
 }
 
+.notice_date {
+    margin: 7px 0 0 30px;
+}
+
 .notice_title {
+    margin: 0 0 10px 30px;
     font-weight: bold;
 }
 

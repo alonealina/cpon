@@ -14,7 +14,7 @@
 @endsection
 
 @section('restaurant_list')
-<p>Cポンポータルからのおすすめ</p>
+<p class="restaurant_list_title">Cポンポータルからのおすすめ</p>
 <div class="recommend_list">
     @foreach ($recommends as $recommend)
     <div class="recommend_restaurant">
@@ -30,7 +30,7 @@
     </div>
     @endforeach
 </div>
-<p>新着店舗情報</p>
+<p class="restaurant_list_title">新着店舗情報</p>
 <div class="new_list">
     @foreach ($news as $new)
     <div class="new_restaurant">
@@ -54,7 +54,7 @@
 <hr>
 <div class="notice_home">
     @foreach ($notices as $notice)
-    <a href="{{ route('notice.show', ['id' => $notice->id]) }}">
+    <a class="notice_home_list" href="{{ route('notice.show', ['id' => $notice->id]) }}">
         <div class="notice_date">{{ $notice->notice_date }}</div>
         <div class="notice_title">{{ $notice->title }}</div>
     </a>
