@@ -26,7 +26,7 @@
 </div>
 
 <div class="d-flex justify-content-center">
-{{ $menus->links('pagination::bootstrap-4') }}
+{{ $menus->links('pagination::default') }}
 </div>
 
 @include('restaurant.comment_list')

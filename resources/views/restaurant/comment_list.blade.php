@@ -42,6 +42,6 @@
         @endforeach
     </div>
     <div class="d-flex justify-content-center">
-    {{ $comments->links('pagination::bootstrap-4') }}
+    {{ $comments->links('pagination::default') }}
     </div>
 </div>

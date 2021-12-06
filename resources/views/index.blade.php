@@ -22,11 +22,10 @@
         <img src="{{ asset('img/tempo1.png') }}" alt="">
         <div class="recommend_name">{{ $recommend->name }}</div>
         <div class="recommend_address">〒{{ $recommend->zip }} {{ $recommend->pref }}{{ $recommend->address }}</div>
-        <div class="recommend_time">{{ $recommend->open_hm }} - {{ $recommend->close_hm }}
-            @if($recommend->opening_flg)
-            OPEN
-            @endif
-        </div>
+        <div class="recommend_time">{{ $recommend->open_hm }} - {{ $recommend->close_hm }}　</div>
+        @if($recommend->opening_flg)
+        <div class="open_mark">OPEN</div>
+        @endif
     </a>
     </div>
     @endforeach
@@ -39,11 +38,10 @@
         <img src="{{ asset('img/tempo1.png') }}" alt="">
         <div class="new_name">{{ $new->name }}</div>
         <div class="new_address">〒{{ $new->zip }} {{ $new->pref }}{{ $new->address }}</div>
-        <div class="new_time">{{ $new->open_hm }} - {{ $new->close_hm }}　
-            @if($new->opening_flg)
-            OPEN
-            @endif
-        </div>
+        <div class="new_time">{{ $new->open_hm }} - {{ $new->close_hm }}　</div>
+        @if($new->opening_flg)
+        <div class="open_mark">OPEN</div>
+        @endif
     </a>
     </div>
     @endforeach

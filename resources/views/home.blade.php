@@ -21,19 +21,21 @@
     <aside id="column-side" class="flexible-list-side">
         <div class="flexible-list-sidebar">
             <form id="form" name="filter_form" action="{{ route('filter') }}" method="get">
-                絞り込み
+                <div class="filter_form_title">絞り込み</div>
                 <hr>
-                <input type="radio" name="search_radio" value="area" onchange="searchFormChange();"> 地域から探す<br>
-                <div id="pref_list">
-                    <select name="pref">
-                    @foreach (config('const.Prefs') as $name)
-                    <option value="{{ $name }}">{{ $name }}</option>
-                    @endforeach
-                    </select>
+                <div class="search_radio_list">
+                    <input type="radio" name="search_radio" class="search_radio" value="area" onchange="searchFormChange();"> 地域から探す<br>
+                    <div id="pref_list">
+                        <select name="pref">
+                        @foreach (config('const.Prefs') as $name)
+                        <option value="{{ $name }}">{{ $name }}</option>
+                        @endforeach
+                        </select>
+                    </div>
+                    <input type="radio" name="search_radio" class="search_radio" value="station" onchange="searchFormChange();"> 駅から探す<br>
+                    <input type="radio" name="search_radio" class="search_radio" value="open_only" onchange="searchFormChange();"> OPENのみ<br>
+                    <input type="radio" name="search_radio" class="search_radio" value="4_or_more" onchange="searchFormChange();"> 高評価(4.0以上)<br>
                 </div>
-                <input type="radio" name="search_radio" value="station" onchange="searchFormChange();"> 駅から探す<br>
-                <input type="radio" name="search_radio" value="open_only" onchange="searchFormChange();"> OPENのみ<br>
-                <input type="radio" name="search_radio" value="4_or_more" onchange="searchFormChange();"> 高評価(4.0以上)<br>
 
                 <div class="filter_name">利用シーン</div>
                 <input type="checkbox" class="check_box" id="one_person" name="one_person"/>
@@ -97,7 +99,7 @@
                 <div class="filter_time">
                 {{ Form::select('open', array_merge(['指定なし'], range(0, 23))) }} ～ {{ Form::select('close', array_merge(['指定なし'], range(0, 23))) }}
                 </div>
-                <div class="button_orange">
+                <div class="search_button">
                 <a href="#" onclick="clickFilterButton()">検索</a>
                 </div>
             </form>

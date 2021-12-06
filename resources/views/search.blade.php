@@ -19,6 +19,6 @@
     @endforeach
 </div>
 <div class="d-flex justify-content-center">
-{{ $restaurants->links('pagination::bootstrap-4') }}
+{{ $restaurants->links('pagination::default') }}
 </div>
 @endsection

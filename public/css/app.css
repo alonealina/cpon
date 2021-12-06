@@ -1,3 +1,22 @@
+/* スマホへの振り分け */
+
+ /* 表示領域が1200px以上の場合に適用するスタイル（パソコン向け） */
+ @media screen and (min-width: 801px){
+    #registration_pc {visibility : visible;}
+    #registration_sp {display : none;}
+}	
+
+    /* 表示領域が1190px以下の場合に適用するスタイル（スマホ向け） */
+@media screen and (max-width: 800px) {
+    #registration_pc {display : none;}
+    #registration_sp {visibility : visible;}
+}
+
+
+body {
+    font-family: "ヒラギノ角ゴシック";
+}
+
 footer {
     text-align:center;
     background-color: #FFA500;
@@ -106,18 +125,17 @@ hr {
     margin: 30px 0px;
 }
 
-.button_orange a {
+.search_button a {
     font-size: 15px;
     font-weight: bold;
     display:block;
-    width:auto;
+    width:70%;
     height:30px;
-    margin:10px 50px;
+    margin:10px auto;
     line-height:30px;
-    background:orange;
+    background:#FF7D1A;
     color:#fff;
     border-radius:25px;
-    box-shadow:0 5px 0 gold;
     text-decoration:none;
     text-align:center;
 }
@@ -145,7 +163,7 @@ hr {
 .flexible-list-sidebar hr {
     border: 1px solid;
     border-color: orange;
-    width: 40%;
+    width: 80%;
 }
 
 .flexible-list-main {
@@ -155,12 +173,52 @@ hr {
     max-width: 1040px;
 }
 
+.filter_form_title {
+    font-size: 23px;
+}
+
+.search_radio {
+    margin:7px 0;
+}
+
+.search_radio_list {
+    font-weight: bold;
+    margin:10px 0;
+}
+
 .filter_name {
     font-weight: bold;
 }
 
-select {
+input[type="text"] {
+    width: 70%;
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    margin: 3px 0;
+    outline: none;
+    padding: 3px;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: dodgerBlue;
+    box-shadow: 0 0 8px 0 dodgerBlue;
+}
+
+.flexible-list-sidebar input::placeholder {
+    font-weight: bold;
     font-size: 12px;
+    color: #A2A2A2;
+}
+
+select {
+    font-weight: bold;
+    font-size: 12px;
+    color: #A2A2A2;
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    height: 30px;
 }
 
 label {
@@ -256,6 +314,13 @@ label {
 .recommend_address, .new_address, .search_address {
     font-size: 12px;
     height: 36px;
+    color: #696969;
+}
+
+.recommend_time, .new_time, .search_time {
+    font-size: 12px;
+    color: #696969;
+    display: inline-block;
 }
 
 .menu_detail {
@@ -264,11 +329,16 @@ label {
 }
 
 .menu_name {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .menu_price {
     font-weight: bold;
+}
+
+.menu_explain {
+    color:#797979;
+    font-size: 16px;
 }
 
 .recommend_mark {
@@ -283,6 +353,29 @@ label {
     border-radius:25px;
     text-decoration:none;
     text-align:center;
+}
+
+.open_mark {
+    font-size: 8px;
+    font-weight: bold;
+    display:block;
+    width:50px;
+    height:15px;
+    margin:0px 0;
+    background:#DD0000;
+    color:#fff;
+    border-radius:25px;
+    text-decoration:none;
+    text-align:center;
+    display: inline-block;
+}
+
+.restaurant_time {
+    display: inline-block;
+}
+
+.restaurant_address, .recommend_time, .restaurant_comment, .restaurant_inquiry {
+    margin: 10px 0;    
 }
 
 .comment_error {
@@ -520,4 +613,44 @@ width:94%;
     width: 100%;
     height: 100%;
     z-index: 10;
+}
+
+
+
+/*以下ページネーションについて*/
+
+.paginationWrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 38px;
+    margin-bottom: 40px;
+}
+
+.paginationWrap ul.pagination {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+.paginationWrap ul.pagination li {
+    display: inline;
+    margin-right: 4px;
+}
+
+.paginationWrap ul.pagination li a {
+    color: #2f3859;
+    padding: 8px 14px;
+    text-decoration: none;
+}
+
+.paginationWrap ul.pagination li a.active {
+    background-color: #EDEDED;
+    border-radius: 5px;
+    width: 38px;
+    height: 38px;
+}
+
+.paginationWrap ul.pagination li a:hover:not(.active) {
+    background-color: #e1e7f0;
+    border-radius: 5px;
 }
