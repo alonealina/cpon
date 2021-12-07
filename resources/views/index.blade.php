@@ -3,12 +3,12 @@
 @section('banner')
 <div class="banner">
     <ul class="slider_banner">
-        <li><img src="{{ asset('img/banner_test.png') }}" alt=""></li>
-        <li><img src="{{ asset('img/banner_test.png') }}" alt=""></li>
-        <li><img src="{{ asset('img/banner_test.png') }}" alt=""></li>
-        <li><img src="{{ asset('img/banner_test.png') }}" alt=""></li>
-        <li><img src="{{ asset('img/banner_test.png') }}" alt=""></li>
-        <li><img src="{{ asset('img/banner_test.png') }}" alt=""></li>
+        <li><img src="{{ asset('img/banner_test.png') }}" class="banner_img" alt=""></li>
+        <li><img src="{{ asset('img/banner_test.png') }}" class="banner_img" alt=""></li>
+        <li><img src="{{ asset('img/banner_test.png') }}" class="banner_img" alt=""></li>
+        <li><img src="{{ asset('img/banner_test.png') }}" class="banner_img" alt=""></li>
+        <li><img src="{{ asset('img/banner_test.png') }}" class="banner_img" alt=""></li>
+        <li><img src="{{ asset('img/banner_test.png') }}" class="banner_img" alt=""></li>
     </ul>
 </div>
 @endsection

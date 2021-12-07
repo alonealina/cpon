@@ -41,8 +41,8 @@ $('.slider').slick({
     infinite: true,//スライドをループさせるかどうか。初期値はtrue。
     slidesToShow: 5,//スライドを画面に3枚見せる
     slidesToScroll: 5,//1回のスクロールで3枚の写真を移動して見せる
-    prevArrow: '<div class="slick-prev"></div>',//矢印部分PreviewのHTMLを変更
-    nextArrow: '<div class="slick-next"></div>',//矢印部分NextのHTMLを変更
+    prevArrow: '<img src="img/yazi1.png" class="slide-arrow prev-arrow slick-prev">',//矢印部分PreviewのHTMLを変更
+    nextArrow: '<img src="img/yazi2.png" class="slide-arrow next-arrow slick-next">',//矢印部分NextのHTMLを変更
     dots: true,//下部ドットナビゲーションの表示
     responsive: [
         {
@@ -68,8 +68,8 @@ $('.slider_banner').slick({
     infinite: true,//スライドをループさせるかどうか。初期値はtrue。
     slidesToShow: 3,//スライドを画面に3枚見せる
     slidesToScroll: 3,//1回のスクロールで3枚の写真を移動して見せる
-    prevArrow: '<div class="slick-prev"></div>',//矢印部分PreviewのHTMLを変更
-    nextArrow: '<div class="slick-next"></div>',//矢印部分NextのHTMLを変更
+    prevArrow: '<img src="img/yazi1.png" class="slide-arrow prev-arrow slick-prev">',//矢印部分PreviewのHTMLを変更
+    nextArrow: '<img src="img/yazi2.png" class="slide-arrow next-arrow slick-next">',//矢印部分NextのHTMLを変更
     dots: true,//下部ドットナビゲーションの表示
     responsive: [
         {

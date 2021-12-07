@@ -46,6 +46,8 @@ body {
     height:40px;
     width:600px;
     border-radius:20px;
+    border:solid 2px;
+    border-color: #A2A2A2;
     padding-left: 20px;
 }
 
@@ -523,7 +525,7 @@ width:94%;
     padding: 0px 20px;
 }
 
-.slider_banner img {
+.banner_img {
     width:100%;/*スライダー内の画像を横幅100%に*/
     height:auto;
 }
@@ -547,20 +549,16 @@ width:94%;
     top: 42%;
     cursor: pointer;/*マウスカーソルを指マークに*/
     outline: none;/*クリックをしたら出てくる枠線を消す*/
-    border-top: 2px solid #666;/*矢印の色*/
-    border-right: 2px solid #666;/*矢印の色*/
     height: 15px;
     width: 15px;
 }
 
 .slick-prev {/*戻る矢印の位置と形状*/
     left: -1.5%;
-    transform: rotate(-135deg);
 }
 
 .slick-next {/*次へ矢印の位置と形状*/
     right: -1.5%;
-    transform: rotate(45deg);
 }
 
 /*ドットナビゲーションの設定*/
