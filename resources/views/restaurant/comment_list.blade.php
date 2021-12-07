@@ -1,4 +1,4 @@
-<div class="comment_list">
+<div class="comment_list" id="comment_list">
     <div class="comment_list_header">
         <p class="comment_list_title">コメント一覧</p>
         <div class="button_comment">
@@ -42,6 +42,6 @@
         @endforeach
     </div>
     <div class="d-flex justify-content-center">
-    {{ $comments->links('pagination::default') }}
+    {{ $comments->links('pagination::comment_list') }}
     </div>
 </div>
