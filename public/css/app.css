@@ -613,11 +613,15 @@ width:94%;
     height:8px;/*ドットボタンのサイズ*/
     display:block;
     border-radius:50%;
-    background:#ccc;/*ドットボタンの色*/
+    background:gray;/*ドットボタンの色*/
+    border-color: gray;
+    padding:1px;
+    opacity: 0.5;
 }
 
 .slick-dots .slick-active button{
-    background:#333;/*ドットボタンの現在地表示の色*/
+    background:black;/*ドットボタンの現在地表示の色*/
+    border-color: black;
 }
 
 /*以下五つ星デザインについて*/
