@@ -31,20 +31,17 @@
             </div>
 
             <footer>
-                <table>
-                    <tr>
-                    <td><a href ="/">ヘルプ・お問い合わせ</a></td>
-                    <td><a href ="/">プライバシーポリシー</a></td>
-                    <td><a href ="/">CポンWEBAPP</a></td>
-                    </tr>
-                    <tr>
-                    <td><a href ="/">利用規約</a></td>
-                    <td></td>
-                    <td><a href ="/">Cポンモール</a></td>
-                    </tr>
-                </table>
-                <p>Cポンポータル</p>
-                <p>copyright (c) © KOC・JAPAN, Inc. all rights reserved.</p>
+                <a href="/">
+                    <img src="{{ asset('img/logo2.png') }}" class="cpon_logo2" alt="">
+                </a>
+                <div class="footer_menu">
+                    <a href ="/">ヘルプ・お問い合わせ</a> ｜
+                    <a href ="/">プライバシーポリシー</a> ｜
+                    <a href ="/">CポンWEBAPP</a> ｜
+                    <a href ="/">利用規約</a> ｜
+                    <a href ="/">Cポンモール</a>
+                </div>
+                <div class="copyright">copyright (c) © KOC・JAPAN, Inc. all rights reserved.</div>
             </footer>
         </body>
     </div>
