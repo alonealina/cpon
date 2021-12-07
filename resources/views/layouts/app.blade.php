@@ -14,8 +14,10 @@
             <header class="mb-4">
                 <div class="header_black"></div>
                 <div class="header_orange"></div>
-                <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-                    <a class="navbar-brand" href="/">Cポンポータル</a>
+                <nav class="navbar navbar-expand-sm header_content">
+                    <a class="navbar-brand" href="/">
+                        <img src="{{ asset('img/logo.png') }}" class="cpon_logo" alt="">
+                    </a>
 
                     <form id="freeword_form" action="{{ route('search') }}" method="get">
                         {!! Form::text('freeword' ,'', ['class' => 'freeword_text', 'placeholder' => '店舗名・商品で検索'] ) !!}

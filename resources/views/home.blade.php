@@ -32,7 +32,6 @@
                         @endforeach
                         </select>
                     </div>
-                    <input type="radio" name="search_radio" class="search_radio" value="station" onchange="searchFormChange();"> 駅から探す<br>
                     <input type="radio" name="search_radio" class="search_radio" value="open_only" onchange="searchFormChange();"> OPENのみ<br>
                     <input type="radio" name="search_radio" class="search_radio" value="4_or_more" onchange="searchFormChange();"> 高評価(4.0以上)<br>
                 </div>

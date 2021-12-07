@@ -27,6 +27,16 @@ body {
     background-color: #FFB01A;
 }
 
+.header_content {
+    text-align:center;
+}
+
+.cpon_logo {
+    width: 250px;
+    height: 102px;
+    margin-left: 250px;
+}
+
 #freeword_form {
     height:40px;
     width:650px;
