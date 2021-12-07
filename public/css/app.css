@@ -175,6 +175,8 @@ hr {
 .comment_create_title {
     font-size: 25px;
     margin: 30px 0px;
+    border-left: orange solid 5px;
+    padding-left: 20px;
 }
 
 .search_button a {
@@ -292,7 +294,8 @@ label {
 .recommend_restaurant a, .recommend_restaurant a:hover,
 .new_restaurant a, .new_restaurant a:hover,
 .search_restaurant a, .search_restaurant a:hover,
-.menu_list_bar a, .menu_list_bar a:hover {
+.menu_list_bar a, .menu_list_bar a:hover,
+.category a, .category a:hover {
     color: black;
     text-decoration:none;
 }
@@ -506,7 +509,7 @@ label {
 }
 
 .slider img {
-    width:50%;/*スライダー内の画像を横幅100%に*/
+    width:80%;/*スライダー内の画像を横幅100%に*/
     height:auto;
 }
 
@@ -516,7 +519,7 @@ label {
 /*slickのJSで書かれるタグ内、スライド左右の余白調整*/
 
 .slider .slick-slide {
-    margin:0 10px;
+    margin:0 10px 10px 10px;
 }
 
 .slider_banner {/*横幅94%で左右に余白を持たせて中央寄せ*/
@@ -537,6 +540,17 @@ width:94%;
 
 .slider_banner .slick-slide {
     margin:0 10px;
+}
+
+.category_link {
+    text-align:center;
+    background-color: #F0F0F0;
+    width:100px;
+    border-radius:5%;
+}
+
+.category li img {
+    margin:15px auto;
 }
 
 
@@ -593,6 +607,8 @@ width:94%;
     float:left;
     font-size: 25px;
     margin: 30px 0px;
+    border-left: orange solid 5px;
+    padding-left: 20px;
 }
 
 .rate-form {

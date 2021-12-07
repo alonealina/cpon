@@ -6,9 +6,11 @@
 <div class="category">
     <ul class="slider">
         @foreach ($categories as $category)
-        <li>
-            {{ $category->name }}
-            <a href="{{ route('category', ['id' => $category->id]) }}"><img src="{{ asset('img/kategori.png') }}" alt=""></a>
+        <li class="category_link">
+            <a href="{{ route('category', ['id' => $category->id]) }}">
+                <img src="{{ asset('img/kategori2.png') }}" alt="">
+                <div class="category_name">{{ $category->name }}</div>
+            </a>
         </li>
         @endforeach
     </ul>
