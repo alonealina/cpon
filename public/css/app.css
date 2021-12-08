@@ -527,10 +527,10 @@ label {
     padding: 0px 20px;
 }
 
-.slider img {
-    width:80%;/*スライダー内の画像を横幅100%に*/
+/* .slider img {
+    width:80%;
     height:auto;
-}
+} */
 
 .slider li {
     height:105px;
