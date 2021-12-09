@@ -88,3 +88,14 @@ $('.slider_banner').slick({
     }
 ]
 });
+
+let restaurantProfileText = document.getElementById('restaurant_profile_text');
+let client_h = document.getElementById('restaurant_profile_text').clientHeight;
+console.log(client_h + 'px');
+
+if (client_h < 120) {
+    document.getElementById('restaurant_profile_label').style.display ="none";
+    console.log('aaa');
+
+}
+

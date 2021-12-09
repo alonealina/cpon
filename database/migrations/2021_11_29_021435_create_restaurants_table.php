@@ -18,6 +18,7 @@ class CreateRestaurantsTable extends Migration
             $table->string('name1');
             $table->string('name2');
             $table->string('name3');
+            $table->text('profile');
             $table->string('pref', 4);
             $table->string('zip', 8);
             $table->string('address');

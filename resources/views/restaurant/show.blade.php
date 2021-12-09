@@ -5,7 +5,14 @@
 
 <div class="restaurant_show">
     <div class="restaurant_name">{{ $restaurant->name1 }} {{ $restaurant->name2 }} {{ $restaurant->name3 }}</div>
-    
+    <div class="restaurant_profile">
+        <input type="checkbox" id="sp01"><label for="sp01" id="restaurant_profile_label"></label>
+        <div>
+            <div id="restaurant_profile_text">
+            {{ $restaurant->profile }}
+            </div>
+        </div>
+    </div>
     <div class="restaurant_address">
         <img src="{{ asset('img/icon/tizu.png') }}" alt="">　
         〒{{ $restaurant->zip }}　{{ $restaurant->pref }}{{ $restaurant->address }}
