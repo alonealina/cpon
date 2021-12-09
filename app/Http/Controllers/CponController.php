@@ -160,9 +160,9 @@ class CponController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function help()
     {
-        //
+        return view('help');
     }
 
     /**
@@ -171,9 +171,9 @@ class CponController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function policy()
     {
-        //
+        return view('policy');
     }
 
     /**
@@ -182,9 +182,9 @@ class CponController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function terms()
     {
-        //
+        return view('terms');
     }
 
     /**

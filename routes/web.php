@@ -7,6 +7,9 @@ Route::get('search/','App\Http\Controllers\CponController@search')->name('search
 Route::get('filter/','App\Http\Controllers\CponController@filter')->name('filter');
 Route::get('new/','App\Http\Controllers\CponController@new')->name('new');
 Route::get('category/{id}','App\Http\Controllers\CponController@category')->name('category');
+Route::get('help', 'App\Http\Controllers\CponController@help')->name('help');
+Route::get('policy', 'App\Http\Controllers\CponController@policy')->name('policy');
+Route::get('terms', 'App\Http\Controllers\CponController@terms')->name('terms');
 
 Route::resource('cpon', 'CponController');
 

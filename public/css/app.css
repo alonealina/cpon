@@ -89,6 +89,23 @@ footer {
     color: white;
 }
 
+.footer_item_title {
+    font-size: 40px;
+}
+
+.help_content {
+    text-align:center;
+    font-size: 12px;
+}
+
+.line_url {
+    margin:15px 0;
+}
+
+.qr_code {
+    margin-bottom: 50px;
+}
+
 .banner_list {
     height: 500px;
 }
