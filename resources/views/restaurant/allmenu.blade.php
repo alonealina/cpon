@@ -4,7 +4,7 @@
 
 <nav class="menu_list_bar" id="menu_list_bar">
     <ul>
-        <li class="menu_recommend"><a href="{{ route('restaurant.show', ['id' => $restaurant_id]) }}">あなたへのおすすめ</a></li>
+        <li class="menu_recommend"><a href="{{ route('restaurant.show', ['id' => $restaurant_id]) }}">イチオシメニュー</a></li>
         <li class="menu_all current"><a href="#">メニュー一覧</a></li>
     </ul>
 </nav>
