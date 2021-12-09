@@ -1,7 +1,29 @@
 @extends('layouts.app')
 @section('content')
-
-<p class="cpon_notice">店舗画像</p>
+<div class="flexible_img_list">
+    <div class="flexible_main_img">
+        <a href="../../img/restaurant/71/{{ $restaurant->main_img }}" data-lightbox="group">
+            <img src="../../img/restaurant/71/{{ $restaurant->main_img }}" class="main_img">
+        </a>
+    </div>
+    <div class="flexible_sub_img">
+        <a href="../../img/restaurant/71/{{ $restaurant->main_img }}" data-lightbox="group">
+            <img src="../../img/restaurant/71/{{ $restaurant->sub_img1 }}" class="sub_img">
+        </a>
+        
+        <a href="../../img/restaurant/71/{{ $restaurant->main_img }}" data-lightbox="group">
+            <img src="../../img/restaurant/71/{{ $restaurant->sub_img2 }}" class="sub_img">
+        </a>
+        
+        <a href="../../img/restaurant/71/{{ $restaurant->main_img }}" data-lightbox="group">
+            <img src="../../img/restaurant/71/{{ $restaurant->sub_img3 }}" class="sub_img">
+        </a>
+        
+        <a href="../../img/restaurant/71/{{ $restaurant->main_img }}" data-lightbox="group">
+            <img src="../../img/restaurant/71/{{ $restaurant->sub_img4 }}" class="sub_img">
+        </a>
+    </div>
+</div>
 
 <div class="restaurant_show">
     <div class="restaurant_name">{{ $restaurant->name1 }} {{ $restaurant->name2 }} {{ $restaurant->name3 }}</div>
