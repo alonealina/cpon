@@ -12,6 +12,9 @@
     #registration_sp {visibility : visible;}
 }
 
+#registration_sp {
+    width:800px;
+}
 
 body {
     font-family: "ヒラギノ角ゴシック";
@@ -35,6 +38,17 @@ body {
     width: 250px;
     height: 102px;
     margin-left: 250px;
+}
+
+.cpon_logo_div {
+    width: 250px;
+    height: 102px;
+    margin: 0 auto;
+}
+
+.cpon_logo_sp {
+    width: 250px;
+    height: 102px;
 }
 
 .cpon_logo2 {
@@ -61,6 +75,12 @@ footer a, footer a:hover {
     width:650px;
 }
 
+#freeword_form_sp {
+    height:80px;
+    width:650px;
+    margin:auto;
+}
+
 .freeword_text {
     height:40px;
     width:600px;
@@ -68,6 +88,15 @@ footer a, footer a:hover {
     border:solid 2px;
     border-color: #A2A2A2;
     padding-left: 20px;
+}
+
+.freeword_text_sp {
+    height:80px;
+    width:600px;
+    border-radius:50px;
+    border:solid 2px;
+    border-color: #A2A2A2;
+    padding-left: 60px;
 }
 
 .fa-search {
@@ -81,6 +110,19 @@ footer a, footer a:hover {
     width:30px;
     height:30px;
     margin-left:-50px;
+}
+
+.fas_search_button_sp {
+    background-color: #FFB01A;
+    border-radius:50px;
+    border:none;
+    width:60px;
+    height:60px;
+    margin-left:-80px;
+}
+
+.category_title_sp {
+    margin:10px 0 10px 10px;
 }
 
 footer {
@@ -577,19 +619,27 @@ label {
 
 /*以下スライダー機能について*/
 
-.slider {/*横幅94%で左右に余白を持たせて中央寄せ*/
+.slider, .slider_sp {/*横幅94%で左右に余白を持たせて中央寄せ*/
     width:94%;
     margin:0 auto;
     padding: 0px 20px;
 }
 
-/* .slider img {
-    width:80%;
+.category_name_sp {
+    margin-bottom: 20px;
+}
+
+.slider_sp img {
+    margin:0 20px;
     height:auto;
-} */
+}
 
 .slider li {
     height:105px;
+}
+
+.slider_sp li {
+    margin:0 10px;
 }
 /*slickのJSで書かれるタグ内、スライド左右の余白調整*/
 

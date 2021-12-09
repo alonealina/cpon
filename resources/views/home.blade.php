@@ -34,7 +34,6 @@
 
 @yield('banner')
 
-
 <div class="flexible-list">
     <aside id="column-side" class="flexible-list-side">
         <div class="flexible-list-sidebar">
@@ -128,4 +127,49 @@
         @yield('restaurant_list')
     </div>
 </div>
+@endsection
+
+
+
+
+@section('content_sp')
+
+<form id="freeword_form_sp" action="{{ route('search') }}" method="get">
+    {!! Form::text('freeword' ,'', ['class' => 'freeword_text_sp', 'placeholder' => '店舗名・商品で検索'] ) !!}
+    <button type="submit" class="fas_search_button_sp"><i class="fas fa-search sp_fa-search"></i></button>
+</form>
+
+<p class="category_title_sp">カテゴリーから探す</p>
+<div class="category">
+    <ul class="slider_sp">
+        @foreach ($categories as $category)
+        <li class="category_link">
+            <a href="{{ route('category', ['id' => $category->id]) }}">
+                <img src="{{ asset('img/kategori2.png') }}" alt="">
+                <div class="category_name_sp">{{ $category->name }}</div>
+            </a>
+        </li>
+        @endforeach
+        @foreach ($categories as $category)
+        <li class="category_link">
+            <a href="{{ route('category', ['id' => $category->id]) }}">
+                <img src="{{ asset('img/kategori2.png') }}" alt="">
+                <div class="category_name_sp">{{ $category->name }}</div>
+            </a>
+        </li>
+        @endforeach
+        @foreach ($categories as $category)
+        <li class="category_link">
+            <a href="{{ route('category', ['id' => $category->id]) }}">
+                <img src="{{ asset('img/kategori2.png') }}" alt="">
+                <div class="category_name_sp">{{ $category->name }}</div>
+            </a>
+        </li>
+        @endforeach
+    </ul>
+</div>
+
+@yield('restaurant_list_sp')
+
+
 @endsection

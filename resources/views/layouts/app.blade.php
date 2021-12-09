@@ -45,6 +45,39 @@
             </footer>
         </body>
     </div>
+
+    <div id="registration_sp">
+        <body>
+            <header class="mb-4">
+                <div class="header_black"></div>
+                <div class="header_orange"></div>
+                <div class="cpon_logo_div">
+                    <a href="/">
+                        <img src="{{ asset('img/logo.png') }}" class="cpon_logo_sp" alt="">
+                    </a>
+                </div>
+                    
+            </header>
+
+
+                @yield('content_sp')
+
+            <footer>
+                <a href="/">
+                    <img src="{{ asset('img/logo2.png') }}" class="cpon_logo2" alt="">
+                </a>
+                <div class="footer_menu">
+                    <a href ="{{ route('help') }}">ヘルプ・お問い合わせ</a> ｜
+                    <a href ="{{ route('policy') }}">プライバシーポリシー</a> ｜
+                    <a href ="https://app.cpon.co.jp/">CポンWEBAPP</a> ｜
+                    <a href ="{{ route('terms') }}">利用規約</a> ｜
+                    <a href ="https://mall.cpon.co.jp/">Cポンモール</a>
+                </div>
+                <div class="copyright">copyright (c) © KOC・JAPAN, Inc. all rights reserved.</div>
+            </footer>
+        </body>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
