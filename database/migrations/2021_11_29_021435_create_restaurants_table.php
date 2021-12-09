@@ -15,7 +15,9 @@ class CreateRestaurantsTable extends Migration
     {
         Schema::create('restaurants', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name1');
+            $table->string('name2');
+            $table->string('name3');
             $table->string('pref', 4);
             $table->string('zip', 8);
             $table->string('address');

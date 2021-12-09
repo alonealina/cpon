@@ -8,7 +8,7 @@
     <div class="new_restaurant">
     <a href="{{ route('restaurant.show', ['id' => $new->id]) }}">
         <img src="{{ asset('img/tempo1.png') }}" alt="">
-        <div class="new_name">{{ $new->name }}</div>
+        <div class="new_name">{{ $new->name1 }} {{ $new->name2 }} {{ $new->name3 }}</div>
         <div class="new_address">〒{{ $new->zip }} {{ $new->pref }}{{ $new->address }}</div>
         <div class="new_time">{{ $new->open_hm }} - {{ $new->close_hm }}　</div>
         @if($new->opening_flg)

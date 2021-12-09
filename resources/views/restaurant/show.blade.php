@@ -4,7 +4,7 @@
 <p class="cpon_notice">店舗画像</p>
 
 <div class="restaurant_show">
-    <div class="restaurant_name">{{ $restaurant->name }}</div>
+    <div class="restaurant_name">{{ $restaurant->name1 }} {{ $restaurant->name2 }} {{ $restaurant->name3 }}</div>
     
     <div class="restaurant_address">
         <img src="{{ asset('img/icon/tizu.png') }}" alt="">　
