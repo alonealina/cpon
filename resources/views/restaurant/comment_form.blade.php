@@ -7,8 +7,17 @@
         @csrf
         {{ Form::hidden('restaurant_id', $restaurant_id) }}
         <div class="comment_form_title">コメントの投稿</div>
+
+        <div class="user_name_form">
+            @if($errors->has('user_name'))
+            <div class="comment_error">{{ $errors->first('user_name') }}</div>
+            @endif
+            <div class="user_name_title">お名前（任意）</div>
+            {{ Form::text('user_name', old('user_name'), ['class' => 'user_name_input', 'maxlength' => 20]) }}
+        </div>
+
         @if($errors->has('fivestar'))
-            <div class="comment_error">{{ $errors->first('fivestar') }}</div>
+        <div class="comment_error">{{ $errors->first('fivestar') }}</div>
         @endif
         <div class="fivestar_title">注文の評価</div>
         <div class="rate-form">

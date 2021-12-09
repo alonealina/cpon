@@ -16,7 +16,7 @@
     <div>
         @foreach ($comments as $comment)
         <div class="comment_list_content">
-            さんの口コミ<br>
+            {{ $comment->user_name }}さんの口コミ<br>
             <div class="fivestar">
             @if ($comment->fivestar == 1)
                 {{ '★☆☆☆☆' }}
