@@ -32,12 +32,13 @@ body {
 
 .header_content {
     text-align:center;
+    width: 1140px;
+    margin: 0 auto;
 }
 
 .cpon_logo {
     width: 250px;
     height: 102px;
-    margin-left: 250px;
 }
 
 .cpon_logo_div {
@@ -634,10 +635,22 @@ label {
 
 /*以下スライダー機能について*/
 
-.slider, .slider_sp {/*横幅94%で左右に余白を持たせて中央寄せ*/
-    width:94%;
+.slider, .slider_sp, .slider_banner {/*横幅94%で左右に余白を持たせて中央寄せ*/
     margin:0 auto;
-    padding: 0px 20px;
+    padding: 0px 10px;
+}
+
+.slider, .slider_banner {/*横幅94%で左右に余白を持たせて中央寄せ*/
+    width:1080px;
+}
+
+.slider_sp {/*横幅94%で左右に余白を持たせて中央寄せ*/
+    width:94%;
+}
+
+
+.category_name {
+    font-size: 13px;
 }
 
 .category_name_sp {
@@ -659,13 +672,7 @@ label {
 /*slickのJSで書かれるタグ内、スライド左右の余白調整*/
 
 .slider .slick-slide {
-    margin:0 10px 10px 10px;
-}
-
-.slider_banner {/*横幅94%で左右に余白を持たせて中央寄せ*/
-width:94%;
-    margin:0 auto;
-    padding: 0px 20px;
+    margin:0 5px 10px 5px;
 }
 
 .banner_img {
@@ -679,7 +686,7 @@ width:94%;
 /*slickのJSで書かれるタグ内、スライド左右の余白調整*/
 
 .slider_banner .slick-slide {
-    margin:0 10px;
+    margin:0 10px 10px 10px;
 }
 
 .category_link {

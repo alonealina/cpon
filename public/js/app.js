@@ -44,6 +44,7 @@ $('.slider').slick({
     prevArrow: '<img src="img/yazi1.png" class="slide-arrow prev-arrow slick-prev">',//矢印部分PreviewのHTMLを変更
     nextArrow: '<img src="img/yazi2.png" class="slide-arrow next-arrow slick-next">',//矢印部分NextのHTMLを変更
     dots: true,//下部ドットナビゲーションの表示
+    // variableWidth: true,
     responsive: [
         {
         breakpoint: 769,//モニターの横幅が769px以下の見せ方
