@@ -871,14 +871,11 @@ width:94%;
 /* === BOXの定義 ================================================= */
 .restaurant_profile {
 position      : relative;                   /* relative指定は必須 */
-margin        : auto;               /* 色や文字情報は変更ください */
-padding       : 10px;
+margin        : 0 auto 50px auto;               /* 色や文字情報は変更ください */
+padding       : 30px 10px 10px 10px;
 background    : #fff;
-border        : 3px solid #006633;
-border-radius : 8px;
 text-align    : left;
-line-height   : 1.3;
-font-size     : 13pt;
+font-size     : 15px;
 }
 
 /* === 文書を書くBOX ============================================= */
@@ -895,20 +892,26 @@ display       : none;                                   /* 非表示 */
 .restaurant_profile > label {
 position      : absolute;
 display       : inline-block;
-bottom        : 3px;
+bottom        : -30px;
 right         : 3px;
-padding       : 5px 8px;
-background    : #fff;
-color         : #008000;
-border        : 2px solid #008000;
-border-radius : 6px;
-font-size     : 9pt;
-font-weight   : bold;
+padding-top       : 0px ;
+font-size: 15px;
+font-weight: bold;
+display:block;
+width:120px;
+height:30px;
+line-height:30px;
+background:black;
+color:#fff;
+border-radius:25px;
+text-decoration:none;
+text-align:center;
 }
 
 /* === ボタンにカーソルが乗った時 ================================ */
 .restaurant_profile > label:hover {
-background    : #b1f3b1;
+transition: 0.5s;
+opacity: 0.6;
 }
 
 /* === 文書のエリアの高さ（「続きを開く」が表示されているとき）=== */
@@ -923,7 +926,7 @@ padding-bottom: 30px;
 
 /* --- ボタンに表示する文字（閉じているとき） -------------------- */
 .restaurant_profile > input[type="checkbox"]:not(:checked) + label::after {
-content       : "続きを開く";
+content       : "続きを読む";
 }
 
 /* --- ボタンに表示する文字（開いているとき） -------------------- */
@@ -931,3 +934,7 @@ content       : "続きを開く";
 content       : "閉じる";
 }
 
+/* --- ボタンに表示する文字（開いているとき） -------------------- */
+.restaurant_profile > input[type="checkbox"]:checked + label {
+bottom        : 0px;
+}
