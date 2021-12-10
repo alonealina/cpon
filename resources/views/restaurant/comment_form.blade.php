@@ -42,7 +42,7 @@
         @endif
         <div class="file_button"><input type="file" name="comment_img"></div>
         <div class="button_black">
-            <a href="#" onclick="clickCommentButton()">コメントを投稿する</a>
+            <a href="#" onclick="clickCommentButton()">コメントを投稿する<div class="yazi3"><img src="{{ asset('img/yazi3.png') }}" alt=""></div></a>
         </div>
     </form>
 </div>

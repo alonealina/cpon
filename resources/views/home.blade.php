@@ -171,7 +171,7 @@
 
 @yield('banner_ipad')
 
-@yield('restaurant_list_sp')
+@yield('restaurant_list_ipad')
 
 
 @endsection

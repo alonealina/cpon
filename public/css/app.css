@@ -194,6 +194,11 @@ p {
     margin-left: 10px;
 }
 
+.restaurant_list_title_ipad {
+    font-size: 25px;
+    margin-left: 50px;
+}
+
 .flexible_img_list {
     display: flex;
     margin: 0 auto;
@@ -249,7 +254,13 @@ hr {
     transition: 0.5s;
     opacity: 0.6;
     }
-    
+
+.yazi3 {
+    position: relative;
+    bottom: 50px;
+    left: 180px;
+}
+
 .comment_list_header {
     height:50px;
 }
@@ -439,6 +450,9 @@ label {
 .recommend_restaurant a, .recommend_restaurant a:hover,
 .new_restaurant a, .new_restaurant a:hover,
 .search_restaurant a, .search_restaurant a:hover,
+.recommend_restaurant_ipad a, .recommend_restaurant_ipad a:hover,
+.new_restaurant_ipad a, .new_restaurant_ipad a:hover,
+.search_restaurant_ipad a, .search_restaurant_ipad a:hover,
 .menu_list_bar a, .menu_list_bar a:hover,
 .category a, .category a:hover {
     color: black;
@@ -449,6 +463,12 @@ label {
 .new_restaurant img,
 .search_restaurant img {
     width:270px;
+    height:150px;
+}
+
+.recommend_restaurant_ipad img,
+.new_restaurant_ipad img,
+.search_restaurant_ipad img {
     height:150px;
 }
 
@@ -499,7 +519,8 @@ label {
     font-weight: bold;
 }
 
-.recommend_list, .new_list, .search_list, #menu_list_recommend, #menu_list_all {
+.recommend_list, .new_list, .search_list, #menu_list_recommend, #menu_list_all,
+.recommend_list_ipad, .new_list_ipad, .search_list_ipad, #menu_list_recommend_ipad, #menu_list_all_ipad {
     display:flex;
     flex-wrap:wrap;
 }
@@ -507,8 +528,18 @@ label {
 .recommend_list {
     margin-bottom: 10px;
 }
+
+.recommend_list_ipad {
+    margin-left: 50px;
+}
+
 .recommend_restaurant, .new_restaurant, .search_restaurant {
     width: 30%;
+    margin: 10px;
+}
+
+.recommend_restaurant_ipad, .new_restaurant_ipad, .search_restaurant_ipad {
+    width: 44%;
     margin: 10px;
 }
 
@@ -748,18 +779,22 @@ label {
 
 .slider_ipad .slick-prev {/*戻る矢印の位置と形状*/
     left: -3%;
+    top: 53px;
 }
 
 .slider_banner_ipad .slick-prev {/*戻る矢印の位置と形状*/
     left: -0.2%;
+    top: 65px;
 }
 
 .slider_ipad .slick-next {/*次へ矢印の位置と形状*/
     right: -3%;
+    top: 53px;
 }
 
 .slider_banner_ipad .slick-next {/*次へ矢印の位置と形状*/
     right: -0.2%;
+    top: 65px;
 }
 
 /*ドットナビゲーションの設定*/
