@@ -16,7 +16,7 @@ class CreateCommentsTable extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->integer('restaurant_id');
-            $table->string('user_name', 20)->nullable();
+            $table->string('user_name', 20);
             $table->integer('fivestar');
             $table->text('comment');
             $table->string('filename');

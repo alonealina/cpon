@@ -280,6 +280,12 @@ hr {
     padding-left: 20px;
 }
 
+.comment_input, .user_name_input {
+    border-radius: 4px;
+    border: solid 2px;
+    border-color: #A2A2A2;
+}
+
 .user_name_input {
     width: 370px;
 }
@@ -559,10 +565,13 @@ label {
     margin: 10px 0;    
 }
 
-.comment_error {
-    font-size: 25px;
+.comment_error, .comment_error_fivestar {
+    font-size: 15px;
     font-weight: bold;
     color:red;
+}
+
+.comment_error_fivestar {
     text-align: center;
 }
 

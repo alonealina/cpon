@@ -9,15 +9,15 @@
         <div class="comment_form_title">コメントの投稿</div>
 
         <div class="user_name_form">
+            <div class="user_name_title">お名前</div>
             @if($errors->has('user_name'))
             <div class="comment_error">{{ $errors->first('user_name') }}</div>
             @endif
-            <div class="user_name_title">お名前（任意）</div>
             {{ Form::text('user_name', old('user_name'), ['class' => 'user_name_input', 'maxlength' => 20]) }}
         </div>
 
         @if($errors->has('fivestar'))
-        <div class="comment_error">{{ $errors->first('fivestar') }}</div>
+        <div class="comment_error_fivestar">{{ $errors->first('fivestar') }}</div>
         @endif
         <div class="fivestar_title">注文の評価</div>
         <div class="rate-form">
@@ -36,7 +36,7 @@
         @if($errors->has('comment'))
             <div class="comment_error">{{ $errors->first('comment') }}</div>
         @endif
-        {{ Form::textarea('comment', old('comment'), ['class' => 'form-control', 'rows' => 6]) }}
+        {{ Form::textarea('comment', old('comment'), ['class' => 'form-control comment_input', 'rows' => 6]) }}
         @if($errors->has('comment_img'))
             <div class="comment_error">{{ $errors->first('comment_img') }}</div>
         @endif

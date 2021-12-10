@@ -120,7 +120,7 @@ class RestaurantController extends Controller
     public function comment_store(Request $request)
     {
         $rules = [
-            'user_name' => 'max:20',
+            'user_name' => ['max:20', 'required'],
             'fivestar' => 'required',
             'comment' => 'required',
             'comment_img' => 'max:10240'
@@ -128,6 +128,7 @@ class RestaurantController extends Controller
 
         $messages = [
             'user_name.max' => 'お名前は20文字以下でお願いします',
+            'user_name.required' => 'お名前を入力してください',
             'fivestar.required' => '評価を選択してください',
             'comment.required' => 'コメントを入力してください',
             'comment_img.max' => 'ファイルは10MB未満でお願いします',
