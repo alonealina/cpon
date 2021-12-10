@@ -227,6 +227,12 @@ hr {
     text-align:center;
 }
 
+.button_black a:hover,
+.button_comment a:hover {
+    transition: 0.5s;
+    opacity: 0.6;
+    }
+    
 .comment_list_header {
     height:50px;
 }
@@ -872,7 +878,7 @@ width:94%;
 .restaurant_profile {
 position      : relative;                   /* relative指定は必須 */
 margin        : 0 auto 50px auto;               /* 色や文字情報は変更ください */
-padding       : 30px 10px 10px 10px;
+padding       : 30px 0px 20px 0px;
 background    : #fff;
 text-align    : left;
 font-size     : 15px;
