@@ -240,7 +240,7 @@ hr {
     display:block;
     width:400px;
     height:50px;
-    margin:10px auto;
+    margin:60px auto;
     line-height:50px;
     background:black;
     color:#fff;
@@ -363,17 +363,28 @@ hr {
     max-width: 220px;
 }
 
-.flexible-list-sidebar {
+.flexible-list-sidebar, .flexible-list-sidebar_ipad {
     border: 3px solid;
     border-color: orange;
     border-radius: 4px;
     padding: 10px;
 }
 
+.flexible-list-sidebar_ipad {
+    margin: 0 50px 0 50px;
+}
+
 .flexible-list-sidebar hr {
     border: 1px solid;
     border-color: orange;
     width: 80%;
+}
+
+.flexible-list-sidebar_ipad hr {
+    border: 1px solid;
+    border-color: orange;
+    margin-top: 10px;
+    width:120%;
 }
 
 .flexible-list-main {
@@ -385,6 +396,10 @@ hr {
 
 .filter_form_title {
     font-size: 23px;
+}
+
+.filter_form_title_ipad {
+    font-weight: bold;
 }
 
 .search_radio {
@@ -447,6 +462,7 @@ label {
 }
 
 .notice_home a, .notice_home a:hover,
+.notice_home_ipad a, .notice_home_ipad a:hover,
 .recommend_restaurant a, .recommend_restaurant a:hover,
 .new_restaurant a, .new_restaurant a:hover,
 .search_restaurant a, .search_restaurant a:hover,
@@ -479,6 +495,10 @@ label {
 
 .notice_home {
     margin-top:20px;
+}
+
+.notice_home_ipad {
+    margin: 0 50px 0 50px;
 }
 
 .notice_show {
@@ -529,7 +549,7 @@ label {
     margin-bottom: 10px;
 }
 
-.recommend_list_ipad {
+.recommend_list_ipad, .new_list_ipad, .search_list_ipad {
     margin-left: 50px;
 }
 
@@ -1026,4 +1046,70 @@ content       : "閉じる";
 /* --- ボタンに表示する文字（開いているとき） -------------------- */
 .restaurant_profile > input[type="checkbox"]:checked + label {
 bottom        : 0px;
+}
+
+
+
+/*以下iPad版の「開く」ボタンについて*/
+
+/* === 文書を書くBOX ============================================= */
+.filter_form_ipad {
+overflow      : hidden;                       /* hidden指定は必須 */
+
+}
+
+/* === チェックボックス ========================================== */
+.filter_open_checkbox {
+display       : none;                                   /* 非表示 */
+}
+
+/* === チェックボックスのlabel（＝ボタンに見せる） =============== */
+.filter_open_label {
+position      : relative;
+float:right;
+right         : 13px;
+bottom: 26px;
+padding-top       : 0px ;
+font-size: 15px;
+font-weight: bold;
+display:block;
+width:120px;
+height:30px;
+line-height:30px;
+background:black;
+color:#fff;
+border-radius:25px;
+text-decoration:none;
+text-align:center;
+}
+
+/* === ボタンにカーソルが乗った時 ================================ */
+.filter_open_label:hover {
+transition: 0.5s;
+opacity: 0.6;
+}
+
+/* === 文書のエリアの高さ（「続きを開く」が表示されているとき）=== */
+.filter_open_checkbox:not(:checked) ~ div {
+height        : 0px;
+}
+
+/* === 文書のエリアの高さ（「続きを開く」が表示されているとき）=== */
+.filter_open_checkbox:checked ~ div {
+/* padding-bottom: 30px; */
+}
+
+/* --- ボタンに表示する文字（閉じているとき） -------------------- */
+.filter_open_checkbox:not(:checked) + label::after {
+content       : "開く";
+}
+
+/* --- ボタンに表示する文字（開いているとき） -------------------- */
+.filter_open_checkbox:checked + label::after {
+content       : "閉じる";
+}
+
+/* --- ボタンに表示する文字（開いているとき） -------------------- */
+.filter_open_checkbox:checked + label {
+bottom        : 26px;
 }

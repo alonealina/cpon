@@ -36,9 +36,9 @@
                 </a>
                 <div class="footer_menu">
                     <a href ="{{ route('help') }}">ヘルプ・お問い合わせ</a> ｜
+                    <a href ="{{ route('terms') }}">利用規約</a> ｜
                     <a href ="{{ route('policy') }}">プライバシーポリシー</a> ｜
                     <a href ="https://app.cpon.co.jp/">CポンWEBAPP</a> ｜
-                    <a href ="{{ route('terms') }}">利用規約</a> ｜
                     <a href ="https://mall.cpon.co.jp/">Cポンモール</a>
                 </div>
                 <div class="copyright">copyright (c) © KOC・JAPAN, Inc. all rights reserved.</div>
@@ -58,7 +58,7 @@
                 </div>
             </header>
 
-                @yield('content_ipad')
+            @yield('content_ipad')
 
             <footer>
                 <a href="/">
@@ -66,9 +66,9 @@
                 </a>
                 <div class="footer_menu">
                     <a href ="{{ route('help') }}">ヘルプ・お問い合わせ</a> ｜
+                    <a href ="{{ route('terms') }}">利用規約</a> ｜
                     <a href ="{{ route('policy') }}">プライバシーポリシー</a> ｜
                     <a href ="https://app.cpon.co.jp/">CポンWEBAPP</a> ｜
-                    <a href ="{{ route('terms') }}">利用規約</a> ｜
                     <a href ="https://mall.cpon.co.jp/">Cポンモール</a>
                 </div>
                 <div class="copyright">copyright (c) © KOC・JAPAN, Inc. all rights reserved.</div>
@@ -89,7 +89,7 @@
                     
             </header>
 
-                @yield('content_sp')
+            @yield('content_sp')
 
             <footer>
                 <a href="/">
@@ -97,9 +97,9 @@
                 </a>
                 <div class="footer_menu">
                     <a href ="{{ route('help') }}">ヘルプ・お問い合わせ</a> ｜
+                    <a href ="{{ route('terms') }}">利用規約</a> ｜
                     <a href ="{{ route('policy') }}">プライバシーポリシー</a> ｜
                     <a href ="https://app.cpon.co.jp/">CポンWEBAPP</a> ｜
-                    <a href ="{{ route('terms') }}">利用規約</a> ｜
                     <a href ="https://mall.cpon.co.jp/">Cポンモール</a>
                 </div>
                 <div class="copyright">copyright (c) © KOC・JAPAN, Inc. all rights reserved.</div>
