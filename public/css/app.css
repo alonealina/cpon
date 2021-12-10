@@ -1,18 +1,27 @@
-/* スマホへの振り分け */
+/* iPad・スマホへの振り分け */
 
- /* 表示領域が1200px以上の場合に適用するスタイル（パソコン向け） */
- @media screen and (min-width: 801px){
+/* 表示領域が1200px以上の場合に適用するスタイル（パソコン向け） */
+@media screen and (min-width: 851px) {
     #registration_pc {visibility : visible;}
+    #registration_ipad {display : none;}
     #registration_sp {display : none;}
 }	
 
-    /* 表示領域が1190px以下の場合に適用するスタイル（スマホ向け） */
-@media screen and (max-width: 800px) {
+/* 表示領域が1190px以下の場合に適用するスタイル（スマホ向け） */
+@media screen and (min-width: 401px) and (max-width: 850px) {
     #registration_pc {display : none;}
+    #registration_ipad {visibility : visible;}
+    #registration_sp {display : none;}
+}
+
+/* 表示領域が1190px以下の場合に適用するスタイル（スマホ向け） */
+@media screen and (max-width: 400px) {
+    #registration_pc {display : none;}
+    #registration_ipad {display : none;}
     #registration_sp {visibility : visible;}
 }
 
-#registration_sp {
+#registration_ipad {
     width:800px;
 }
 
@@ -71,9 +80,13 @@ footer a, footer a:hover {
     font-size: 13px;
 }
 
-#freeword_form {
+#freeword_form, #freeword_form_ipad {
     height:40px;
     width:650px;
+}
+
+#freeword_form_ipad {
+    margin:0 100px;
 }
 
 #freeword_form_sp {
@@ -82,13 +95,16 @@ footer a, footer a:hover {
     margin:auto;
 }
 
-.freeword_text {
+.freeword_text, .freeword_text_ipad {
     height:40px;
-    width:600px;
     border-radius:20px;
     border:solid 2px;
     border-color: #A2A2A2;
     padding-left: 20px;
+}
+
+.freeword_text, .freeword_text_ipad {
+    width:600px;
 }
 
 .freeword_text_sp {
@@ -122,8 +138,8 @@ footer a, footer a:hover {
     margin-left:-80px;
 }
 
-.category_title_sp {
-    margin:10px 0 10px 10px;
+.category_title_ipad {
+    margin:10px 0 10px 50px;
 }
 
 footer {
@@ -635,7 +651,7 @@ label {
 
 /*以下スライダー機能について*/
 
-.slider, .slider_sp, .slider_banner {/*横幅94%で左右に余白を持たせて中央寄せ*/
+.slider, .slider_ipad, .slider_banner, .slider_banner_ipad {/*横幅94%で左右に余白を持たせて中央寄せ*/
     margin:0 auto;
     padding: 0px 10px;
 }
@@ -644,8 +660,8 @@ label {
     width:1080px;
 }
 
-.slider_sp {/*横幅94%で左右に余白を持たせて中央寄せ*/
-    width:94%;
+.slider_ipad, .slider_banner_ipad {/*横幅94%で左右に余白を持たせて中央寄せ*/
+    width:700px;
 }
 
 
@@ -657,7 +673,7 @@ label {
     margin-bottom: 20px;
 }
 
-.slider_sp img {
+.slider_ipad img {
     margin:0 20px;
     height:auto;
 }
@@ -666,8 +682,8 @@ label {
     height:105px;
 }
 
-.slider_sp li {
-    margin:0 10px;
+.slider_ipad li {
+    margin:0 10px 10px 10px;
 }
 /*slickのJSで書かれるタグ内、スライド左右の余白調整*/
 
@@ -683,9 +699,15 @@ label {
 .slider_banner li {
     height:150px;
 }
+
+.slider_banner_ipad li {
+    height:150px;
+}
+
 /*slickのJSで書かれるタグ内、スライド左右の余白調整*/
 
-.slider_banner .slick-slide {
+.slider_banner .slick-slide,
+.slider_banner_ipad .slick-slide {
     margin:0 10px 10px 10px;
 }
 
@@ -714,18 +736,37 @@ label {
     width: 15px;
 }
 
-.slick-prev {/*戻る矢印の位置と形状*/
+.slider .slick-prev,
+.slider_banner .slick-prev {/*戻る矢印の位置と形状*/
     left: -1.5%;
 }
 
-.slick-next {/*次へ矢印の位置と形状*/
+.slider .slick-next,
+.slider_banner .slick-next {/*次へ矢印の位置と形状*/
     right: -1.5%;
+}
+
+.slider_ipad .slick-prev {/*戻る矢印の位置と形状*/
+    left: -3%;
+}
+
+.slider_banner_ipad .slick-prev {/*戻る矢印の位置と形状*/
+    left: -0.2%;
+}
+
+.slider_ipad .slick-next {/*次へ矢印の位置と形状*/
+    right: -3%;
+}
+
+.slider_banner_ipad .slick-next {/*次へ矢印の位置と形状*/
+    right: -0.2%;
 }
 
 /*ドットナビゲーションの設定*/
 
 .slick-dots {
     text-align:center;
+    padding:0;
 }
 
 .slick-dots li {

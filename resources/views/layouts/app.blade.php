@@ -46,6 +46,36 @@
         </body>
     </div>
 
+    <div id="registration_ipad">
+        <body>
+            <header class="mb-4">
+                <div class="header_black"></div>
+                <div class="header_orange"></div>
+                <div class="cpon_logo_div">
+                    <a href="/">
+                        <img src="{{ asset('img/logo.png') }}" class="cpon_logo_sp" alt="">
+                    </a>
+                </div>
+            </header>
+
+                @yield('content_ipad')
+
+            <footer>
+                <a href="/">
+                    <img src="{{ asset('img/logo2.png') }}" class="cpon_logo2" alt="">
+                </a>
+                <div class="footer_menu">
+                    <a href ="{{ route('help') }}">ヘルプ・お問い合わせ</a> ｜
+                    <a href ="{{ route('policy') }}">プライバシーポリシー</a> ｜
+                    <a href ="https://app.cpon.co.jp/">CポンWEBAPP</a> ｜
+                    <a href ="{{ route('terms') }}">利用規約</a> ｜
+                    <a href ="https://mall.cpon.co.jp/">Cポンモール</a>
+                </div>
+                <div class="copyright">copyright (c) © KOC・JAPAN, Inc. all rights reserved.</div>
+            </footer>
+        </body>
+    </div>
+
     <div id="registration_sp">
         <body>
             <header class="mb-4">
@@ -58,7 +88,6 @@
                 </div>
                     
             </header>
-
 
                 @yield('content_sp')
 

@@ -13,6 +13,22 @@
 </div>
 @endsection
 
+@section('banner_ipad')
+<div class="banner_ipad">
+    <ul class="slider_banner_ipad">
+        <li><img src="{{ asset('img/banner_test.png') }}" class="banner_img" alt=""></li>
+        <li><img src="{{ asset('img/banner_test.png') }}" class="banner_img" alt=""></li>
+        <li><img src="{{ asset('img/banner_test.png') }}" class="banner_img" alt=""></li>
+        <li><img src="{{ asset('img/banner_test.png') }}" class="banner_img" alt=""></li>
+        <li><img src="{{ asset('img/banner_test.png') }}" class="banner_img" alt=""></li>
+        <li><img src="{{ asset('img/banner_test.png') }}" class="banner_img" alt=""></li>
+    </ul>
+</div>
+@endsection
+
+
+
+
 @section('restaurant_list')
 <p class="restaurant_list_title">Cポンポータルからのおすすめ</p>
 <div class="recommend_list">
