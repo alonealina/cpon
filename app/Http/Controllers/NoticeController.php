@@ -14,7 +14,7 @@ class NoticeController extends Controller
      */
     public function index()
     {
-        $notices = Notice::orderBy('notice_date', 'desc')->paginate(10);
+        $notices = Notice::orderBy('notice_date', 'desc')->orderBy('id', 'desc')->paginate(10);
 
         return view('notice/index', [
             'notices' => $notices,
@@ -51,8 +51,35 @@ class NoticeController extends Controller
     public function show($id)
     {
         $notice = Notice::find($id);
+        $max_flg = false;
+        $min_flg = false;
+        $max_notice = Notice::orderBy('notice_date', 'desc')->orderBy('id', 'desc')->first();
+        $min_notice = Notice::orderBy('notice_date', 'asc')->orderBy('id', 'asc')->first();
+        if ($id == $max_notice->id) {
+            $max_flg = true;
+        }
+        if ($id == $min_notice->id) {
+            $min_flg = true;
+        }
+
+        $notices = Notice::orderBy('notice_date', 'desc')->orderBy('id', 'desc')->get();
+        $notice_key = $notices->where('id', $id)->keys()->first();
+        $back_id = null;
+        $next_id = null;
+
+        if (!$max_flg) {
+            $back_id = $notices[$notice_key-1]->id;
+        }
+        if (!$min_flg) {
+            $next_id = $notices[$notice_key+1]->id;
+        }
+
         return view('notice/show', [
             'notice' => $notice,
+            'max_flg' => $max_flg,
+            'min_flg' => $min_flg,
+            'back_id' => $back_id,
+            'next_id' => $next_id,
         ]);
     }
 

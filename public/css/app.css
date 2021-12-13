@@ -255,7 +255,7 @@ hr {
     text-align:center;
 }
 
-.button_black, .button_comment {
+.button_black, .button_comment, .notice_button_back, .notice_button_next {
     text-align:center;
 }
 
@@ -275,27 +275,17 @@ hr {
 }
 
 .button_black a:hover,
-.button_comment a:hover {
+.button_comment a:hover,
+.notice_button_back a:hover,
+.notice_button_next a:hover {
     transition: 0.5s;
     opacity: 0.6;
-    }
+}
 
 .yazi3 {
     position: relative;
     bottom: 50px;
     left: 180px;
-}
-
-.comment_list_header {
-    height:50px;
-}
-
-.comment_list_title {
-    float:left;
-}
-
-.comment_list_content {
-    margin:10px 20px;
 }
 
 .button_comment {
@@ -315,6 +305,46 @@ hr {
     border-radius:20px;
     text-decoration:none;
     text-align:center;
+}
+
+.notice_button_back {
+    float:left;
+}
+
+.notice_button_next {
+    float:right;
+}
+
+.notice_button_back a,
+.notice_button_next a {
+    font-size: 15px;
+    font-weight: bold;
+    display:block;
+    width:160px;
+    height:40px;
+    margin:0px auto;
+    line-height:40px;
+    background:black;
+    color:#fff;
+    border-radius:20px;
+    text-decoration:none;
+    text-align:center;
+}
+
+.notice_buttons {
+    margin: 50px 0 100px 0;
+}
+
+.comment_list_header {
+    height:50px;
+}
+
+.comment_list_title {
+    float:left;
+}
+
+.comment_list_content {
+    margin:10px 20px;
 }
 
 .number b {
