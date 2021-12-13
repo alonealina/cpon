@@ -71,11 +71,15 @@ class CponController extends Controller
             $search_radio = $filter_array['search_radio'];
         }
 
+        if (isset($filter_array['search_radio_ipad'])) {
+            $search_radio = $filter_array['search_radio_ipad'];
+        }
+
         $freeword = $filter_array['freeword'];
         $open = $filter_array['open'];
         $close = $filter_array['close'];
         $pref = $filter_array['pref'];
-        unset($filter_array['search_radio'], $filter_array['freeword'], $filter_array['open'], $filter_array['close'], $filter_array['pref']);
+        unset($filter_array['search_radio'], $filter_array['search_radio_ipad'], $filter_array['freeword'], $filter_array['open'], $filter_array['close'], $filter_array['pref']);
         
         $query = Restaurant::join('scenes', 'restaurants.id', '=', 'scenes.restaurant_id')
             ->join('commitments', 'restaurants.id', '=', 'commitments.restaurant_id');
@@ -113,10 +117,10 @@ class CponController extends Controller
         } 
 
         if ($open != 0) {
-            $query->whereTime('close_time', '>=', $open - 1 . ':00');
+            $query->whereTime('close_time', '>=', $open);
         } 
         if ($close != 0) {
-            $query->whereTime('open_time', '<=', $close - 1 . ':00');
+            $query->whereTime('open_time', '<=', $close);
         }
 
         $restaurants = $query->paginate(24);

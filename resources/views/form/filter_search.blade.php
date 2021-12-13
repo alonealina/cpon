@@ -75,7 +75,17 @@
         {!! Form::text('freeword' ,'', ['class' => 'filter_freeword', 'placeholder' => '入力してください'] ) !!}
         <div class="filter_name">オープン時間</div>
         <div class="filter_time">
-        {{ Form::select('open', array_merge(['指定なし'], range(0, 23))) }} ～ {{ Form::select('close', array_merge(['指定なし'], range(0, 23))) }}
+            <select name="open">
+                @foreach (config('const.Times') as $key => $value)
+                <option value="{{ $key }}">{{ $value }}</option>
+                @endforeach
+            </select>
+            ～
+            <select name="close">
+                @foreach (config('const.Times') as $key => $value)
+                <option value="{{ $key }}">{{ $value }}</option>
+                @endforeach
+            </select>
         </div>
         <div class="search_button">
         <a href="#" onclick="clickFilterButton()">検索</a>

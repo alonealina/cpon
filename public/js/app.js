@@ -21,6 +21,10 @@ function clickFilterButton() {
     document.forms.filter_form.submit();
 }
 
+function clickFilterButton() {
+    document.forms.filter_form_ipad.submit();
+}
+
 function clickCommentButton() {
     document.forms.comment_form.submit();
 }
@@ -36,6 +40,16 @@ function searchFormChange() {
         prefList.style.display = "block";
     }else if(radio[1].checked || radio[2].checked || radio[3].checked) {
         prefList.style.display = "none";
+    }
+}
+
+function searchFormChangeIpad() {
+    var radio = document.getElementsByName('search_radio_ipad');
+    var prefListIpad = document.getElementById('pref_list_ipad');
+    if(radio[0].checked) {
+        prefListIpad.style.display = "block";
+    }else if(radio[1].checked || radio[2].checked || radio[3].checked) {
+        prefListIpad.style.display = "none";
     }
 }
 
