@@ -147,6 +147,54 @@ footer a, footer a:hover {
     margin:10px 0 10px 50px;
 }
 
+.category_background {
+    background-image: url(../img/bg_kategory.jpg);
+    height:300px;
+    margin-right: calc(50% - 50vw);
+    margin-left: calc(50% - 50vw);
+    padding-right: calc(50vw - 50%);
+    padding-left: calc(50vw - 50%);
+}
+
+.category_name_title {
+    position: relative;
+    top:40%;
+    font-size: 40px;
+    font-weight: bold;
+    margin-left:30px;
+}
+
+.category_img {
+    float:right;
+    margin-right:40px;
+}
+
+.category_background_ipad {
+    background-image: url(../img/bg_kategory.jpg);
+    height:200px;
+    margin-bottom: 20px;
+}
+
+.category_name_title_ipad {
+    position: relative;
+    top:30%;
+    font-size: 40px;
+    font-weight: bold;
+    margin-left:60px;
+    width:300px;
+}
+
+.category_img_ipad {
+    position: relative;
+    float:right;
+    bottom: 10px;
+}
+
+.category_img_ipad img {
+    width:60%;
+    height:60%;
+}
+
 footer {
     text-align:center;
     background-color: #FFA500;
@@ -155,6 +203,11 @@ footer {
 
 .footer_item_title {
     font-size: 40px;
+}
+
+.footer_item_title_ipad {
+    margin-top: 30px;
+    font-size: 30px;
 }
 
 .help_content {

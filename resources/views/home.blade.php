@@ -34,6 +34,8 @@
 
 @yield('banner')
 
+@yield('category_background')
+
 <div class="flexible-list">
     <aside id="column-side" class="flexible-list-side">
     @include('form.filter_search')
@@ -84,6 +86,8 @@
 </div>
 
 @yield('banner_ipad')
+
+@yield('category_background_ipad')
 
 @include('form.filter_search_ipad')
 
