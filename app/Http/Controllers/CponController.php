@@ -45,7 +45,9 @@ class CponController extends Controller
                 ->where('name', 'like', "%$freeword%")
                 ->groupBy('restaurant_id');
             })
-            ->orwhere('restaurants.name', 'like', "%$freeword%")
+            ->orwhere('restaurants.name1', 'like', "%$freeword%")
+            ->orwhere('restaurants.name2', 'like', "%$freeword%")
+            ->orwhere('restaurants.name3', 'like', "%$freeword%")
             ->paginate(24);
 
         return view('search', [
@@ -89,7 +91,9 @@ class CponController extends Controller
                     ->where('name', 'like', "%$freeword%")
                     ->groupBy('restaurant_id');
                 })
-                ->orwhere('restaurants.name', 'like', "%$freeword%");    
+            ->orwhere('restaurants.name1', 'like', "%$freeword%")
+            ->orwhere('restaurants.name2', 'like', "%$freeword%")
+            ->orwhere('restaurants.name3', 'like', "%$freeword%");
         }
 
         if ($search_radio == 'area') {
