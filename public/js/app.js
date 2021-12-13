@@ -18,12 +18,17 @@
 // });
 
 function clickFilterButton() {
-    document.filter_form.submit();
+    document.forms.filter_form.submit();
 }
 
 function clickCommentButton() {
-    document.comment_form.submit();
+    document.forms.comment_form.submit();
 }
+
+function clickCommentButtonIpad() {
+    document.forms.comment_form_ipad.submit();
+}
+
 function searchFormChange() {
     var radio = document.getElementsByName('search_radio');
     var prefList = document.getElementById('pref_list');

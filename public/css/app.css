@@ -29,6 +29,11 @@ body {
     font-family: "ヒラギノ角ゴシック";
 }
 
+.body_ipad {
+    width:700px;
+    margin:0 50px;
+}
+
 .header_black {
     height: 10px;
     background-color: #343434;
@@ -206,6 +211,14 @@ p {
     min-width: 1100px;
 }
 
+.flexible_img_list_ipad {
+    display: flex;
+    margin: 0 auto;
+    padding: 0 0px;
+    min-width: 700px;
+    justify-content: flex-start;
+}
+
 .flexible_sub_img {
     margin-left:30px;
 }
@@ -220,6 +233,18 @@ p {
     width: 250px;
     height: 135px;
     margin:10px;
+}
+
+.main_img_ipad {
+    width: 320px;
+    height: 180px;
+    margin:10px;
+}
+
+.sub_img_ipad {
+    width: 170px;
+    height: 85px;
+    margin:10px 5px 0 0;
 }
 
 hr {
@@ -488,11 +513,6 @@ label {
     height:150px;
 }
 
-.menu_detail img {
-    width:240px;
-    height:240px;
-}
-
 .notice_home {
     margin-top:20px;
 }
@@ -588,6 +608,21 @@ label {
     margin: 10px;
 }
 
+.menu_detail img {
+    width:240px;
+    height:240px;
+}
+
+.menu_detail_ipad {
+    width: 47%;
+    margin: 10px;
+}
+
+.menu_detail_ipad img {
+    width:300px;
+    height:300px;
+}
+
 .menu_name {
     font-size: 18px;
 }
@@ -667,17 +702,28 @@ label {
     margin-top: 10px;
     font-weight: bold;
 }
-.menu_list_bar ul{
+
+.menu_list_bar_pc ul{
     display: table;
     margin: 0;
     padding: 0;
     width: 30%;
 
 }
+
+.menu_list_bar_ipad ul{
+    display: table;
+    margin: 0;
+    padding: 0;
+    width: 50%;
+
+}
+
 .menu_list_bar li{
     display: table-cell;
     min-width: 50px;
 }
+
 .menu_list_bar a{
     display: block;
     width: 100%;
@@ -686,6 +732,7 @@ label {
     padding-bottom: 5px;
     text-align:center;
 }
+
 .menu_list_bar li.current{
     border-bottom: 3px solid black;
 }
@@ -858,11 +905,18 @@ label {
     padding-left: 20px;
 }
 
-.rate-form {
+.rate-form_pc {
     display: flex;
     flex-direction: row-reverse;
     margin: 0px 380px 0px 0px;
 }
+
+.rate-form_ipad {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 0px;
+}
+
 .rate-form input[type=radio] {
     display: none;
 }
@@ -1055,7 +1109,7 @@ bottom        : 0px;
 /* === 文書を書くBOX ============================================= */
 .filter_form_ipad {
 overflow      : hidden;                       /* hidden指定は必須 */
-
+width: 100%;
 }
 
 /* === チェックボックス ========================================== */

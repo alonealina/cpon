@@ -16,7 +16,7 @@
     <div>
         @foreach ($comments as $comment)
         <div class="comment_list_content">
-            {{ $comment->user_name }}さんの口コミ<br>
+            <b>{{ $comment->user_name }}</b>さんの口コミ<br>
             <div class="fivestar">
             @if ($comment->fivestar == 1)
                 {{ '★☆☆☆☆' }}
@@ -33,7 +33,7 @@
             </div>
             <div class="comment_content"><b>{{ $comment->comment }}</b></div>
             @if (!empty($comment->filename))
-            <a href="../../uploads/{{ $comment->filename }}" data-lightbox="group{{ $comment->id }}">
+            <a href="../../uploads/{{ $comment->filename }}" data-lightbox="group{{ $comment->id }}{{ $version }}">
                 <img src="../../uploads/{{ $comment->filename }}" width="100px" height="100px">
             </a>
             @endif
