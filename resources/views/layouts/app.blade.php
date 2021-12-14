@@ -83,6 +83,7 @@
             <header class="mb-4">
                 <div class="header_black"></div>
                 <div class="header_orange"></div>
+                @yield('back_button')
                 <div class="cpon_logo_div_sp">
                     <a href="/">
                         <img src="{{ asset('img/logo.png') }}" class="cpon_logo_sp" alt="">

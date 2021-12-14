@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', 'App\Http\Controllers\CponController@index');
+Route::get('/', 'App\Http\Controllers\CponController@index')->name('index');
 Route::get('search/','App\Http\Controllers\CponController@search')->name('search');
 Route::get('filter/','App\Http\Controllers\CponController@filter')->name('filter');
 Route::get('new/','App\Http\Controllers\CponController@new')->name('new');
