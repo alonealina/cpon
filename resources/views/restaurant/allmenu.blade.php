@@ -2,7 +2,7 @@
 
 @section('menu_list')
 
-<nav class="menu_list_bar" id="menu_list_bar">
+<nav class="menu_list_bar menu_list_bar_pc" id="menu_list_bar">
     <ul>
         <li class="menu_recommend"><a href="{{ route('restaurant.show', ['id' => $restaurant_id]) }}">イチオシメニュー</a></li>
         <li class="menu_all current"><a href="#">メニュー一覧</a></li>
@@ -29,7 +29,7 @@
 {{ $menus->links('pagination::menu_list') }}
 </div>
 
-@include('restaurant.comment_list', ['version' => 'pc'])
+@include('restaurant.comment_list_allmenu', ['version' => 'pc'])
 
 @endsection
 
@@ -63,6 +63,6 @@
 {{ $menus->links('pagination::menu_list') }}
 </div>
 
-@include('restaurant.comment_list', ['version' => 'ipad'])
+@include('restaurant.comment_list_allmenu', ['version' => 'ipad'])
 
 @endsection
