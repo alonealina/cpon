@@ -56,8 +56,55 @@
 @include('form.header_search_ipad')
 
 <p class="category_title_ipad">カテゴリーから探す</p>
-<div class="category">
+<div class="category_ipad">
     <ul class="slider_ipad">
+        @foreach ($categories as $category)
+        <li class="category_link">
+            <a href="{{ route('category', ['id' => $category->id]) }}">
+                <img src="{{ asset('img/kategori2.png') }}" alt="">
+                <div class="category_name_ipad">{{ $category->name }}</div>
+            </a>
+        </li>
+        @endforeach
+        @foreach ($categories as $category)
+        <li class="category_link">
+            <a href="{{ route('category', ['id' => $category->id]) }}">
+                <img src="{{ asset('img/kategori2.png') }}" alt="">
+                <div class="category_name_ipad">{{ $category->name }}</div>
+            </a>
+        </li>
+        @endforeach
+        @foreach ($categories as $category)
+        <li class="category_link">
+            <a href="{{ route('category', ['id' => $category->id]) }}">
+                <img src="{{ asset('img/kategori2.png') }}" alt="">
+                <div class="category_name_ipad">{{ $category->name }}</div>
+            </a>
+        </li>
+        @endforeach
+    </ul>
+</div>
+
+@yield('banner_ipad')
+
+@yield('category_background_ipad')
+
+@include('form.filter_search_ipad')
+
+@yield('restaurant_list_ipad')
+
+@endsection
+
+
+
+
+@section('content_sp')
+
+@include('form.header_search_sp')
+
+<p class="category_title_sp">カテゴリーから探す</p>
+<div class="category_sp">
+    <ul class="slider_sp">
         @foreach ($categories as $category)
         <li class="category_link">
             <a href="{{ route('category', ['id' => $category->id]) }}">
@@ -85,13 +132,6 @@
     </ul>
 </div>
 
-@yield('banner_ipad')
-
-@yield('category_background_ipad')
-
-@include('form.filter_search_ipad')
-
-@yield('restaurant_list_ipad')
-
+@yield('restaurant_list_sp')
 
 @endsection

@@ -25,6 +25,10 @@
     width:800px;
 }
 
+#registration_sp {
+    width:400px;
+}
+
 body {
     font-family: "ヒラギノ角ゴシック";
 }
@@ -34,7 +38,12 @@ body {
     margin:0 50px;
 }
 
-.header_black {
+.body_sp {
+    width:380px;
+    margin:0 10px;
+}
+
+.header_black, .footer_black {
     height: 10px;
     background-color: #343434;
 }
@@ -61,7 +70,14 @@ body {
     margin: 0 auto;
 }
 
-.cpon_logo_sp {
+.cpon_logo_div_sp, .cpon_logo_sp {
+    width: 150px;
+}
+.cpon_logo_div_sp {
+    margin: 0 auto;
+}
+
+.cpon_logo_ipad {
     width: 250px;
     height: 102px;
 }
@@ -81,6 +97,14 @@ footer a, footer a:hover {
     margin:10px 0;
 }
 
+.footer_menu_sp {
+    font-size: 14px;
+    margin:20px 10px 0px 10px;
+    width:180px;
+    float:left;
+    text-align: left;
+}
+
 .copyright {
     font-size: 13px;
 }
@@ -95,9 +119,8 @@ footer a, footer a:hover {
 }
 
 #freeword_form_sp {
-    height:80px;
-    width:650px;
-    margin:auto;
+    height:50px;
+
 }
 
 .freeword_text, .freeword_text_ipad {
@@ -113,12 +136,13 @@ footer a, footer a:hover {
 }
 
 .freeword_text_sp {
-    height:80px;
-    width:600px;
+    height:60px;
+    width:380px;
+    margin-top:-50px;
     border-radius:50px;
     border:solid 2px;
     border-color: #A2A2A2;
-    padding-left: 60px;
+    padding-left: 30px;
 }
 
 .fa-search {
@@ -138,13 +162,18 @@ footer a, footer a:hover {
     background-color: #FFB01A;
     border-radius:50px;
     border:none;
-    width:60px;
-    height:60px;
-    margin-left:-80px;
+    width:45px;
+    height:45px;
+    margin-left:-60px;
 }
 
 .category_title_ipad {
     margin:10px 0 10px 50px;
+}
+
+.category_title_sp {
+    font-size: 14px;
+    margin-bottom: 5px;
 }
 
 .category_background {
@@ -257,6 +286,15 @@ p {
     margin-left: 50px;
 }
 
+.restaurant_list_title_sp {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.index_notice_title_sp {
+    margin-top:50px;
+}
+
 .flexible_img_list {
     display: flex;
     margin: 0 auto;
@@ -319,6 +357,21 @@ hr {
     width:400px;
     height:50px;
     margin:60px auto;
+    line-height:50px;
+    background:black;
+    color:#fff;
+    border-radius:25px;
+    text-decoration:none;
+    text-align:center;
+}
+
+.button_black_sp a {
+    font-size: 20px;
+    font-weight: bold;
+    display:block;
+    width:380px;
+    height:50px;
+    margin:10px auto;
     line-height:50px;
     background:black;
     color:#fff;
@@ -613,14 +666,19 @@ label {
 
 .notice_home a, .notice_home a:hover,
 .notice_home_ipad a, .notice_home_ipad a:hover,
+.notice_home_sp a, .notice_home_sp a:hover,
 .recommend_restaurant a, .recommend_restaurant a:hover,
 .new_restaurant a, .new_restaurant a:hover,
 .search_restaurant a, .search_restaurant a:hover,
 .recommend_restaurant_ipad a, .recommend_restaurant_ipad a:hover,
 .new_restaurant_ipad a, .new_restaurant_ipad a:hover,
 .search_restaurant_ipad a, .search_restaurant_ipad a:hover,
+.recommend_restaurant_sp a, .recommend_restaurant_sp a:hover,
+.new_restaurant_sp a, .new_restaurant_sp a:hover,
+.search_restaurant_sp a, .search_restaurant_sp a:hover,
 .menu_list_bar a, .menu_list_bar a:hover,
-.category a, .category a:hover {
+.category_ipad a, .category_ipad a:hover,
+.category_sp a, .category_sp a:hover {
     color: black;
     text-decoration:none;
 }
@@ -636,6 +694,12 @@ label {
 .new_restaurant_ipad img,
 .search_restaurant_ipad img {
     height:150px;
+}
+
+.recommend_restaurant_sp img,
+.new_restaurant_sp img,
+.search_restaurant_sp img {
+    width:380px;
 }
 
 .notice_home {
@@ -657,6 +721,17 @@ label {
 
 .notice_title {
     margin: 0 0 10px 30px;
+    font-weight: bold;
+}
+
+.notice_date_sp {
+    font-size: 12px;
+    margin: 7px 0 5px 0px;
+}
+
+.notice_title_sp {
+    font-size: 12px;
+    margin: 0 0 10px 0px;
     font-weight: bold;
 }
 
@@ -708,6 +783,10 @@ label {
     margin: 10px;
 }
 
+.recommend_restaurant_sp, .new_restaurant_sp, .search_restaurant_sp {
+    margin-bottom: 10px;
+}
+
 .recommend_name, .new_name, .search_name {
     margin-top: 10px;
     overflow: hidden;
@@ -716,9 +795,19 @@ label {
     font-weight: bold;
 }
 
+.restaurant_name_sp {
+    font-size: 13px;
+}
+
 .recommend_address, .new_address, .search_address {
     font-size: 12px;
     height: 36px;
+    color: #696969;
+}
+
+.recommend_address_sp, .new_address_sp, .search_address_sp {
+    font-size: 12px;
+    height: auto;
     color: #696969;
 }
 
@@ -795,7 +884,7 @@ label {
     display: inline-block;
 }
 
-.restaurant_address, .recommend_time, .restaurant_comment, .restaurant_inquiry {
+.restaurant_address, .restaurant_time, .restaurant_comment, .restaurant_inquiry {
     margin: 10px 0;    
 }
 
@@ -874,31 +963,44 @@ label {
 
 /*以下スライダー機能について*/
 
-.slider, .slider_ipad, .slider_banner, .slider_banner_ipad {/*横幅94%で左右に余白を持たせて中央寄せ*/
+.slider, .slider_ipad, .slider_banner, .slider_banner_ipad {
     margin:0 auto;
     padding: 0px 10px;
 }
 
-.slider, .slider_banner {/*横幅94%で左右に余白を持たせて中央寄せ*/
+.slider, .slider_banner {
     width:1080px;
 }
 
-.slider_ipad, .slider_banner_ipad {/*横幅94%で左右に余白を持たせて中央寄せ*/
+.slider_ipad, .slider_banner_ipad {
     width:700px;
 }
 
+.slider_sp, .slider_banner_sp {
+    width:380px;
+    padding-left: 0px;
+}
 
 .category_name {
     font-size: 13px;
 }
 
-.category_name_sp {
+.category_name_ipad {
     margin-bottom: 20px;
+}
+
+.category_name_sp {
+    font-size: 10px;
+    margin-bottom: 10px;
 }
 
 .slider_ipad img {
     margin:0 20px;
     height:auto;
+}
+
+.slider_sp li img {
+    height:30px;
 }
 
 .slider li {
@@ -908,10 +1010,13 @@ label {
 .slider_ipad li {
     margin:0 10px 10px 10px;
 }
+.slider_sp li {
+    margin:0 2px 10px 2px;
+}
 /*slickのJSで書かれるタグ内、スライド左右の余白調整*/
 
 .slider .slick-slide {
-    margin:0 5px 10px 5px;
+    margin:0 3px 10px 3px;
 }
 
 .banner_img {
@@ -938,11 +1043,15 @@ label {
     text-align:center;
     background-color: #F0F0F0;
     width:100px;
-    border-radius:5%;
+    border-radius:15%;
 }
 
-.category li img {
+.category_ipad li img {
     margin:15px auto;
+}
+
+.category_sp li img {
+    margin:15px auto 5px auto;
 }
 
 
@@ -957,6 +1066,7 @@ label {
     outline: none;/*クリックをしたら出てくる枠線を消す*/
     height: 15px;
     width: 15px;
+    z-index: 5;
 }
 
 .slider .slick-prev,
@@ -989,11 +1099,39 @@ label {
     top: 65px;
 }
 
+.slider_sp .slick-prev {/*戻る矢印の位置と形状*/
+    left: -2px;
+    top: 30px;
+    height: 10px;
+    width: 10px;
+}
+
+.slider_banner_sp .slick-prev {/*戻る矢印の位置と形状*/
+    left: 0px;
+    top: 80px;
+}
+
+.slider_sp .slick-next {/*次へ矢印の位置と形状*/
+    right: -2px;
+    top: 30px;
+    height: 10px;
+    width: 10px;
+}
+
+.slider_banner_sp .slick-next {/*次へ矢印の位置と形状*/
+    right: 0px;
+    top: 80px;
+}
+
 /*ドットナビゲーションの設定*/
 
 .slick-dots {
     text-align:center;
     padding:0;
+}
+
+.banner_sp .slick-dots {
+    margin-top: -15px;
 }
 
 .slick-dots li {

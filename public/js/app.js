@@ -83,7 +83,7 @@ $('.slider_sp').slick({
     slidesToScroll: 5,//1回のスクロールで3枚の写真を移動して見せる
     prevArrow: '<img src="../img/yazi1.png" class="slide-arrow prev-arrow slick-prev">',//矢印部分PreviewのHTMLを変更
     nextArrow: '<img src="../img/yazi2.png" class="slide-arrow next-arrow slick-next">',//矢印部分NextのHTMLを変更
-    dots: true,//下部ドットナビゲーションの表示
+    dots: false,//下部ドットナビゲーションの表示
 });
 
 // バナー用

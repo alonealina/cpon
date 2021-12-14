@@ -42,6 +42,7 @@
                     <a href ="https://mall.cpon.co.jp/">Cポンモール</a>
                 </div>
                 <div class="copyright">copyright (c) © KOC・JAPAN, Inc. all rights reserved.</div>
+                <div class="footer_black"></div>
             </footer>
         </body>
     </div>
@@ -53,7 +54,7 @@
                 <div class="header_orange"></div>
                 <div class="cpon_logo_div">
                     <a href="/">
-                        <img src="{{ asset('img/logo.png') }}" class="cpon_logo_sp" alt="">
+                        <img src="{{ asset('img/logo.png') }}" class="cpon_logo_ipad" alt="">
                     </a>
                 </div>
             </header>
@@ -72,6 +73,7 @@
                     <a href ="https://mall.cpon.co.jp/">Cポンモール</a>
                 </div>
                 <div class="copyright">copyright (c) © KOC・JAPAN, Inc. all rights reserved.</div>
+                <div class="footer_black"></div>
             </footer>
         </body>
     </div>
@@ -81,28 +83,29 @@
             <header class="mb-4">
                 <div class="header_black"></div>
                 <div class="header_orange"></div>
-                <div class="cpon_logo_div">
+                <div class="cpon_logo_div_sp">
                     <a href="/">
                         <img src="{{ asset('img/logo.png') }}" class="cpon_logo_sp" alt="">
                     </a>
                 </div>
-                    
             </header>
 
+            <div class="body_sp">
             @yield('content_sp')
+            </div>
 
             <footer>
+
+                <div class="footer_menu">
+                    <a href ="{{ route('help') }}" class="footer_menu_sp">ヘルプ・お問い合わせ</a>
+                    <a href ="{{ route('policy') }}" class="footer_menu_sp">プライバシーポリシー</a>
+                    <a href ="{{ route('terms') }}" class="footer_menu_sp">利用規約</a>
+                </div>
                 <a href="/">
                     <img src="{{ asset('img/logo2.png') }}" class="cpon_logo2" alt="">
                 </a>
-                <div class="footer_menu">
-                    <a href ="{{ route('help') }}">ヘルプ・お問い合わせ</a> ｜
-                    <a href ="{{ route('terms') }}">利用規約</a> ｜
-                    <a href ="{{ route('policy') }}">プライバシーポリシー</a> ｜
-                    <a href ="https://app.cpon.co.jp/">CポンWEBAPP</a> ｜
-                    <a href ="https://mall.cpon.co.jp/">Cポンモール</a>
-                </div>
                 <div class="copyright">copyright (c) © KOC・JAPAN, Inc. all rights reserved.</div>
+                <div class="footer_black"></div>
             </footer>
         </body>
     </div>
