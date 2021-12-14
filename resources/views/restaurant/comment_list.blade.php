@@ -12,14 +12,25 @@
         @endif
         全<b>{{ $comments->total() }}</b>件
         <select class="comment_sort_select" name="sort" id="change_sort_{{ $version }}">
-            <option value="{{ route('restaurant.show', ['id' => $restaurant_id, 'column' => 'created_at', 'sort' => 'desc']) }}"
-            @if($column == "created_at" && $sort == "desc") selected @endif>投稿日時（降順）</option>
-            <option value="{{ route('restaurant.show', ['id' => $restaurant_id, 'column' => 'created_at', 'sort' => 'asc']) }}"
-            @if($column == "created_at" && $sort == "asc") selected @endif>投稿日時（昇順）</option>
-            <option value="{{ route('restaurant.show', ['id' => $restaurant_id, 'column' => 'fivestar', 'sort' => 'desc']) }}"
-            @if($column == "fivestar" && $sort == "desc") selected @endif>評価（降順）</option>
-            <option value="{{ route('restaurant.show', ['id' => $restaurant_id, 'column' => 'fivestar', 'sort' => 'asc']) }}"
-            @if($column == "fivestar" && $sort == "asc") selected @endif>評価（昇順）</option>
+            @if($pagename == 'show')
+                <option value="{{ route('restaurant.show', ['id' => $restaurant_id, 'column' => 'created_at', 'sort' => 'desc']) }}"
+                @if($column == "created_at" && $sort == "desc") selected @endif>投稿日時（降順）</option>
+                <option value="{{ route('restaurant.show', ['id' => $restaurant_id, 'column' => 'created_at', 'sort' => 'asc']) }}"
+                @if($column == "created_at" && $sort == "asc") selected @endif>投稿日時（昇順）</option>
+                <option value="{{ route('restaurant.show', ['id' => $restaurant_id, 'column' => 'fivestar', 'sort' => 'desc']) }}"
+                @if($column == "fivestar" && $sort == "desc") selected @endif>評価（降順）</option>
+                <option value="{{ route('restaurant.show', ['id' => $restaurant_id, 'column' => 'fivestar', 'sort' => 'asc']) }}"
+                @if($column == "fivestar" && $sort == "asc") selected @endif>評価（昇順）</option>
+            @else
+                <option value="{{ route('restaurant.show_allmenu', ['id' => $restaurant_id, 'column' => 'created_at', 'sort' => 'desc', 'menupage' => $menupage]) }}"
+                @if($column == "created_at" && $sort == "desc") selected @endif>投稿日時（降順）</option>
+                <option value="{{ route('restaurant.show_allmenu', ['id' => $restaurant_id, 'column' => 'created_at', 'sort' => 'asc', 'menupage' => $menupage]) }}"
+                @if($column == "created_at" && $sort == "asc") selected @endif>投稿日時（昇順）</option>
+                <option value="{{ route('restaurant.show_allmenu', ['id' => $restaurant_id, 'column' => 'fivestar', 'sort' => 'desc', 'menupage' => $menupage]) }}"
+                @if($column == "fivestar" && $sort == "desc") selected @endif>評価（降順）</option>
+                <option value="{{ route('restaurant.show_allmenu', ['id' => $restaurant_id, 'column' => 'fivestar', 'sort' => 'asc', 'menupage' => $menupage]) }}"
+                @if($column == "fivestar" && $sort == "asc") selected @endif>評価（昇順）</option>
+            @endif
         </select>
     </div>
     <hr>

@@ -29,7 +29,7 @@
 {{ $menus->links('pagination::menu_list') }}
 </div>
 
-@include('restaurant.comment_list_allmenu', ['version' => 'pc'])
+@include('restaurant.comment_list', ['version' => 'pc', 'pagename' => 'show_allmenu'])
 
 @endsection
 
@@ -63,6 +63,6 @@
 {{ $menus->links('pagination::menu_list') }}
 </div>
 
-@include('restaurant.comment_list_allmenu', ['version' => 'ipad'])
+@include('restaurant.comment_list', ['version' => 'ipad', 'pagename' => 'show_allmenu'])
 
 @endsection
