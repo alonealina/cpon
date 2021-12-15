@@ -239,6 +239,10 @@ footer {
     font-size: 30px;
 }
 
+.footer_item_title_sp {
+    font-size: 20px;
+}
+
 .help_content {
     text-align:center;
     font-size: 12px;
@@ -250,6 +254,10 @@ footer {
 
 .qr_code {
     margin-bottom: 50px;
+}
+
+.qr_code_sp {
+    width:50%;
 }
 
 .banner_list {

@@ -12,3 +12,7 @@
 @endsection
 
 
+@section('content_sp')
+
+<p class="footer_item_title_sp">プライバシーポリシー</p>
+@endsection

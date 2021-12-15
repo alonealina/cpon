@@ -31,3 +31,22 @@
     </div>
 </div>
 @endsection
+
+@section('back_button')
+<div class="back_button">
+    <a href="{{ route('index') }}">←</a>
+</div>
+@endsection
+
+@section('content_sp')
+<p class="footer_item_title_sp">ヘルプ・お問い合わせ</p>
+<div class="help_content">
+    <div class="help_text">
+    CポンやCポンモール(本サイト)全体に関するご質問等がございましたら、下記QRコードを読み取ってLINE公式アカウントを登録して頂き、お問合せをお願い致します。専門スタッフからご回答をさせて頂きます。
+    </div>
+    <div class="line_url">
+        <a href="#">LINE公式アカウント</a>
+    </div>
+    <img src="{{ asset('img/qrcode.png') }}" class="qr_code_sp" alt="">
+</div>
+@endsection
