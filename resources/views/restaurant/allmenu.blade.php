@@ -66,3 +66,34 @@
 @include('restaurant.comment_list', ['version' => 'ipad', 'pagename' => 'show_allmenu'])
 
 @endsection
+
+
+@section('menu_list_sp')
+
+<nav class="menu_list_bar menu_list_bar_sp">
+    <ul>
+        <li class="menu_recommend"><a href="{{ route('restaurant.show', ['id' => $restaurant_id]) }}">イチオシメニュー</a></li>
+        <li class="menu_all current"><a href="#">メニュー一覧</a></li>
+    </ul>
+</nav>
+
+@foreach ($menus as $menu)
+<div class="menu_detail_sp">
+<img src="{{ asset('img/shohin.png') }}" alt="">
+    <div class="menu_name_sp">{{ $menu->name }}</div>
+    <div class="menu_price_sp">￥{{ number_format($menu->price) }}</div>
+    <div class="menu_explain_sp">{{ $menu->explain }}</div>
+    @if($menu->recommend_flg)
+    <div class="recommend_mark_sp">
+    人気
+    </div>
+    @endif
+</div>
+@endforeach
+
+<div class="d-flex justify-content-center">
+{{ $menus->links('pagination::menu_list') }}
+</div>
+
+@endsection
+

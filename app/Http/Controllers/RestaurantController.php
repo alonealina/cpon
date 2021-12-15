@@ -113,6 +113,57 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function detail($id)
+    {
+        $restaurant = Restaurant::find($id);
+        $category = Category::find($restaurant->category_id);
+        $comments = Comment::where('restaurant_id', $id)->orderBy('created_at', 'desc')->paginate(5);
+        $avg_star = Comment::where('restaurant_id', $id)
+        ->selectRaw('CAST(AVG(fivestar) AS DECIMAL(2,1)) AS star_avg')->first()->star_avg;
+        $restaurant_id = $id;
+
+        return view('restaurant/detail', [
+            'restaurant' => $restaurant,
+            'category' => $category,
+            'comments' => $comments,
+            'avg_star' => $avg_star,
+            'restaurant_id' => $restaurant_id,
+        ]);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function comment_list_sp($id)
+    {
+        $restaurant = Restaurant::find($id);
+        $comments = Comment::where('restaurant_id', $id)->orderBy('created_at', 'desc')->paginate(10);
+        $column = \Request::get('column');
+        $sort = \Request::get('sort');
+        if (isset($column)) {
+            $comments = Comment::where('restaurant_id', $id)->orderBy($column, $sort)->paginate(5)
+            ->appends(["column" => $column, "sort" => $sort]);
+        }
+        $restaurant_id = $id;
+
+        return view('restaurant/comment_list_sp', [
+            'restaurant' => $restaurant,
+            'comments' => $comments,
+            'restaurant_id' => $restaurant_id,
+            'column' => $column,
+            'sort' => $sort,
+        ]);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function comment_form($id)
     {
         $restaurant = Restaurant::find($id);

@@ -18,7 +18,7 @@ class CreateMenusTable extends Migration
             $table->integer('restaurant_id');
             $table->string('name');
             $table->integer('price')->length(6);
-            $table->string('explain');
+            $table->string('explain', 100);
             $table->integer('recommend_flg')->length(1);
             $table->timestamps();
         });

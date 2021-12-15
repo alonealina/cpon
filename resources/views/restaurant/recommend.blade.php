@@ -60,3 +60,28 @@
 @endsection
 
 
+@section('menu_list_sp')
+
+<nav class="menu_list_bar menu_list_bar_sp">
+    <ul>
+        <li class="menu_recommend current"><a href="#">イチオシメニュー</a></li>
+        <li class="menu_all"><a href="{{ route('restaurant.show_allmenu', ['id' => $restaurant_id]) }}">メニュー一覧</a></li>
+    </ul>
+</nav>
+
+@foreach ($recommend_menus as $recommend_menu)
+<div class="menu_detail_sp">
+    <img src="{{ asset('img/shohin.png') }}" alt="">
+    <div class="menu_name_sp">{{ $recommend_menu->name }}</div>
+    <div class="menu_price_sp">￥{{ number_format($recommend_menu->price) }}</div>
+    <div class="menu_explain_sp">{{ $recommend_menu->explain }}</div>
+    @if($recommend_menu->recommend_flg)
+    <div class="recommend_mark_sp">
+    人気
+    </div>
+    @endif
+</div>
+@endforeach
+
+@endsection
+

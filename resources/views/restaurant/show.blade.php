@@ -100,7 +100,7 @@
     <div class="restaurant_show">
         <div class="restaurant_name">{{ $restaurant->name1 }} {{ $restaurant->name2 }} {{ $restaurant->name3 }}</div>
         <div class="restaurant_profile">
-            <input type="checkbox" id="ipad_label"><label for="ipad_label" id="restaurant_profile_label"></label>
+            <input type="checkbox" id="ipad_label"><label for="ipad_label" id="restaurant_profile_label_ipad"></label>
             <div>
                 <div id="restaurant_profile_text">
                 {{ $restaurant->profile }}
@@ -141,3 +141,53 @@
 @endsection
 
 
+@section('back_button')
+<div class="back_button">
+    <a href="{{ route('index') }}">←</a>
+</div>
+@endsection
+
+@section('content_sp')
+
+<div class="banner_sp">
+    <ul class="restaurant_img_sp">
+        @if (!empty($restaurant->main_img))
+        <li><img src="../../img/restaurant/71/{{ $restaurant->main_img }}" class="banner_img" alt=""></li>
+        @endif
+        @if (!empty($restaurant->sub_img1))
+        <li><img src="../../img/restaurant/71/{{ $restaurant->sub_img1 }}" class="banner_img" alt=""></li>
+        @endif
+        @if (!empty($restaurant->sub_img2))
+        <li><img src="../../img/restaurant/71/{{ $restaurant->sub_img2 }}" class="banner_img" alt=""></li>
+        @endif
+        @if (!empty($restaurant->sub_img3))
+        <li><img src="../../img/restaurant/71/{{ $restaurant->sub_img3 }}" class="banner_img" alt=""></li>
+        @endif
+        @if (!empty($restaurant->sub_img4))
+        <li><img src="../../img/restaurant/71/{{ $restaurant->sub_img4 }}" class="banner_img" alt=""></li>
+        @endif
+    </ul>
+</div>
+
+<div class="restaurant_show">
+    <div class="restaurant_show_name">{{ $restaurant->name1 }} {{ $restaurant->name2 }} {{ $restaurant->name3 }}</div>
+    <a href="{{ route('restaurant.detail', ['id' => $restaurant->id]) }}">
+        <img src="{{ asset('img/icon/star.png') }}" alt="" class="star_img_sp">
+        <div class="restaurant_fivestar_sp">
+            {{ $avg_star }} ({{ $comments->total() }} 評価)・{{ $category->name }}
+        </div>
+        <br>
+        <div class="restaurant_address_sp">
+            {{ $restaurant->pref }}{{ $restaurant->address }}
+        </div>
+        <div class="restaurant_detail_link">
+            タップして営業時間、所在地などを確認
+        </div>
+        <img src="{{ asset('img/yazi2.png') }}" alt="" class="link_img_sp">
+    </a>
+</div>
+
+@yield('menu_list_sp')
+@yield('comment_form_sp')
+
+@endsection

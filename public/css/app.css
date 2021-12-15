@@ -469,16 +469,35 @@ hr {
     margin:10px 20px;
 }
 
+.comment_list_content_sp {
+    margin:10px 10px;
+}
+
 .comment_datetime {
     font-size: 12px;
     float:right;
 }
 
+.comment_datetime_sp {
+    font-size: 10px;
+    float:right;
+}
+
+.comment_name_sp {
+    font-size: 12px;
+    float: left;
+}
+
 .number {
     margin-bottom: 10px;
 }
+
 .number b {
     font-size: 18px;
+}
+
+.number_sp {
+    font-size: 14px;
 }
 
 .fivestar {
@@ -793,9 +812,14 @@ label {
     font-weight: bold;
 }
 
+.restaurant_show_name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
 .recommend_list, .new_list, .search_list, #menu_list_recommend, #menu_list_all,
 .recommend_list_ipad, .new_list_ipad, .search_list_ipad, #menu_list_recommend_ipad, #menu_list_all_ipad,
-.category_list {
+.category_list, .restaurant_detail {
     display:flex;
     flex-wrap:wrap;
 }
@@ -872,6 +896,18 @@ label {
     height:300px;
 }
 
+.menu_detail_sp {
+    width: 380px;
+    height:120px;
+    margin: 10px 0;
+}
+
+.menu_detail_sp img {
+    width:100px;
+    height:100px;
+    float:right;
+}
+
 .menu_name {
     font-size: 18px;
 }
@@ -885,18 +921,36 @@ label {
     font-size: 16px;
 }
 
-.recommend_mark {
+.menu_name_sp {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.menu_price_sp {
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.menu_explain_sp {
+    color:#797979;
+    font-size: 11px;
+}
+
+.recommend_mark, .recommend_mark_sp {
     font-size: 10px;
     font-weight: bold;
     display:block;
     width:50px;
     height:15px;
-    margin:10px 0;
     background:green;
     color:#fff;
     border-radius:25px;
     text-decoration:none;
     text-align:center;
+}
+
+.recommend_mark {
+    margin:10px 0;
 }
 
 
@@ -937,6 +991,57 @@ label {
 .restaurant_address, .restaurant_time, .restaurant_comment, .restaurant_inquiry {
     margin: 10px 0;    
 }
+
+.star_img_sp {
+    float:left;
+    width: 17px;
+}
+
+.link_img_sp {
+    position: relative;
+    float:right;
+    top: -50px;
+    right: 5px;
+}
+
+.restaurant_fivestar_sp {
+    font-size:12px;
+    color: black;
+    float:left;
+}
+
+.restaurant_address_sp {
+    font-size:12px;
+    color: #797979;
+    width: 250px;
+}
+
+.restaurant_detail_link {
+    font-size:12px;
+}
+
+.restaurant_detail {
+    margin:10px 0;
+}
+
+.restaurant_detail_img {
+    width:12%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .restaurant_detail_img img {
+    position: absolute;
+    margin:auto;
+} */
+
+.restaurant_detail_content {
+    width:88%;
+    border-bottom: 1px solid #bbbbbb;
+    padding-bottom:10px;
+}
+
 
 .comment_error, .comment_error_fivestar {
     font-size: 15px;
@@ -1002,6 +1107,14 @@ label {
 
 }
 
+.menu_list_bar_sp ul{
+    display: table;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+}
+
 .menu_list_bar li{
     display: table-cell;
     min-width: 50px;
@@ -1045,7 +1158,7 @@ label {
     width:700px;
 }
 
-.slider_sp, .slider_banner_sp {
+.slider_sp, .slider_banner_sp, .restaurant_img_sp {
     width:380px;
     padding-left: 0px;
 }
@@ -1175,10 +1288,12 @@ label {
     width: 10px;
 }
 
-.slider_banner_sp .slick-prev {/*戻る矢印の位置と形状*/
+.slider_banner_sp .slick-prev,
+.restaurant_img_sp .slick-prev {/*戻る矢印の位置と形状*/
     left: 0px;
     top: 80px;
 }
+
 
 .slider_sp .slick-next {/*次へ矢印の位置と形状*/
     right: -2px;
@@ -1187,7 +1302,8 @@ label {
     width: 10px;
 }
 
-.slider_banner_sp .slick-next {/*次へ矢印の位置と形状*/
+.slider_banner_sp .slick-next,
+.restaurant_img_sp .slick-next {/*次へ矢印の位置と形状*/
     right: 0px;
     top: 80px;
 }
@@ -1249,6 +1365,12 @@ label {
     margin: 0px;
 }
 
+.rate-form_sp {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 100px 15px 0px 0px;
+}
+
 .rate-form input[type=radio] {
     display: none;
 }
@@ -1288,6 +1410,21 @@ label {
     z-index: 11;
     padding: 2rem;
 }
+
+.modal-window_sp {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 380px;
+    height: 400px;
+    background-color: white;
+    border-radius: 5px;
+    z-index: 11;
+    padding: 2rem;
+}
+
 .modal-text {
     font-size: 33px;
     font-weight: bold;
@@ -1295,6 +1432,15 @@ label {
     top: 35%;
     left: 11%;
 }
+
+.modal-text_sp {
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    top: 35%;
+    left: 11%;
+}
+
 /* 閉じるボタン */
 .button-close {
     font-size: 30px;
@@ -1309,6 +1455,21 @@ label {
     border-radius: 20rem;
     cursor: pointer;
 }
+
+.button-close_sp {
+    font-size: 20px;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 50px;
+    background-color: black;
+    color: #eaeaea;
+    border-radius: 20rem;
+    cursor: pointer;
+}
+
 /* オーバーレイ */
 .overlay {
     display: none;
@@ -1404,7 +1565,8 @@ text-align:center;
 }
 
 /* === ボタンにカーソルが乗った時 ================================ */
-.restaurant_profile > label:hover {
+#restaurant_profile_label:hover,
+#restaurant_profile_label_ipad:hover {
 transition: 0.5s;
 opacity: 0.6;
 }

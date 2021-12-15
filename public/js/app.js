@@ -33,6 +33,10 @@ function clickCommentButtonIpad() {
     document.forms.comment_form_ipad.submit();
 }
 
+function clickCommentButtonSp() {
+    document.forms.comment_form_sp.submit();
+}
+
 function searchFormChange() {
     var radio = document.getElementsByName('search_radio');
     var prefList = document.getElementById('pref_list');
@@ -114,6 +118,17 @@ $('.slider_banner_sp').slick({
     slidesToScroll: 1,//1回のスクロールで3枚の写真を移動して見せる
     prevArrow: '<img src="img/yazi1.png" class="slide-arrow prev-arrow slick-prev">',//矢印部分PreviewのHTMLを変更
     nextArrow: '<img src="img/yazi2.png" class="slide-arrow next-arrow slick-next">',//矢印部分NextのHTMLを変更
+    dots: true,//下部ドットナビゲーションの表示
+});
+
+// SP版の店舗画像用
+$('.restaurant_img_sp').slick({
+    autoplay: false,//自動的に動き出すか。初期値はfalse。
+    infinite: true,//スライドをループさせるかどうか。初期値はtrue。
+    slidesToShow: 1,//スライドを画面に3枚見せる
+    slidesToScroll: 1,//1回のスクロールで3枚の写真を移動して見せる
+    prevArrow: '<img src="../../img/yazi1.png" class="slide-arrow prev-arrow slick-prev">',//矢印部分PreviewのHTMLを変更
+    nextArrow: '<img src="../../img/yazi2.png" class="slide-arrow next-arrow slick-next">',//矢印部分NextのHTMLを変更
     dots: true,//下部ドットナビゲーションの表示
 });
 
