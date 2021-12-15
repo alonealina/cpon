@@ -46,3 +46,31 @@
 {{ $restaurants->links('pagination::default') }}
 </div>
 @endsection
+
+
+
+@section('back_button')
+<div class="back_button">
+    <a href="{{ route('index') }}">←</a>
+</div>
+@endsection
+
+@section('restaurant_list_sp')
+
+@foreach ($restaurants as $restaurant)
+<div class="search_restaurant_sp">
+    <a href="{{ route('restaurant.show', ['id' => $restaurant->id]) }}">
+        <img src="{{ asset('img/tempo1.png') }}" alt="">
+        <div class="search_name restaurant_name_sp">{{ $restaurant->name1 }} {{ $restaurant->name2 }} {{ $restaurant->name3 }}</div>
+        <div class="search_address_sp">〒{{ $restaurant->zip }} {{ $restaurant->pref }}{{ $restaurant->address }}</div>
+        <div class="search_time">{{ $restaurant->open_hm }} - {{ $restaurant->close_hm }}　</div>
+        @if($restaurant->opening_flg)
+        <div class="open_mark">OPEN</div>
+        @endif
+    </a>
+</div>
+@endforeach
+<div class="d-flex justify-content-center">
+{{ $restaurants->links('pagination::default') }}
+</div>
+@endsection

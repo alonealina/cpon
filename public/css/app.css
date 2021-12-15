@@ -137,7 +137,7 @@ footer a, footer a:hover {
 
 .freeword_text_sp {
     height:60px;
-    width:380px;
+    width:370px;
     margin-top:-50px;
     border-radius:50px;
     border:solid 2px;
@@ -173,7 +173,7 @@ footer a, footer a:hover {
 
 .category_title_sp {
     font-size: 14px;
-    margin-bottom: 5px;
+    margin: 5px 0;
 }
 
 .category_background {
@@ -548,15 +548,19 @@ hr {
     max-width: 220px;
 }
 
-.flexible-list-sidebar, .flexible-list-sidebar_ipad {
+.flexible-list-sidebar, .flexible-list-sidebar_ipad, .flexible-list-sidebar_sp {
     border: 3px solid;
     border-color: orange;
-    border-radius: 4px;
+    border-radius: 8px;
     padding: 10px;
 }
 
 .flexible-list-sidebar_ipad {
     margin: 0 50px 0 50px;
+}
+
+.flexible-list-sidebar_sp {
+    margin: 10px 0;
 }
 
 .flexible-list-sidebar hr {
@@ -569,7 +573,13 @@ hr {
     border: 1px solid;
     border-color: orange;
     margin-top: 10px;
-    width:120%;
+    width:100%;
+}
+
+.flexible-list-sidebar_sp hr {
+    border-color: orange;
+    margin: 10px 0;
+    width:100%;
 }
 
 .flexible-list-main {
@@ -731,6 +741,9 @@ label {
     margin:10px auto;
 }
 
+.notice_show_sp {
+}
+
 .notice_date {
     margin: 7px 0 0 30px;
 }
@@ -760,6 +773,11 @@ label {
     font-weight: bold;
 }
 
+.notice_content_sp {
+    font-size: 12px;
+    font-weight: bold;
+}
+
 .cpon_notice {
     font-size: 50px;
     font-weight: bold;
@@ -776,7 +794,8 @@ label {
 }
 
 .recommend_list, .new_list, .search_list, #menu_list_recommend, #menu_list_all,
-.recommend_list_ipad, .new_list_ipad, .search_list_ipad, #menu_list_recommend_ipad, #menu_list_all_ipad {
+.recommend_list_ipad, .new_list_ipad, .search_list_ipad, #menu_list_recommend_ipad, #menu_list_all_ipad,
+.category_list {
     display:flex;
     flex-wrap:wrap;
 }
@@ -920,6 +939,25 @@ label {
 
 #pref_list, #pref_list_ipad {
     display: none;
+}
+
+
+.category_list li {
+    text-align:center;
+    background-color: #F0F0F0;
+    width:115px;
+    height:115px;
+    border-radius:15%;
+    margin:3px;
+    list-style: none;
+}
+
+.category_list li a {
+    color:black;
+}
+
+.category_list li img {
+    margin:20px auto;
 }
 
 /*以下ヘッダーの検索フォームについて*/
@@ -1387,10 +1425,15 @@ bottom        : 0px;
 
 /* === 文書を書くBOX ============================================= */
 .filter_form_ipad {
-overflow      : hidden;                       /* hidden指定は必須 */
-width: 100%;
-display: flex;
-flex-wrap: wrap;
+    overflow      : hidden;                       /* hidden指定は必須 */
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+    
+.filter_form_sp {
+    overflow      : hidden;                       /* hidden指定は必須 */
+    width: 100%;
 }
 
 /* === チェックボックス ========================================== */
@@ -1400,23 +1443,42 @@ display       : none;                                   /* 非表示 */
 
 /* === チェックボックスのlabel（＝ボタンに見せる） =============== */
 .filter_open_label {
-position      : relative;
-float:right;
-right         : 13px;
-margin-bottom: -40px;
-bottom: 26px;
-padding-top       : 0px ;
-font-size: 15px;
-font-weight: bold;
-display:block;
-width:120px;
-height:30px;
-line-height:30px;
-background:black;
-color:#fff;
-border-radius:25px;
-text-decoration:none;
-text-align:center;
+    position      : relative;
+    float:right;
+    right         : 13px;
+    margin-bottom: -40px;
+    bottom: 26px;
+    padding-top       : 0px ;
+    font-size: 15px;
+    font-weight: bold;
+    display:block;
+    width:120px;
+    height:30px;
+    line-height:30px;
+    background:black;
+    color:#fff;
+    border-radius:25px;
+    text-decoration:none;
+    text-align:center;
+}
+
+.filter_open_label_sp {
+    position      : relative;
+    float:right;
+    margin-bottom: -40px;
+    bottom: 26px;
+    padding-top       : 0px ;
+    font-size: 12px;
+    font-weight: bold;
+    display:block;
+    width:120px;
+    height:30px;
+    line-height:30px;
+    background:black;
+    color:#fff;
+    border-radius:25px;
+    text-decoration:none;
+    text-align:center;
 }
 
 /* === ボタンにカーソルが乗った時 ================================ */

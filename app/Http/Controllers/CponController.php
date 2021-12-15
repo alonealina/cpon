@@ -56,6 +56,21 @@ class CponController extends Controller
         ]);
     }
 
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function search_sp()
+    {
+        $categories = Category::all();
+
+        return view('search_sp', [
+            'categories' => $categories,
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -140,10 +155,12 @@ class CponController extends Controller
     {
         $categories = Category::all();
         $news = Restaurant::where('new_flg', 1)->take(24)->get();
+        $news_sp = Restaurant::where('new_flg', 1)->take(24)->paginate(6);
 
         return view('new', [
             'categories' => $categories,
             'news' => $news,
+            'news_sp' => $news_sp,
         ]);
     }
 

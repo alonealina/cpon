@@ -42,3 +42,35 @@
 </div>
 
 @endsection
+
+
+
+@section('back_button')
+<div class="back_button">
+    <a href="{{ route('index') }}">←</a>
+</div>
+@endsection
+
+@section('restaurant_list_sp')
+
+<p class="restaurant_list_title_sp">新着店舗情報</p>
+@foreach ($news_sp as $new_sp)
+<div class="new_restaurant_sp">
+    <a href="{{ route('restaurant.show', ['id' => $new_sp->id]) }}">
+        <img src="{{ asset('img/tempo1.png') }}" alt="">
+        <div class="new_name restaurant_name_sp">{{ $new_sp->name1 }} {{ $new_sp->name2 }} {{ $new_sp->name3 }}</div>
+        <div class="new_address_sp">〒{{ $new_sp->zip }} {{ $new_sp->pref }}{{ $new_sp->address }}</div>
+        <div class="new_time">{{ $new_sp->open_hm }} - {{ $new_sp->close_hm }}　</div>
+        @if($new_sp->opening_flg)
+        <div class="open_mark">OPEN</div>
+        @endif
+    </a>
+</div>
+@endforeach
+<div class="d-flex justify-content-center">
+{{ $news_sp->links('pagination::default') }}
+</div>
+<div class="button_black_sp">
+    <a href="{{ route('index') }}">TOPに戻る</a>
+</div>
+@endsection
