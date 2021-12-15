@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@section('back_button')
+<div class="back_button">
+    <a href="{{ route('restaurant.detail', ['id' => $restaurant->id]) }}">←</a>
+</div>
+@endsection
+
 @section('content_sp')
 
 <div class="banner_sp">
@@ -26,7 +32,7 @@
     <div class="comment_list_header">
         <p class="comment_list_title">コメント一覧</p>
         <div class="button_comment">
-            <a href="{{ route('restaurant.comment_form', ['id' => $restaurant_id]) }}">コメントを投稿する</a>
+            <a href="{{ route('restaurant.comment_form_sp', ['id' => $restaurant_id]) }}">コメントを投稿する</a>
         </div>
     </div>
     <div class="number_sp">

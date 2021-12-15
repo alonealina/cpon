@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@section('back_button')
+<div class="back_button">
+    <a href="{{ route('restaurant.comment_list_sp', ['id' => $restaurant->id]) }}">←</a>
+</div>
+@endsection
+
 @section('content_sp')
 
 <div class="banner_sp">
