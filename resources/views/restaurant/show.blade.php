@@ -188,6 +188,6 @@
 </div>
 
 @yield('menu_list_sp')
-@yield('comment_form_sp')
+
 
 @endsection

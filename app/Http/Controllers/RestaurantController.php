@@ -183,6 +183,30 @@ class RestaurantController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function comment_form_sp($id)
+    {
+        $restaurant = Restaurant::find($id);
+        $category = Category::find($restaurant->category_id);
+        $comments = Comment::where('restaurant_id', $id)->paginate(5);
+        $avg_star = Comment::where('restaurant_id', $id)
+            ->selectRaw('CAST(AVG(fivestar) AS DECIMAL(2,1)) AS star_avg')->first()->star_avg;
+        $restaurant_id = $id;
+
+        return view('restaurant/comment_form_sp', [
+            'restaurant' => $restaurant,
+            'category' => $category,
+            'comments' => $comments,
+            'avg_star' => $avg_star,
+            'restaurant_id' => $restaurant_id,
+        ]);
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -231,7 +255,11 @@ class RestaurantController extends Controller
         try {
             $comment->fill($fill_data)->save();
             DB::commit();
-            return redirect()->to('restaurants/'.$request['restaurant_id'].'/comment')->with('flashmessage', '登録が完了いたしました。');
+            if ($request['sp_flg']) {
+                return redirect()->to('restaurants/'.$request['restaurant_id'].'/comment_sp')->with('flashmessage', '登録が完了いたしました。');
+            } else {
+                return redirect()->to('restaurants/'.$request['restaurant_id'].'/comment')->with('flashmessage', '登録が完了いたしました。');
+            }
         } catch (\Exception $e) {
             DB::rollback();
         }

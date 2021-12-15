@@ -22,5 +22,6 @@ Route::get('restaurants/{id}/detail', 'App\Http\Controllers\RestaurantController
 Route::get('restaurants/{id}/comment_list_sp', 'App\Http\Controllers\RestaurantController@comment_list_sp')->name('restaurant.comment_list_sp');
 Route::get('restaurants/{id}/allmenu', 'App\Http\Controllers\RestaurantController@show_allmenu')->name('restaurant.show_allmenu');
 Route::get('restaurants/{id}/comment', 'App\Http\Controllers\RestaurantController@comment_form')->name('restaurant.comment_form');
+Route::get('restaurants/{id}/comment_sp', 'App\Http\Controllers\RestaurantController@comment_form_sp')->name('restaurant.comment_form_sp');
 Route::post('restaurants/comment_store', 'App\Http\Controllers\RestaurantController@comment_store')->name('restaurant.comment_store');
 
