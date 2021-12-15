@@ -11,7 +11,9 @@
         <div class="search_address">〒{{ $restaurant->zip }} {{ $restaurant->pref }}{{ $restaurant->address }}</div>
         <div class="search_time">{{ $restaurant->open_hm }} - {{ $restaurant->close_hm }}　
             @if($restaurant->opening_flg)
-            OPEN
+            <div class="open_mark">OPEN</div>
+            @else
+            <div class="close_mark">CLOSE</div>
             @endif
         </div>
     </a>
@@ -35,7 +37,9 @@
         <div class="search_address">〒{{ $restaurant->zip }} {{ $restaurant->pref }}{{ $restaurant->address }}</div>
         <div class="search_time">{{ $restaurant->open_hm }} - {{ $restaurant->close_hm }}　
             @if($restaurant->opening_flg)
-            OPEN
+            <div class="open_mark">OPEN</div>
+            @else
+            <div class="close_mark">CLOSE</div>
             @endif
         </div>
     </a>
@@ -66,6 +70,8 @@
         <div class="search_time">{{ $restaurant->open_hm }} - {{ $restaurant->close_hm }}　</div>
         @if($restaurant->opening_flg)
         <div class="open_mark">OPEN</div>
+        @else
+        <div class="close_mark">CLOSE</div>
         @endif
     </a>
 </div>

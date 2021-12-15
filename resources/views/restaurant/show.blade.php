@@ -44,6 +44,8 @@
     <img src="{{ asset('img/icon/tokei.png') }}" alt="">　
     @if($restaurant->opening_flg)
     <div class="open_mark">OPEN</div>
+    @else
+    <div class="close_mark">CLOSE</div>
     @endif
     <div class="restaurant_time">
         　{{ $restaurant->open_hm }}～{{ $restaurant->close_hm }}　{{ $restaurant->time_remarks }}
@@ -114,6 +116,8 @@
         <img src="{{ asset('img/icon/tokei.png') }}" alt="">　
         @if($restaurant->opening_flg)
         <div class="open_mark">OPEN</div>
+        @else
+        <div class="close_mark">CLOSE</div>
         @endif
         <div class="restaurant_time">
             　{{ $restaurant->open_hm }}～{{ $restaurant->close_hm }}　{{ $restaurant->time_remarks }}

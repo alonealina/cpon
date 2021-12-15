@@ -41,6 +41,8 @@
         <div class="recommend_time">{{ $recommend->open_hm }} - {{ $recommend->close_hm }}　</div>
         @if($recommend->opening_flg)
         <div class="open_mark">OPEN</div>
+        @else
+        <div class="close_mark">CLOSE</div>
         @endif
     </a>
     </div>
@@ -57,6 +59,8 @@
         <div class="new_time">{{ $new->open_hm }} - {{ $new->close_hm }}　</div>
         @if($new->opening_flg)
         <div class="open_mark">OPEN</div>
+        @else
+        <div class="close_mark">CLOSE</div>
         @endif
     </a>
     </div>
@@ -96,6 +100,8 @@
         <div class="recommend_time">{{ $recommend->open_hm }} - {{ $recommend->close_hm }}　</div>
         @if($recommend->opening_flg)
         <div class="open_mark">OPEN</div>
+        @else
+        <div class="close_mark">CLOSE</div>
         @endif
     </a>
     </div>
@@ -112,6 +118,8 @@
         <div class="new_time">{{ $new->open_hm }} - {{ $new->close_hm }}　</div>
         @if($new->opening_flg)
         <div class="open_mark">OPEN</div>
+        @else
+        <div class="close_mark">CLOSE</div>
         @endif
     </a>
     </div>
@@ -151,6 +159,8 @@
     <div class="recommend_time">{{ $recommend->open_hm }} - {{ $recommend->close_hm }}　</div>
     @if($recommend->opening_flg)
     <div class="open_mark">OPEN</div>
+    @else
+    <div class="close_mark">CLOSE</div>
     @endif
 </a>
 </div>
@@ -178,6 +188,8 @@
     <div class="new_time">{{ $new->open_hm }} - {{ $new->close_hm }}　</div>
     @if($new->opening_flg)
     <div class="open_mark">OPEN</div>
+    @else
+    <div class="close_mark">CLOSE</div>
     @endif
 </a>
 </div>

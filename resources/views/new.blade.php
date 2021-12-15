@@ -13,6 +13,8 @@
         <div class="new_time">{{ $new->open_hm }} - {{ $new->close_hm }}　</div>
         @if($new->opening_flg)
         <div class="open_mark">OPEN</div>
+        @else
+        <div class="close_mark">CLOSE</div>
         @endif
     </a>
     </div>
@@ -35,6 +37,8 @@
         <div class="new_time">{{ $new->open_hm }} - {{ $new->close_hm }}　</div>
         @if($new->opening_flg)
         <div class="open_mark">OPEN</div>
+        @else
+        <div class="close_mark">CLOSE</div>
         @endif
     </a>
     </div>
@@ -63,6 +67,8 @@
         <div class="new_time">{{ $new_sp->open_hm }} - {{ $new_sp->close_hm }}　</div>
         @if($new_sp->opening_flg)
         <div class="open_mark">OPEN</div>
+        @else
+        <div class="close_mark">CLOSE</div>
         @endif
     </a>
 </div>

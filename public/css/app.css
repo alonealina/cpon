@@ -388,7 +388,7 @@ hr {
     height:40px;
     margin:15px 0 0 15px;
     line-height:40px;
-    background:#FF7D1A;
+    background:#FFB01A;
     color:#fff;
     border-radius:25px;
     text-decoration:none;
@@ -908,6 +908,21 @@ label {
     height:15px;
     margin:0px 0;
     background:#DD0000;
+    color:#fff;
+    border-radius:25px;
+    text-decoration:none;
+    text-align:center;
+    display: inline-block;
+}
+
+.close_mark {
+    font-size: 8px;
+    font-weight: bold;
+    display:block;
+    width:50px;
+    height:15px;
+    margin:0px 0;
+    background:blue;
     color:#fff;
     border-radius:25px;
     text-decoration:none;
