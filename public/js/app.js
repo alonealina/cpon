@@ -132,8 +132,4 @@ $('.restaurant_img_sp').slick({
     dots: true,//下部ドットナビゲーションの表示
 });
 
-let client_h = document.getElementById('restaurant_profile_text').clientHeight;
 
-if (client_h < 120) {
-    document.getElementById('restaurant_profile_label').style.display ="none";
-}

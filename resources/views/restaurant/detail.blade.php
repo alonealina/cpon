@@ -10,20 +10,22 @@
 
 <div class="banner_sp">
     <ul class="restaurant_img_sp">
-        @if (!empty($restaurant->main_img))
-        <li><img src="../../img/restaurant/71/{{ $restaurant->main_img }}" class="banner_img" alt=""></li>
+        @if (empty($restaurant->main_img))
+        <li><img src="../../img/imgerror.jpg" class="banner_img" alt=""></li>
+        @else
+        <li><img src="../../img/restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" class="banner_img" alt=""></li>
         @endif
         @if (!empty($restaurant->sub_img1))
-        <li><img src="../../img/restaurant/71/{{ $restaurant->sub_img1 }}" class="banner_img" alt=""></li>
+        <li><img src="../../img/restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img1 }}" class="banner_img" alt=""></li>
         @endif
         @if (!empty($restaurant->sub_img2))
-        <li><img src="../../img/restaurant/71/{{ $restaurant->sub_img2 }}" class="banner_img" alt=""></li>
+        <li><img src="../../img/restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img2 }}" class="banner_img" alt=""></li>
         @endif
         @if (!empty($restaurant->sub_img3))
-        <li><img src="../../img/restaurant/71/{{ $restaurant->sub_img3 }}" class="banner_img" alt=""></li>
+        <li><img src="../../img/restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img3 }}" class="banner_img" alt=""></li>
         @endif
         @if (!empty($restaurant->sub_img4))
-        <li><img src="../../img/restaurant/71/{{ $restaurant->sub_img4 }}" class="banner_img" alt=""></li>
+        <li><img src="../../img/restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img4 }}" class="banner_img" alt=""></li>
         @endif
     </ul>
 </div>
@@ -33,7 +35,7 @@
     <div class="restaurant_profile">
         <input type="checkbox" id="sp_label"><label for="sp_label" id="restaurant_profile_label_sp"></label>
         <div>
-            <div id="restaurant_profile_text">
+            <div id="restaurant_profile_text_sp">
             {{ $restaurant->profile }}
             </div>
         </div>
@@ -83,4 +85,10 @@
     </div>
 </div>
 
+<script>
+let client_h_sp = document.getElementById('restaurant_profile_text_sp').clientHeight;
+if (client_h_sp < 120) {
+    document.getElementById('restaurant_profile_label_sp').style.display ="none";
+}
+</script>
 @endsection

@@ -747,7 +747,8 @@ label {
 .recommend_restaurant_ipad img,
 .new_restaurant_ipad img,
 .search_restaurant_ipad img {
-    height:150px;
+    height: 180px;
+    width: 330px;
 }
 
 .recommend_restaurant_sp img,

@@ -35,7 +35,11 @@
     @foreach ($recommends as $recommend)
     <div class="recommend_restaurant">
     <a href="{{ route('restaurant.show', ['id' => $recommend->id]) }}">
-        <img src="{{ asset('img/tempo1.png') }}" alt="">
+        @if (empty($recommend->main_img))
+        <img src="../../img/imgerror.jpg">
+        @else
+        <img src="../../img/restaurant/{{ $recommend->id }}/{{ $recommend->main_img }}">
+        @endif
         <div class="recommend_name">{{ $recommend->name1 }} {{ $recommend->name2 }} {{ $recommend->name3 }}</div>
         <div class="recommend_address">〒{{ $recommend->zip }} {{ $recommend->pref }}{{ $recommend->address }}</div>
         <div class="recommend_time">{{ $recommend->open_hm }} - {{ $recommend->close_hm }}　</div>
@@ -53,7 +57,11 @@
     @foreach ($news as $new)
     <div class="new_restaurant">
     <a href="{{ route('restaurant.show', ['id' => $new->id]) }}">
-        <img src="{{ asset('img/tempo1.png') }}" alt="">
+        @if (empty($new->main_img))
+        <img src="../../img/imgerror.jpg">
+        @else
+        <img src="../../img/restaurant/{{ $new->id }}/{{ $new->main_img }}">
+        @endif
         <div class="new_name">{{ $new->name1 }} {{ $new->name2 }} {{ $new->name3 }}</div>
         <div class="new_address">〒{{ $new->zip }} {{ $new->pref }}{{ $new->address }}</div>
         <div class="new_time">{{ $new->open_hm }} - {{ $new->close_hm }}　</div>
@@ -94,7 +102,11 @@
     @foreach ($recommends as $recommend)
     <div class="recommend_restaurant_ipad">
     <a href="{{ route('restaurant.show', ['id' => $recommend->id]) }}">
-        <img src="{{ asset('img/tempo1.png') }}" alt="">
+        @if (empty($recommend->main_img))
+        <img src="../../img/imgerror.jpg">
+        @else
+        <img src="../../img/restaurant/{{ $recommend->id }}/{{ $recommend->main_img }}">
+        @endif
         <div class="recommend_name">{{ $recommend->name1 }} {{ $recommend->name2 }} {{ $recommend->name3 }}</div>
         <div class="recommend_address">〒{{ $recommend->zip }} {{ $recommend->pref }}{{ $recommend->address }}</div>
         <div class="recommend_time">{{ $recommend->open_hm }} - {{ $recommend->close_hm }}　</div>
@@ -112,7 +124,11 @@
     @foreach ($news as $new)
     <div class="new_restaurant_ipad">
     <a href="{{ route('restaurant.show', ['id' => $new->id]) }}">
-        <img src="{{ asset('img/tempo1.png') }}" alt="">
+        @if (empty($new->main_img))
+        <img src="../../img/imgerror.jpg">
+        @else
+        <img src="../../img/restaurant/{{ $new->id }}/{{ $new->main_img }}">
+        @endif
         <div class="new_name">{{ $new->name1 }} {{ $new->name2 }} {{ $new->name3 }}</div>
         <div class="new_address">〒{{ $new->zip }} {{ $new->pref }}{{ $new->address }}</div>
         <div class="new_time">{{ $new->open_hm }} - {{ $new->close_hm }}　</div>
@@ -153,7 +169,11 @@
 @foreach ($recommends as $recommend)
 <div class="recommend_restaurant_sp">
 <a href="{{ route('restaurant.show', ['id' => $recommend->id]) }}">
-    <img src="{{ asset('img/tempo1.png') }}" alt="">
+    @if (empty($recommend->main_img))
+    <img src="../../img/imgerror.jpg">
+    @else
+    <img src="../../img/restaurant/{{ $recommend->id }}/{{ $recommend->main_img }}">
+    @endif
     <div class="recommend_name restaurant_name_sp">{{ $recommend->name1 }} {{ $recommend->name2 }} {{ $recommend->name3 }}</div>
     <div class="recommend_address_sp">〒{{ $recommend->zip }} {{ $recommend->pref }}{{ $recommend->address }}</div>
     <div class="recommend_time">{{ $recommend->open_hm }} - {{ $recommend->close_hm }}　</div>
@@ -182,7 +202,11 @@
 @foreach ($news as $new)
 <div class="new_restaurant_sp">
 <a href="{{ route('restaurant.show', ['id' => $new->id]) }}">
-    <img src="{{ asset('img/tempo1.png') }}" alt="">
+    @if (empty($new->main_img))
+    <img src="../../img/imgerror.jpg">
+    @else
+    <img src="../../img/restaurant/{{ $new->id }}/{{ $new->main_img }}">
+    @endif
     <div class="new_name restaurant_name_sp">{{ $new->name1 }} {{ $new->name2 }} {{ $new->name3 }}</div>
     <div class="new_address_sp">〒{{ $new->zip }} {{ $new->pref }}{{ $new->address }}</div>
     <div class="new_time">{{ $new->open_hm }} - {{ $new->close_hm }}　</div>
