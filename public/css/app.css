@@ -730,6 +730,7 @@ label {
 .new_restaurant_sp a, .new_restaurant_sp a:hover,
 .search_restaurant_sp a, .search_restaurant_sp a:hover,
 .menu_list_bar a, .menu_list_bar a:hover,
+.category a, .category a:hover,
 .category_ipad a, .category_ipad a:hover,
 .category_sp a, .category_sp a:hover {
     color: black;
@@ -1236,6 +1237,7 @@ label {
     border-radius:15%;
 }
 
+.category li img,
 .category_ipad li img {
     margin:15px auto;
 }
