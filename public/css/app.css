@@ -228,6 +228,7 @@ footer {
     text-align:center;
     background-color: #FFA500;
     color: white;
+    margin-top: 200px;
 }
 
 .footer_item_title {
@@ -519,11 +520,19 @@ hr {
     margin:20px 0;
 }
 
-.user_name_title {
+.user_name_title, .comment_create_title {
     font-size: 25px;
     margin: 30px 0px 10px 0px;
     border-left: orange solid 5px;
     padding-left: 20px;
+}
+
+.user_name_title_sp, .comment_create_title_sp {
+    float:left;
+    font-weight: bold;
+    margin: 10px 0px;
+    border-left: orange solid 5px;
+    padding-left: 10px;
 }
 
 .comment_input, .user_name_input {
@@ -538,13 +547,6 @@ hr {
 
 .user_name_form {
     margin-bottom: 20px;
-}
-
-.comment_create_title {
-    font-size: 25px;
-    margin: 30px 0px 10px 0px;
-    border-left: orange solid 5px;
-    padding-left: 20px;
 }
 
 .search_button a {
@@ -766,11 +768,13 @@ label {
 }
 
 .notice_show {
-    width:700px;
+    width:1110px;
     margin:10px auto;
 }
 
-.notice_show_sp {
+.notice_show_ipad {
+    width:700px;
+    margin:10px auto;
 }
 
 .notice_date {
@@ -815,6 +819,46 @@ label {
     color:white;
     height:300px;
     line-height: 300px;
+}
+
+.notice_name_title {
+    position: relative;
+    top: 40%;
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.notice_background {
+    background-image: url(../img/bg_kategory.jpg);
+    height:300px;
+    margin-right: calc(53% - 50vw);
+    margin-left: calc(50% - 50vw);
+    padding-right: calc(50vw - 50%);
+    padding-left: calc(50vw - 50%);
+}
+
+.notice_background_ipad {
+    background-image: url(../img/bg_kategory.jpg);
+    height:200px;
+    margin-bottom: 20px;
+}
+
+.notice_name_title_ipad {
+    position: relative;
+    top:20%;
+    font-size: 40px;
+    font-weight: bold;
+    margin-left:60px;
+}
+
+.notice_img_ipad {
+    position: relative;
+    float:right;
+    bottom: 70px;
+}
+
+.notice_img_ipad img {
+    width:70%;
 }
 
 .restaurant_name {
@@ -1364,6 +1408,14 @@ label {
     padding-left: 20px;
 }
 
+.fivestar_title_sp {
+    float:left;
+    font-weight: bold;
+    margin: 10px 0px;
+    border-left: orange solid 5px;
+    padding-left: 10px;
+}
+
 .rate-form_pc {
     display: flex;
     flex-direction: row-reverse;
@@ -1379,7 +1431,7 @@ label {
 .rate-form_sp {
     display: flex;
     flex-direction: row-reverse;
-    margin: 100px 15px 0px 0px;
+    margin: 50px 15px 0px 0px;
 }
 
 .rate-form input[type=radio] {

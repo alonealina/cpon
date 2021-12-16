@@ -36,7 +36,7 @@
         <div class="comment_form_title">コメントの投稿</div>
 
         <div class="user_name_form">
-            <div class="user_name_title">お名前</div>
+            <div class="user_name_title_sp">お名前</div>
             @if($errors->has('user_name'))
             <div class="comment_error">{{ $errors->first('user_name') }}</div>
             @endif
@@ -46,7 +46,7 @@
         @if($errors->has('fivestar'))
         <div class="comment_error_fivestar">{{ $errors->first('fivestar') }}</div>
         @endif
-        <div class="fivestar_title">注文の評価</div>
+        <div class="fivestar_title_sp">注文の評価</div>
         <div class="rate-form rate-form_sp">
             <input id="star5_sp" type="radio" name="fivestar" value="5" {{ old('fivestar') == 5 ? 'checked' : '' }}>
             <label for="star5_sp">★</label>
@@ -59,7 +59,7 @@
             <input id="star1_sp" type="radio" name="fivestar" value="1" {{ old('fivestar') == 1 ? 'checked' : '' }}>
             <label for="star1_sp">★</label>
         </div>
-        <div class="comment_create_title">コメント記載</div>
+        <div class="comment_create_title_sp">コメント記載</div>
         @if($errors->has('comment'))
             <div class="comment_error">{{ $errors->first('comment') }}</div>
         @endif

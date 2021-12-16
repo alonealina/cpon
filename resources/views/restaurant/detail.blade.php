@@ -60,7 +60,9 @@
             <div class="close_mark">CLOSE</div>
             @endif
             <br>
-            {{ $restaurant->open_hm }}～{{ $restaurant->close_hm }}　{{ $restaurant->time_remarks }}
+            {{ $restaurant->open_hm }}～{{ $restaurant->close_hm }}
+            <br>
+            {{ $restaurant->time_remarks }}
         </div>
     </div>
 
@@ -80,7 +82,9 @@
         <br>
         <a href="{{ $restaurant->url }}" target=”_blank”>{{ $restaurant->url }}</a>
         <br>
-        {{ $restaurant->tel }}　{{ $restaurant->inquiry_remarks }}
+        {{ $restaurant->tel }}
+        <br>
+        {{ $restaurant->inquiry_remarks }}
         </div>
     </div>
 </div>

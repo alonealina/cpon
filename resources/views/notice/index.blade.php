@@ -2,7 +2,15 @@
 
 @section('content')
 
-<p class="cpon_notice">Cポンポータルからのお知らせ</p>
+<div class="notice_background">
+    <div class="notice_name_title">
+    Cポンポータルからのお知らせ
+    </div>
+    <div class="category_img">
+    <img src="{{ asset('img/osirase.png') }}" alt="">
+    </div>
+</div>
+
 <hr>
 <div class="notice_home">
     @foreach ($notices as $notice)
@@ -22,8 +30,16 @@
 
 @section('content_ipad')
 
+<div class="notice_background_ipad">
+    <div class="notice_name_title_ipad">
+    Cポンポータルからの<br>お知らせ
+    </div>
+    <div class="notice_img_ipad">
+    <img src="{{ asset('img/osirase.png') }}" alt="">
+    </div>
+</div>
+
 <div class="body_ipad">
-    <p class="cpon_notice">Cポンポータルからのお知らせ</p>
     <hr>
     <div class="notice_home">
         @foreach ($notices as $notice)
