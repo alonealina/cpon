@@ -201,6 +201,7 @@ class AdminController extends Controller
             DB::rollback();
         }
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -208,12 +209,10 @@ class AdminController extends Controller
      */
     public function notice_regist()
     {
-        $categories = Category::all();
-
         return view('admin/notice_regist');
     }
 
-        /**
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -248,6 +247,62 @@ class AdminController extends Controller
         DB::beginTransaction();
         try {
             $notice->fill($fill_data)->save();
+            DB::commit();
+            return redirect()->to('admin/notice_regist')->with('flashmessage', '登録が完了いたしました。');
+        } catch (\Exception $e) {
+            DB::rollback();
+        }
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function notice_edit($id)
+    {
+        $notice = Notice::find($id);
+
+        return view('admin/notice_edit', [
+            'notice' => $notice,
+        ]);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function notice_update(Request $request)
+    {
+        $rules = [
+            'title' => ['max:50', 'required'],
+            'content' => 'required',
+            'notice_date' => 'required',
+        ];
+
+        $messages = [
+            'title.max' => 'タイトルは20文字以下でお願いします',
+            'title.required' => 'タイトルを入力してください',
+            'content.required' => '本文を入力してください',
+            'notice_date.required' => 'お知らせ日時を入力してください',
+        ];
+
+        Validator::make($request->all(), $rules, $messages)->validate();
+
+        $request = $request->all();
+        $notice = Notice::find($request['id']);
+
+        $fill_data = [
+            'title' => $request['title'],
+            'content' => $request['content'],
+            'notice_date' => $request['notice_date'],
+        ];
+
+        DB::beginTransaction();
+        try {
+            $notice->update($fill_data);
             DB::commit();
             return redirect()->to('admin/notice_regist')->with('flashmessage', '登録が完了いたしました。');
         } catch (\Exception $e) {
