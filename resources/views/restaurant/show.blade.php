@@ -51,7 +51,7 @@
         <input type="checkbox" id="sp01"><label for="sp01" id="restaurant_profile_label"></label>
         <div>
             <div id="restaurant_profile_text">
-            {{ $restaurant->profile }}
+            {!! nl2br(e($restaurant->profile)) !!}
             </div>
         </div>
     </div>

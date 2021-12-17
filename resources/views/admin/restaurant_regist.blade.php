@@ -146,11 +146,53 @@
         </div>
 
         <div class="regist_form_item">
-            <div class="user_name_title">メイン画像</div>
+            <div class="user_name_title">利用シーン</div>
+            @include('form.scenes')
+        </div>
+
+        <div class="regist_form_item">
+            <div class="user_name_title">こだわり条件</div>
+            @include('form.commitments')
+        </div>
+
+        <div class="regist_form_item">
+            <div class="user_name_title">メイン画像<p class="required_mark">必須</p></div>
             @if($errors->has('main_img'))
             <div class="comment_error">{{ $errors->first('main_img') }}</div>
             @endif
             <div class="regist_file_button"><input type="file" name="main_img"></div>
+        </div>
+
+        <div class="regist_form_item">
+            <div class="user_name_title">サブ画像1</div>
+            @if($errors->has('sub_img1'))
+            <div class="comment_error">{{ $errors->first('sub_img1') }}</div>
+            @endif
+            <div class="regist_file_button"><input type="file" name="sub_img1"></div>
+        </div>
+
+        <div class="regist_form_item">
+            <div class="user_name_title">サブ画像2</div>
+            @if($errors->has('sub_img2'))
+            <div class="comment_error">{{ $errors->first('sub_img2') }}</div>
+            @endif
+            <div class="regist_file_button"><input type="file" name="sub_img2"></div>
+        </div>
+
+        <div class="regist_form_item">
+            <div class="user_name_title">サブ画像3</div>
+            @if($errors->has('sub_img3'))
+            <div class="comment_error">{{ $errors->first('sub_img3') }}</div>
+            @endif
+            <div class="regist_file_button"><input type="file" name="sub_img3"></div>
+        </div>
+
+        <div class="regist_form_item">
+            <div class="user_name_title">サブ画像4</div>
+            @if($errors->has('sub_img4'))
+            <div class="comment_error">{{ $errors->first('sub_img4') }}</div>
+            @endif
+            <div class="regist_file_button"><input type="file" name="sub_img4"></div>
         </div>
 
 
