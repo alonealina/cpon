@@ -54,8 +54,8 @@
             @if($errors->has('zip'))
             <div class="comment_error">{{ $errors->first('zip') }}</div>
             @endif
-            〒{{ Form::text('zip', old('zip'), ['class' => 'zip_input', 'maxlength' => 8, 'placeholder' => '000-0000']) }}
-
+            〒{{ Form::text('zip', old('zip'), ['class' => 'zip_input', 'maxlength' => 8, 'placeholder' => '000-0000',
+                'onkeyup' => "AjaxZip3.zip2addr(this, '', 'address', 'address')"]) }}
         </div>
 
         <div class="regist_form_item">
@@ -200,6 +200,7 @@
             <a href="#" onclick="clickRegistButton()">確認画面へ<div class="yazi3"><img src="{{ asset('img/yazi3.png') }}" alt=""></div></a>
         </div>
     </form>
+    <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
 </div>
 
 @endsection
