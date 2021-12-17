@@ -37,6 +37,11 @@ function clickCommentButtonSp() {
     document.forms.comment_form_sp.submit();
 }
 
+function clickRegistButton() {
+    document.forms.regist_form.submit();
+}
+
+
 function searchFormChange() {
     var radio = document.getElementsByName('search_radio');
     var prefList = document.getElementById('pref_list');

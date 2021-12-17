@@ -27,9 +27,9 @@ class CreateRestaurantsTable extends Migration
             $table->integer('category_id');
             $table->string('url');
             $table->string('tel', 20);
-            $table->string('address_remarks');
-            $table->string('time_remarks');
-            $table->string('inquiry_remarks');
+            $table->string('address_remarks')->nullable();
+            $table->string('time_remarks')->nullable();
+            $table->string('inquiry_remarks')->nullable();
             $table->integer('recommend_flg')->length(1);
             $table->integer('new_flg')->length(1);
             $table->string('main_img', 50);

@@ -10,6 +10,8 @@ class Restaurant extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id']; 
+
     protected $appends = [
         'open_hm', 'close_hm', 'opening_flg'
     ];

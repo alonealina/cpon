@@ -1045,6 +1045,22 @@ label {
     display: inline-block;
 }
 
+.required_mark {
+    font-size: 8px;
+    font-weight: bold;
+    display:block;
+    width:50px;
+    height:15px;
+    margin:0px 20px;
+    background:#ff6600;
+    color:#fff;
+    border-radius:25px;
+    text-decoration:none;
+    text-align:center;
+    display: inline-block;
+}
+
+
 .restaurant_time {
     display: inline-block;
 }

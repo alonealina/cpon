@@ -5,8 +5,8 @@
         @if (empty($restaurant->main_img))
         <img src="../../img/imgerror.jpg" class="main_img">
         @else
-        <a href="../../img/restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" data-lightbox="group">
-            <img src="../../img/restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" class="main_img">
+        <a href="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" data-lightbox="group">
+            <img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" class="main_img">
         </a>
         @endif
     </div>
@@ -14,32 +14,32 @@
         @if (empty($restaurant->sub_img1))
         <img src="../../img/imgerror.jpg" class="sub_img">
         @else
-        <a href="../../img/restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" data-lightbox="group">
-            <img src="../../img/restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img1 }}" class="sub_img">
+        <a href="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" data-lightbox="group">
+            <img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img1 }}" class="sub_img">
         </a>
         @endif
 
         @if (empty($restaurant->sub_img2))
         <img src="../../img/imgerror.jpg" class="sub_img">
         @else
-        <a href="../../img/restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" data-lightbox="group">
-            <img src="../../img/restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img2 }}" class="sub_img">
+        <a href="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" data-lightbox="group">
+            <img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img2 }}" class="sub_img">
         </a>
         @endif
 
         @if (empty($restaurant->sub_img3))
         <img src="../../img/imgerror.jpg" class="sub_img">
         @else
-        <a href="../../img/restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" data-lightbox="group">
-            <img src="../../img/restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img3 }}" class="sub_img">
+        <a href="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" data-lightbox="group">
+            <img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img3 }}" class="sub_img">
         </a>
         @endif
 
         @if (empty($restaurant->sub_img4))
         <img src="../../img/imgerror.jpg" class="sub_img">
         @else
-        <a href="../../img/restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" data-lightbox="group">
-            <img src="../../img/restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img4 }}" class="sub_img">
+        <a href="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" data-lightbox="group">
+            <img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img4 }}" class="sub_img">
         </a>
         @endif
     </div>
@@ -103,8 +103,8 @@ if (client_h < 120) {
             @if (empty($restaurant->main_img))
             <img src="../../img/imgerror.jpg" class="main_img_ipad">
             @else
-            <a href="../../img/restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" data-lightbox="group_ipad">
-                <img src="../../img/restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" class="main_img_ipad">
+            <a href="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" data-lightbox="group_ipad">
+                <img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" class="main_img_ipad">
             </a>
             @endif
         </div>
@@ -112,32 +112,32 @@ if (client_h < 120) {
             @if (empty($restaurant->sub_img1))
             <img src="../../img/imgerror.jpg" class="sub_img_ipad">
             @else
-            <a href="../../img/restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" data-lightbox="group_ipad">
-                <img src="../../img/restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img1 }}" class="sub_img_ipad">
+            <a href="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" data-lightbox="group_ipad">
+                <img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img1 }}" class="sub_img_ipad">
             </a>
             @endif
 
             @if (empty($restaurant->sub_img2))
             <img src="../../img/imgerror.jpg" class="sub_img_ipad">
             @else
-            <a href="../../img/restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" data-lightbox="group_ipad">
-                <img src="../../img/restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img2 }}" class="sub_img_ipad">
+            <a href="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" data-lightbox="group_ipad">
+                <img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img2 }}" class="sub_img_ipad">
             </a>
             @endif
 
             @if (empty($restaurant->sub_img3))
             <img src="../../img/imgerror.jpg" class="sub_img_ipad">
             @else
-            <a href="../../img/restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" data-lightbox="group_ipad">
-                <img src="../../img/restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img3 }}" class="sub_img_ipad">
+            <a href="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" data-lightbox="group_ipad">
+                <img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img3 }}" class="sub_img_ipad">
             </a>
             @endif
 
             @if (empty($restaurant->sub_img4))
             <img src="../../img/imgerror.jpg" class="sub_img_ipad">
             @else
-            <a href="../../img/restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" data-lightbox="group_ipad">
-                <img src="../../img/restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img4 }}" class="sub_img_ipad">
+            <a href="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" data-lightbox="group_ipad">
+                <img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img4 }}" class="sub_img_ipad">
             </a>
             @endif
         </div>
@@ -206,19 +206,19 @@ if (client_h_ipad < 120) {
         @if (empty($restaurant->main_img))
         <li><img src="../../img/imgerror.jpg" class="banner_img" alt=""></li>
         @else
-        <li><img src="../../img/restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" class="banner_img" alt=""></li>
+        <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" class="banner_img" alt=""></li>
         @endif
         @if (!empty($restaurant->sub_img1))
-        <li><img src="../../img/restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img1 }}" class="banner_img" alt=""></li>
+        <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img1 }}" class="banner_img" alt=""></li>
         @endif
         @if (!empty($restaurant->sub_img2))
-        <li><img src="../../img/restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img2 }}" class="banner_img" alt=""></li>
+        <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img2 }}" class="banner_img" alt=""></li>
         @endif
         @if (!empty($restaurant->sub_img3))
-        <li><img src="../../img/restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img3 }}" class="banner_img" alt=""></li>
+        <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img3 }}" class="banner_img" alt=""></li>
         @endif
         @if (!empty($restaurant->sub_img4))
-        <li><img src="../../img/restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img4 }}" class="banner_img" alt=""></li>
+        <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img4 }}" class="banner_img" alt=""></li>
         @endif
     </ul>
 </div>

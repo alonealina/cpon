@@ -13,19 +13,19 @@
         @if (empty($restaurant->main_img))
         <li><img src="../../img/imgerror.jpg" class="banner_img" alt=""></li>
         @else
-        <li><img src="../../img/restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" class="banner_img" alt=""></li>
+        <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" class="banner_img" alt=""></li>
         @endif
         @if (!empty($restaurant->sub_img1))
-        <li><img src="../../img/restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img1 }}" class="banner_img" alt=""></li>
+        <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img1 }}" class="banner_img" alt=""></li>
         @endif
         @if (!empty($restaurant->sub_img2))
-        <li><img src="../../img/restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img2 }}" class="banner_img" alt=""></li>
+        <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img2 }}" class="banner_img" alt=""></li>
         @endif
         @if (!empty($restaurant->sub_img3))
-        <li><img src="../../img/restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img3 }}" class="banner_img" alt=""></li>
+        <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img3 }}" class="banner_img" alt=""></li>
         @endif
         @if (!empty($restaurant->sub_img4))
-        <li><img src="../../img/restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img4 }}" class="banner_img" alt=""></li>
+        <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img4 }}" class="banner_img" alt=""></li>
         @endif
     </ul>
 </div>

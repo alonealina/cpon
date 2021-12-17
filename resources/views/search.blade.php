@@ -9,7 +9,7 @@
         @if (empty($restaurant->main_img))
         <img src="../../img/imgerror.jpg">
         @else
-        <img src="../../img/restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}">
+        <img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}">
         @endif
         <div class="search_name">{{ $restaurant->name1 }} {{ $restaurant->name2 }} {{ $restaurant->name3 }}</div>
         <div class="search_address">〒{{ $restaurant->zip }} {{ $restaurant->pref }}{{ $restaurant->address }}</div>
@@ -39,7 +39,7 @@
         @if (empty($restaurant->main_img))
         <img src="../../img/imgerror.jpg">
         @else
-        <img src="../../img/restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}">
+        <img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}">
         @endif
         <div class="search_name">{{ $restaurant->name1 }} {{ $restaurant->name2 }} {{ $restaurant->name3 }}</div>
         <div class="search_address">〒{{ $restaurant->zip }} {{ $restaurant->pref }}{{ $restaurant->address }}</div>
@@ -75,7 +75,7 @@
         @if (empty($restaurant->main_img))
         <img src="../../img/imgerror.jpg">
         @else
-        <img src="../../img/restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}">
+        <img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}">
         @endif
         <div class="search_name restaurant_name_sp">{{ $restaurant->name1 }} {{ $restaurant->name2 }} {{ $restaurant->name3 }}</div>
         <div class="search_address_sp">〒{{ $restaurant->zip }} {{ $restaurant->pref }}{{ $restaurant->address }}</div>

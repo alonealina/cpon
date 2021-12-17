@@ -25,3 +25,7 @@ Route::get('restaurants/{id}/comment', 'App\Http\Controllers\RestaurantControlle
 Route::get('restaurants/{id}/comment_sp', 'App\Http\Controllers\RestaurantController@comment_form_sp')->name('restaurant.comment_form_sp');
 Route::post('restaurants/comment_store', 'App\Http\Controllers\RestaurantController@comment_store')->name('restaurant.comment_store');
 
+// 以下管理側 //
+
+Route::get('admin/restaurant_regist', 'App\Http\Controllers\AdminController@restaurant_regist')->name('admin.restaurant_regist');
+Route::post('admin/restaurant_store', 'App\Http\Controllers\AdminController@restaurant_store')->name('admin.restaurant_store');

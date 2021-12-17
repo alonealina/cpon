@@ -38,7 +38,7 @@
         @if (empty($recommend->main_img))
         <img src="../../img/imgerror.jpg">
         @else
-        <img src="../../img/restaurant/{{ $recommend->id }}/{{ $recommend->main_img }}">
+        <img src="../../restaurant/{{ $recommend->id }}/{{ $recommend->main_img }}">
         @endif
         <div class="recommend_name">{{ $recommend->name1 }} {{ $recommend->name2 }} {{ $recommend->name3 }}</div>
         <div class="recommend_address">〒{{ $recommend->zip }} {{ $recommend->pref }}{{ $recommend->address }}</div>
@@ -60,7 +60,7 @@
         @if (empty($new->main_img))
         <img src="../../img/imgerror.jpg">
         @else
-        <img src="../../img/restaurant/{{ $new->id }}/{{ $new->main_img }}">
+        <img src="../../restaurant/{{ $new->id }}/{{ $new->main_img }}">
         @endif
         <div class="new_name">{{ $new->name1 }} {{ $new->name2 }} {{ $new->name3 }}</div>
         <div class="new_address">〒{{ $new->zip }} {{ $new->pref }}{{ $new->address }}</div>
@@ -105,7 +105,7 @@
         @if (empty($recommend->main_img))
         <img src="../../img/imgerror.jpg">
         @else
-        <img src="../../img/restaurant/{{ $recommend->id }}/{{ $recommend->main_img }}">
+        <img src="../../restaurant/{{ $recommend->id }}/{{ $recommend->main_img }}">
         @endif
         <div class="recommend_name">{{ $recommend->name1 }} {{ $recommend->name2 }} {{ $recommend->name3 }}</div>
         <div class="recommend_address">〒{{ $recommend->zip }} {{ $recommend->pref }}{{ $recommend->address }}</div>
@@ -127,7 +127,7 @@
         @if (empty($new->main_img))
         <img src="../../img/imgerror.jpg">
         @else
-        <img src="../../img/restaurant/{{ $new->id }}/{{ $new->main_img }}">
+        <img src="../../restaurant/{{ $new->id }}/{{ $new->main_img }}">
         @endif
         <div class="new_name">{{ $new->name1 }} {{ $new->name2 }} {{ $new->name3 }}</div>
         <div class="new_address">〒{{ $new->zip }} {{ $new->pref }}{{ $new->address }}</div>
@@ -172,7 +172,7 @@
     @if (empty($recommend->main_img))
     <img src="../../img/imgerror.jpg">
     @else
-    <img src="../../img/restaurant/{{ $recommend->id }}/{{ $recommend->main_img }}">
+    <img src="../../restaurant/{{ $recommend->id }}/{{ $recommend->main_img }}">
     @endif
     <div class="recommend_name restaurant_name_sp">{{ $recommend->name1 }} {{ $recommend->name2 }} {{ $recommend->name3 }}</div>
     <div class="recommend_address_sp">〒{{ $recommend->zip }} {{ $recommend->pref }}{{ $recommend->address }}</div>
@@ -205,7 +205,7 @@
     @if (empty($new->main_img))
     <img src="../../img/imgerror.jpg">
     @else
-    <img src="../../img/restaurant/{{ $new->id }}/{{ $new->main_img }}">
+    <img src="../../restaurant/{{ $new->id }}/{{ $new->main_img }}">
     @endif
     <div class="new_name restaurant_name_sp">{{ $new->name1 }} {{ $new->name2 }} {{ $new->name3 }}</div>
     <div class="new_address_sp">〒{{ $new->zip }} {{ $new->pref }}{{ $new->address }}</div>
