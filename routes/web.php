@@ -31,6 +31,7 @@ Route::get('admin/restaurant_regist', 'App\Http\Controllers\AdminController@rest
 Route::post('admin/restaurant_store', 'App\Http\Controllers\AdminController@restaurant_store')->name('admin.restaurant_store');
 Route::get('admin/restaurant_edit/{id}/', 'App\Http\Controllers\AdminController@restaurant_edit')->name('admin.restaurant_edit');
 Route::post('admin/restaurant_update', 'App\Http\Controllers\AdminController@restaurant_update')->name('admin.restaurant_update');
+Route::get('admin/restaurant_csv_export', 'App\Http\Controllers\AdminController@restaurant_csv_export')->name('admin.restaurant_csv_export');
 
 Route::get('admin/notice_regist', 'App\Http\Controllers\AdminController@notice_regist')->name('admin.notice_regist');
 Route::post('admin/notice_store', 'App\Http\Controllers\AdminController@notice_store')->name('admin.notice_store');
