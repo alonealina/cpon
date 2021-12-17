@@ -65,7 +65,7 @@ function searchFormChangeIpad() {
 // 以下スライダー機能について
 
 $('.slider').slick({
-    autoplay: false,//自動的に動き出すか。初期値はfalse。
+    autoplay: true,//自動的に動き出すか。初期値はfalse。
     infinite: true,//スライドをループさせるかどうか。初期値はtrue。
     slidesToShow: 10,//スライドを画面に3枚見せる
     slidesToScroll: 10,//1回のスクロールで3枚の写真を移動して見せる
@@ -76,7 +76,7 @@ $('.slider').slick({
 });
 
 $('.slider_ipad').slick({
-    autoplay: false,//自動的に動き出すか。初期値はfalse。
+    autoplay: true,//自動的に動き出すか。初期値はfalse。
     infinite: true,//スライドをループさせるかどうか。初期値はtrue。
     slidesToShow: 5,//スライドを画面に3枚見せる
     slidesToScroll: 5,//1回のスクロールで3枚の写真を移動して見せる
@@ -86,7 +86,7 @@ $('.slider_ipad').slick({
 });
 
 $('.slider_sp').slick({
-    autoplay: false,//自動的に動き出すか。初期値はfalse。
+    autoplay: true,//自動的に動き出すか。初期値はfalse。
     infinite: true,//スライドをループさせるかどうか。初期値はtrue。
     slidesToShow: 5,//スライドを画面に3枚見せる
     slidesToScroll: 5,//1回のスクロールで3枚の写真を移動して見せる
@@ -97,7 +97,7 @@ $('.slider_sp').slick({
 
 // バナー用
 $('.slider_banner').slick({
-    autoplay: false,//自動的に動き出すか。初期値はfalse。
+    autoplay: true,//自動的に動き出すか。初期値はfalse。
     infinite: true,//スライドをループさせるかどうか。初期値はtrue。
     slidesToShow: 3,//スライドを画面に3枚見せる
     slidesToScroll: 3,//1回のスクロールで3枚の写真を移動して見せる
@@ -107,7 +107,7 @@ $('.slider_banner').slick({
 });
 
 $('.slider_banner_ipad').slick({
-    autoplay: false,//自動的に動き出すか。初期値はfalse。
+    autoplay: true,//自動的に動き出すか。初期値はfalse。
     infinite: true,//スライドをループさせるかどうか。初期値はtrue。
     slidesToShow: 2,//スライドを画面に3枚見せる
     slidesToScroll: 2,//1回のスクロールで3枚の写真を移動して見せる
@@ -117,7 +117,7 @@ $('.slider_banner_ipad').slick({
 });
 
 $('.slider_banner_sp').slick({
-    autoplay: false,//自動的に動き出すか。初期値はfalse。
+    autoplay: true,//自動的に動き出すか。初期値はfalse。
     infinite: true,//スライドをループさせるかどうか。初期値はtrue。
     slidesToShow: 1,//スライドを画面に3枚見せる
     slidesToScroll: 1,//1回のスクロールで3枚の写真を移動して見せる
@@ -128,7 +128,7 @@ $('.slider_banner_sp').slick({
 
 // SP版の店舗画像用
 $('.restaurant_img_sp').slick({
-    autoplay: false,//自動的に動き出すか。初期値はfalse。
+    autoplay: true,//自動的に動き出すか。初期値はfalse。
     infinite: true,//スライドをループさせるかどうか。初期値はtrue。
     slidesToShow: 1,//スライドを画面に3枚見せる
     slidesToScroll: 1,//1回のスクロールで3枚の写真を移動して見せる
