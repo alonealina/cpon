@@ -14,7 +14,7 @@
 <div class="notice_show">
     <div class="notice_content_date">{{ $notice->notice_date }}</div>
     <div class="notice_title_big">{{ $notice->title }}</div>
-    <div class="notice_content">{{ $notice->content }}</div>
+    <div class="notice_content">{!! nl2br(e($notice->content)) !!}</div>
 </div>
 
 <div class="notice_buttons">
@@ -48,7 +48,7 @@
     <div class="notice_show_ipad">
         <div class="notice_content_date">{{ $notice->notice_date }}</div>
         <div class="notice_title_big">{{ $notice->title }}</div>
-        <div class="notice_content">{{ $notice->content }}</div>
+        <div class="notice_content">{!! nl2br(e($notice->content)) !!}</div>
     </div>
 
     <div class="notice_buttons">
@@ -82,7 +82,7 @@
 <div class="notice_show_sp">
     <div class="notice_content_date">{{ $notice->notice_date }}</div>
     <div class="notice_title_sp">{{ $notice->title }}</div>
-    <div class="notice_content_sp">{{ $notice->content }}</div>
+    <div class="notice_content_sp">{!! nl2br(e($notice->content)) !!}</div>
 </div>
 
 <div class="notice_buttons">

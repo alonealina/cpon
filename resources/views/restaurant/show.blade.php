@@ -149,7 +149,7 @@ if (client_h < 120) {
             <input type="checkbox" id="ipad_label"><label for="ipad_label" id="restaurant_profile_label_ipad"></label>
             <div>
                 <div id="restaurant_profile_text_ipad">
-                {{ $restaurant->profile }}
+                {!! nl2br(e($restaurant->profile)) !!}
                 </div>
             </div>
         </div>
