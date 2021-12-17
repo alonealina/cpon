@@ -765,6 +765,11 @@ label {
     width:380px;
 }
 
+.edit_thumb_img {
+    height:150px;
+    margin-bottom: 10px;
+}
+
 .notice_home {
     margin-top:20px;
 }

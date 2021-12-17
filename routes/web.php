@@ -29,6 +29,9 @@ Route::post('restaurants/comment_store', 'App\Http\Controllers\RestaurantControl
 
 Route::get('admin/restaurant_regist', 'App\Http\Controllers\AdminController@restaurant_regist')->name('admin.restaurant_regist');
 Route::post('admin/restaurant_store', 'App\Http\Controllers\AdminController@restaurant_store')->name('admin.restaurant_store');
+Route::get('admin/restaurant_edit/{id}/', 'App\Http\Controllers\AdminController@restaurant_edit')->name('admin.restaurant_edit');
+Route::post('admin/restaurant_update', 'App\Http\Controllers\AdminController@restaurant_update')->name('admin.restaurant_update');
+
 Route::get('admin/notice_regist', 'App\Http\Controllers\AdminController@notice_regist')->name('admin.notice_regist');
 Route::post('admin/notice_store', 'App\Http\Controllers\AdminController@notice_store')->name('admin.notice_store');
 Route::get('admin/notice_edit/{id}/', 'App\Http\Controllers\AdminController@notice_edit')->name('admin.notice_edit');
