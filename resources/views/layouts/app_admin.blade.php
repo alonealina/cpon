@@ -13,32 +13,31 @@
         <div class="loader"></div>
         <div class="loader_text">Loading...</div>
     </div>
-    <div id="registration_pc">
-        <body>
-            <header>
-                <nav class="navbar">
-                    <a class="navbar-brand" href="/">
-                        <img src="{{ asset('img/logo.png') }}" class="cpon_logo" alt="">
-                    </a>
-                    <div class="header_user">管理者A（仮）</div>
-                </nav>
-            </header>
 
-            <div class="flexible-list">
-                <aside id="column-side" class="flexible-list-side">
-                @include('admin.item.sidemenu')
-                </aside>
+    <body>
+        <header>
+            <nav class="navbar">
+                <a class="navbar-brand" href="/">
+                    <img src="{{ asset('img/logo.png') }}" class="cpon_logo" alt="">
+                </a>
+                <div class="header_user">管理者A（仮）</div>
+            </nav>
+        </header>
 
-                <div class="flexible-list-main">
-                    @yield('content')
-                </div>
+        <div class="flexible-list">
+            <aside id="column-side" class="flexible-list-side">
+            @include('admin.item.sidemenu')
+            </aside>
+
+            <div class="flexible-list-main">
+                @yield('content')
             </div>
+        </div>
 
-            <footer>
-                <div class="copyright">copyright (c) © KOC・JAPAN, Inc. all rights reserved.</div>
-            </footer>
-        </body>
-    </div>
+        <footer>
+            <div class="copyright">copyright (c) © KOC・JAPAN, Inc. all rights reserved.</div>
+        </footer>
+    </body>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
