@@ -46,6 +46,17 @@ footer a, footer a:hover {
     font-size: 13px;
 }
 
+.admin_header {
+    background-color: white;
+}
+
+.content_title {
+    font-size: 18px;
+}
+.admin_content {
+    background-color: rgb(235, 235, 235);
+}
+
 #freeword_form, #freeword_form_ipad {
     height:40px;
     width:650px;
@@ -292,21 +303,20 @@ hr {
     text-align:center;
 }
 
-.button_black, .button_comment, .notice_button_back, .notice_button_next {
+.button_red_admin, .button_comment, .notice_button_back, .notice_button_next {
     text-align:center;
 }
 
-.button_black a {
-    font-size: 20px;
+.button_red_admin a {
+    font-size: 12px;
     font-weight: bold;
     display:block;
-    width:400px;
-    height:50px;
-    margin:60px auto;
-    line-height:50px;
-    background:black;
+    width:130px;
+    height:30px;
+    line-height:30px;
+    background:red;
     color:#fff;
-    border-radius:25px;
+    border-radius:5px;
     text-decoration:none;
     text-align:center;
 }
@@ -530,10 +540,8 @@ hr {
 }
 
 .flexible-list-main {
-    margin-left: 10px;
     width: 100%;
-    min-width: 800px;
-    max-width: 1060px;
+    background-color: rgb(235, 235, 235);
 }
 
 .filter_form_title {

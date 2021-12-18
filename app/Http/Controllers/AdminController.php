@@ -47,7 +47,7 @@ class AdminController extends Controller
         $news = Restaurant::where('new_flg', 1)->take(6)->get();
         $notices = Notice::orderBy('notice_date', 'desc')->take(5)->get();
 
-        return view('layouts.app_admin', [
+        return view('admin.restaurant_list', [
             'categories' => $categories,
             'recommends' => $recommends,
             'news' => $news,

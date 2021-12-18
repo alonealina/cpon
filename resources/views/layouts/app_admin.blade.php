@@ -9,10 +9,10 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
         <link href="{{ asset('css/app_admin.css') }}" rel="stylesheet">
     </head>
-    <div class="loader-wrap">
+    <!-- <div class="loader-wrap">
         <div class="loader"></div>
         <div class="loader_text">Loading...</div>
-    </div>
+    </div> -->
 
     <body>
         <header>
@@ -26,7 +26,7 @@
 
         <div class="flexible-list">
             <aside id="column-side" class="flexible-list-side">
-            @include('admin.item.sidemenu')
+                @include('admin.item.sidemenu')
             </aside>
 
             <div class="flexible-list-main">
