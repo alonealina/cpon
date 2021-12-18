@@ -27,7 +27,27 @@ class AdminController extends Controller
         $news = Restaurant::where('new_flg', 1)->take(6)->get();
         $notices = Notice::orderBy('notice_date', 'desc')->take(5)->get();
 
-        return view('index', [
+        return view('layouts.app_admin', [
+            'categories' => $categories,
+            'recommends' => $recommends,
+            'news' => $news,
+            'notices' => $notices,
+        ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function restaurant_list()
+    {
+        $categories = Category::all();
+        $recommends = Restaurant::where('recommend_flg', 1)->take(6)->get();
+        $news = Restaurant::where('new_flg', 1)->take(6)->get();
+        $notices = Notice::orderBy('notice_date', 'desc')->take(5)->get();
+
+        return view('layouts.app_admin', [
             'categories' => $categories,
             'recommends' => $recommends,
             'news' => $news,

@@ -1,0 +1,1793 @@
+body {
+    width:1280px;
+}
+
+.header_orange {
+    height: 15px;
+    background-color: #FFB01A;
+}
+
+.cpon_logo {
+    height: 60px;
+}
+
+.cpon_logo_div {
+    width: 250px;
+    height: 102px;
+    margin: 0 auto;
+}
+
+.cpon_logo2 {
+    width: 250px;
+    height: 102px;
+}
+
+footer a, footer a:hover {
+    color: white;
+    text-decoration:none;
+}
+
+.footer_menu {
+    font-size: 14px;
+    margin:10px 0;
+}
+
+.footer_menu_sp {
+    font-size: 14px;
+    margin:20px 10px 0px 10px;
+    width:180px;
+    float:left;
+    text-align: left;
+}
+
+.copyright {
+    font-size: 13px;
+}
+
+#freeword_form, #freeword_form_ipad {
+    height:40px;
+    width:650px;
+}
+
+#freeword_form_ipad {
+    margin:0 100px;
+}
+
+#freeword_form_sp {
+    height:50px;
+
+}
+
+.freeword_text, .freeword_text_ipad {
+    height:40px;
+    border-radius:20px;
+    border:solid 2px;
+    border-color: #A2A2A2;
+    padding-left: 20px;
+}
+
+.freeword_text, .freeword_text_ipad {
+    width:600px;
+}
+
+.freeword_text_sp {
+    height:60px;
+    width:370px;
+    margin-top:-50px;
+    border-radius:50px;
+    border:solid 2px;
+    border-color: #A2A2A2;
+    padding-left: 30px;
+}
+
+.fa-search {
+    color : white;
+}
+
+.fas_search_button {
+    background-color: #FFB01A;
+    border-radius:20px;
+    border:none;
+    width:30px;
+    height:30px;
+    margin-left:-50px;
+}
+
+.fas_search_button_sp {
+    background-color: #FFB01A;
+    border-radius:50px;
+    border:none;
+    width:45px;
+    height:45px;
+    margin-left:-60px;
+}
+
+.category_title_ipad {
+    margin:10px 0 10px 50px;
+}
+
+.category_title_sp {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.category_background {
+    background-image: url(../img/bg_kategory.jpg);
+    height:300px;
+    margin-right: calc(50% - 50vw);
+    margin-left: calc(50% - 50vw);
+    padding-right: calc(50vw - 50%);
+    padding-left: calc(50vw - 50%);
+}
+
+.category_name_title {
+    position: relative;
+    top:40%;
+    font-size: 40px;
+    font-weight: bold;
+    margin-left:30px;
+}
+
+.category_img {
+    float:right;
+    margin-right:40px;
+}
+
+.category_background_ipad {
+    background-image: url(../img/bg_kategory.jpg);
+    height:200px;
+    margin-bottom: 20px;
+}
+
+.category_name_title_ipad {
+    position: relative;
+    top:30%;
+    font-size: 40px;
+    font-weight: bold;
+    margin-left:60px;
+    width:300px;
+}
+
+.category_img_ipad {
+    position: relative;
+    float:right;
+    bottom: 10px;
+}
+
+.category_img_ipad img {
+    width:60%;
+    height:60%;
+}
+
+footer, header {
+    text-align:center;
+    background-color: #FFA500;
+    color: white;
+}
+
+.footer_item_title {
+    font-size: 40px;
+}
+
+.footer_item_title_ipad {
+    margin-top: 30px;
+    font-size: 30px;
+}
+
+.footer_item_title_sp {
+    font-size: 20px;
+}
+
+.help_content {
+    text-align:center;
+    font-size: 12px;
+}
+
+.line_url {
+    margin:15px 0;
+}
+
+.qr_code {
+    margin-bottom: 50px;
+}
+
+.qr_code_sp {
+    width:50%;
+}
+
+.banner_list {
+    height: 500px;
+}
+
+table a, table a:hover {
+    color: white;
+    text-decoration:none;
+    font-size: 20px;
+}
+
+table {
+    margin:50px auto;
+}
+
+td {
+    width: 400px;
+    height: 50px;
+}
+
+p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.restaurant_list_title {
+    font-family: "ヒラギノ丸ゴシック";
+    margin-left: 10px;
+    margin-bottom: 0px;
+}
+
+.restaurant_list_title_ipad {
+    font-size: 25px;
+    margin-left: 50px;
+}
+
+.restaurant_list_title_sp {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.index_notice_title_sp {
+    margin-top:50px;
+}
+
+.flexible_img_list {
+    display: flex;
+    margin: 0 auto;
+    padding: 0 0px;
+    min-width: 1100px;
+}
+
+.flexible_img_list_ipad {
+    display: flex;
+    margin: 0 auto;
+    padding: 0 0px;
+    min-width: 700px;
+    justify-content: flex-start;
+}
+
+.flexible_sub_img {
+    margin-left:30px;
+}
+
+.main_img {
+    width: 510px;
+    height: 290px;
+    margin:10px;
+}
+
+.sub_img {
+    width: 250px;
+    height: 135px;
+    margin:10px;
+}
+
+.main_img_ipad {
+    width: 320px;
+    height: 180px;
+    margin:10px;
+}
+
+.sub_img_ipad {
+    width: 170px;
+    height: 85px;
+    margin:10px 5px 0 0;
+}
+
+hr {
+    margin:3px 0;
+}
+
+.center {
+    text-align:center;
+}
+
+.button_black, .button_comment, .notice_button_back, .notice_button_next {
+    text-align:center;
+}
+
+.button_black a {
+    font-size: 20px;
+    font-weight: bold;
+    display:block;
+    width:400px;
+    height:50px;
+    margin:60px auto;
+    line-height:50px;
+    background:black;
+    color:#fff;
+    border-radius:25px;
+    text-decoration:none;
+    text-align:center;
+}
+
+.button_black_sp a {
+    font-size: 20px;
+    font-weight: bold;
+    display:block;
+    width:380px;
+    height:50px;
+    margin:20px auto;
+    line-height:50px;
+    background:black;
+    color:#fff;
+    border-radius:25px;
+    text-decoration:none;
+    text-align:center;
+}
+
+.back_button a {
+    font-size: 20px;
+    font-weight: bold;
+    display:block;
+    width:40px;
+    height:40px;
+    margin:15px 0 0 15px;
+    line-height:40px;
+    background:#FFB01A;
+    color:#fff;
+    border-radius:25px;
+    text-decoration:none;
+    text-align:center;
+    float:left;
+}
+
+.button_black a:hover,
+.button_comment a:hover,
+.notice_button_back a:hover,
+.notice_button_next a:hover {
+    transition: 0.5s;
+    opacity: 0.6;
+}
+
+.yazi3 {
+    position: relative;
+    bottom: 50px;
+    left: 180px;
+}
+
+.button_comment {
+    float:right;
+}
+
+.button_comment a {
+    font-size: 15px;
+    font-weight: bold;
+    display:block;
+    width:200px;
+    height:40px;
+    margin:0px auto;
+    line-height:40px;
+    background:black;
+    color:#fff;
+    border-radius:20px;
+    text-decoration:none;
+    text-align:center;
+}
+
+.notice_button_back {
+    float:left;
+}
+
+.notice_button_next {
+    float:right;
+}
+
+.notice_button_back a,
+.notice_button_next a {
+    font-size: 15px;
+    font-weight: bold;
+    display:block;
+    width:160px;
+    height:40px;
+    margin:0px auto;
+    line-height:40px;
+    background:black;
+    color:#fff;
+    border-radius:20px;
+    text-decoration:none;
+    text-align:center;
+}
+
+.notice_buttons {
+    margin: 50px 0 100px 0;
+}
+
+.comment_list_header {
+    height:50px;
+}
+
+.comment_list_title {
+    float:left;
+}
+
+.comment_list_content {
+    margin:10px 20px;
+}
+
+.comment_list_content_sp {
+    margin:10px 10px;
+}
+
+.comment_datetime {
+    font-size: 12px;
+    float:right;
+}
+
+.comment_datetime_sp {
+    font-size: 10px;
+    float:right;
+}
+
+.comment_name_sp {
+    font-size: 12px;
+    float: left;
+}
+
+.number {
+    margin-bottom: 10px;
+}
+
+.number b {
+    font-size: 18px;
+}
+
+.number_sp {
+    font-size: 14px;
+}
+
+.fivestar {
+    font-size: 18px;
+    color:#FD7E00;
+}
+
+.comment_form_title {
+    font-size: 20px;
+    font-weight: bold;
+    margin:20px 0;
+}
+
+.user_name_title, .comment_create_title {
+    font-size: 25px;
+    margin: 30px 0px 10px 0px;
+    border-left: orange solid 5px;
+    padding-left: 20px;
+}
+
+.user_name_title_sp, .comment_create_title_sp {
+    float:left;
+    font-weight: bold;
+    margin: 10px 0px;
+    border-left: orange solid 5px;
+    padding-left: 10px;
+}
+
+.comment_input, .user_name_input {
+    border-radius: 4px;
+    border: solid 2px;
+    border-color: #A2A2A2;
+}
+
+.user_name_input {
+    width: 370px;
+}
+
+.user_name_form {
+    margin-bottom: 20px;
+}
+
+.search_button a {
+    font-size: 15px;
+    font-weight: bold;
+    display:block;
+    width:70%;
+    height:30px;
+    margin:10px auto;
+    line-height:30px;
+    background:#FF7D1A;
+    color:#fff;
+    border-radius:25px;
+    text-decoration:none;
+    text-align:center;
+}
+
+.flexible-list {
+    display: flex;
+    margin: 0 auto;
+    padding: 0 0px;
+    min-width: 1120px;
+    max-width: 1400px;
+}
+
+.flexible-list-side {
+    min-width: 200px;
+    max-width: 220px;
+    height:500px;
+    background-color: rgb(226, 226, 226);
+}
+
+.flexible-list-sidebar {
+    
+}
+
+.sidemenu_name {
+    padding:5px;
+}
+
+.flexible-list-sidebar hr {
+    border: 1px solid;
+    border-color: rgb(175, 175, 175);
+}
+
+.flexible-list-main {
+    margin-left: 10px;
+    width: 100%;
+    min-width: 800px;
+    max-width: 1060px;
+}
+
+.filter_form_title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.filter_form_title_ipad {
+    font-weight: bold;
+}
+
+.search_radio {
+    margin:7px 0;
+}
+
+.search_radio_list, .search_radio_list_ipad {
+    margin:10px 0;
+}
+
+.filter_flex_ipad_left {
+    width:50%;
+    padding:5px;
+}
+
+.filter_flex_ipad_right {
+    width:50%;
+    padding:15px;
+    border-left: double 2px orange;
+}
+
+.search_button {
+    width:200px;
+    margin:0 auto;
+}
+
+.filter_name {
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+.filter_freeword {
+    width: 100%;
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    margin: 3px 0 10px 0;
+    outline: none;
+    padding: 3px;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: dodgerBlue;
+    box-shadow: 0 0 8px 0 dodgerBlue;
+}
+
+.flexible-list-sidebar input::placeholder,
+.filter_freeword::placeholder {
+    font-weight: bold;
+    font-size: 12px;
+    color: #A2A2A2;
+}
+
+.filter_flex_ipad_right .filter_time select {
+    width:100px;
+}
+
+select {
+    font-weight: bold;
+    font-size: 12px;
+    color: #A2A2A2;
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    height: 30px;
+}
+
+.comment_sort_select {
+    font-weight: normal;
+    font-size: 15px;
+    color: black;
+    background-color: #eeeeee;
+    border: none;
+    border-radius: 30px;
+    height: 30px;
+    width:170px;
+    float:right;
+    padding-left: 10px;
+}
+
+label {
+    cursor: pointer;
+    padding:5px;
+    border: 1px solid #434343;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.restaurant_profile label {
+    font-weight: bold;
+}
+
+.check_box {
+    display: none;
+}
+.check_box:checked + .label {
+    background-color: orange;
+}
+
+.notice_home a, .notice_home a:hover,
+.notice_home_ipad a, .notice_home_ipad a:hover,
+.notice_home_sp a, .notice_home_sp a:hover,
+.recommend_restaurant a, .recommend_restaurant a:hover,
+.new_restaurant a, .new_restaurant a:hover,
+.search_restaurant a, .search_restaurant a:hover,
+.recommend_restaurant_ipad a, .recommend_restaurant_ipad a:hover,
+.new_restaurant_ipad a, .new_restaurant_ipad a:hover,
+.search_restaurant_ipad a, .search_restaurant_ipad a:hover,
+.recommend_restaurant_sp a, .recommend_restaurant_sp a:hover,
+.new_restaurant_sp a, .new_restaurant_sp a:hover,
+.search_restaurant_sp a, .search_restaurant_sp a:hover,
+.menu_list_bar a, .menu_list_bar a:hover,
+.category a, .category a:hover,
+.category_ipad a, .category_ipad a:hover,
+.category_sp a, .category_sp a:hover {
+    color: black;
+    text-decoration:none;
+}
+
+.recommend_restaurant img,
+.new_restaurant img,
+.search_restaurant img {
+    width:270px;
+    height:150px;
+}
+
+.recommend_restaurant_ipad img,
+.new_restaurant_ipad img,
+.search_restaurant_ipad img {
+    height: 180px;
+    width: 330px;
+}
+
+.recommend_restaurant_sp img,
+.new_restaurant_sp img,
+.search_restaurant_sp img {
+    width:380px;
+}
+
+.edit_thumb_img {
+    height:150px;
+    margin-bottom: 10px;
+}
+
+.notice_home {
+    margin-top:20px;
+}
+
+.notice_home_ipad {
+    margin: 0 50px 0 50px;
+}
+
+.notice_show {
+    width:1110px;
+    margin:10px auto;
+}
+
+.notice_show_ipad {
+    width:700px;
+    margin:10px auto;
+}
+
+.notice_date {
+    margin: 7px 0 0 30px;
+}
+
+.notice_title {
+    margin: 0 0 10px 30px;
+    font-weight: bold;
+}
+
+.notice_date_sp {
+    font-size: 12px;
+    margin: 7px 0 5px 0px;
+}
+
+.notice_title_sp {
+    font-size: 12px;
+    margin: 0 0 10px 0px;
+    font-weight: bold;
+}
+
+.notice_title_big {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.notice_content {
+    font-weight: bold;
+}
+
+.notice_content_sp {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.cpon_notice {
+    font-size: 50px;
+    font-weight: bold;
+    text-align:center;
+    background-color: grey;
+    color:white;
+    height:300px;
+    line-height: 300px;
+}
+
+.notice_name_title {
+    position: relative;
+    top: 40%;
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.notice_background {
+    background-image: url(../img/bg_kategory.jpg);
+    height:300px;
+    margin-right: calc(53% - 50vw);
+    margin-left: calc(50% - 50vw);
+    padding-right: calc(50vw - 50%);
+    padding-left: calc(50vw - 50%);
+}
+
+.notice_background_ipad {
+    background-image: url(../img/bg_kategory.jpg);
+    height:200px;
+    margin-bottom: 20px;
+}
+
+.notice_name_title_ipad {
+    position: relative;
+    top:20%;
+    font-size: 40px;
+    font-weight: bold;
+    margin-left:60px;
+}
+
+.notice_img_ipad {
+    position: relative;
+    float:right;
+    bottom: 70px;
+}
+
+.notice_img_ipad img {
+    width:70%;
+}
+
+.restaurant_name {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.restaurant_show_name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.recommend_list, .new_list, .search_list, #menu_list_recommend, #menu_list_all,
+.recommend_list_ipad, .new_list_ipad, .search_list_ipad, #menu_list_recommend_ipad, #menu_list_all_ipad,
+.category_list, .restaurant_detail {
+    display:flex;
+    flex-wrap:wrap;
+}
+
+.recommend_list {
+    margin-bottom: 10px;
+}
+
+.recommend_list_ipad, .new_list_ipad, .search_list_ipad {
+    margin-left: 50px;
+}
+
+.recommend_restaurant, .new_restaurant, .search_restaurant {
+    width: 30%;
+    margin: 10px;
+}
+
+.recommend_restaurant_ipad, .new_restaurant_ipad, .search_restaurant_ipad {
+    width: 44%;
+    margin: 10px;
+}
+
+.recommend_restaurant_sp, .new_restaurant_sp, .search_restaurant_sp {
+    margin-bottom: 10px;
+}
+
+.recommend_name, .new_name, .search_name {
+    margin-top: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.restaurant_name_sp {
+    font-size: 13px;
+}
+
+.recommend_address, .new_address, .search_address {
+    font-size: 12px;
+    height: 36px;
+    color: #696969;
+}
+
+.recommend_address_sp, .new_address_sp, .search_address_sp {
+    font-size: 12px;
+    height: auto;
+    color: #696969;
+}
+
+.recommend_time, .new_time, .search_time {
+    font-size: 12px;
+    color: #696969;
+    display: inline-block;
+}
+
+.menu_detail {
+    width: 23%;
+    margin: 10px;
+}
+
+.menu_detail img {
+    width:240px;
+    height:240px;
+}
+
+.menu_detail_ipad {
+    width: 47%;
+    margin: 10px;
+}
+
+.menu_detail_ipad img {
+    width:300px;
+    height:300px;
+}
+
+.menu_detail_sp {
+    width: 380px;
+    height:110px;
+    margin: 10px 0;
+}
+
+.menu_detail_sp img {
+    width:105px;
+    height:105px;
+    float:right;
+}
+
+.menu_name {
+    font-size: 18px;
+}
+
+.menu_price {
+    font-weight: bold;
+}
+
+.menu_explain {
+    color:#797979;
+    font-size: 16px;
+}
+
+.menu_name_sp {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.menu_price_sp {
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.menu_explain_sp {
+    color:#797979;
+    font-size: 10px;
+}
+
+.recommend_mark, .recommend_mark_sp {
+    font-size: 10px;
+    font-weight: bold;
+    display:block;
+    width:50px;
+    height:15px;
+    background:green;
+    color:#fff;
+    border-radius:25px;
+    text-decoration:none;
+    text-align:center;
+}
+
+.recommend_mark {
+    margin:10px 0;
+}
+
+
+.open_mark {
+    font-size: 8px;
+    font-weight: bold;
+    display:block;
+    width:50px;
+    height:15px;
+    margin:0px 0;
+    background:#DD0000;
+    color:#fff;
+    border-radius:25px;
+    text-decoration:none;
+    text-align:center;
+    display: inline-block;
+}
+
+.close_mark {
+    font-size: 8px;
+    font-weight: bold;
+    display:block;
+    width:50px;
+    height:15px;
+    margin:0px 0;
+    background:blue;
+    color:#fff;
+    border-radius:25px;
+    text-decoration:none;
+    text-align:center;
+    display: inline-block;
+}
+
+.required_mark {
+    font-size: 8px;
+    font-weight: bold;
+    display:block;
+    width:50px;
+    height:15px;
+    margin:0px 20px;
+    background:#ff6600;
+    color:#fff;
+    border-radius:25px;
+    text-decoration:none;
+    text-align:center;
+    display: inline-block;
+}
+
+
+.restaurant_time {
+    display: inline-block;
+}
+
+.restaurant_address, .restaurant_time, .restaurant_comment, .restaurant_inquiry {
+    margin: 10px 0;    
+}
+
+.star_img_sp {
+    float:left;
+    width: 17px;
+}
+
+.link_img_sp {
+    position: relative;
+    float:right;
+    top: -50px;
+    right: 5px;
+}
+
+.restaurant_fivestar_sp {
+    font-size:12px;
+    color: black;
+    float:left;
+}
+
+.restaurant_address_sp {
+    font-size:12px;
+    color: #797979;
+    width: 250px;
+}
+
+.restaurant_detail_link {
+    font-size:12px;
+}
+
+.restaurant_detail {
+    margin:10px 0;
+}
+
+.restaurant_detail_img {
+    width:12%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .restaurant_detail_img img {
+    position: absolute;
+    margin:auto;
+} */
+
+.restaurant_detail_content {
+    width:88%;
+    border-bottom: 1px solid #bbbbbb;
+    padding-bottom:10px;
+}
+
+
+.comment_error, .comment_error_fivestar {
+    font-size: 15px;
+    font-weight: bold;
+    color:red;
+}
+
+.comment_error_fivestar {
+    text-align: center;
+}
+
+.file_button {
+    text-align:center;
+}
+
+#pref_list, #pref_list_ipad {
+    display: none;
+}
+
+
+.category_list li {
+    text-align:center;
+    background-color: #F0F0F0;
+    width:115px;
+    height:115px;
+    border-radius:15%;
+    margin:3px;
+    list-style: none;
+}
+
+.category_list li a {
+    color:black;
+}
+
+.category_list li img {
+    margin:20px auto;
+}
+
+/*以下ヘッダーの検索フォームについて*/
+
+
+
+/*以下メニューバーについて*/
+
+.menu_list_bar {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.menu_list_bar_pc ul{
+    display: table;
+    margin: 0;
+    padding: 0;
+    width: 30%;
+
+}
+
+.menu_list_bar_ipad ul{
+    display: table;
+    margin: 0;
+    padding: 0;
+    width: 50%;
+
+}
+
+.menu_list_bar_sp ul{
+    display: table;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+}
+
+.menu_list_bar li{
+    display: table-cell;
+    min-width: 50px;
+}
+
+.menu_list_bar a{
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    color: #555;
+    padding-bottom: 5px;
+    text-align:center;
+}
+
+.menu_list_bar li.current{
+    border-bottom: 3px solid black;
+}
+
+.menu_list_bar li{
+    border-bottom: 3px solid #dcdcdc;
+}
+
+.menu_list_bar li:hover{
+    color: #dcdcdc;
+    border-bottom: 3px solid #a9a9a9;
+}
+
+
+/*以下スライダー機能について*/
+
+.slider, .slider_ipad, .slider_banner, .slider_banner_ipad {
+    margin:0 auto;
+    padding: 0px 10px;
+}
+
+.slider, .slider_banner {
+    width:1080px;
+}
+
+.slider_ipad, .slider_banner_ipad {
+    width:700px;
+}
+
+.slider_sp, .slider_banner_sp, .restaurant_img_sp {
+    width:380px;
+    padding-left: 0px;
+}
+
+.category_name {
+    font-size: 13px;
+}
+
+.category_name_ipad {
+    margin-bottom: 20px;
+}
+
+.category_name_sp {
+    font-size: 10px;
+    margin-bottom: 10px;
+}
+
+.slider_ipad img {
+    margin:0 20px;
+    height:auto;
+}
+
+.slider_sp li img {
+    height:30px;
+}
+
+.slider li {
+    height:105px;
+}
+
+.slider_ipad li {
+    margin:0 10px 10px 10px;
+}
+.slider_sp li {
+    margin:0 2px 10px 2px;
+}
+/*slickのJSで書かれるタグ内、スライド左右の余白調整*/
+
+.slider .slick-slide {
+    margin:0 3px 10px 3px;
+}
+
+.banner_img {
+    width:100%;/*スライダー内の画像を横幅100%に*/
+    height:auto;
+}
+
+.slider_banner li {
+    height:150px;
+}
+
+.slider_banner_ipad li {
+    height:150px;
+}
+
+/*slickのJSで書かれるタグ内、スライド左右の余白調整*/
+
+.slider_banner .slick-slide,
+.slider_banner_ipad .slick-slide {
+    margin:0 10px 10px 10px;
+}
+
+.category_link {
+    text-align:center;
+    background-color: #F0F0F0;
+    width:100px;
+    border-radius:15%;
+}
+
+.category li img,
+.category_ipad li img {
+    margin:15px auto;
+}
+
+.category_sp li img {
+    margin:15px auto 5px auto;
+}
+
+
+/*矢印の設定*/
+
+/*戻る、次へ矢印の位置*/
+.slick-prev, 
+.slick-next {
+    position: absolute;/*絶対配置にする*/
+    top: 42%;
+    cursor: pointer;/*マウスカーソルを指マークに*/
+    outline: none;/*クリックをしたら出てくる枠線を消す*/
+    height: 15px;
+    width: 15px;
+    z-index: 5;
+}
+
+.slider .slick-prev,
+.slider_banner .slick-prev {/*戻る矢印の位置と形状*/
+    left: -1.5%;
+}
+
+.slider .slick-next,
+.slider_banner .slick-next {/*次へ矢印の位置と形状*/
+    right: -1.5%;
+}
+
+.slider_ipad .slick-prev {/*戻る矢印の位置と形状*/
+    left: -3%;
+    top: 53px;
+}
+
+.slider_banner_ipad .slick-prev {/*戻る矢印の位置と形状*/
+    left: -0.2%;
+    top: 65px;
+}
+
+.slider_ipad .slick-next {/*次へ矢印の位置と形状*/
+    right: -3%;
+    top: 53px;
+}
+
+.slider_banner_ipad .slick-next {/*次へ矢印の位置と形状*/
+    right: -0.2%;
+    top: 65px;
+}
+
+.slider_sp .slick-prev {/*戻る矢印の位置と形状*/
+    left: -2px;
+    top: 30px;
+    height: 10px;
+    width: 10px;
+}
+
+.slider_banner_sp .slick-prev,
+.restaurant_img_sp .slick-prev {/*戻る矢印の位置と形状*/
+    left: 0px;
+    top: 80px;
+}
+
+
+.slider_sp .slick-next {/*次へ矢印の位置と形状*/
+    right: -2px;
+    top: 30px;
+    height: 10px;
+    width: 10px;
+}
+
+.slider_banner_sp .slick-next,
+.restaurant_img_sp .slick-next {/*次へ矢印の位置と形状*/
+    right: 0px;
+    top: 80px;
+}
+
+/*ドットナビゲーションの設定*/
+
+.slick-dots {
+    text-align:center;
+    padding:0;
+}
+
+.banner_sp .slick-dots {
+    margin-top: -15px;
+}
+
+.slick-dots li {
+    display:inline-block;
+    margin:0 5px;
+    height:10px;
+}
+
+.slick-dots button {
+    color: transparent;
+    outline: none;
+    width:8px;/*ドットボタンのサイズ*/
+    height:8px;/*ドットボタンのサイズ*/
+    display:block;
+    border-radius:50%;
+    background:gray;/*ドットボタンの色*/
+    border-color: gray;
+    padding:1px;
+    opacity: 0.5;
+}
+
+.slick-dots .slick-active button{
+    background:black;/*ドットボタンの現在地表示の色*/
+    border-color: black;
+}
+
+/*以下五つ星デザインについて*/
+
+.fivestar_title {
+    float:left;
+    font-size: 25px;
+    margin: 30px 0px;
+    border-left: orange solid 5px;
+    padding-left: 20px;
+}
+
+.fivestar_title_sp {
+    float:left;
+    font-weight: bold;
+    margin: 10px 0px;
+    border-left: orange solid 5px;
+    padding-left: 10px;
+}
+
+.rate-form_pc {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 0px 380px 0px 0px;
+}
+
+.rate-form_ipad {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 0px;
+}
+
+.rate-form_sp {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 50px 15px 0px 0px;
+}
+
+.rate-form input[type=radio] {
+    display: none;
+}
+.rate-form label {
+    position: relative;
+    padding: 0 5px;
+    color: #ccc;
+    cursor: pointer;
+    font-size: 60px;
+    border:none;
+}
+.rate-form label:hover {
+    color: #ffcc00;
+}
+.rate-form label:hover ~ label {
+    color: #ffcc00;
+}
+.rate-form input[type=radio]:checked ~ label {
+    color: #ffcc00;
+}
+
+
+
+/*以下モーダルについて*/
+
+/* モーダルウィンドウ */
+.modal-window {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 580px;
+    background-color: #dfdddd;
+    border-radius: 5px;
+    z-index: 11;
+    padding: 2rem;
+}
+
+.modal-window_sp {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 380px;
+    height: 400px;
+    background-color: white;
+    border-radius: 5px;
+    z-index: 11;
+    padding: 2rem;
+}
+
+.modal-text {
+    font-size: 33px;
+    font-weight: bold;
+    position: absolute;
+    top: 35%;
+    left: 11%;
+}
+
+.modal-text_sp {
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    top: 35%;
+    left: 11%;
+}
+
+/* 閉じるボタン */
+.button-close {
+    font-size: 30px;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 80px;
+    background-color: black;
+    color: #eaeaea;
+    border-radius: 20rem;
+    cursor: pointer;
+}
+
+.button-close_sp {
+    font-size: 20px;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 50px;
+    background-color: black;
+    color: #eaeaea;
+    border-radius: 20rem;
+    cursor: pointer;
+}
+
+/* オーバーレイ */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+
+
+/*以下ページネーションについて*/
+
+.paginationWrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 38px;
+    margin-bottom: 40px;
+}
+
+.paginationWrap ul.pagination {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+.paginationWrap ul.pagination li {
+    display: inline;
+    margin-right: 4px;
+}
+
+.paginationWrap ul.pagination li a {
+    color: #2f3859;
+    padding: 8px 14px;
+    text-decoration: none;
+}
+
+.paginationWrap ul.pagination li a.active {
+    background-color: #EDEDED;
+    border-radius: 5px;
+    width: 38px;
+    height: 38px;
+}
+
+.paginationWrap ul.pagination li a:hover:not(.active) {
+    background-color: #e1e7f0;
+    border-radius: 5px;
+}
+
+
+/*以下「続きを読む」ボタンについて*/
+/* === BOXの定義 ================================================= */
+.restaurant_profile {
+    position: relative;
+    margin: 0 auto 43px auto;
+    padding: 14px 0px 20px 0px;
+    background: #fff;
+    text-align: left;
+    font-size: 13px;
+    color: #696969;
+}
+
+/* === 文書を書くBOX ============================================= */
+.restaurant_profile > div {
+overflow      : hidden;                       /* hidden指定は必須 */
+}
+
+/* === チェックボックス ========================================== */
+.restaurant_profile > input {
+display       : none;                                   /* 非表示 */
+}
+
+/* === チェックボックスのlabel（＝ボタンに見せる） =============== */
+.restaurant_profile > label {
+position      : absolute;
+display       : inline-block;
+bottom        : -30px;
+right         : 3px;
+padding-top       : 0px ;
+font-size: 14px;
+font-weight: bold;
+display: block;
+width: 120px;
+height: 26px;
+line-height: 25px;
+background:black;
+color:#fff;
+border-radius:25px;
+text-decoration:none;
+text-align:center;
+}
+
+/* === ボタンにカーソルが乗った時 ================================ */
+#restaurant_profile_label:hover,
+#restaurant_profile_label_ipad:hover {
+transition: 0.5s;
+opacity: 0.6;
+}
+
+/* === 文書のエリアの高さ（「続きを開く」が表示されているとき）=== */
+.restaurant_profile > input[type="checkbox"]:not(:checked) ~ div {
+height        : 110px;
+}
+
+/* === 文書のエリアの高さ（「続きを開く」が表示されているとき）=== */
+.restaurant_profile > input[type="checkbox"]:checked ~ div {
+padding-bottom: 30px;
+}
+
+/* --- ボタンに表示する文字（閉じているとき） -------------------- */
+.restaurant_profile > input[type="checkbox"]:not(:checked) + label::after {
+content       : "続きを読む";
+}
+
+/* --- ボタンに表示する文字（開いているとき） -------------------- */
+.restaurant_profile > input[type="checkbox"]:checked + label::after {
+content       : "閉じる";
+}
+
+/* --- ボタンに表示する文字（開いているとき） -------------------- */
+.restaurant_profile > input[type="checkbox"]:checked + label {
+bottom        : 0px;
+}
+
+
+
+/*以下iPad版の「開く」ボタンについて*/
+
+/* === 文書を書くBOX ============================================= */
+.filter_form_ipad {
+    overflow      : hidden;                       /* hidden指定は必須 */
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+    
+.filter_form_sp {
+    overflow      : hidden;                       /* hidden指定は必須 */
+    width: 100%;
+}
+
+/* === チェックボックス ========================================== */
+.filter_open_checkbox {
+display       : none;                                   /* 非表示 */
+}
+
+/* === チェックボックスのlabel（＝ボタンに見せる） =============== */
+.filter_open_label {
+    position      : relative;
+    float:right;
+    right         : 13px;
+    margin-bottom: -40px;
+    bottom: 26px;
+    padding-top       : 0px ;
+    font-size: 15px;
+    font-weight: bold;
+    display:block;
+    width:120px;
+    height:30px;
+    line-height:30px;
+    background:black;
+    color:#fff;
+    border-radius:25px;
+    text-decoration:none;
+    text-align:center;
+}
+
+.filter_open_label_sp {
+    position      : relative;
+    float:right;
+    margin-bottom: -40px;
+    bottom: 26px;
+    padding-top       : 0px ;
+    font-size: 12px;
+    font-weight: bold;
+    display:block;
+    width:120px;
+    height:30px;
+    line-height:30px;
+    background:black;
+    color:#fff;
+    border-radius:25px;
+    text-decoration:none;
+    text-align:center;
+}
+
+/* === ボタンにカーソルが乗った時 ================================ */
+.filter_open_label:hover {
+transition: 0.5s;
+opacity: 0.6;
+}
+
+/* === 文書のエリアの高さ（「続きを開く」が表示されているとき）=== */
+.filter_open_checkbox:not(:checked) ~ div {
+height        : 0px;
+}
+
+/* === 文書のエリアの高さ（「続きを開く」が表示されているとき）=== */
+.filter_open_checkbox:checked ~ div {
+/* padding-bottom: 30px; */
+}
+
+/* --- ボタンに表示する文字（閉じているとき） -------------------- */
+.filter_open_checkbox:not(:checked) + label::after {
+content       : "開く";
+}
+
+/* --- ボタンに表示する文字（開いているとき） -------------------- */
+.filter_open_checkbox:checked + label::after {
+content       : "閉じる";
+}
+
+/* --- ボタンに表示する文字（開いているとき） -------------------- */
+.filter_open_checkbox:checked + label {
+bottom        : 26px;
+}
+
+
+
+/*以下ローディング画面について*/
+
+/*▼▼ ここから追加する ▼▼*/
+.loader-wrap {
+	position: fixed;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: white;
+    z-index: 9998;
+}
+/*▲▲ ここまで追加する ▲▲*/
+
+.loader {
+    color: #FFB01A;
+    font-size: 20px;
+    margin: 100px auto;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    position: relative;
+    text-indent: -9999em;
+    -webkit-animation: load4 1.3s infinite linear;
+    animation: load4 1.3s infinite linear;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+
+.loader_text {
+    position: absolute;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    z-index: 9999;
+}
+
+  @-webkit-keyframes load4 {
+    0%,
+    100% {
+      box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+    }
+    12.5% {
+      box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+    }
+    25% {
+      box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+    }
+    37.5% {
+      box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+    }
+    50% {
+      box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+    }
+    62.5% {
+      box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+    }
+    75% {
+      box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+    }
+    87.5% {
+      box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+    }
+  }
+  @keyframes load4 {
+    0%,
+    100% {
+      box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+    }
+    12.5% {
+      box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+    }
+    25% {
+      box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+    }
+    37.5% {
+      box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+    }
+    50% {
+      box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+    }
+    62.5% {
+      box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+    }
+    75% {
+      box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+    }
+    87.5% {
+      box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+    }
+  }
+  
