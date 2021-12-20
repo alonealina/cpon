@@ -40,6 +40,15 @@
         </div>
 
         <div class="regist_form_item">
+            <div class="user_name_title">郵便番号<p class="required_mark">必須</p></div>
+            @if($errors->has('zip'))
+            <div class="comment_error">{{ $errors->first('zip') }}</div>
+            @endif
+            〒{{ Form::text('zip', old('zip', $restaurant->zip), ['class' => 'zip_input', 'maxlength' => 8, 'placeholder' => '000-0000',
+                'onkeyup' => "AjaxZip3.zip2addr(this, '', 'pref', 'address')"]) }}
+        </div>
+
+        <div class="regist_form_item">
             <div class="user_name_title">都道府県<p class="required_mark">必須</p></div>
             <div id="pref_list_admin">
                 <select name="pref">
@@ -49,15 +58,6 @@
                 @endforeach
                 </select>
             </div>
-        </div>
-
-        <div class="regist_form_item">
-            <div class="user_name_title">郵便番号<p class="required_mark">必須</p></div>
-            @if($errors->has('zip'))
-            <div class="comment_error">{{ $errors->first('zip') }}</div>
-            @endif
-            〒{{ Form::text('zip', old('zip', $restaurant->zip), ['class' => 'zip_input', 'maxlength' => 8, 'placeholder' => '000-0000',
-                'onkeyup' => "AjaxZip3.zip2addr(this, '', 'address', 'address')"]) }}
         </div>
 
         <div class="regist_form_item">
