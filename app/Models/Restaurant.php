@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 use App\Models\Category;
+use App\Models\Comment;
+
 
 class Restaurant extends Model
 {
@@ -17,7 +19,7 @@ class Restaurant extends Model
     protected $dates = ['created_at', 'updated_at'];
 
     protected $appends = [
-        'open_hm', 'close_hm', 'opening_flg', 'profile_text', 'category_name'
+        'open_hm', 'close_hm', 'opening_flg', 'profile_text', 'category_name', 'avg_star'
     ];
 
     public function getOpenHmAttribute() {
@@ -50,13 +52,20 @@ class Restaurant extends Model
     }
 
     public function getProfileTextAttribute() {
-        
         return str_replace(array("\r\n","\r","\n"), "", $this->profile);
     }
 
     public function getCategoryNameAttribute() {
-
         return Category::find($this->category_id)->name;
+    }
+
+    public function getAvgStarAttribute() {
+        $tmp = Comment::where('restaurant_id', $this->id)
+        ->selectRaw('CAST(AVG(fivestar) AS DECIMAL(2,1)) AS star_avg')->first()->star_avg;
+        if (is_null($tmp)) {
+            $tmp = 0;
+        }
+        return $tmp;
     }
 
     public function outputCsvHeader() {

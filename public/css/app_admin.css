@@ -54,65 +54,177 @@ footer a, footer a:hover {
     font-size: 18px;
 }
 .admin_content {
-    background-color: rgb(235, 235, 235);
+    background-color: #f3f3f3;
 }
 
-#freeword_form, #freeword_form_ipad {
-    height:40px;
-    width:650px;
+.filter_flex, .restaurant_list_column {
+    display: flex;
+    flex-wrap: wrap;
 }
 
-#freeword_form_ipad {
-    margin:0 100px;
+.restaurant_list_column {
+    border:solid 1px #f3f3f3;
 }
 
-#freeword_form_sp {
-    height:50px;
-
+.filter_flex_left, .filter_flex_right {
+    width: 40%;
+    padding:20px;
 }
 
-.freeword_text, .freeword_text_ipad {
-    height:40px;
-    border-radius:20px;
-    border:solid 2px;
-    border-color: #A2A2A2;
-    padding-left: 20px;
+.filter_flex_button {
+    padding:20px;
 }
 
-.freeword_text, .freeword_text_ipad {
-    width:600px;
+.filter_flex_address_zip, .filter_flex_name {
+    width: 70%;
 }
 
-.freeword_text_sp {
-    height:60px;
-    width:370px;
-    margin-top:-50px;
-    border-radius:50px;
-    border:solid 2px;
-    border-color: #A2A2A2;
-    padding-left: 30px;
+.filter_flex_id {
+    width: 30%;
 }
 
-.fa-search {
-    color : white;
+.filter_address_input, .filter_tel_input {
+    width: 100%;
 }
 
-.fas_search_button {
-    background-color: #FFB01A;
-    border-radius:20px;
-    border:none;
-    width:30px;
-    height:30px;
-    margin-left:-50px;
+.filter_id_input {
+    width: 80%;
 }
 
-.fas_search_button_sp {
-    background-color: #FFB01A;
-    border-radius:50px;
-    border:none;
-    width:45px;
-    height:45px;
-    margin-left:-60px;
+.filter_name_input, .filter_id_input, .filter_address_input, .filter_zip_input, .filter_tel_input {
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    margin: 3px 0 10px 0;
+    outline: none;
+    padding: 3px;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+.filter_flex select {
+    margin: 3px 0 10px 0;
+    padding: 3px;
+    height: 32px;
+}
+
+.restaurant_list_column div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search_button a {
+    font-size: 10px;
+    font-weight: bold;
+    display:block;
+    width:95%;
+    height:35px;
+    line-height:35px;
+    background:#437EC4;
+    color:#fff;
+    border-radius:8px;
+    text-decoration:none;
+    text-align:center;
+}
+
+.clear_button a {
+    font-size: 10px;
+    font-weight: bold;
+    display:block;
+    width:95%;
+    height:35px;
+    line-height:35px;
+    background:#fff;
+    color:#437EC4;
+    border-radius:8px;
+    text-decoration:none;
+    text-align:center;
+}
+
+.restaurant_list_button_blue a {
+    font-size: 10px;
+    font-weight: bold;
+    display:block;
+    width: 40px;
+    height: 45px;
+    line-height: 45px;
+    background:#437EC4;
+    color:#fff;
+    margin:5px;
+    border-radius:8px;
+    text-decoration:none;
+    text-align:center;
+}
+
+.restaurant_list_button_red a {
+    font-size: 10px;
+    font-weight: bold;
+    display:block;
+    width: 40px;
+    height: 45px;
+    line-height: 45px;
+    background:#CB0C0C;
+    color:#fff;
+    margin:5px;
+    border-radius:8px;
+    text-decoration:none;
+    text-align:center;
+}
+
+.search_button, .clear_button {
+    width:100px;
+    float:left;
+}
+
+.search_result_count {
+    font-size: 11px;
+    float:left;
+}
+
+.restaurant_list {
+    background:#fff;
+    font-size: 11px;
+}
+
+.restaurant_item_name, .restaurant_list_checkbox {
+    margin:10px 5px;
+    text-align: center;
+}
+
+.restaurant_list_checkbox {
+    width:3%;
+}
+
+.restaurant_list_id {
+    width:7%;
+}
+
+.restaurant_list_name {
+    width:8%;
+}
+
+.restaurant_list_address {
+    width:11%;
+}
+
+.restaurant_list_tel {
+    width:11%;
+}
+
+.restaurant_list_time {
+    width:9%;
+}
+
+.restaurant_list_fivestar {
+    width:4%;
+}
+
+.restaurant_list_status {
+    width:8%;
+}
+
+.restaurant_list_created, .restaurant_list_updated {
+    width:8%;
 }
 
 .category_title_ipad {
@@ -236,20 +348,6 @@ p {
     font-family: "ヒラギノ丸ゴシック";
     margin-left: 10px;
     margin-bottom: 0px;
-}
-
-.restaurant_list_title_ipad {
-    font-size: 25px;
-    margin-left: 50px;
-}
-
-.restaurant_list_title_sp {
-    font-size: 16px;
-    margin-bottom: 10px;
-}
-
-.index_notice_title_sp {
-    margin-top:50px;
 }
 
 .flexible_img_list {
@@ -496,21 +594,6 @@ hr {
     margin-bottom: 20px;
 }
 
-.search_button a {
-    font-size: 15px;
-    font-weight: bold;
-    display:block;
-    width:70%;
-    height:30px;
-    margin:10px auto;
-    line-height:30px;
-    background:#FF7D1A;
-    color:#fff;
-    border-radius:25px;
-    text-decoration:none;
-    text-align:center;
-}
-
 .flexible-list {
     display: flex;
     margin: 0 auto;
@@ -541,7 +624,7 @@ hr {
 
 .flexible-list-main {
     width: 100%;
-    background-color: rgb(235, 235, 235);
+    background-color: #f3f3f3;
 }
 
 .filter_form_title {
@@ -572,25 +655,10 @@ hr {
     border-left: double 2px orange;
 }
 
-.search_button {
-    width:200px;
-    margin:0 auto;
-}
 
 .filter_name {
     font-weight: bold;
     padding-bottom: 5px;
-}
-
-.filter_freeword {
-    width: 100%;
-    border: 1px solid #aaa;
-    border-radius: 8px;
-    margin: 3px 0 10px 0;
-    outline: none;
-    padding: 3px;
-    box-sizing: border-box;
-    transition: 0.3s;
 }
 
 input[type="text"]:focus {

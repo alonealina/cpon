@@ -21,8 +21,12 @@ function clickFilterButton() {
     document.forms.filter_form.submit();
 }
 
-function clickFilterButton() {
+function clickFilterButtonIpad() {
     document.forms.filter_form_ipad.submit();
+}
+
+function clickFilterButtonAdmin() {
+    document.forms.filter_form.submit();
 }
 
 function clickCommentButton() {
@@ -39,6 +43,10 @@ function clickCommentButtonSp() {
 
 function clickRegistButton() {
     document.forms.regist_form.submit();
+}
+
+function clickClearButton() {
+    document.forms.filter_form.reset();
 }
 
 
@@ -150,3 +158,20 @@ $(function(){
 		loader.fadeOut();
 	},3000);
 });
+
+$(function() {
+    // 1. 「全選択」する
+    $('#all').on('click', function() {
+      $("input[name='chk[]']").prop('checked', this.checked);
+    });
+    // 2. 「全選択」以外のチェックボックスがクリックされたら、
+    $("input[name='chk[]']").on('click', function() {
+      if ($('#boxes :checked').length == $('#boxes :input').length) {
+        // 全てのチェックボックスにチェックが入っていたら、「全選択」 = checked
+        $('#all').prop('checked', true);
+      } else {
+        // 1つでもチェックが入っていたら、「全選択」 = checked
+        $('#all').prop('checked', false);
+      }
+    });
+  });

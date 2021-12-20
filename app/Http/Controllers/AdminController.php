@@ -40,18 +40,41 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function restaurant_list()
+    public function restaurant_list(Request $request)
     {
-        $categories = Category::all();
-        $recommends = Restaurant::where('recommend_flg', 1)->take(6)->get();
-        $news = Restaurant::where('new_flg', 1)->take(6)->get();
-        $notices = Notice::orderBy('notice_date', 'desc')->take(5)->get();
+        $query = Restaurant::select('*');
+        $filter_array = $request->all();
+        $name = isset($filter_array['name']) ? $filter_array['name'] : null;
+        $id = isset($filter_array['id']) ? $filter_array['id'] : null;
+        $zip = isset($filter_array['zip']) ? $filter_array['zip'] : null;
+        $pref = isset($filter_array['pref']) ? $filter_array['pref'] : null;
+        $address = isset($filter_array['address']) ? $filter_array['address'] : null;
+        $open = isset($filter_array['open']) ? $filter_array['open'] : null;
+        $close = isset($filter_array['close']) ? $filter_array['close'] : null;
+        $fivestar_before = isset($filter_array['fivestar_before']) ? $filter_array['fivestar_before'] : null;
+        $fivestar_after = isset($filter_array['fivestar_after']) ? $filter_array['fivestar_after'] : null;
+
+        $fivestar_before = $fivestar_before == 'none' ? 0 : $fivestar_before;
+        $fivestar_after = $fivestar_after == 'none' ? 5 : $fivestar_after;
+
+        if (!empty($name)) {
+            $query->orwhere('name1', 'like', "%$name%");
+            $query->orwhere('name2', 'like', "%$name%");
+            $query->orwhere('name3', 'like', "%$name%");
+        }
+
+        $tmp = Restaurant::all();
+        $id_list = [];
+        foreach ($tmp as $tmp) {
+            if ($tmp->avg_star >= $fivestar_before && $tmp->avg_star <= $fivestar_after) {
+                $id_list[] = $tmp->id;
+            }
+        }
+        $query->WhereIn('restaurants.id', $id_list);
+        $restaurants = $query->paginate(10);
 
         return view('admin.restaurant_list', [
-            'categories' => $categories,
-            'recommends' => $recommends,
-            'news' => $news,
-            'notices' => $notices,
+            'restaurants' => $restaurants,
         ]);
     }
 

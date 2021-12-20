@@ -37,6 +37,7 @@ class CreateRestaurantsTable extends Migration
             $table->string('sub_img2', 50)->nullable();
             $table->string('sub_img3', 50)->nullable();
             $table->string('sub_img4', 50)->nullable();
+            $table->integer('release_flg')->default(0);
             $table->timestamps();
         });
     }
