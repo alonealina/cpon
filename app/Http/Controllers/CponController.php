@@ -83,47 +83,54 @@ class CponController extends Controller
     {
         $categories = Category::all();
         $filter_array = $request->all();
-        $search_radio = null;
+        $area = null;
+        $open_only = null;
+        $highly_rated = null;
 
-        if (isset($filter_array['search_radio'])) {
-            $search_radio = $filter_array['search_radio'];
+        if (isset($filter_array['area'])) {
+            $area = $filter_array['area'];
         }
-
-        if (isset($filter_array['search_radio_ipad'])) {
-            $search_radio = $filter_array['search_radio_ipad'];
+        if (isset($filter_array['open_only'])) {
+            $open_only = $filter_array['open_only'];
+        }
+        if (isset($filter_array['highly_rated'])) {
+            $highly_rated = $filter_array['highly_rated'];
         }
 
         $freeword = $filter_array['freeword'];
         $open = $filter_array['open'];
         $close = $filter_array['close'];
         $pref = $filter_array['pref'];
-        unset($filter_array['search_radio'], $filter_array['search_radio_ipad'], $filter_array['freeword'], $filter_array['open'], $filter_array['close'], $filter_array['pref']);
+        unset($filter_array['search_radio'], $filter_array['search_radio_ipad'], $filter_array['freeword'], $filter_array['open'], $filter_array['close'],
+        $filter_array['pref'], $filter_array['area'], $filter_array['open_only'], $filter_array['highly_rated']);
         
         $query = Restaurant::join('scenes', 'restaurants.id', '=', 'scenes.restaurant_id')
             ->join('commitments', 'restaurants.id', '=', 'commitments.restaurant_id');
 
-        foreach ($filter_array as $key => $value) {
-            $query->orWhere($key , 1);
-        }
-
         if (!empty($freeword)) {
-            $query->orWhereIn('restaurants.id', function($q) use($freeword) {
-                return $q->from('menus')
-                    ->select('restaurant_id')
-                    ->where('name', 'like', "%$freeword%")
-                    ->groupBy('restaurant_id');
-                })
-                ->orwhere(function ($query) use ($freeword) {
-                    $query->orwhere('name1', 'like', "%$freeword%")->orwhere('name1', 'like', "%$freeword%")->orwhere('name1', 'like', "%$freeword%");
+            $query->where(function ($query) use ($freeword) {
+                $query->whereIn('restaurants.id', function($q) use($freeword) {
+                    return $q->from('menus')
+                        ->select('restaurant_id')
+                        ->where('name', 'like', "%$freeword%")
+                        ->groupBy('restaurant_id');
+                    })
+                    ->orwhere('name1', 'like', "%$freeword%")->orwhere('name1', 'like', "%$freeword%")->orwhere('name1', 'like', "%$freeword%");
                 });
         }
 
-        if ($search_radio == 'area') {
+        foreach ($filter_array as $key => $value) {
+            $query->where($key , 1);
+        }
+
+        if ($area == 'area') {
             $query->where('pref', $pref);
-        } elseif ($search_radio == 'open_only') {
+        } 
+        if ($open_only == 'open_only') {
             $query->whereTime('close_time', '>=', date("H:i:s"));
             $query->whereTime('open_time', '<=', date("H:i:s"));
-        } elseif ($search_radio == '4_or_more') {
+        }
+        if ($highly_rated == 'highly_rated') {
             $avg_star_4 = Comment::selectRaw('restaurant_id, AVG(fivestar) as avg_star')
                 ->groupBy('restaurant_id')
                 ->having('avg_star', '>=', 4)->get();

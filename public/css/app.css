@@ -1139,11 +1139,6 @@ label {
     text-align:center;
 }
 
-#pref_list, #pref_list_ipad {
-    display: none;
-}
-
-
 .category_list li {
     text-align:center;
     background-color: #F0F0F0;

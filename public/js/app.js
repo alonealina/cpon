@@ -49,27 +49,6 @@ function clickClearButton() {
     document.forms.filter_form.reset();
 }
 
-
-function searchFormChange() {
-    var radio = document.getElementsByName('search_radio');
-    var prefList = document.getElementById('pref_list');
-    if(radio[0].checked) {
-        prefList.style.display = "block";
-    }else if(radio[1].checked || radio[2].checked || radio[3].checked) {
-        prefList.style.display = "none";
-    }
-}
-
-function searchFormChangeIpad() {
-    var radio = document.getElementsByName('search_radio_ipad');
-    var prefListIpad = document.getElementById('pref_list_ipad');
-    if(radio[0].checked) {
-        prefListIpad.style.display = "block";
-    }else if(radio[1].checked || radio[2].checked || radio[3].checked) {
-        prefListIpad.style.display = "none";
-    }
-}
-
 // 以下スライダー機能について
 
 $('.slider').slick({

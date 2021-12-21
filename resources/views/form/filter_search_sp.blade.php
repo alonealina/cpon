@@ -5,7 +5,7 @@
         <div class="filter_form_sp">
             <hr>
             <div class="search_radio_list">
-                <input type="radio" name="search_radio" class="search_radio" value="area" onchange="searchFormChange();"> 地域から探す<br>
+                <input type="radio" name="search_radio" class="search_radio" value="area"> 都道府県<br>
                 <div id="pref_list">
                     <select name="pref">
                     @foreach (config('const.Prefs') as $name)
@@ -13,8 +13,8 @@
                     @endforeach
                     </select>
                 </div>
-                <input type="radio" name="search_radio" class="search_radio" value="open_only" onchange="searchFormChange();"> OPENのみ<br>
-                <input type="radio" name="search_radio" class="search_radio" value="4_or_more" onchange="searchFormChange();"> 高評価(4.0以上)<br>
+                <input type="radio" name="search_radio" class="search_radio" value="open_only"> OPEN<br>
+                <input type="radio" name="search_radio" class="search_radio" value="4_or_more"> 高評価<br>
             </div>
             <div class="filter_name">利用シーン</div>
             <hr>
