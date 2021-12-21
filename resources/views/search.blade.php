@@ -13,7 +13,7 @@
         @endif
         <div class="search_name">{{ $restaurant->name1 }} {{ $restaurant->name2 }} {{ $restaurant->name3 }}</div>
         <div class="search_address">〒{{ $restaurant->zip }} {{ $restaurant->pref }}{{ $restaurant->address }}</div>
-        <div class="search_time">{{ $restaurant->open_hm }} - {{ $restaurant->close_hm }}　
+        <div class="search_time">営業時間　{{ $restaurant->open_hm }} - {{ $restaurant->close_hm }}　
             @if($restaurant->opening_flg)
             <div class="open_mark">OPEN</div>
             @else
@@ -43,7 +43,7 @@
         @endif
         <div class="search_name">{{ $restaurant->name1 }} {{ $restaurant->name2 }} {{ $restaurant->name3 }}</div>
         <div class="search_address">〒{{ $restaurant->zip }} {{ $restaurant->pref }}{{ $restaurant->address }}</div>
-        <div class="search_time">{{ $restaurant->open_hm }} - {{ $restaurant->close_hm }}　
+        <div class="search_time">営業時間　{{ $restaurant->open_hm }} - {{ $restaurant->close_hm }}　
             @if($restaurant->opening_flg)
             <div class="open_mark">OPEN</div>
             @else
@@ -79,7 +79,7 @@
         @endif
         <div class="search_name restaurant_name_sp">{{ $restaurant->name1 }} {{ $restaurant->name2 }} {{ $restaurant->name3 }}</div>
         <div class="search_address_sp">〒{{ $restaurant->zip }} {{ $restaurant->pref }}{{ $restaurant->address }}</div>
-        <div class="search_time">{{ $restaurant->open_hm }} - {{ $restaurant->close_hm }}　</div>
+        <div class="search_time">営業時間　{{ $restaurant->open_hm }} - {{ $restaurant->close_hm }}　</div>
         @if($restaurant->opening_flg)
         <div class="open_mark">OPEN</div>
         @else

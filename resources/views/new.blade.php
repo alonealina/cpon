@@ -14,7 +14,7 @@
         @endif
         <div class="new_name">{{ $new->name1 }} {{ $new->name2 }} {{ $new->name3 }}</div>
         <div class="new_address">〒{{ $new->zip }} {{ $new->pref }}{{ $new->address }}</div>
-        <div class="new_time">{{ $new->open_hm }} - {{ $new->close_hm }}　</div>
+        <div class="new_time">営業時間　{{ $new->open_hm }} - {{ $new->close_hm }}　</div>
         @if($new->opening_flg)
         <div class="open_mark">OPEN</div>
         @else
@@ -42,7 +42,7 @@
         @endif
         <div class="new_name">{{ $new->name1 }} {{ $new->name2 }} {{ $new->name3 }}</div>
         <div class="new_address">〒{{ $new->zip }} {{ $new->pref }}{{ $new->address }}</div>
-        <div class="new_time">{{ $new->open_hm }} - {{ $new->close_hm }}　</div>
+        <div class="new_time">営業時間　{{ $new->open_hm }} - {{ $new->close_hm }}　</div>
         @if($new->opening_flg)
         <div class="open_mark">OPEN</div>
         @else
@@ -76,7 +76,7 @@
         @endif
         <div class="new_name restaurant_name_sp">{{ $new_sp->name1 }} {{ $new_sp->name2 }} {{ $new_sp->name3 }}</div>
         <div class="new_address_sp">〒{{ $new_sp->zip }} {{ $new_sp->pref }}{{ $new_sp->address }}</div>
-        <div class="new_time">{{ $new_sp->open_hm }} - {{ $new_sp->close_hm }}　</div>
+        <div class="new_time">営業時間　{{ $new_sp->open_hm }} - {{ $new_sp->close_hm }}　</div>
         @if($new_sp->opening_flg)
         <div class="open_mark">OPEN</div>
         @else

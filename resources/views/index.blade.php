@@ -42,7 +42,7 @@
         @endif
         <div class="recommend_name">{{ $recommend->name1 }} {{ $recommend->name2 }} {{ $recommend->name3 }}</div>
         <div class="recommend_address">〒{{ $recommend->zip }} {{ $recommend->pref }}{{ $recommend->address }}</div>
-        <div class="recommend_time">{{ $recommend->open_hm }} - {{ $recommend->close_hm }}　</div>
+        <div class="recommend_time">営業時間　{{ $recommend->open_hm }} - {{ $recommend->close_hm }}　</div>
         @if($recommend->opening_flg)
         <div class="open_mark">OPEN</div>
         @else
@@ -64,7 +64,7 @@
         @endif
         <div class="new_name">{{ $new->name1 }} {{ $new->name2 }} {{ $new->name3 }}</div>
         <div class="new_address">〒{{ $new->zip }} {{ $new->pref }}{{ $new->address }}</div>
-        <div class="new_time">{{ $new->open_hm }} - {{ $new->close_hm }}　</div>
+        <div class="new_time">営業時間　{{ $new->open_hm }} - {{ $new->close_hm }}　</div>
         @if($new->opening_flg)
         <div class="open_mark">OPEN</div>
         @else
@@ -109,7 +109,7 @@
         @endif
         <div class="recommend_name">{{ $recommend->name1 }} {{ $recommend->name2 }} {{ $recommend->name3 }}</div>
         <div class="recommend_address">〒{{ $recommend->zip }} {{ $recommend->pref }}{{ $recommend->address }}</div>
-        <div class="recommend_time">{{ $recommend->open_hm }} - {{ $recommend->close_hm }}　</div>
+        <div class="recommend_time">営業時間　{{ $recommend->open_hm }} - {{ $recommend->close_hm }}　</div>
         @if($recommend->opening_flg)
         <div class="open_mark">OPEN</div>
         @else
@@ -131,7 +131,7 @@
         @endif
         <div class="new_name">{{ $new->name1 }} {{ $new->name2 }} {{ $new->name3 }}</div>
         <div class="new_address">〒{{ $new->zip }} {{ $new->pref }}{{ $new->address }}</div>
-        <div class="new_time">{{ $new->open_hm }} - {{ $new->close_hm }}　</div>
+        <div class="new_time">営業時間　{{ $new->open_hm }} - {{ $new->close_hm }}　</div>
         @if($new->opening_flg)
         <div class="open_mark">OPEN</div>
         @else
@@ -176,7 +176,7 @@
     @endif
     <div class="recommend_name restaurant_name_sp">{{ $recommend->name1 }} {{ $recommend->name2 }} {{ $recommend->name3 }}</div>
     <div class="recommend_address_sp">〒{{ $recommend->zip }} {{ $recommend->pref }}{{ $recommend->address }}</div>
-    <div class="recommend_time">{{ $recommend->open_hm }} - {{ $recommend->close_hm }}　</div>
+    <div class="recommend_time">営業時間　{{ $recommend->open_hm }} - {{ $recommend->close_hm }}　</div>
     @if($recommend->opening_flg)
     <div class="open_mark">OPEN</div>
     @else
@@ -209,7 +209,7 @@
     @endif
     <div class="new_name restaurant_name_sp">{{ $new->name1 }} {{ $new->name2 }} {{ $new->name3 }}</div>
     <div class="new_address_sp">〒{{ $new->zip }} {{ $new->pref }}{{ $new->address }}</div>
-    <div class="new_time">{{ $new->open_hm }} - {{ $new->close_hm }}　</div>
+    <div class="new_time">営業時間　{{ $new->open_hm }} - {{ $new->close_hm }}　</div>
     @if($new->opening_flg)
     <div class="open_mark">OPEN</div>
     @else
