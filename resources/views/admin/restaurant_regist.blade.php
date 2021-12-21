@@ -141,8 +141,6 @@
             <div class="user_name_title">オプション</div>
             <input type="checkbox" class="check_box" id="recommend_flg" name="recommend_flg"/>
             <label class="label" for="recommend_flg">おすすめ</label>
-            <input type="checkbox" class="check_box" id="new_flg" name="new_flg"/>
-            <label class="label" for="new_flg">新着店舗</label>
         </div>
 
         <div class="regist_form_item">
