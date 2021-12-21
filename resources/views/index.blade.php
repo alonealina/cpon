@@ -3,12 +3,9 @@
 @section('banner')
 <div class="banner">
     <ul class="slider_banner">
-        <li><img src="{{ asset('img/banner_test.png') }}" class="banner_img" alt=""></li>
-        <li><img src="{{ asset('img/banner_test.png') }}" class="banner_img" alt=""></li>
-        <li><img src="{{ asset('img/banner_test.png') }}" class="banner_img" alt=""></li>
-        <li><img src="{{ asset('img/banner_test.png') }}" class="banner_img" alt=""></li>
-        <li><img src="{{ asset('img/banner_test.png') }}" class="banner_img" alt=""></li>
-        <li><img src="{{ asset('img/banner_test.png') }}" class="banner_img" alt=""></li>
+        @foreach($banners as $banner)
+        <li><a href="{{ $banner->url }}"><img src="{{ asset('img/banner/'. $banner->img) }}" class="banner_img" alt=""></a></li>
+        @endforeach
     </ul>
 </div>
 @endsection
@@ -16,12 +13,19 @@
 @section('banner_ipad')
 <div class="banner_ipad">
     <ul class="slider_banner_ipad">
-        <li><img src="{{ asset('img/banner_test.png') }}" class="banner_img" alt=""></li>
-        <li><img src="{{ asset('img/banner_test.png') }}" class="banner_img" alt=""></li>
-        <li><img src="{{ asset('img/banner_test.png') }}" class="banner_img" alt=""></li>
-        <li><img src="{{ asset('img/banner_test.png') }}" class="banner_img" alt=""></li>
-        <li><img src="{{ asset('img/banner_test.png') }}" class="banner_img" alt=""></li>
-        <li><img src="{{ asset('img/banner_test.png') }}" class="banner_img" alt=""></li>
+        @foreach($banners as $banner)
+        <li><a href="{{ $banner->url }}"><img src="{{ asset('img/banner/'. $banner->img) }}" class="banner_img" alt=""></a></li>
+        @endforeach
+    </ul>
+</div>
+@endsection
+
+@section('banner_sp')
+<div class="banner_sp">
+    <ul class="slider_banner_sp">
+        @foreach($banners as $banner)
+        <li><a href="{{ $banner->url }}"><img src="{{ asset('img/banner/'. $banner->img) }}" class="banner_img" alt=""></a></li>
+        @endforeach
     </ul>
 </div>
 @endsection
@@ -185,17 +189,6 @@
 </a>
 </div>
 @endforeach
-
-<div class="banner_sp">
-    <ul class="slider_banner_sp">
-        <li><img src="{{ asset('img/banner_test.png') }}" class="banner_img" alt=""></li>
-        <li><img src="{{ asset('img/banner_test.png') }}" class="banner_img" alt=""></li>
-        <li><img src="{{ asset('img/banner_test.png') }}" class="banner_img" alt=""></li>
-        <li><img src="{{ asset('img/banner_test.png') }}" class="banner_img" alt=""></li>
-        <li><img src="{{ asset('img/banner_test.png') }}" class="banner_img" alt=""></li>
-        <li><img src="{{ asset('img/banner_test.png') }}" class="banner_img" alt=""></li>
-    </ul>
-</div>
 
 <p class="restaurant_list_title_sp">新着店舗情報</p>
 

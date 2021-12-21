@@ -2,6 +2,8 @@
 
 @section('content')
 
+@yield('banner')
+
 <p>カテゴリーから探す</p>
 <div class="category">
     <ul class="slider">
@@ -32,8 +34,6 @@
     </ul>
 </div>
 
-@yield('banner')
-
 @yield('category_background')
 
 <div class="flexible-list">
@@ -54,6 +54,8 @@
 @section('content_ipad')
 
 @include('form.header_search_ipad')
+
+@yield('banner_ipad')
 
 <p class="category_title_ipad">カテゴリーから探す</p>
 <div class="category_ipad">
@@ -85,7 +87,6 @@
     </ul>
 </div>
 
-@yield('banner_ipad')
 
 @yield('category_background_ipad')
 
@@ -101,6 +102,8 @@
 @section('content_sp')
 
 @include('form.header_search_sp')
+
+@yield('banner_sp')
 
 <p class="category_title_sp">カテゴリーから探す</p>
 <div class="category_sp">

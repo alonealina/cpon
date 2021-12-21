@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Notice;
 use App\Models\Restaurant;
 use App\Models\Comment;
+use App\Models\Banner;
 
 class CponController extends Controller
 {
@@ -21,12 +22,14 @@ class CponController extends Controller
         $recommends = Restaurant::where('recommend_flg', 1)->take(6)->get();
         $news = Restaurant::orderBy('created_at', 'desc')->take(6)->get();
         $notices = Notice::orderBy('notice_date', 'desc')->take(5)->get();
+        $banners = Banner::orderBy('created_at', 'desc')->take(9)->get();
 
         return view('index', [
             'categories' => $categories,
             'recommends' => $recommends,
             'news' => $news,
             'notices' => $notices,
+            'banners' => $banners,
         ]);
     }
 
