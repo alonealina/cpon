@@ -159,6 +159,40 @@ class AdminController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function restaurant_list_update(Request $request)
+    {
+        $request = $request->all();
+        $chk_list = isset($request['chk']) ? $request['chk'] : null;
+        $release_flg = isset($request['release_flg']) ? $request['release_flg'] : null;
+        $recommend_flg = isset($request['recommend_flg']) ? $request['recommend_flg'] : null;
+
+        if (isset($release_flg) && !empty($chk_list)) {
+            foreach ($chk_list as $chk) {
+                Restaurant::where('id', $chk)
+                    ->update(['release_flg' => $release_flg]);
+            }
+        } elseif (isset($recommend_flg) && !empty($chk_list)) {
+            $recommend_id_list = Restaurant::where('recommend_flg', $recommend_flg)
+                    ->get()->pluck('id')->toArray();
+            $count_array = array_merge($recommend_id_list, $chk_list);
+            $count_array = array_unique($count_array);
+            if (count($count_array) <= 12) {
+                foreach ($chk_list as $chk) {
+                    Restaurant::where('id', $chk)
+                        ->update(['recommend_flg' => $recommend_flg]);
+                }    
+            } else {
+                // 12店舗超えるためのエラー処理
+            }
+        }
+        return redirect('admin/restaurant_list')->with('message', 'test');
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

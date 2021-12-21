@@ -29,6 +29,7 @@ Route::post('restaurants/comment_store', 'App\Http\Controllers\RestaurantControl
 Route::get('admin/', 'App\Http\Controllers\AdminController@index')->name('admin.index');
 
 Route::get('admin/restaurant_list', 'App\Http\Controllers\AdminController@restaurant_list')->name('admin.restaurant_list');
+Route::get('admin/restaurant_list_update', 'App\Http\Controllers\AdminController@restaurant_list_update')->name('admin.restaurant_list_update');
 Route::get('admin/restaurant_regist', 'App\Http\Controllers\AdminController@restaurant_regist')->name('admin.restaurant_regist');
 Route::post('admin/restaurant_store', 'App\Http\Controllers\AdminController@restaurant_store')->name('admin.restaurant_store');
 Route::get('admin/restaurant_edit/{id}/', 'App\Http\Controllers\AdminController@restaurant_edit')->name('admin.restaurant_edit');
