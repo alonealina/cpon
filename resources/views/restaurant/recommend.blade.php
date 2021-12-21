@@ -16,11 +16,6 @@
         <div class="menu_name">{{ $recommend_menu->name }}</div>
         <div class="menu_price">￥{{ number_format($recommend_menu->price) }}</div>
         <div class="menu_explain">{{ $recommend_menu->explain }}</div>
-        @if($recommend_menu->recommend_flg)
-        <div class="recommend_mark">
-        人気
-        </div>
-        @endif
     </div>
     @endforeach
 </div>
@@ -46,11 +41,6 @@
         <div class="menu_name">{{ $recommend_menu->name }}</div>
         <div class="menu_price">￥{{ number_format($recommend_menu->price) }}</div>
         <div class="menu_explain">{{ $recommend_menu->explain }}</div>
-        @if($recommend_menu->recommend_flg)
-        <div class="recommend_mark">
-        人気
-        </div>
-        @endif
     </div>
     @endforeach
 </div>
@@ -75,11 +65,6 @@
     <div class="menu_name_sp">{{ $recommend_menu->name }}</div>
     <div class="menu_price_sp">￥{{ number_format($recommend_menu->price) }}</div>
     <div class="menu_explain_sp">{{ $recommend_menu->explain }}</div>
-    @if($recommend_menu->recommend_flg)
-    <div class="recommend_mark_sp">
-    人気
-    </div>
-    @endif
 </div>
 @endforeach
 
