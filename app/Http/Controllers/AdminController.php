@@ -49,32 +49,114 @@ class AdminController extends Controller
         $zip = isset($filter_array['zip']) ? $filter_array['zip'] : null;
         $pref = isset($filter_array['pref']) ? $filter_array['pref'] : null;
         $address = isset($filter_array['address']) ? $filter_array['address'] : null;
+        $tel = isset($filter_array['tel']) ? $filter_array['tel'] : null;
         $open = isset($filter_array['open']) ? $filter_array['open'] : null;
         $close = isset($filter_array['close']) ? $filter_array['close'] : null;
-        $fivestar_before = isset($filter_array['fivestar_before']) ? $filter_array['fivestar_before'] : null;
-        $fivestar_after = isset($filter_array['fivestar_after']) ? $filter_array['fivestar_after'] : null;
+        $fivestar_before_old = isset($filter_array['fivestar_before']) ? $filter_array['fivestar_before'] : null;
+        $fivestar_after_old = isset($filter_array['fivestar_after']) ? $filter_array['fivestar_after'] : null;
+        $created_year_before = isset($filter_array['created_year_before']) ? $filter_array['created_year_before'] : null;
+        $created_month_before = isset($filter_array['created_month_before']) ? $filter_array['created_month_before'] : null;
+        $created_day_before = isset($filter_array['created_day_before']) ? $filter_array['created_day_before'] : null;
+        $created_year_after = isset($filter_array['created_year_after']) ? $filter_array['created_year_after'] : null;
+        $created_month_after = isset($filter_array['created_month_after']) ? $filter_array['created_month_after'] : null;
+        $created_day_after = isset($filter_array['created_day_after']) ? $filter_array['created_day_after'] : null;
+        $updated_year_before = isset($filter_array['updated_year_before']) ? $filter_array['updated_year_before'] : null;
+        $updated_month_before = isset($filter_array['updated_month_before']) ? $filter_array['updated_month_before'] : null;
+        $updated_day_before = isset($filter_array['updated_day_before']) ? $filter_array['updated_day_before'] : null;
+        $updated_year_after = isset($filter_array['updated_year_after']) ? $filter_array['updated_year_after'] : null;
+        $updated_month_after = isset($filter_array['updated_month_after']) ? $filter_array['updated_month_after'] : null;
+        $updated_day_after = isset($filter_array['updated_day_after']) ? $filter_array['updated_day_after'] : null;
 
-        $fivestar_before = $fivestar_before == 'none' ? 0 : $fivestar_before;
-        $fivestar_after = $fivestar_after == 'none' ? 5 : $fivestar_after;
+        $fivestar_before = $fivestar_before_old == 'none' ? 0 : $fivestar_before_old;
+        $fivestar_after = $fivestar_after_old == 'none' ? 5 : $fivestar_after_old;
 
         if (!empty($name)) {
-            $query->orwhere('name1', 'like', "%$name%");
-            $query->orwhere('name2', 'like', "%$name%");
-            $query->orwhere('name3', 'like', "%$name%");
+            $query->where(function ($query) use ($name) {
+                $query->orwhere('name1', 'like', "%$name%")->orwhere('name1', 'like', "%$name%")->orwhere('name1', 'like', "%$name%");
+            });
         }
 
-        $tmp = Restaurant::all();
-        $id_list = [];
-        foreach ($tmp as $tmp) {
-            if ($tmp->avg_star >= $fivestar_before && $tmp->avg_star <= $fivestar_after) {
-                $id_list[] = $tmp->id;
-            }
+        if (!empty($id)) {
+            $query->where('id', 'like', "%$id%");
         }
-        $query->WhereIn('restaurants.id', $id_list);
-        $restaurants = $query->paginate(10);
+
+        if (!empty($zip)) {
+            $query->where('zip', $zip);
+        }
+
+        if (!empty($pref)) {
+            $query->where('pref', $pref);
+        }
+
+        if (!empty($address)) {
+            $query->where('address', 'like', "%$address%");
+        }
+
+        if (!empty($tel)) {
+            $query->where('tel', $tel);
+        }
+
+        if ($open != 0) {
+            $query->whereTime('close_time', '>=', $open);
+        }
+        if ($close != 0) {
+            $query->whereTime('open_time', '<=', $close);
+        }
+
+        if (!empty($created_year_before) && !empty($created_month_before) && !empty($created_day_before)) {
+            $created_before = $created_year_before . '-' . $created_month_before . '-' . $created_day_before;
+            $query->whereDate('created_at', '>=', $created_before);
+        }
+        if (!empty($created_year_after) && !empty($created_month_after) && !empty($created_day_after)) {
+            $created_after = $created_year_after . '-' . $created_month_after . '-' . $created_day_after;
+            $query->whereDate('created_at', '<=', $created_after);
+        }
+        if (!empty($updated_year_before) && !empty($updated_month_before) && !empty($updated_day_before)) {
+            $updated_before = $updated_year_before . '-' . $updated_month_before . '-' . $updated_day_before;
+            $query->whereDate('updated_at', '>=', $updated_before);
+        }
+        if (!empty($updated_year_after) && !empty($updated_month_after) && !empty($updated_day_after)) {
+            $updated_after = $updated_year_after . '-' . $updated_month_after . '-' . $updated_day_after;
+            $query->whereDate('updated_at', '<=', $updated_after);
+        }
+
+        if (!is_null($fivestar_before) && !is_null($fivestar_after)){
+            $tmp = Restaurant::all();
+            $id_list = [];
+            foreach ($tmp as $tmp) {
+                if ($tmp->avg_star >= $fivestar_before && $tmp->avg_star <= $fivestar_after) {
+                    $id_list[] = $tmp->id;
+                }
+            }
+            $query->WhereIn('restaurants.id', $id_list);
+        }
+
+        $restaurants = $query->orderBy('id')->paginate(10);
 
         return view('admin.restaurant_list', [
             'restaurants' => $restaurants,
+            'name' => $name,
+            'id' => $id,
+            'zip' => $zip,
+            'pref' => $pref,
+            'address' => $address,
+            'tel' => $tel,
+            'open' => $open,
+            'close' => $close,
+            'fivestar_before_old' => $fivestar_before_old,
+            'fivestar_after_old' => $fivestar_after_old,
+            'created_year_before' => $created_year_before,
+            'created_month_before' => $created_month_before,
+            'created_day_before' => $created_day_before,
+            'created_year_after' => $created_year_after,
+            'created_month_after' => $created_month_after,
+            'created_day_after' => $created_day_after,
+            'updated_year_before' => $updated_year_before,
+            'updated_month_before' => $updated_month_before,
+            'updated_day_before' => $updated_day_before,
+            'updated_year_after' => $updated_year_after,
+            'updated_month_after' => $updated_month_after,
+            'updated_day_after' => $updated_day_after,
         ]);
     }
 

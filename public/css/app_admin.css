@@ -67,6 +67,16 @@ footer a, footer a:hover {
 }
 
 .filter_flex_left, .filter_flex_right {
+    width: 35%;
+    padding:20px;
+}
+
+.filter_flex_center {
+    width: 25%;
+    padding:20px;
+}
+
+.filter_flex_right {
     width: 40%;
     padding:20px;
 }
@@ -83,7 +93,7 @@ footer a, footer a:hover {
     width: 30%;
 }
 
-.filter_address_input, .filter_tel_input {
+.filter_address_input {
     width: 100%;
 }
 
@@ -184,6 +194,7 @@ footer a, footer a:hover {
 .restaurant_list {
     background:#fff;
     font-size: 11px;
+    margin-bottom: 30px;
 }
 
 .restaurant_item_name, .restaurant_list_checkbox {
@@ -605,8 +616,7 @@ hr {
 .flexible-list-side {
     min-width: 200px;
     max-width: 220px;
-    height:500px;
-    background-color: rgb(226, 226, 226);
+    background-color: #EEEEEE;
 }
 
 .flexible-list-sidebar {
