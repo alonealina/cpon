@@ -147,9 +147,6 @@
             <input type="checkbox" class="check_box" id="recommend_flg" name="recommend_flg"
             @if($restaurant->recommend_flg) checked @endif />
             <label class="label" for="recommend_flg">おすすめ</label>
-            <input type="checkbox" class="check_box" id="new_flg" name="new_flg"
-            @if($restaurant->new_flg) checked @endif />
-            <label class="label" for="new_flg">新着店舗</label>
         </div>
 
         <div class="regist_form_item">

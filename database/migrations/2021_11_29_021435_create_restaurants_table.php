@@ -31,7 +31,6 @@ class CreateRestaurantsTable extends Migration
             $table->string('time_remarks')->nullable();
             $table->string('inquiry_remarks')->nullable();
             $table->integer('recommend_flg')->length(1);
-            $table->integer('new_flg')->length(1);
             $table->string('main_img', 50);
             $table->string('sub_img1', 50)->nullable();
             $table->string('sub_img2', 50)->nullable();

@@ -24,13 +24,11 @@ class AdminController extends Controller
     {
         $categories = Category::all();
         $recommends = Restaurant::where('recommend_flg', 1)->take(6)->get();
-        $news = Restaurant::where('new_flg', 1)->take(6)->get();
         $notices = Notice::orderBy('notice_date', 'desc')->take(5)->get();
 
         return view('layouts.app_admin', [
             'categories' => $categories,
             'recommends' => $recommends,
-            'news' => $news,
             'notices' => $notices,
         ]);
     }
@@ -259,7 +257,6 @@ class AdminController extends Controller
             'tel' => $request['tel'],
             'inquiry_remarks' => $request['inquiry_remarks'],
             'recommend_flg' => isset($request['recommend_flg']) ? 1 : 0,
-            'new_flg' => isset($request['new_flg']) ? 1 : 0,
             'main_img' => $main_img_name,
             'sub_img1' => $sub_img1_name,
             'sub_img2' => $sub_img2_name,
@@ -432,7 +429,6 @@ class AdminController extends Controller
             'tel' => $request['tel'],
             'inquiry_remarks' => $request['inquiry_remarks'],
             'recommend_flg' => isset($request['recommend_flg']) ? 1 : 0,
-            'new_flg' => isset($request['new_flg']) ? 1 : 0,
         ];
 
         if (isset($main_img_name)) {
@@ -543,7 +539,7 @@ class AdminController extends Controller
      */
     public function restaurant_csv_export()
     {
-        $restaurants = Restaurant::where('new_flg', 1)->get();
+        $restaurants = Restaurant::get();
         $cvsList[] = ['ID', '名前1', '名前2', '名前3', '店舗プロフィール', '都道府県', '郵便番号', '住所', '開店時間', '閉店時間', 'カテゴリー', 'URL', 'TEL',
         '備考（住所）', '備考（営業時間）', '備考（お問合せ）', 'メイン画像', 'サブ画像1', 'サブ画像2', 'サブ画像3', 'サブ画像4', '作成日時', '更新日時', 
         ];

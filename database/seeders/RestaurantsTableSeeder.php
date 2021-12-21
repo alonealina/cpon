@@ -28,7 +28,6 @@ class RestaurantsTableSeeder extends Seeder
                 'time_remarks' => '備考',
                 'inquiry_remarks' => '備考',
                 'recommend_flg' => '1',
-                'new_flg' => '0',
             ]);
         }
     }

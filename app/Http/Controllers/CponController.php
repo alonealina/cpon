@@ -19,7 +19,7 @@ class CponController extends Controller
     {
         $categories = Category::all();
         $recommends = Restaurant::where('recommend_flg', 1)->take(6)->get();
-        $news = Restaurant::where('new_flg', 1)->take(6)->get();
+        $news = Restaurant::orderBy('created_at', 'desc')->take(6)->get();
         $notices = Notice::orderBy('notice_date', 'desc')->take(5)->get();
 
         return view('index', [
@@ -110,9 +110,9 @@ class CponController extends Controller
                     ->where('name', 'like', "%$freeword%")
                     ->groupBy('restaurant_id');
                 })
-            ->orwhere('restaurants.name1', 'like', "%$freeword%")
-            ->orwhere('restaurants.name2', 'like', "%$freeword%")
-            ->orwhere('restaurants.name3', 'like', "%$freeword%");
+                ->orwhere(function ($query) use ($freeword) {
+                    $query->orwhere('name1', 'like', "%$freeword%")->orwhere('name1', 'like', "%$freeword%")->orwhere('name1', 'like', "%$freeword%");
+                });
         }
 
         if ($search_radio == 'area') {
@@ -154,13 +154,16 @@ class CponController extends Controller
     public function new()
     {
         $categories = Category::all();
-        $news = Restaurant::where('new_flg', 1)->take(24)->get();
-        $news_sp = Restaurant::where('new_flg', 1)->take(24)->paginate(6);
-
+        $day_30_ago = date("Y-m-d", strtotime("-30 day"));
+        $news = Restaurant::whereDate('created_at', '>=', $day_30_ago)->orderBy('created_at', 'desc')->paginate(12);
+        $news_count = $news->total();
+        if ($news_count <= 5) {
+            $news = Restaurant::orderBy('created_at', 'desc')->take(6)->get();
+        }
         return view('new', [
             'categories' => $categories,
             'news' => $news,
-            'news_sp' => $news_sp,
+            'news_count' => $news_count,
         ]);
     }
 
