@@ -8,6 +8,10 @@ use App\Models\Notice;
 use App\Models\Restaurant;
 use App\Models\Comment;
 use App\Models\Banner;
+use App\Models\Scene;
+use App\Models\Commitment;
+use App\Models\RestaurantScene;
+use App\Models\RestaurantCommitment;
 
 class CponController extends Controller
 {
@@ -23,6 +27,8 @@ class CponController extends Controller
         $news = Restaurant::orderBy('created_at', 'desc')->take(6)->get();
         $notices = Notice::orderBy('notice_date', 'desc')->take(5)->get();
         $banners = Banner::orderBy('created_at', 'desc')->take(9)->get();
+        $scenes = Scene::all();
+        $commitments = Commitment::all();
 
         return view('index', [
             'categories' => $categories,
@@ -30,6 +36,8 @@ class CponController extends Controller
             'news' => $news,
             'notices' => $notices,
             'banners' => $banners,
+            'scenes' => $scenes,
+            'commitments' => $commitments,
         ]);
     }
 
@@ -41,6 +49,8 @@ class CponController extends Controller
     public function search(Request $request)
     {
         $categories = Category::all();
+        $scenes = Scene::all();
+        $commitments = Commitment::all();
         $freeword = $request->input('freeword');
         $restaurants = Restaurant::whereIn('id', function($q) use($freeword) {
             return $q->from('menus')
@@ -56,6 +66,8 @@ class CponController extends Controller
         return view('search', [
             'categories' => $categories,
             'restaurants' => $restaurants,
+            'scenes' => $scenes,
+            'commitments' => $commitments,
         ]);
     }
 
@@ -68,9 +80,13 @@ class CponController extends Controller
     public function search_sp()
     {
         $categories = Category::all();
+        $scenes = Scene::all();
+        $commitments = Commitment::all();
 
         return view('search_sp', [
             'categories' => $categories,
+            'scenes' => $scenes,
+            'commitments' => $commitments,
         ]);
     }
 
@@ -104,8 +120,7 @@ class CponController extends Controller
         unset($filter_array['search_radio'], $filter_array['search_radio_ipad'], $filter_array['freeword'], $filter_array['open'], $filter_array['close'],
         $filter_array['pref'], $filter_array['area'], $filter_array['open_only'], $filter_array['highly_rated']);
         
-        $query = Restaurant::join('scenes', 'restaurants.id', '=', 'scenes.restaurant_id')
-            ->join('commitments', 'restaurants.id', '=', 'commitments.restaurant_id');
+        $query = Restaurant::select('*');
 
         if (!empty($freeword)) {
             $query->where(function ($query) use ($freeword) {
@@ -119,8 +134,23 @@ class CponController extends Controller
                 });
         }
 
-        foreach ($filter_array as $key => $value) {
-            $query->where($key , 1);
+        if (isset($request['scenes'])) {
+            $restaurant_id_list_scene = array_column(Restaurant::get()->toArray(), 'id');
+            foreach ($request['scenes'] as $key => $value) {
+                $restaurant_scenes = array_column(RestaurantScene::where('scene_id', $key)->get()->toArray(), 'restaurant_id');
+                $restaurant_id_list_scene = array_intersect($restaurant_id_list_scene, $restaurant_scenes);
+            }
+            $query->whereIn( 'restaurants.id', $restaurant_id_list_scene);
+        }
+
+        if (isset($request['commitments'])) {
+            $restaurant_id_list_commitment = array_column(Restaurant::get()->toArray(), 'id');
+            foreach ($request['commitments'] as $key => $value) {
+                $restaurant_commitments = array_column(RestaurantCommitment::where('commitment_id', $key)->get()->toArray(), 'restaurant_id');
+                $restaurant_id_list_commitment = array_intersect($restaurant_id_list_commitment, $restaurant_commitments);
+            }
+            $query->whereIn( 'restaurants.id', $restaurant_id_list_commitment);
+
         }
 
         if ($area == 'area') {
@@ -150,9 +180,13 @@ class CponController extends Controller
 
         $restaurants = $query->paginate(24);
 
+        $scenes = Scene::all();
+        $commitments = Commitment::all();
         return view('search', [
             'categories' => $categories,
             'restaurants' => $restaurants,
+            'scenes' => $scenes,
+            'commitments' => $commitments,
         ]);
     }
 
