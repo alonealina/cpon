@@ -8,6 +8,10 @@ use App\Models\Restaurant;
 use App\Models\Category;
 use App\Models\Menu;
 use App\Models\Comment;
+use App\Models\Scene;
+use App\Models\Commitment;
+use App\Models\RestaurantScene;
+use App\Models\RestaurantCommitment;
 use DB;
 
 class RestaurantController extends Controller
@@ -55,6 +59,11 @@ class RestaurantController extends Controller
             ->selectRaw('CAST(AVG(fivestar) AS DECIMAL(2,1)) AS star_avg')->first()->star_avg;
         $restaurant_id = $id;
 
+        $restaurant_scenes = array_column(RestaurantScene::join('scenes', 'scenes.id', '=', 'restaurant_scenes.scene_id')
+            ->where('restaurant_id', $id)->get()->toArray(), 'name');
+        $restaurant_commitments = array_column(RestaurantCommitment::join('commitments', 'commitments.id', '=', 'restaurant_commitments.commitment_id')
+            ->where('restaurant_id', $id)->get()->toArray(), 'name');
+
         return view('restaurant/recommend', [
             'restaurant' => $restaurant,
             'category' => $category,
@@ -64,6 +73,8 @@ class RestaurantController extends Controller
             'restaurant_id' => $restaurant_id,
             'column' => $column,
             'sort' => $sort,
+            'restaurant_scenes' => $restaurant_scenes,
+            'restaurant_commitments' => $restaurant_commitments,
         ]);
     }
 

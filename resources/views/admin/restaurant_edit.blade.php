@@ -101,6 +101,11 @@
         </div>
 
         <div class="regist_form_item">
+            <div class="user_name_title">定休日</div>
+            @include('form.holidays_edit')
+        </div>
+
+        <div class="regist_form_item">
             <div class="user_name_title">備考（営業時間）</div>
             @if($errors->has('time_remarks'))
             <div class="comment_error">{{ $errors->first('time_remarks') }}</div>

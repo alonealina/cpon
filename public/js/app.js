@@ -1,22 +1,3 @@
-// 以下メニューバー切り替えについて（保留）
-// let menuRecommend = document.querySelector(".menu_recommend");
-// let menuAll = document.querySelector(".menu_all");
-// let menuListRecommend = document.getElementById("menu_list_recommend");
-// let menuListAll = document.getElementById("menu_list_all");
-// menuRecommend.addEventListener("click", function () {
-//     menuRecommend.classList.add("current");
-//     menuAll.classList.remove("current");
-//     menuListRecommend.hidden = false;
-//     menuListAll.hidden = true;
-// });
-
-// menuAll.addEventListener("click", function () {
-//     menuAll.classList.add("current");
-//     menuRecommend.classList.remove("current");
-//     menuListRecommend.hidden = true;
-//     menuListAll.hidden = false;
-// });
-
 function clickFilterButton() {
     document.forms.filter_form.submit();
 }
@@ -186,6 +167,7 @@ $(function(){
 	},3000);
 });
 
+
 $(function() {
     // 1. 「全選択」する
     $('#all').on('click', function() {
@@ -201,4 +183,56 @@ $(function() {
         $('#all').prop('checked', false);
       }
     });
-  });
+});
+
+
+$(function() {
+    // 1. 「定休日なし」をクリックする
+    $('#none').on('click', function() {
+        if (this.checked) {
+            $("input[id='monday']").prop('checked', false);
+            $("input[id='tuesday']").prop('checked', false);
+            $("input[id='wednesday']").prop('checked', false);
+            $("input[id='thursday']").prop('checked', false);
+            $("input[id='friday']").prop('checked', false);
+            $("input[id='saturday']").prop('checked', false);
+            $("input[id='sunday']").prop('checked', false);
+        }
+    });
+    // 2. 「定休日なし」以外のチェックボックスがクリックされたら、
+    $('#monday').on('click', function() {
+        if (this.checked) {
+            $("input[id='none']").prop('checked', false);
+        }
+    });
+    $('#tuesday').on('click', function() {
+        if (this.checked) {
+            $("input[id='none']").prop('checked', false);
+        }
+    });
+    $('#wednesday').on('click', function() {
+        if (this.checked) {
+            $("input[id='none']").prop('checked', false);
+        }
+    });
+    $('#thursday').on('click', function() {
+        if (this.checked) {
+            $("input[id='none']").prop('checked', false);
+        }
+    });
+    $('#friday').on('click', function() {
+        if (this.checked) {
+            $("input[id='none']").prop('checked', false);
+        }
+    });
+    $('#saturday').on('click', function() {
+        if (this.checked) {
+            $("input[id='none']").prop('checked', false);
+        }
+    });
+    $('#sunday').on('click', function() {
+        if (this.checked) {
+            $("input[id='none']").prop('checked', false);
+        }
+    });
+});

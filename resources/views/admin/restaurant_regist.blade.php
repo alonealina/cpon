@@ -97,11 +97,16 @@
         </div>
 
         <div class="regist_form_item">
+            <div class="user_name_title">定休日</div>
+            @include('form.holidays')
+        </div>
+
+        <div class="regist_form_item">
             <div class="user_name_title">備考（営業時間）</div>
             @if($errors->has('time_remarks'))
             <div class="comment_error">{{ $errors->first('time_remarks') }}</div>
             @endif
-            {{ Form::text('time_remarks', old('time_remarks'), ['class' => 'time_remarks_input']) }}
+            {{ Form::textarea('time_remarks', old('time_remarks'), ['class' => 'time_remarks_input', 'rows' => 6]) }}
         </div>
 
         <div class="regist_form_item">

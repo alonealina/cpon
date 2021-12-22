@@ -13,6 +13,7 @@ use App\Models\Scene;
 use App\Models\Commitment;
 use App\Models\RestaurantScene;
 use App\Models\RestaurantCommitment;
+use App\Models\RestaurantHoliday;
 use DB;
 
 class AdminController extends Controller
@@ -309,6 +310,11 @@ class AdminController extends Controller
             'sub_img4' => $sub_img4_name,
         ];
 
+        $holidays = $request['holidays'];
+        $fill_data_holiday = [];
+        foreach ($holidays as $key => $value) {
+            $fill_data_holiday = array_merge($fill_data_holiday, [$key => $value]);
+        }
         DB::beginTransaction();
         try {
             $restaurant->fill($fill_data_restaurant)->save();
@@ -333,6 +339,10 @@ class AdminController extends Controller
                         ])->save();
                 }
             }
+
+            $fill_data_holiday = array_merge($fill_data_holiday, ['restaurant_id' => $restaurant_id]);
+            $restaurant_holiday = new RestaurantHoliday();
+            $restaurant_holiday->fill($fill_data_holiday)->save();
 
             $target_path = public_path('restaurant/'. $restaurant_id . '/');
             $main_img->move($target_path, $main_img_name);
@@ -366,6 +376,7 @@ class AdminController extends Controller
         $restaurant = Restaurant::find($id);
         $scenes = Scene::all();
         $commitments = Commitment::all();
+        $holidays = RestaurantHoliday::where('restaurant_id', $id)->first()->toArray();
 
         $restaurant_scenes = array_column(RestaurantScene::where('restaurant_id', $id)->get()->toArray(), 'scene_id');
         $restaurant_commitments = array_column(RestaurantCommitment::where('restaurant_id', $id)->get()->toArray(), 'commitment_id');
@@ -375,6 +386,7 @@ class AdminController extends Controller
             'restaurant' => $restaurant,
             'scenes' => $scenes,
             'commitments' => $commitments,
+            'holidays' => $holidays,
             'restaurant_scenes' => $restaurant_scenes,
             'restaurant_commitments' => $restaurant_commitments,
         ]);
@@ -488,6 +500,12 @@ class AdminController extends Controller
         $old_sub_img2 = $restaurant->sub_img2;
         $old_sub_img3 = $restaurant->sub_img3;
         $old_sub_img4 = $restaurant->sub_img4;
+
+        $holidays = $request['holidays'];
+        $fill_data_holiday = [];
+        foreach ($holidays as $key => $value) {
+            $fill_data_holiday = array_merge($fill_data_holiday, [$key => $value]);
+        }
         DB::beginTransaction();
         try {
             $restaurant->update($fill_data_restaurant);
@@ -513,6 +531,10 @@ class AdminController extends Controller
                         ])->save();
                 }
             }
+
+            $fill_data_holiday = array_merge($fill_data_holiday, ['restaurant_id' => $restaurant_id]);
+            $restaurant_holiday = RestaurantHoliday::where('restaurant_id', $restaurant_id)->first();
+            $restaurant_holiday->update($fill_data_holiday);
 
             $target_path = public_path('restaurant/'. $restaurant_id . '/');
 

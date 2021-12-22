@@ -42,11 +42,63 @@
             <img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img4 }}" class="sub_img">
         </a>
         @endif
+
+        @if (empty($restaurant->sub_img5))
+        <img src="../../img/imgerror.jpg" class="sub_img">
+        @else
+        <a href="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" data-lightbox="group">
+            <img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img5 }}" class="sub_img">
+        </a>
+        @endif
+
+        @if (empty($restaurant->sub_img6))
+        <img src="../../img/imgerror.jpg" class="sub_img">
+        @else
+        <a href="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" data-lightbox="group"><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img6 }}" class="sub_img">
+        </a>
+        @endif
+
+        @if (empty($restaurant->sub_img7))
+        <img src="../../img/imgerror.jpg" class="sub_img">
+        @else
+        <a href="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" data-lightbox="group"><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img7 }}" class="sub_img">
+        </a>
+        @endif
+
+        @if (empty($restaurant->sub_img8))
+        <img src="../../img/imgerror.jpg" class="sub_img">
+        @else
+        <a href="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" data-lightbox="group">
+            <img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img8 }}" class="sub_img">
+        </a>
+        @endif
+
+        @if (empty($restaurant->sub_img9))
+        <img src="../../img/imgerror.jpg" class="sub_img">
+        @else
+        <a href="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" data-lightbox="group">
+            <img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img9 }}" class="sub_img">
+        </a>
+        @endif
     </div>
 </div>
 
 <div class="restaurant_show">
+    <div class="restaurant_category">{{ $category->name }}</div>
     <div class="restaurant_name">{{ $restaurant->name1 }} {{ $restaurant->name2 }} {{ $restaurant->name3 }}</div>
+    <div class="scene_commitment">
+        @foreach ($restaurant_scenes as $name)
+        <label class="label">{{ $name }}</label>
+        @endforeach
+        @foreach ($restaurant_commitments as $name)
+        <label class="label">{{ $name }}</label>
+        @endforeach
+    </div>
+    @if(!empty($restaurant->cpon_mall_url))
+    <div class="cpon_mall_url">
+        <a href="{{ $restaurant->cpon_mall_url }}">Cポンモール出店中</a>
+    </div>
+    @endif
     <div class="restaurant_profile">
         <input type="checkbox" id="sp01"><label for="sp01" id="restaurant_profile_label"></label>
         <div>
@@ -55,24 +107,56 @@
             </div>
         </div>
     </div>
+
+    <nav class="info_list_bar info_list_bar_pc">
+        <ul>
+            <li class="info_basic current"><a>店舗基本情報</a></li>
+            <li class="info_access"><a><img src="{{ asset('img/icon/tizu.png') }}" alt=""> アクセス情報</a></li>
+            <li class="info_pay"><a><img src="{{ asset('img/icon/yotei.png') }}" alt=""> 支払い方法</a></li>
+            <li class="info_other"><a>設備・その他の情報</a></li>
+        </ul>
+    </nav>
+    <div class="info_list">
+        <div id="info_list_basic">
+            　所在地：〒{{ $restaurant->zip }}　{{ $restaurant->pref }}{{ $restaurant->address }}
+            <a href="https://www.google.com/maps/dir/{{ $restaurant->pref }}{{ $restaurant->address }}" target=”_blank”>地図アプリで見る</a><br>
+            電話番号：{{ $restaurant->tel }}<br>
+            営業時間：{{ $restaurant->open_hm }}～{{ $restaurant->close_hm }}<br>
+            {!! nl2br(e($restaurant->time_remarks)) !!}
+            
+
+
+
+        </div>
+        <div id="info_list_access" hidden>
+            い
+        </div>
+        <div id="info_list_pay" hidden>
+            う
+        </div>
+        <div id="info_list_other" hidden>
+            えええ
+        </div>
+    </div>
+
     <div class="restaurant_address">
-        <img src="{{ asset('img/icon/tizu.png') }}" alt="">　
+        
         〒{{ $restaurant->zip }}　{{ $restaurant->pref }}{{ $restaurant->address }}
         <a href="https://www.google.com/maps/dir/{{ $restaurant->pref }}{{ $restaurant->address }}" target=”_blank”>地図アプリで見る</a><br>
         {{ $restaurant->address_remarks }}
     </div>
     <img src="{{ asset('img/icon/tokei.png') }}" alt="">　
-    @if($restaurant->opening_flg)
+    <!-- @if($restaurant->opening_flg)
     <div class="open_mark">OPEN</div>
     @else
     <div class="close_mark">CLOSE</div>
-    @endif
+    @endif -->
     <div class="restaurant_time">
         　{{ $restaurant->open_hm }}～{{ $restaurant->close_hm }}　{{ $restaurant->time_remarks }}
     </div>
     <div class="restaurant_comment">
     <img src="{{ asset('img/icon/star.png') }}" alt="">　
-    {{ $avg_star }} ({{ $comments->total() }} 評価)・{{ $category->name }}
+    {{ $avg_star }} ({{ $comments->total() }} 評価)
     </div>
     <div class="restaurant_inquiry">
     <img src="{{ asset('img/icon/yotei.png') }}" alt="">　
@@ -91,6 +175,7 @@ if (client_h < 120) {
     document.getElementById('restaurant_profile_label').style.display ="none";
 }
 </script>
+<script src="{{ asset('js/info.js') }}"></script>
 @endsection
 
 
