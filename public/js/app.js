@@ -85,6 +85,18 @@ function clickRecommendOnButton() {
     document.forms.restaurant_list_form.submit();
 }
 
+function clickRecommendOffButton() {
+    // エレメントを作成
+    var ele = document.createElement('input');
+    // データを設定
+    ele.setAttribute('type', 'hidden');
+    ele.setAttribute('name', 'recommend_flg');
+    ele.setAttribute('value', 0);
+    // 要素を追加
+    document.forms.restaurant_list_form.appendChild(ele);
+    document.forms.restaurant_list_form.submit();
+}
+
 // 以下スライダー機能について
 
 $('.slider').slick({

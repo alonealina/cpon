@@ -2,7 +2,10 @@
     一括操作
     <div class="release_on_button"><a href="#" onclick="clickReleaseOnButton()">公開</a></div>
     <div class="release_off_button"><a href="#" onclick="clickReleaseOffButton()">非公開</a></div>
-    <div class="recommend_on_button"><a href="#" onclick="clickRecommendOnButton()">おすすめ</a></div>
+    おすすめ
+    <div class="recommend_on_button"><a href="#" onclick="clickRecommendOnButton()">設定</a></div>
+    <div class="recommend_off_button"><a href="#" onclick="clickRecommendOffButton()">解除</a></div>
+    <div class="restaurant_list_message">{{ session('message') }}</div>
 </div>
 
 <div class="restaurant_list">

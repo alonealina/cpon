@@ -176,17 +176,24 @@ class AdminController extends Controller
                     ->update(['release_flg' => $release_flg]);
             }
         } elseif (isset($recommend_flg) && !empty($chk_list)) {
-            $recommend_id_list = Restaurant::where('recommend_flg', $recommend_flg)
-                    ->get()->pluck('id')->toArray();
-            $count_array = array_merge($recommend_id_list, $chk_list);
-            $count_array = array_unique($count_array);
-            if (count($count_array) <= 12) {
+            if ($recommend_flg == 0) {
                 foreach ($chk_list as $chk) {
                     Restaurant::where('id', $chk)
                         ->update(['recommend_flg' => $recommend_flg]);
-                }    
+                }
             } else {
-                // 12店舗超えるためのエラー処理
+                $recommend_id_list = Restaurant::where('recommend_flg', $recommend_flg)
+                ->get()->pluck('id')->toArray();
+                $count_array = array_merge($recommend_id_list, $chk_list);
+                $count_array = array_unique($count_array);
+                if (count($count_array) <= 12) {
+                    foreach ($chk_list as $chk) {
+                        Restaurant::where('id', $chk)
+                            ->update(['recommend_flg' => $recommend_flg]);
+                    }    
+                } else {
+                    return redirect('admin/restaurant_list')->with('message', 'おすすめ店舗は12店舗まででお願いします');
+                }
             }
         }
         return redirect('admin/restaurant_list')->with('message', 'test');
