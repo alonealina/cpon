@@ -99,8 +99,7 @@
             @yield('content_sp')
             </div>
 
-            <footer>
-
+            <footer class="footer_sp">
                 <div class="footer_menu">
                     <a href ="{{ route('help') }}" class="footer_menu_sp">ヘルプ・お問い合わせ</a>
                     <a href ="{{ route('policy') }}" class="footer_menu_sp">プライバシーポリシー</a>
@@ -113,6 +112,14 @@
                 <div class="footer_black"></div>
             </footer>
         </body>
+        <div id="sp-fixed-menu" class="for-sp">
+            <ul>
+                <li class="sp_menu_home"><a href="#"><img src="{{ asset('img/home.png') }}" class="" alt=""><br>ホーム</a></li>
+                <li class="sp_menu_search"><a href="#"><img src="{{ asset('img/search.png') }}" class="" alt=""><br>検索</a></li>
+                <li class="sp_menu_phone"><a href="#"><img src="{{ asset('img/phone.png') }}" class="" alt=""><br>CポンWEBAPPへ</a></li>
+                <li class="sp_menu_mail"><a href="#"><img src="{{ asset('img/mail.png') }}" class="" alt=""><br>Cポンモールへ</a></li>
+            </ul>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

@@ -1219,6 +1219,55 @@ label {
     border-bottom: 3px solid #a9a9a9;
 }
 
+/*以下SP版の固定メニューについて*/
+.footer_sp {
+    margin-bottom: 80px;
+}
+
+/*メニューをページ下部に固定*/
+#sp-fixed-menu{
+    position: fixed;
+    width: 400px;
+    bottom: 0px;
+    font-size: 0;
+    z-index: 99;
+}
+
+/*メニューを横並びにする*/
+#sp-fixed-menu ul{
+    display: flex;
+    list-style: none;
+    padding:0;
+    margin:0;
+    width:100%;
+}
+
+#sp-fixed-menu li{
+    justify-content: center;
+    align-items: center;
+    padding:0;
+    margin:0;
+    font-size: 14px;
+    background: #F0F0F0;
+}
+ 
+/*ボタンを調整*/
+#sp-fixed-menu li a{
+    font-size: 9px;
+    color: black;
+    text-align: center;
+    display:block;
+    width: 100%;
+    padding:20px;
+}
+
+.sp_menu_home, .sp_menu_search {
+    width:20%;
+}
+
+.sp_menu_phone, .sp_menu_mail {
+    width:30%;
+}
 
 /*以下スライダー機能について*/
 
