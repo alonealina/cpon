@@ -114,10 +114,10 @@
         </body>
         <div id="sp-fixed-menu" class="for-sp">
             <ul>
-                <li class="sp_menu_home"><a href="#"><img src="{{ asset('img/home.png') }}" class="" alt=""><br>ホーム</a></li>
-                <li class="sp_menu_search"><a href="#"><img src="{{ asset('img/search.png') }}" class="" alt=""><br>検索</a></li>
-                <li class="sp_menu_phone"><a href="#"><img src="{{ asset('img/phone.png') }}" class="" alt=""><br>CポンWEBAPPへ</a></li>
-                <li class="sp_menu_mail"><a href="#"><img src="{{ asset('img/mail.png') }}" class="" alt=""><br>Cポンモールへ</a></li>
+                <li class="sp_menu_home"><a href="{{ route('index') }}"><img src="{{ asset('img/home.png') }}" class="" alt=""><br>ホーム</a></li>
+                <li class="sp_menu_search"><a href="{{ route('search_sp') }}"><img src="{{ asset('img/search.png') }}" class="" alt=""><br>検索</a></li>
+                <li class="sp_menu_phone"><a href="https://app.cpon.co.jp/"><img src="{{ asset('img/phone.png') }}" class="" alt=""><br>CポンWEBAPPへ</a></li>
+                <li class="sp_menu_mail"><a href="https://mall.cpon.co.jp/"><img src="{{ asset('img/mail.png') }}" class="" alt=""><br>Cポンモールへ</a></li>
             </ul>
         </div>
     </div>
