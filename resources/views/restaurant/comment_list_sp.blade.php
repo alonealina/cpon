@@ -55,7 +55,7 @@
     <div>
         @foreach ($comments as $comment)
         <div class="comment_list_content_sp">
-            <div class="comment_name_sp"><b>{{ $comment->user_name }}</b>さんの口コミ</div>
+            <div class="comment_name_sp"><b>{{ $comment->user_name }}</b>さんのクチコミ</div>
             <div class="comment_datetime_sp">{{ $comment->created_at }}</div>
             <br>
             <div class="fivestar">

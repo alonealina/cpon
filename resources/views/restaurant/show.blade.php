@@ -144,13 +144,6 @@
         </div>
     </div>
 
-    <div class="restaurant_address">
-        
-        〒{{ $restaurant->zip }}　{{ $restaurant->pref }}{{ $restaurant->address }}
-        <a href="https://www.google.com/maps/dir/{{ $restaurant->pref }}{{ $restaurant->address }}" target=”_blank”>地図アプリで見る</a><br>
-        {{ $restaurant->address_remarks }}
-    </div>
-    <img src="{{ asset('img/icon/tokei.png') }}" alt="">　
     <!-- @if($restaurant->opening_flg)
     <div class="open_mark">OPEN</div>
     @else

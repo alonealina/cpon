@@ -37,7 +37,7 @@
     <div>
         @foreach ($comments as $comment)
         <div class="comment_list_content">
-            <b>{{ $comment->user_name }}</b>さんの口コミ　<div class="comment_datetime">{{ $comment->created_at }}</div><br>
+            <b>{{ $comment->user_name }}</b>さんのクチコミ　<div class="comment_datetime">{{ $comment->created_at }}</div><br>
             <div class="fivestar">
             @if ($comment->fivestar == 1)
                 {{ '★☆☆☆☆' }}
