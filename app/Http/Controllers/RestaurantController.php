@@ -12,6 +12,7 @@ use App\Models\Scene;
 use App\Models\Commitment;
 use App\Models\RestaurantScene;
 use App\Models\RestaurantCommitment;
+use App\Models\RestaurantHoliday;
 use DB;
 
 class RestaurantController extends Controller
@@ -63,6 +64,8 @@ class RestaurantController extends Controller
             ->where('restaurant_id', $id)->get()->toArray(), 'name');
         $restaurant_commitments = array_column(RestaurantCommitment::join('commitments', 'commitments.id', '=', 'restaurant_commitments.commitment_id')
             ->where('restaurant_id', $id)->get()->toArray(), 'name');
+        $restaurant_holidays = array_column(RestaurantHoliday::join('commitments', 'commitments.id', '=', 'restaurant_commitments.commitment_id')
+            ->where('restaurant_id', $id)->get()->toArray(), 'name');
 
         return view('restaurant/recommend', [
             'restaurant' => $restaurant,
@@ -105,6 +108,11 @@ class RestaurantController extends Controller
             ->selectRaw('CAST(AVG(fivestar) AS DECIMAL(2,1)) AS star_avg')->first()->star_avg;
         $restaurant_id = $id;
 
+        $restaurant_scenes = array_column(RestaurantScene::join('scenes', 'scenes.id', '=', 'restaurant_scenes.scene_id')
+            ->where('restaurant_id', $id)->get()->toArray(), 'name');
+        $restaurant_commitments = array_column(RestaurantCommitment::join('commitments', 'commitments.id', '=', 'restaurant_commitments.commitment_id')
+            ->where('restaurant_id', $id)->get()->toArray(), 'name');
+
         return view('restaurant/allmenu', [
             'restaurant' => $restaurant,
             'category' => $category,
@@ -115,6 +123,8 @@ class RestaurantController extends Controller
             'column' => $column,
             'sort' => $sort,
             'menupage' => $menupage,
+            'restaurant_scenes' => $restaurant_scenes,
+            'restaurant_commitments' => $restaurant_commitments,
         ]);
     }
 
@@ -131,6 +141,10 @@ class RestaurantController extends Controller
         $comments = Comment::where('restaurant_id', $id)->orderBy('created_at', 'desc')->paginate(5);
         $avg_star = Comment::where('restaurant_id', $id)
         ->selectRaw('CAST(AVG(fivestar) AS DECIMAL(2,1)) AS star_avg')->first()->star_avg;
+        $restaurant_scenes = array_column(RestaurantScene::join('scenes', 'scenes.id', '=', 'restaurant_scenes.scene_id')
+            ->where('restaurant_id', $id)->get()->toArray(), 'name');
+        $restaurant_commitments = array_column(RestaurantCommitment::join('commitments', 'commitments.id', '=', 'restaurant_commitments.commitment_id')
+            ->where('restaurant_id', $id)->get()->toArray(), 'name');
         $restaurant_id = $id;
 
         return view('restaurant/detail', [
@@ -139,6 +153,8 @@ class RestaurantController extends Controller
             'comments' => $comments,
             'avg_star' => $avg_star,
             'restaurant_id' => $restaurant_id,
+            'restaurant_scenes' => $restaurant_scenes,
+            'restaurant_commitments' => $restaurant_commitments,
         ]);
     }
 
@@ -158,6 +174,10 @@ class RestaurantController extends Controller
             $comments = Comment::where('restaurant_id', $id)->orderBy($column, $sort)->paginate(5)
             ->appends(["column" => $column, "sort" => $sort]);
         }
+        $restaurant_scenes = array_column(RestaurantScene::join('scenes', 'scenes.id', '=', 'restaurant_scenes.scene_id')
+            ->where('restaurant_id', $id)->get()->toArray(), 'name');
+        $restaurant_commitments = array_column(RestaurantCommitment::join('commitments', 'commitments.id', '=', 'restaurant_commitments.commitment_id')
+            ->where('restaurant_id', $id)->get()->toArray(), 'name');
         $restaurant_id = $id;
 
         return view('restaurant/comment_list_sp', [
@@ -166,6 +186,8 @@ class RestaurantController extends Controller
             'restaurant_id' => $restaurant_id,
             'column' => $column,
             'sort' => $sort,
+            'restaurant_scenes' => $restaurant_scenes,
+            'restaurant_commitments' => $restaurant_commitments,
         ]);
     }
 
@@ -182,6 +204,10 @@ class RestaurantController extends Controller
         $comments = Comment::where('restaurant_id', $id)->paginate(5);
         $avg_star = Comment::where('restaurant_id', $id)
             ->selectRaw('CAST(AVG(fivestar) AS DECIMAL(2,1)) AS star_avg')->first()->star_avg;
+        $restaurant_scenes = array_column(RestaurantScene::join('scenes', 'scenes.id', '=', 'restaurant_scenes.scene_id')
+            ->where('restaurant_id', $id)->get()->toArray(), 'name');
+        $restaurant_commitments = array_column(RestaurantCommitment::join('commitments', 'commitments.id', '=', 'restaurant_commitments.commitment_id')
+            ->where('restaurant_id', $id)->get()->toArray(), 'name');
         $restaurant_id = $id;
 
         return view('restaurant/comment_form', [
@@ -190,6 +216,8 @@ class RestaurantController extends Controller
             'comments' => $comments,
             'avg_star' => $avg_star,
             'restaurant_id' => $restaurant_id,
+            'restaurant_scenes' => $restaurant_scenes,
+            'restaurant_commitments' => $restaurant_commitments,
         ]);
     }
 
@@ -206,6 +234,10 @@ class RestaurantController extends Controller
         $comments = Comment::where('restaurant_id', $id)->paginate(5);
         $avg_star = Comment::where('restaurant_id', $id)
             ->selectRaw('CAST(AVG(fivestar) AS DECIMAL(2,1)) AS star_avg')->first()->star_avg;
+        $restaurant_scenes = array_column(RestaurantScene::join('scenes', 'scenes.id', '=', 'restaurant_scenes.scene_id')
+            ->where('restaurant_id', $id)->get()->toArray(), 'name');
+        $restaurant_commitments = array_column(RestaurantCommitment::join('commitments', 'commitments.id', '=', 'restaurant_commitments.commitment_id')
+            ->where('restaurant_id', $id)->get()->toArray(), 'name');
         $restaurant_id = $id;
 
         return view('restaurant/comment_form_sp', [
@@ -214,6 +246,8 @@ class RestaurantController extends Controller
             'comments' => $comments,
             'avg_star' => $avg_star,
             'restaurant_id' => $restaurant_id,
+            'restaurant_scenes' => $restaurant_scenes,
+            'restaurant_commitments' => $restaurant_commitments,
         ]);
     }
 
