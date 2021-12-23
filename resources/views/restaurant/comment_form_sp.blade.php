@@ -69,7 +69,7 @@
         @endif
         <div class="file_button"><input type="file" name="comment_img"></div>
         <div class="button_black_sp">
-            <a href="#" onclick="clickCommentButtonSp()">クチコミを投稿する<div class="yazi3"></div></a>
+            <a href="#" onclick="clickCommentButtonSp()">クチコミを投稿する</a>
         </div>
     </form>
 </div>

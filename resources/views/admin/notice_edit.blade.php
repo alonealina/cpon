@@ -32,7 +32,7 @@
         </div>
 
         <div class="button_black">
-            <a href="#" onclick="clickRegistButton()">確認画面へ<div class="yazi3"><img src="{{ asset('img/yazi3.png') }}" alt=""></div></a>
+            <a href="#" onclick="clickRegistButton()">確認画面へ</a>
         </div>
     </form>
 </div>

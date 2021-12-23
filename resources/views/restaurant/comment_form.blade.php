@@ -1,6 +1,24 @@
-@extends('restaurant.show')
+@extends('layouts.app')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
-@section('comment_form')
+@section('content')
+<div class="restaurant_show">
+    <div class="restaurant_category">{{ $category->name }}</div>
+    <div class="restaurant_name">{{ $restaurant->name1 }} {{ $restaurant->name2 }} {{ $restaurant->name3 }}</div>
+    <div class="scene_commitment">
+        @foreach ($restaurant_scenes as $name)
+        <label class="label">{{ $name }}</label>
+        @endforeach
+        @foreach ($restaurant_commitments as $name)
+        <label class="label">{{ $name }}</label>
+        @endforeach
+    </div>
+    @if(!empty($restaurant->cpon_mall_url))
+    <div class="cpon_mall_url">
+        <a href="{{ $restaurant->cpon_mall_url }}">Cポンモール出店中</a>
+    </div>
+    @endif
+</div>
 
 <div class="comment_form">
     <form id="form" name="comment_form" action="{{ route('restaurant.comment_store') }}" method="post" enctype="multipart/form-data">
@@ -41,9 +59,10 @@
         @if($errors->has('comment_img'))
             <div class="comment_error">{{ $errors->first('comment_img') }}</div>
         @endif
+        <div class="comment_create_title">イメージ画像（5枚まで）</div>
         <div class="file_button"><input type="file" name="comment_img"></div>
         <div class="button_black">
-            <a href="#" onclick="clickCommentButton()">クチコミを投稿する<div class="yazi3"><img src="{{ asset('img/yazi3.png') }}" alt=""></div></a>
+            <a href="#" onclick="clickCommentButton()">クチコミを投稿する</a>
         </div>
     </form>
 </div>
@@ -73,7 +92,27 @@ window.onload = function () {
 @endsection
 
 
-@section('comment_form_ipad')
+@section('content_ipad')
+
+@include('form.header_search_ipad')
+<div class="body_ipad">
+<div class="restaurant_show">
+    <div class="restaurant_category">{{ $category->name }}</div>
+    <div class="restaurant_name">{{ $restaurant->name1 }} {{ $restaurant->name2 }} {{ $restaurant->name3 }}</div>
+    <div class="scene_commitment">
+        @foreach ($restaurant_scenes as $name)
+        <label class="label">{{ $name }}</label>
+        @endforeach
+        @foreach ($restaurant_commitments as $name)
+        <label class="label">{{ $name }}</label>
+        @endforeach
+    </div>
+    @if(!empty($restaurant->cpon_mall_url))
+    <div class="cpon_mall_url">
+        <a href="{{ $restaurant->cpon_mall_url }}">Cポンモール出店中</a>
+    </div>
+    @endif
+</div>
 
 <div class="comment_form">
     <form id="form" name="comment_form_ipad" action="{{ route('restaurant.comment_store') }}" method="post" enctype="multipart/form-data">
@@ -116,7 +155,7 @@ window.onload = function () {
         @endif
         <div class="file_button"><input type="file" name="comment_img"></div>
         <div class="button_black">
-            <a href="#" onclick="clickCommentButtonIpad()">クチコミを投稿する<div class="yazi3"><img src="{{ asset('img/yazi3.png') }}" alt=""></div></a>
+            <a href="#" onclick="clickCommentButtonIpad()">クチコミを投稿する</a>
         </div>
     </form>
 </div>
@@ -142,7 +181,43 @@ window.onload = function () {
 <button class="js-close button-close">TOPへ戻る</button>
 </div>
 
+@endsection
+
+
+@section('back_button')
+<div class="back_button">
+    <a href="{{ route('index') }}">←</a>
+</div>
+@endsection
+
+@section('content_sp')
+
+
+@yield('menu_list_sp')
+
 
 @endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

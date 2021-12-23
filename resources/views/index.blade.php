@@ -79,7 +79,7 @@
     @endforeach
 </div>
 <div class="button_black">
-    <a href="{{ route('new') }}">新着店舗一覧<div class="yazi3"><img src="{{ asset('img/yazi3.png') }}" alt=""></div></a>
+    <a href="{{ route('new') }}">新着店舗一覧</a>
 </div>
 
 <p class="center">Cポンポータルからのお知らせ</p>
@@ -94,7 +94,7 @@
     @endforeach
 </div>
 <div class="button_black">
-    <a href="{{ route('notice.index') }}">お知らせ一覧<div class="yazi3"><img src="{{ asset('img/yazi3.png') }}" alt=""></div></a>
+    <a href="{{ route('notice.index') }}">お知らせ一覧</a>
 </div>
 @endsection
 
@@ -146,7 +146,7 @@
     @endforeach
 </div>
 <div class="button_black">
-    <a href="{{ route('new') }}">新着店舗一覧<div class="yazi3"><img src="{{ asset('img/yazi3.png') }}" alt=""></div></a>
+    <a href="{{ route('new') }}">新着店舗一覧</a>
 </div>
 
 <p class="center">Cポンポータルからのお知らせ</p>
@@ -161,7 +161,7 @@
     @endforeach
 </div>
 <div class="button_black">
-    <a href="{{ route('notice.index') }}">お知らせ一覧<div class="yazi3"><img src="{{ asset('img/yazi3.png') }}" alt=""></div></a>
+    <a href="{{ route('notice.index') }}">お知らせ一覧</a>
 </div>
 @endsection
 
