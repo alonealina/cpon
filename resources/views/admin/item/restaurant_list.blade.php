@@ -81,10 +81,10 @@
                 <div class="restaurant_item_name">{{ $restaurant->updated_at }}</div>
             </div>
             <div class="restaurant_list_button_blue">
-                <a href="#" onclick="clickRegistButton()">編集</a>
+                <a href="restaurant_edit/{{ $restaurant->id }}" onclick="clickRegistButton()">編集</a>
             </div>
             <div class="restaurant_list_button_blue">
-                <a href="#" onclick="clickRegistButton()">複製</a>
+                <a href="#" onclick="clickRegistButton()">メニュー<br>詳細</a>
             </div>
             <div class="restaurant_list_button_red">
                 <a href="#" onclick="clickRegistButton()">削除</a>
