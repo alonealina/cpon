@@ -211,7 +211,10 @@
             {{ Form::textarea('e_money', old('e_money'), ['class' => 'e_money_input', 'rows' => 6, 'maxlength' => 200]) }}
         </div>
 
-
+        <div class="regist_form_item">
+            <div class="user_name_title">クレジットカード</div>
+            @include('form.cards')
+        </div>
 
 
         <div class="user_name_title">設備・その他の情報</div>

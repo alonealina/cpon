@@ -13,6 +13,7 @@ use App\Models\Commitment;
 use App\Models\RestaurantScene;
 use App\Models\RestaurantCommitment;
 use App\Models\RestaurantHoliday;
+use App\Models\RestaurantCard;
 use DB;
 
 class RestaurantController extends Controller
@@ -65,6 +66,7 @@ class RestaurantController extends Controller
         $restaurant_commitments = array_column(RestaurantCommitment::join('commitments', 'commitments.id', '=', 'restaurant_commitments.commitment_id')
             ->where('restaurant_id', $id)->get()->toArray(), 'name');
         $restaurant_holidays = $this->output_holiday_array(RestaurantHoliday::where('restaurant_id', $id)->first()->toArray());
+        $restaurant_cards = $this->output_card_array(RestaurantCard::where('restaurant_id', $id)->first()->toArray());
         $restaurant_stations = $this->output_station_array($restaurant->station1, $restaurant->route1, $restaurant->station2, $restaurant->route2, 
             $restaurant->station3, $restaurant->route3, $restaurant->station4, $restaurant->route4, $restaurant->station5, $restaurant->route5);
 
@@ -80,6 +82,7 @@ class RestaurantController extends Controller
             'restaurant_scenes' => $restaurant_scenes,
             'restaurant_commitments' => $restaurant_commitments,
             'restaurant_holidays' => $restaurant_holidays,
+            'restaurant_cards' => $restaurant_cards,
             'restaurant_stations' => $restaurant_stations,
         ]);
     }
@@ -116,6 +119,7 @@ class RestaurantController extends Controller
         $restaurant_commitments = array_column(RestaurantCommitment::join('commitments', 'commitments.id', '=', 'restaurant_commitments.commitment_id')
             ->where('restaurant_id', $id)->get()->toArray(), 'name');
         $restaurant_holidays = $this->output_holiday_array(RestaurantHoliday::where('restaurant_id', $id)->first()->toArray());
+        $restaurant_cards = $this->output_card_array(RestaurantCard::where('restaurant_id', $id)->first()->toArray());
 
         return view('restaurant/allmenu', [
             'restaurant' => $restaurant,
@@ -130,6 +134,7 @@ class RestaurantController extends Controller
             'restaurant_scenes' => $restaurant_scenes,
             'restaurant_commitments' => $restaurant_commitments,
             'restaurant_holidays' => $restaurant_holidays,
+            'restaurant_cards' => $restaurant_cards,
         ]);
     }
 
@@ -153,6 +158,7 @@ class RestaurantController extends Controller
         $restaurant_commitments = array_column(RestaurantCommitment::join('commitments', 'commitments.id', '=', 'restaurant_commitments.commitment_id')
             ->where('restaurant_id', $id)->get()->toArray(), 'name');
         $restaurant_holidays = $this->output_holiday_array(RestaurantHoliday::where('restaurant_id', $id)->first()->toArray());
+        $restaurant_cards = $this->output_card_array(RestaurantCard::where('restaurant_id', $id)->first()->toArray());
 
         return view('restaurant/detail', [
             'restaurant' => $restaurant,
@@ -163,6 +169,7 @@ class RestaurantController extends Controller
             'restaurant_scenes' => $restaurant_scenes,
             'restaurant_commitments' => $restaurant_commitments,
             'restaurant_holidays' => $restaurant_holidays,
+            'restaurant_cards' => $restaurant_cards,
         ]);
     }
 
@@ -189,6 +196,7 @@ class RestaurantController extends Controller
         $restaurant_commitments = array_column(RestaurantCommitment::join('commitments', 'commitments.id', '=', 'restaurant_commitments.commitment_id')
             ->where('restaurant_id', $id)->get()->toArray(), 'name');
         $restaurant_holidays = $this->output_holiday_array(RestaurantHoliday::where('restaurant_id', $id)->first()->toArray());
+        $restaurant_cards = $this->output_card_array(RestaurantCard::where('restaurant_id', $id)->first()->toArray());
 
         return view('restaurant/comment_list_sp', [
             'restaurant' => $restaurant,
@@ -199,6 +207,7 @@ class RestaurantController extends Controller
             'restaurant_scenes' => $restaurant_scenes,
             'restaurant_commitments' => $restaurant_commitments,
             'restaurant_holidays' => $restaurant_holidays,
+            'restaurant_cards' => $restaurant_cards,
         ]);
     }
 
@@ -222,6 +231,7 @@ class RestaurantController extends Controller
         $restaurant_commitments = array_column(RestaurantCommitment::join('commitments', 'commitments.id', '=', 'restaurant_commitments.commitment_id')
             ->where('restaurant_id', $id)->get()->toArray(), 'name');
         $restaurant_holidays = $this->output_holiday_array(RestaurantHoliday::where('restaurant_id', $id)->first()->toArray());
+        $restaurant_cards = $this->output_card_array(RestaurantCard::where('restaurant_id', $id)->first()->toArray());
 
         return view('restaurant/comment_form', [
             'restaurant' => $restaurant,
@@ -232,6 +242,7 @@ class RestaurantController extends Controller
             'restaurant_scenes' => $restaurant_scenes,
             'restaurant_commitments' => $restaurant_commitments,
             'restaurant_holidays' => $restaurant_holidays,
+            'restaurant_cards' => $restaurant_cards,
         ]);
     }
 
@@ -255,6 +266,7 @@ class RestaurantController extends Controller
         $restaurant_commitments = array_column(RestaurantCommitment::join('commitments', 'commitments.id', '=', 'restaurant_commitments.commitment_id')
             ->where('restaurant_id', $id)->get()->toArray(), 'name');
         $restaurant_holidays = $this->output_holiday_array(RestaurantHoliday::where('restaurant_id', $id)->first()->toArray());
+        $restaurant_cards = $this->output_card_array(RestaurantCard::where('restaurant_id', $id)->first()->toArray());
 
         return view('restaurant/comment_form_sp', [
             'restaurant' => $restaurant,
@@ -265,6 +277,7 @@ class RestaurantController extends Controller
             'restaurant_scenes' => $restaurant_scenes,
             'restaurant_commitments' => $restaurant_commitments,
             'restaurant_holidays' => $restaurant_holidays,
+            'restaurant_cards' => $restaurant_cards,
         ]);
     }
 
@@ -357,6 +370,31 @@ class RestaurantController extends Controller
         }
 
         return implode("・", $tmp_array);
+    }
+
+    private function output_card_array($array)
+    {
+        $tmp_array = [];
+        if ($array['visa'] == 1) {
+            $tmp_array[] = 'VISA';
+        }
+        if ($array['mastercard'] == 1) {
+            $tmp_array[] = 'MasterCard';
+        }
+        if ($array['jcb'] == 1) {
+            $tmp_array[] = 'JCB';
+        }
+        if ($array['diners'] == 1) {
+            $tmp_array[] = 'Diners';
+        }
+        if ($array['amex'] == 1) {
+            $tmp_array[] = 'AMEX';
+        }
+        if ($array['other'] == 1) {
+            $tmp_array[] = 'その他';
+        }
+
+        return implode("、", $tmp_array);
     }
 
     private function output_station_array($station1, $route1, $station2, $route2, $station3, $route3, $station4, $route4, $station5, $route5)

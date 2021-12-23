@@ -213,6 +213,11 @@
         <div class="user_name_title">支払い方法</div>
 
         <div class="regist_form_item">
+            <div class="user_name_title">クレジットカード</div>
+            @include('form.cards_edit')
+        </div>
+
+        <div class="regist_form_item">
             <div class="user_name_title">電子マネー・その他（200文字以内）</div>
             @if($errors->has('e_money'))
             <div class="comment_error">{{ $errors->first('e_money') }}</div>

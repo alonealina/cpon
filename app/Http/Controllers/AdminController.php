@@ -14,6 +14,7 @@ use App\Models\Commitment;
 use App\Models\RestaurantScene;
 use App\Models\RestaurantCommitment;
 use App\Models\RestaurantHoliday;
+use App\Models\RestaurantCard;
 use DB;
 
 class AdminController extends Controller
@@ -332,6 +333,11 @@ class AdminController extends Controller
         foreach ($holidays as $key => $value) {
             $fill_data_holiday = array_merge($fill_data_holiday, [$key => $value]);
         }
+        $cards = $request['cards'];
+        $fill_data_card = [];
+        foreach ($cards as $key => $value) {
+            $fill_data_card = array_merge($fill_data_card, [$key => $value]);
+        }
         DB::beginTransaction();
         try {
             $restaurant->fill($fill_data_restaurant)->save();
@@ -360,6 +366,10 @@ class AdminController extends Controller
             $fill_data_holiday = array_merge($fill_data_holiday, ['restaurant_id' => $restaurant_id]);
             $restaurant_holiday = new RestaurantHoliday();
             $restaurant_holiday->fill($fill_data_holiday)->save();
+
+            $fill_data_card = array_merge($fill_data_card, ['restaurant_id' => $restaurant_id]);
+            $restaurant_card = new RestaurantCard();
+            $restaurant_card->fill($fill_data_card)->save();
 
             $target_path = public_path('restaurant/'. $restaurant_id . '/');
             $main_img->move($target_path, $main_img_name);
@@ -394,6 +404,7 @@ class AdminController extends Controller
         $scenes = Scene::all();
         $commitments = Commitment::all();
         $holidays = RestaurantHoliday::where('restaurant_id', $id)->first()->toArray();
+        $cards = RestaurantCard::where('restaurant_id', $id)->first()->toArray();
 
         $restaurant_scenes = array_column(RestaurantScene::where('restaurant_id', $id)->get()->toArray(), 'scene_id');
         $restaurant_commitments = array_column(RestaurantCommitment::where('restaurant_id', $id)->get()->toArray(), 'commitment_id');
@@ -404,6 +415,7 @@ class AdminController extends Controller
             'scenes' => $scenes,
             'commitments' => $commitments,
             'holidays' => $holidays,
+            'cards' => $cards,
             'restaurant_scenes' => $restaurant_scenes,
             'restaurant_commitments' => $restaurant_commitments,
         ]);
@@ -540,6 +552,11 @@ class AdminController extends Controller
         foreach ($holidays as $key => $value) {
             $fill_data_holiday = array_merge($fill_data_holiday, [$key => $value]);
         }
+        $cards = $request['cards'];
+        $fill_data_card = [];
+        foreach ($cards as $key => $value) {
+            $fill_data_card = array_merge($fill_data_card, [$key => $value]);
+        }
         DB::beginTransaction();
         try {
             $restaurant->update($fill_data_restaurant);
@@ -569,6 +586,10 @@ class AdminController extends Controller
             $fill_data_holiday = array_merge($fill_data_holiday, ['restaurant_id' => $restaurant_id]);
             $restaurant_holiday = RestaurantHoliday::where('restaurant_id', $restaurant_id)->first();
             $restaurant_holiday->update($fill_data_holiday);
+
+            $fill_data_card = array_merge($fill_data_card, ['restaurant_id' => $restaurant_id]);
+            $restaurant_card = RestaurantCard::where('restaurant_id', $restaurant_id)->first();
+            $restaurant_card->update($fill_data_card);
 
             $target_path = public_path('restaurant/'. $restaurant_id . '/');
 

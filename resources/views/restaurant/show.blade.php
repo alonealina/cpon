@@ -133,7 +133,7 @@
             　駐車場：{!! nl2br(e($restaurant->parking)) !!}
         </div>
         <div id="info_list_pay" hidden>
-            　クレジットカード：あ<br>
+            　クレジットカード：{{ $restaurant_cards }}<br>
             電子マネー・その他：{!! nl2br(e($restaurant->e_money)) !!}<br>
         </div>
         <div id="info_list_other" hidden>
