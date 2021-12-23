@@ -101,9 +101,9 @@
     @endif
     <div class="restaurant_profile">
         <input type="checkbox" id="sp01"><label for="sp01" id="restaurant_profile_label"></label>
-            <div id="restaurant_profile_text">
-            {!! nl2br(e($restaurant->profile)) !!}
-            </div>
+        <div id="restaurant_profile_text">
+        {!! nl2br(e($restaurant->profile)) !!}
+        </div>
     </div>
 
     <nav class="info_list_bar info_list_bar_pc">

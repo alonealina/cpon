@@ -63,7 +63,7 @@
             @endif
             <b>{{ $comment->fivestar }}.0</b>
             </div>
-            <div class="comment_content"><b>{{ $comment->comment }}</b></div>
+            <div class="comment_content">{!! nl2br(e($comment->comment)) !!}</div>
             @if (!empty($comment->filename))
             <a href="../../uploads/{{ $comment->filename }}" data-lightbox="group{{ $comment->id }}pc">
                 <img src="../../uploads/{{ $comment->filename }}" width="100px" height="100px">
@@ -156,7 +156,7 @@
             @endif
             <b>{{ $comment->fivestar }}.0</b>
             </div>
-            <div class="comment_content"><b>{{ $comment->comment }}</b></div>
+            <div class="comment_content">{!! nl2br(e($comment->comment)) !!}</div>
             @if (!empty($comment->filename))
             <a href="../../uploads/{{ $comment->filename }}" data-lightbox="group{{ $comment->id }}ipad">
                 <img src="../../uploads/{{ $comment->filename }}" width="100px" height="100px">

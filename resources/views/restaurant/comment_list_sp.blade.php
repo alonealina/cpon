@@ -72,7 +72,7 @@
             @endif
             <b>{{ $comment->fivestar }}</b>
             </div>
-            <div class="comment_content"><b>{{ $comment->comment }}</b></div>
+            <div class="comment_content">{!! nl2br(e($comment->comment)) !!}</div>
             @if (!empty($comment->filename))
             <a href="../../uploads/{{ $comment->filename }}" data-lightbox="group{{ $comment->id }}sp">
                 <img src="../../uploads/{{ $comment->filename }}" width="100px" height="100px">
