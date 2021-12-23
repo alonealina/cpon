@@ -128,7 +128,7 @@
             WEBページ：<a href="{{ $restaurant->url }}" target=”_blank”>{{ $restaurant->url }}</a>
         </div>
         <div id="info_list_access" hidden>
-            最寄り駅：あ<br>
+            最寄り駅：{{ $restaurant_stations }}<br>
             アクセス：あ<br>
             　駐車場：あ
         </div>

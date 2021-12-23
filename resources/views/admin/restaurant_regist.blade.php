@@ -31,7 +31,7 @@
         </div>
 
         <div class="regist_form_item">
-            <div class="user_name_title">プロフィール<p class="required_mark">必須</p></div>
+            <div class="user_name_title">店舗紹介文<p class="required_mark">必須</p></div>
             @if($errors->has('profile'))
             <div class="comment_error">{{ $errors->first('profile') }}</div>
             @endif
@@ -75,7 +75,7 @@
         </div>
 
         <div class="regist_form_item">
-            <div class="user_name_title">営業時間<p class="required_mark">必須</p></div>
+            <div class="user_name_title">基本営業時間<p class="required_mark">必須</p></div>
             @if($errors->has('time'))
             <div class="comment_error">{{ $errors->first('time') }}</div>
             @endif
@@ -102,6 +102,22 @@
         </div>
 
         <div class="regist_form_item">
+            <div class="user_name_title">備考（営業時間）</div>
+            @if($errors->has('time_remarks'))
+            <div class="comment_error">{{ $errors->first('time_remarks') }}</div>
+            @endif
+            {{ Form::textarea('time_remarks', old('time_remarks'), ['class' => 'time_remarks_input', 'rows' => 6]) }}
+        </div>
+
+        <div class="regist_form_item">
+            <div class="user_name_title">電話番号</div>
+            @if($errors->has('tel'))
+            <div class="comment_error">{{ $errors->first('tel') }}</div>
+            @endif
+            {{ Form::text('tel', old('tel'), ['class' => 'tel_input', 'maxlength' => 20, 'placeholder' => '00-0000-0000']) }}
+        </div>
+
+        <div class="regist_form_item">
             <div class="user_name_title">予算</div>
             <div id="budget_list_admin">
                 昼
@@ -120,11 +136,52 @@
         </div>
 
         <div class="regist_form_item">
-            <div class="user_name_title">備考（営業時間）</div>
-            @if($errors->has('time_remarks'))
-            <div class="comment_error">{{ $errors->first('time_remarks') }}</div>
+            <div class="user_name_title">WEBページ</div>
+            @if($errors->has('url'))
+            <div class="comment_error">{{ $errors->first('url') }}</div>
             @endif
-            {{ Form::textarea('time_remarks', old('time_remarks'), ['class' => 'time_remarks_input', 'rows' => 6]) }}
+            {{ Form::text('url', old('url'), ['class' => 'url_input']) }}
+        </div>
+
+        <div class="user_name_title">アクセス情報</div>
+        <div class="regist_form_item">
+            <div class="user_name_title">最寄り駅（最大5つ）</div>
+            @if($errors->has('url'))
+            <div class="comment_error">{{ $errors->first('url') }}</div>
+            @endif
+            <div class="station_admin">
+                駅名{{ Form::text('station1', old('station1'), ['class' => 'station_input', 'maxlength' => 30]) }}
+                路線{{ Form::text('route1', old('route1'), ['class' => 'route_input', 'maxlength' => 30]) }}
+            </div>
+            <div class="station_admin">
+                駅名{{ Form::text('station2', old('station2'), ['class' => 'station_input', 'maxlength' => 30]) }}
+                路線{{ Form::text('route2', old('route2'), ['class' => 'route_input', 'maxlength' => 30]) }}
+            </div>
+            <div class="station_admin">
+                駅名{{ Form::text('station3', old('station3'), ['class' => 'station_input', 'maxlength' => 30]) }}
+                路線{{ Form::text('route3', old('route3'), ['class' => 'route_input', 'maxlength' => 30]) }}
+            </div>
+            <div class="station_admin">
+                駅名{{ Form::text('station4', old('station4'), ['class' => 'station_input', 'maxlength' => 30]) }}
+                路線{{ Form::text('route4', old('route4'), ['class' => 'route_input', 'maxlength' => 30]) }}
+            </div>
+            <div class="station_admin">
+                駅名{{ Form::text('station5', old('station5'), ['class' => 'station_input', 'maxlength' => 30]) }}
+                路線{{ Form::text('route5', old('route5'), ['class' => 'route_input', 'maxlength' => 30]) }}
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+        <div class="regist_form_item">
+            <div class="user_name_title">オプション</div>
+            <input type="checkbox" class="check_box" id="recommend_flg" name="recommend_flg"/>
+            <label class="label" for="recommend_flg">おすすめ</label>
         </div>
 
         <div class="regist_form_item">
@@ -134,28 +191,6 @@
             <option value="{{ $category->id }}">{{ $category->name }}</option>
             @endforeach
             </select>
-        </div>
-
-        <div class="regist_form_item">
-            <div class="user_name_title">URL</div>
-            @if($errors->has('url'))
-            <div class="comment_error">{{ $errors->first('url') }}</div>
-            @endif
-            {{ Form::text('url', old('url'), ['class' => 'url_input']) }}
-        </div>
-
-        <div class="regist_form_item">
-            <div class="user_name_title">TEL</div>
-            @if($errors->has('tel'))
-            <div class="comment_error">{{ $errors->first('tel') }}</div>
-            @endif
-            {{ Form::text('tel', old('tel'), ['class' => 'tel_input', 'maxlength' => 20, 'placeholder' => '00-0000-0000']) }}
-        </div>
-
-        <div class="regist_form_item">
-            <div class="user_name_title">オプション</div>
-            <input type="checkbox" class="check_box" id="recommend_flg" name="recommend_flg"/>
-            <label class="label" for="recommend_flg">おすすめ</label>
         </div>
 
         <div class="regist_form_item">

@@ -65,6 +65,8 @@ class RestaurantController extends Controller
         $restaurant_commitments = array_column(RestaurantCommitment::join('commitments', 'commitments.id', '=', 'restaurant_commitments.commitment_id')
             ->where('restaurant_id', $id)->get()->toArray(), 'name');
         $restaurant_holidays = $this->output_holiday_array(RestaurantHoliday::where('restaurant_id', $id)->first()->toArray());
+        $restaurant_stations = $this->output_station_array($restaurant->station1, $restaurant->route1, $restaurant->station2, $restaurant->route2, 
+            $restaurant->station3, $restaurant->route3, $restaurant->station4, $restaurant->route4, $restaurant->station5, $restaurant->route5);
 
         return view('restaurant/recommend', [
             'restaurant' => $restaurant,
@@ -78,6 +80,7 @@ class RestaurantController extends Controller
             'restaurant_scenes' => $restaurant_scenes,
             'restaurant_commitments' => $restaurant_commitments,
             'restaurant_holidays' => $restaurant_holidays,
+            'restaurant_stations' => $restaurant_stations,
         ]);
     }
 
@@ -126,6 +129,7 @@ class RestaurantController extends Controller
             'menupage' => $menupage,
             'restaurant_scenes' => $restaurant_scenes,
             'restaurant_commitments' => $restaurant_commitments,
+            'restaurant_holidays' => $restaurant_holidays,
         ]);
     }
 
@@ -158,6 +162,7 @@ class RestaurantController extends Controller
             'restaurant_id' => $restaurant_id,
             'restaurant_scenes' => $restaurant_scenes,
             'restaurant_commitments' => $restaurant_commitments,
+            'restaurant_holidays' => $restaurant_holidays,
         ]);
     }
 
@@ -193,6 +198,7 @@ class RestaurantController extends Controller
             'sort' => $sort,
             'restaurant_scenes' => $restaurant_scenes,
             'restaurant_commitments' => $restaurant_commitments,
+            'restaurant_holidays' => $restaurant_holidays,
         ]);
     }
 
@@ -225,6 +231,7 @@ class RestaurantController extends Controller
             'restaurant_id' => $restaurant_id,
             'restaurant_scenes' => $restaurant_scenes,
             'restaurant_commitments' => $restaurant_commitments,
+            'restaurant_holidays' => $restaurant_holidays,
         ]);
     }
 
@@ -257,6 +264,7 @@ class RestaurantController extends Controller
             'restaurant_id' => $restaurant_id,
             'restaurant_scenes' => $restaurant_scenes,
             'restaurant_commitments' => $restaurant_commitments,
+            'restaurant_holidays' => $restaurant_holidays,
         ]);
     }
 
@@ -349,6 +357,52 @@ class RestaurantController extends Controller
         }
 
         return implode("・", $tmp_array);
+    }
+
+    private function output_station_array($station1, $route1, $station2, $route2, $station3, $route3, $station4, $route4, $station5, $route5)
+    {
+        $tmp_array = [];
+        if (!empty($station1)) {
+            $tmp_str = $station1;
+            if (!empty($route1)) {
+                $tmp_str .= '（' . $route1 . '）';
+            }
+            $tmp_array[] = $tmp_str;
+        }
+
+        if (!empty($station2)) {
+            $tmp_str = $station2;
+            if (!empty($route2)) {
+                $tmp_str .= '（' . $route2 . '）';
+            }
+            $tmp_array[] = $tmp_str;
+        }
+
+        if (!empty($station3)) {
+            $tmp_str = $station3;
+            if (!empty($route3)) {
+                $tmp_str .= '（' . $route3 . '）';
+            }
+            $tmp_array[] = $tmp_str;
+        }
+
+        if (!empty($station4)) {
+            $tmp_str = $station4;
+            if (!empty($route4)) {
+                $tmp_str .= '（' . $route4 . '）';
+            }
+            $tmp_array[] = $tmp_str;
+        }
+
+        if (!empty($station5)) {
+            $tmp_str = $station5;
+            if (!empty($route5)) {
+                $tmp_str .= '（' . $route5 . '）';
+            }
+            $tmp_array[] = $tmp_str;
+        }
+
+        return implode("、", $tmp_array);
     }
 
     /**

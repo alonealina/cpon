@@ -110,7 +110,7 @@
             @if($errors->has('time_remarks'))
             <div class="comment_error">{{ $errors->first('time_remarks') }}</div>
             @endif
-            {{ Form::text('time_remarks', old('time_remarks', $restaurant->time_remarks), ['class' => 'time_remarks_input']) }}
+            {{ Form::textarea('time_remarks', old('time_remarks', $restaurant->time_remarks), ['class' => 'time_remarks_input', 'rows' => 6]) }}
         </div>
 
         <div class="regist_form_item">
@@ -149,6 +149,52 @@
             {{ Form::text('url', old('url', $restaurant->url), ['class' => 'url_input']) }}
         </div>
 
+        <div class="user_name_title">アクセス情報</div>
+        <div class="regist_form_item">
+            <div class="user_name_title">最寄り駅（最大5つ）</div>
+            @if($errors->has('url'))
+            <div class="comment_error">{{ $errors->first('url') }}</div>
+            @endif
+            <div class="station_admin">
+                駅名{{ Form::text('station1', old('station1', $restaurant->station1), ['class' => 'station_input', 'maxlength' => 30]) }}
+                路線{{ Form::text('route1', old('route1', $restaurant->route1), ['class' => 'route_input', 'maxlength' => 30]) }}
+            </div>
+            <div class="station_admin">
+                駅名{{ Form::text('station2', old('station2', $restaurant->station2), ['class' => 'station_input', 'maxlength' => 30]) }}
+                路線{{ Form::text('route2', old('route2', $restaurant->route2), ['class' => 'route_input', 'maxlength' => 30]) }}
+            </div>
+            <div class="station_admin">
+                駅名{{ Form::text('station3', old('station3', $restaurant->station3), ['class' => 'station_input', 'maxlength' => 30]) }}
+                路線{{ Form::text('route3', old('route3', $restaurant->route3), ['class' => 'route_input', 'maxlength' => 30]) }}
+            </div>
+            <div class="station_admin">
+                駅名{{ Form::text('station4', old('station4', $restaurant->station4), ['class' => 'station_input', 'maxlength' => 30]) }}
+                路線{{ Form::text('route4', old('route4', $restaurant->route4), ['class' => 'route_input', 'maxlength' => 30]) }}
+            </div>
+            <div class="station_admin">
+                駅名{{ Form::text('station5', old('station5', $restaurant->station5), ['class' => 'station_input', 'maxlength' => 30]) }}
+                路線{{ Form::text('route5', old('route5', $restaurant->route5), ['class' => 'route_input', 'maxlength' => 30]) }}
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="regist_form_item">
+            <div class="user_name_title">オプション</div>
+            <input type="checkbox" class="check_box" id="recommend_flg" name="recommend_flg"
+            @if($restaurant->recommend_flg) checked @endif />
+            <label class="label" for="recommend_flg">おすすめ</label>
+        </div>
+
         <div class="regist_form_item">
             <div class="user_name_title">カテゴリー<p class="required_mark">必須</p></div>
             <select name="category_id">
@@ -157,13 +203,6 @@
             @if($category->id == $restaurant->category_id) selected @endif >{{ $category->name }}</option>
             @endforeach
             </select>
-        </div>
-
-        <div class="regist_form_item">
-            <div class="user_name_title">オプション</div>
-            <input type="checkbox" class="check_box" id="recommend_flg" name="recommend_flg"
-            @if($restaurant->recommend_flg) checked @endif />
-            <label class="label" for="recommend_flg">おすすめ</label>
         </div>
 
         <div class="regist_form_item">
