@@ -101,19 +101,17 @@
     @endif
     <div class="restaurant_profile">
         <input type="checkbox" id="sp01"><label for="sp01" id="restaurant_profile_label"></label>
-        <div>
             <div id="restaurant_profile_text">
             {!! nl2br(e($restaurant->profile)) !!}
             </div>
-        </div>
     </div>
 
     <nav class="info_list_bar info_list_bar_pc">
         <ul>
-            <li class="info_basic current"><a>店舗基本情報</a></li>
-            <li class="info_access"><a><img src="{{ asset('img/icon/tizu.png') }}" alt=""> アクセス情報</a></li>
-            <li class="info_pay"><a><img src="{{ asset('img/icon/yotei.png') }}" alt=""> 支払い方法</a></li>
-            <li class="info_other"><a>設備・その他の情報</a></li>
+            <li class="info_basic current"><a><img src="{{ asset('img/icon/ie.png') }}" alt=""> 店舗基本情報</a></li>
+            <li class="info_access"><a><img src="{{ asset('img/icon/access.png') }}" alt=""> アクセス情報</a></li>
+            <li class="info_pay"><a><img src="{{ asset('img/icon/siharai.png') }}" alt=""> 支払い方法</a></li>
+            <li class="info_other"><a><img src="{{ asset('img/icon/haguruma.png') }}" alt=""> 設備・その他の情報</a></li>
         </ul>
     </nav>
     <div class="info_list">
@@ -141,7 +139,7 @@
         <div id="info_list_other" hidden>
             　　席数：あ<br>
             禁煙・喫煙：あ<br>
-            Cポンモール：あ<br>
+            Cポンモール：<a href="{{ $restaurant->url }}" target=”_blank”>{{ $restaurant->cpon_mall_url }}</a><br>
             　その他：あ
         </div>
     </div>
@@ -175,12 +173,24 @@
 
 @yield('menu_list')
 @yield('comment_form')
-
 <script>
-let client_h = document.getElementById('restaurant_profile_text').clientHeight;
-if (client_h < 120) {
+let profile_text = document.getElementById('restaurant_profile_text');
+let client_h = profile_text.clientHeight;
+if (client_h < 70) {
     document.getElementById('restaurant_profile_label').style.display ="none";
+} else {
+    profile_text.style.overflow = "hidden";
+    $clamp(profile_text, {clamp: 4});
 }
+
+$('#sp01').click(function() {
+    if (this.checked) {
+        profile_text.style.display = "block";
+    } else {
+        profile_text.style.display = "-webkit-box";
+    }
+});
+
 </script>
 <script src="{{ asset('js/info.js') }}"></script>
 @endsection

@@ -1760,7 +1760,7 @@ label {
 }
 
 
-/*以下「続きを読む」ボタンについて*/
+/*以下「もっと見る」ボタンについて*/
 /* === BOXの定義 ================================================= */
 .restaurant_profile {
     position: relative;
@@ -1773,8 +1773,10 @@ label {
 }
 
 /* === 文書を書くBOX ============================================= */
-.restaurant_profile > div {
-overflow      : hidden;                       /* hidden指定は必須 */
+#restaurant_profile_text {
+cursor: pointer;
+display: -webkit-box;
+-webkit-box-orient: vertical;
 }
 
 /* === チェックボックス ========================================== */
@@ -1809,24 +1811,24 @@ transition: 0.5s;
 opacity: 0.6;
 }
 
-/* === 文書のエリアの高さ（「続きを開く」が表示されているとき）=== */
-.restaurant_profile > input[type="checkbox"]:not(:checked) ~ div {
-height        : 110px;
+/* === 文書のエリアの高さ（「もっと見る」が表示されているとき）=== */
+.restaurant_profile > input[type="checkbox"]:not(:checked) ~ #restaurant_profile_text {
+height        : 75px;
 }
 
-/* === 文書のエリアの高さ（「続きを開く」が表示されているとき）=== */
-.restaurant_profile > input[type="checkbox"]:checked ~ div {
-padding-bottom: 30px;
+/* === 文書のエリアの高さ（「一部を表示」が表示されているとき）=== */
+.restaurant_profile > input[type="checkbox"]:checked ~ #restaurant_profile_text {
+    display:block;
 }
 
 /* --- ボタンに表示する文字（閉じているとき） -------------------- */
 .restaurant_profile > input[type="checkbox"]:not(:checked) + label::after {
-content       : "続きを読む";
+content       : "もっと見る";
 }
 
 /* --- ボタンに表示する文字（開いているとき） -------------------- */
 .restaurant_profile > input[type="checkbox"]:checked + label::after {
-content       : "閉じる";
+content       : "一部を表示";
 }
 
 /* --- ボタンに表示する文字（開いているとき） -------------------- */
