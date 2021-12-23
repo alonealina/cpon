@@ -314,6 +314,12 @@ class AdminController extends Controller
             'route4' => $request['route4'],
             'station5' => $request['station5'],
             'route5' => $request['route5'],
+            'access' => $request['access'],
+            'parking' => $request['parking'],
+            'e_money' => $request['e_money'],
+            'seats' => $request['seats'],
+            'smoking' => $request['smoking'],
+            'other' => $request['other'],
             'main_img' => $main_img_name,
             'sub_img1' => $sub_img1_name,
             'sub_img2' => $sub_img2_name,
@@ -497,6 +503,12 @@ class AdminController extends Controller
             'route4' => $request['route4'],
             'station5' => $request['station5'],
             'route5' => $request['route5'],
+            'access' => $request['access'],
+            'parking' => $request['parking'],
+            'e_money' => $request['e_money'],
+            'seats' => $request['seats'],
+            'smoking' => $request['smoking'],
+            'other' => $request['other'],
         ];
 
         if (isset($main_img_name)) {

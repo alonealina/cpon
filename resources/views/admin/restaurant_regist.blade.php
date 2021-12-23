@@ -35,7 +35,7 @@
             @if($errors->has('profile'))
             <div class="comment_error">{{ $errors->first('profile') }}</div>
             @endif
-            {{ Form::textarea('profile', old('profile'), ['class' => 'form-control profile_input', 'rows' => 6]) }}
+            {{ Form::textarea('profile', old('profile'), ['class' => 'form-control profile_input', 'rows' => 6, 'maxlength' => 3000]) }}
         </div>
 
         <div class="regist_form_item">
@@ -63,7 +63,7 @@
             @if($errors->has('address'))
             <div class="comment_error">{{ $errors->first('address') }}</div>
             @endif
-            {{ Form::text('address', old('address'), ['class' => 'address_input']) }}
+            {{ Form::text('address', old('address'), ['class' => 'address_input', 'maxlength' => 50]) }}
         </div>
 
         <div class="regist_form_item">
@@ -71,7 +71,7 @@
             @if($errors->has('address_remarks'))
             <div class="comment_error">{{ $errors->first('address_remarks') }}</div>
             @endif
-            {{ Form::text('address_remarks', old('address_remarks'), ['class' => 'address_remarks_input']) }}
+            {{ Form::text('address_remarks', old('address_remarks'), ['class' => 'address_remarks_input', 'maxlength' => 100]) }}
         </div>
 
         <div class="regist_form_item">
@@ -97,16 +97,16 @@
         </div>
 
         <div class="regist_form_item">
-            <div class="user_name_title">定休日</div>
+            <div class="user_name_title">定休日（複数選択可）</div>
             @include('form.holidays')
         </div>
 
         <div class="regist_form_item">
-            <div class="user_name_title">備考（営業時間）</div>
+            <div class="user_name_title">営業時間備考欄（200文字以内）</div>
             @if($errors->has('time_remarks'))
             <div class="comment_error">{{ $errors->first('time_remarks') }}</div>
             @endif
-            {{ Form::textarea('time_remarks', old('time_remarks'), ['class' => 'time_remarks_input', 'rows' => 6]) }}
+            {{ Form::textarea('time_remarks', old('time_remarks'), ['class' => 'time_remarks_input', 'rows' => 6, 'maxlength' => 200]) }}
         </div>
 
         <div class="regist_form_item">
@@ -140,49 +140,123 @@
             @if($errors->has('url'))
             <div class="comment_error">{{ $errors->first('url') }}</div>
             @endif
-            {{ Form::text('url', old('url'), ['class' => 'url_input']) }}
+            {{ Form::text('url', old('url'), ['class' => 'url_input', 'maxlength' => 255]) }}
         </div>
 
         <div class="user_name_title">アクセス情報</div>
         <div class="regist_form_item">
             <div class="user_name_title">最寄り駅（最大5つ）</div>
-            @if($errors->has('url'))
-            <div class="comment_error">{{ $errors->first('url') }}</div>
+            @if($errors->has('station1'))
+            <div class="comment_error">{{ $errors->first('station1') }}</div>
             @endif
             <div class="station_admin">
                 駅名{{ Form::text('station1', old('station1'), ['class' => 'station_input', 'maxlength' => 30]) }}
                 路線{{ Form::text('route1', old('route1'), ['class' => 'route_input', 'maxlength' => 30]) }}
             </div>
+            @if($errors->has('station2'))
+            <div class="comment_error">{{ $errors->first('station1') }}</div>
+            @endif
             <div class="station_admin">
                 駅名{{ Form::text('station2', old('station2'), ['class' => 'station_input', 'maxlength' => 30]) }}
                 路線{{ Form::text('route2', old('route2'), ['class' => 'route_input', 'maxlength' => 30]) }}
             </div>
+            @if($errors->has('station3'))
+            <div class="comment_error">{{ $errors->first('station1') }}</div>
+            @endif
             <div class="station_admin">
                 駅名{{ Form::text('station3', old('station3'), ['class' => 'station_input', 'maxlength' => 30]) }}
                 路線{{ Form::text('route3', old('route3'), ['class' => 'route_input', 'maxlength' => 30]) }}
             </div>
+            @if($errors->has('station4'))
+            <div class="comment_error">{{ $errors->first('station1') }}</div>
+            @endif
             <div class="station_admin">
                 駅名{{ Form::text('station4', old('station4'), ['class' => 'station_input', 'maxlength' => 30]) }}
                 路線{{ Form::text('route4', old('route4'), ['class' => 'route_input', 'maxlength' => 30]) }}
             </div>
+            @if($errors->has('station5'))
+            <div class="comment_error">{{ $errors->first('station1') }}</div>
+            @endif
             <div class="station_admin">
                 駅名{{ Form::text('station5', old('station5'), ['class' => 'station_input', 'maxlength' => 30]) }}
                 路線{{ Form::text('route5', old('route5'), ['class' => 'route_input', 'maxlength' => 30]) }}
             </div>
         </div>
 
-
-
-
-
-
-
+        <div class="regist_form_item">
+            <div class="user_name_title">アクセス（200文字以内）</div>
+            @if($errors->has('access'))
+            <div class="comment_error">{{ $errors->first('access') }}</div>
+            @endif
+            {{ Form::textarea('access', old('access'), ['class' => 'access_input', 'rows' => 6, 'maxlength' => 200]) }}
+        </div>
 
         <div class="regist_form_item">
-            <div class="user_name_title">オプション</div>
-            <input type="checkbox" class="check_box" id="recommend_flg" name="recommend_flg"/>
-            <label class="label" for="recommend_flg">おすすめ</label>
+            <div class="user_name_title">駐車場（200文字以内）</div>
+            @if($errors->has('parking'))
+            <div class="comment_error">{{ $errors->first('parking') }}</div>
+            @endif
+            {{ Form::textarea('parking', old('parking'), ['class' => 'parking_input', 'rows' => 6, 'maxlength' => 200]) }}
         </div>
+
+
+
+        <div class="user_name_title">支払い方法</div>
+
+        <div class="regist_form_item">
+            <div class="user_name_title">電子マネー・その他（200文字以内）</div>
+            @if($errors->has('e_money'))
+            <div class="comment_error">{{ $errors->first('e_money') }}</div>
+            @endif
+            {{ Form::textarea('e_money', old('e_money'), ['class' => 'e_money_input', 'rows' => 6, 'maxlength' => 200]) }}
+        </div>
+
+
+
+
+        <div class="user_name_title">設備・その他の情報</div>
+
+        <div class="regist_form_item">
+            <div class="user_name_title">席数（200文字以内）</div>
+            @if($errors->has('seats'))
+            <div class="comment_error">{{ $errors->first('seats') }}</div>
+            @endif
+            {{ Form::textarea('seats', old('seats'), ['class' => 'seats_input', 'rows' => 6, 'maxlength' => 200]) }}
+        </div>
+
+        <div class="regist_form_item">
+            <div class="user_name_title">禁煙・喫煙（200文字以内）</div>
+            @if($errors->has('smoking'))
+            <div class="comment_error">{{ $errors->first('smoking') }}</div>
+            @endif
+            {{ Form::textarea('smoking', old('smoking'), ['class' => 'smoking_input', 'rows' => 6, 'maxlength' => 200]) }}
+        </div>
+
+        <div class="regist_form_item">
+            <div class="user_name_title">Cポンモールへ出店されている場合は店舗詳細ページURLを記載して下さい。</div>
+            @if($errors->has('cpon_mall_url'))
+            <div class="comment_error">{{ $errors->first('cpon_mall_url') }}</div>
+            @endif
+            {{ Form::text('cpon_mall_url', old('cpon_mall_url'), ['class' => 'cpon_mall_url_input', 'maxlength' => 255]) }}
+        </div>
+
+        <div class="regist_form_item">
+            <div class="user_name_title">その他（500文字以内）</div>
+            @if($errors->has('other'))
+            <div class="comment_error">{{ $errors->first('other') }}</div>
+            @endif
+            {{ Form::textarea('other', old('other'), ['class' => 'other_input', 'rows' => 6, 'maxlength' => 500]) }}
+        </div>
+
+
+
+
+
+
+
+
+
+
 
         <div class="regist_form_item">
             <div class="user_name_title">カテゴリー<p class="required_mark">必須</p></div>

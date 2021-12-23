@@ -129,18 +129,18 @@
         </div>
         <div id="info_list_access" hidden>
             最寄り駅：{{ $restaurant_stations }}<br>
-            アクセス：あ<br>
-            　駐車場：あ
+            アクセス：{!! nl2br(e($restaurant->access)) !!}<br>
+            　駐車場：{!! nl2br(e($restaurant->parking)) !!}
         </div>
         <div id="info_list_pay" hidden>
             　クレジットカード：あ<br>
-            電子マネー・その他：あ<br>
+            電子マネー・その他：{!! nl2br(e($restaurant->e_money)) !!}<br>
         </div>
         <div id="info_list_other" hidden>
-            　　席数：あ<br>
-            禁煙・喫煙：あ<br>
+            　　席数：{!! nl2br(e($restaurant->seats)) !!}<br>
+            禁煙・喫煙：{!! nl2br(e($restaurant->smoking)) !!}<br>
             Cポンモール：<a href="{{ $restaurant->url }}" target=”_blank”>{{ $restaurant->cpon_mall_url }}</a><br>
-            　その他：あ
+            　その他：{!! nl2br(e($restaurant->other)) !!}
         </div>
     </div>
 
