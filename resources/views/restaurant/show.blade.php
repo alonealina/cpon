@@ -156,17 +156,6 @@
     @else
     <div class="close_mark">CLOSE</div>
     @endif -->
-    <div class="restaurant_time">
-        　{{ $restaurant->open_hm }}～{{ $restaurant->close_hm }}　{{ $restaurant->time_remarks }}
-    </div>
-    <div class="restaurant_comment">
-    <img src="{{ asset('img/icon/star.png') }}" alt="">　
-    {{ $avg_star }} ({{ $comments->total() }} 評価)
-    </div>
-    <div class="restaurant_inquiry">
-    <img src="{{ asset('img/icon/yotei.png') }}" alt="">　
-    ご予約・お問合せ　<a href="{{ $restaurant->url }}" target=”_blank”>{{ $restaurant->url }}</a>　{{ $restaurant->tel }}
-    </div>　
 
 </div>
 

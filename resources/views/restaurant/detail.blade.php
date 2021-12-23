@@ -71,7 +71,7 @@
         <div class="restaurant_detail_content">
             {{ $avg_star }} ({{ $comments->total() }} 評価)・{{ $category->name }}
             <br>
-            <a href="{{ route('restaurant.comment_list_sp', ['id' => $restaurant->id]) }}">コメントを見る</a>
+            <a href="{{ route('restaurant.comment_list_sp', ['id' => $restaurant->id]) }}">クチコミを見る</a>
         </div>
     </div>
 

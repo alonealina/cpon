@@ -1,8 +1,8 @@
 <div class="comment_list" id="comment_list">
     <div class="comment_list_header">
-        <p class="comment_list_title">コメント一覧</p>
+        <p class="comment_list_title">クチコミ一覧</p>
         <div class="button_comment">
-            <a href="{{ route('restaurant.comment_form', ['id' => $restaurant_id]) }}">コメントを投稿する</a>
+            <a href="{{ route('restaurant.comment_form', ['id' => $restaurant_id]) }}">クチコミを投稿する</a>
         </div>
     </div>
     <div class="number">

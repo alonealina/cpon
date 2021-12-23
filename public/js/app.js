@@ -83,8 +83,8 @@ function clickRecommendOffButton() {
 $('.slider').slick({
     autoplay: true,//自動的に動き出すか。初期値はfalse。
     infinite: true,//スライドをループさせるかどうか。初期値はtrue。
-    slidesToShow: 10,//スライドを画面に3枚見せる
-    slidesToScroll: 10,//1回のスクロールで3枚の写真を移動して見せる
+    slidesToShow: 8,//スライドを画面に3枚見せる
+    slidesToScroll: 8,//1回のスクロールで3枚の写真を移動して見せる
     prevArrow: '<img src="../img/yazi1.png" class="slide-arrow prev-arrow slick-prev">',//矢印部分PreviewのHTMLを変更
     nextArrow: '<img src="../img/yazi2.png" class="slide-arrow next-arrow slick-next">',//矢印部分NextのHTMLを変更
     dots: true,//下部ドットナビゲーションの表示
@@ -94,8 +94,8 @@ $('.slider').slick({
 $('.slider_ipad').slick({
     autoplay: true,//自動的に動き出すか。初期値はfalse。
     infinite: true,//スライドをループさせるかどうか。初期値はtrue。
-    slidesToShow: 5,//スライドを画面に3枚見せる
-    slidesToScroll: 5,//1回のスクロールで3枚の写真を移動して見せる
+    slidesToShow: 6,//スライドを画面に3枚見せる
+    slidesToScroll: 6,//1回のスクロールで3枚の写真を移動して見せる
     prevArrow: '<img src="../img/yazi1.png" class="slide-arrow prev-arrow slick-prev">',//矢印部分PreviewのHTMLを変更
     nextArrow: '<img src="../img/yazi2.png" class="slide-arrow next-arrow slick-next">',//矢印部分NextのHTMLを変更
     dots: true,//下部ドットナビゲーションの表示
@@ -104,8 +104,8 @@ $('.slider_ipad').slick({
 $('.slider_sp').slick({
     autoplay: true,//自動的に動き出すか。初期値はfalse。
     infinite: true,//スライドをループさせるかどうか。初期値はtrue。
-    slidesToShow: 5,//スライドを画面に3枚見せる
-    slidesToScroll: 5,//1回のスクロールで3枚の写真を移動して見せる
+    slidesToShow: 4,//スライドを画面に3枚見せる
+    slidesToScroll: 4,//1回のスクロールで3枚の写真を移動して見せる
     prevArrow: '<img src="../img/yazi1.png" class="slide-arrow prev-arrow slick-prev">',//矢印部分PreviewのHTMLを変更
     nextArrow: '<img src="../img/yazi2.png" class="slide-arrow next-arrow slick-next">',//矢印部分NextのHTMLを変更
     dots: false,//下部ドットナビゲーションの表示

@@ -33,7 +33,7 @@
         @csrf
         {{ Form::hidden('restaurant_id', $restaurant_id) }}
         {{ Form::hidden('sp_flg', true) }}
-        <div class="comment_form_title">コメントの投稿</div>
+        <div class="comment_form_title">クチコミの投稿</div>
 
         <div class="user_name_form">
             <div class="user_name_title_sp">お名前</div>
@@ -59,7 +59,7 @@
             <input id="star1_sp" type="radio" name="fivestar" value="1" {{ old('fivestar') == 1 ? 'checked' : '' }}>
             <label for="star1_sp">★</label>
         </div>
-        <div class="comment_create_title_sp">コメント記載</div>
+        <div class="comment_create_title_sp">クチコミ記載</div>
         @if($errors->has('comment'))
             <div class="comment_error">{{ $errors->first('comment') }}</div>
         @endif
@@ -69,7 +69,7 @@
         @endif
         <div class="file_button"><input type="file" name="comment_img"></div>
         <div class="button_black_sp">
-            <a href="#" onclick="clickCommentButtonSp()">コメントを投稿する<div class="yazi3"></div></a>
+            <a href="#" onclick="clickCommentButtonSp()">クチコミを投稿する<div class="yazi3"></div></a>
         </div>
     </form>
 </div>
@@ -91,7 +91,7 @@ window.onload = function () {
 <div id="overlay" class="overlay"></div>
 <!-- モーダルウィンドウ -->
 <div class="modal-window_sp">
-<div class="modal-text_sp">コメントの投稿が完了しました。</div>
+<div class="modal-text_sp">クチコミの投稿が完了しました。</div>
 <button class="js-close button-close_sp">TOPへ戻る</button>
 </div>
 

@@ -300,7 +300,7 @@ class RestaurantController extends Controller
             'user_name.max' => 'お名前は20文字以下でお願いします',
             'user_name.required' => 'お名前を入力してください',
             'fivestar.required' => '評価を選択してください',
-            'comment.required' => 'コメントを入力してください',
+            'comment.required' => 'クチコミを入力してください',
             'comment_img.max' => 'ファイルは10MB未満でお願いします',
         ];
 

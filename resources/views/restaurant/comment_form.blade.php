@@ -7,7 +7,7 @@
         @csrf
         {{ Form::hidden('restaurant_id', $restaurant_id) }}
         {{ Form::hidden('sp_flg', false) }}
-        <div class="comment_form_title">コメントの投稿</div>
+        <div class="comment_form_title">クチコミの投稿</div>
 
         <div class="user_name_form">
             <div class="user_name_title">お名前</div>
@@ -33,7 +33,7 @@
             <input id="star1" type="radio" name="fivestar" value="1" {{ old('fivestar') == 1 ? 'checked' : '' }}>
             <label for="star1">★</label>
         </div>
-        <div class="comment_create_title">コメント記載</div>
+        <div class="comment_create_title">クチコミ記載</div>
         @if($errors->has('comment'))
             <div class="comment_error">{{ $errors->first('comment') }}</div>
         @endif
@@ -43,7 +43,7 @@
         @endif
         <div class="file_button"><input type="file" name="comment_img"></div>
         <div class="button_black">
-            <a href="#" onclick="clickCommentButton()">コメントを投稿する<div class="yazi3"><img src="{{ asset('img/yazi3.png') }}" alt=""></div></a>
+            <a href="#" onclick="clickCommentButton()">クチコミを投稿する<div class="yazi3"><img src="{{ asset('img/yazi3.png') }}" alt=""></div></a>
         </div>
     </form>
 </div>
@@ -65,7 +65,7 @@ window.onload = function () {
 <div id="overlay" class="overlay"></div>
 <!-- モーダルウィンドウ -->
 <div class="modal-window">
-<div class="modal-text">コメントの投稿が完了しました</div>
+<div class="modal-text">クチコミの投稿が完了しました</div>
 <button class="js-close button-close">TOPへ戻る</button>
 </div>
 
@@ -80,7 +80,7 @@ window.onload = function () {
         @csrf
         {{ Form::hidden('restaurant_id', $restaurant_id) }}
         {{ Form::hidden('sp_flg', false) }}
-        <div class="comment_form_title">コメントの投稿</div>
+        <div class="comment_form_title">クチコミの投稿</div>
 
         <div class="user_name_form">
             <div class="user_name_title">お名前</div>
@@ -106,7 +106,7 @@ window.onload = function () {
             <input id="star1_ipad" type="radio" name="fivestar" value="1" {{ old('fivestar') == 1 ? 'checked' : '' }}>
             <label for="star1_ipad">★</label>
         </div>
-        <div class="comment_create_title">コメント記載</div>
+        <div class="comment_create_title">クチコミ記載</div>
         @if($errors->has('comment'))
             <div class="comment_error">{{ $errors->first('comment') }}</div>
         @endif
@@ -116,7 +116,7 @@ window.onload = function () {
         @endif
         <div class="file_button"><input type="file" name="comment_img"></div>
         <div class="button_black">
-            <a href="#" onclick="clickCommentButtonIpad()">コメントを投稿する<div class="yazi3"><img src="{{ asset('img/yazi3.png') }}" alt=""></div></a>
+            <a href="#" onclick="clickCommentButtonIpad()">クチコミを投稿する<div class="yazi3"><img src="{{ asset('img/yazi3.png') }}" alt=""></div></a>
         </div>
     </form>
 </div>
@@ -138,7 +138,7 @@ window.onload = function () {
 <div id="overlay" class="overlay"></div>
 <!-- モーダルウィンドウ -->
 <div class="modal-window">
-<div class="modal-text">コメントの投稿が完了しました</div>
+<div class="modal-text">クチコミの投稿が完了しました</div>
 <button class="js-close button-close">TOPへ戻る</button>
 </div>
 
