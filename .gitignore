@@ -16,3 +16,4 @@ yarn-error.log
 /.idea
 /.vscode
 /app/SPSTF_2.3.4
+composer.phar
