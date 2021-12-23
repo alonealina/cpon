@@ -83,8 +83,6 @@
         <a href="{{ $restaurant->url }}" target=”_blank”>{{ $restaurant->url }}</a>
         <br>
         {{ $restaurant->tel }}
-        <br>
-        {{ $restaurant->inquiry_remarks }}
         </div>
     </div>
 </div>

@@ -166,7 +166,6 @@
     <div class="restaurant_inquiry">
     <img src="{{ asset('img/icon/yotei.png') }}" alt="">　
     ご予約・お問合せ　<a href="{{ $restaurant->url }}" target=”_blank”>{{ $restaurant->url }}</a>　{{ $restaurant->tel }}
-    　{{ $restaurant->inquiry_remarks }}
     </div>　
 
 </div>
@@ -277,7 +276,6 @@ $('#sp01').click(function() {
         <div class="restaurant_inquiry">
         <img src="{{ asset('img/icon/yotei.png') }}" alt="">　
         ご予約・お問合せ　<a href="{{ $restaurant->url }}" target=”_blank”>{{ $restaurant->url }}</a>　{{ $restaurant->tel }}
-        　{{ $restaurant->inquiry_remarks }}
         </div>　
 
     </div>

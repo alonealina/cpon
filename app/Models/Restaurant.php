@@ -70,7 +70,7 @@ class Restaurant extends Model
 
     public function outputCsvHeader() {
         return ['ID', '名前1', '名前2', '名前3', '店舗プロフィール', '都道府県', '郵便番号', '住所', '開店時間', '閉店時間', 'カテゴリー', 'URL', 'TEL',
-            '備考（住所）', '備考（営業時間）', '備考（お問合せ）', 'メイン画像', 'サブ画像1', 'サブ画像2', 'サブ画像3', 'サブ画像4', '作成日時', '更新日時', 
+            '備考（住所）', '備考（営業時間）', 'メイン画像', 'サブ画像1', 'サブ画像2', 'サブ画像3', 'サブ画像4', '作成日時', '更新日時', 
         ];
     }
 
@@ -91,7 +91,6 @@ class Restaurant extends Model
             $this->tel,
             $this->address_remarks,
             $this->time_remarks,
-            $this->inquiry_remarks,
             $this->main_img,
             $this->sub_img1,
             $this->sub_img2,

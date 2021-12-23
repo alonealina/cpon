@@ -59,7 +59,7 @@
         </div>
 
         <div class="regist_form_item">
-            <div class="user_name_title">住所<p class="required_mark">必須</p></div>
+            <div class="user_name_title">市区町村<p class="required_mark">必須</p></div>
             @if($errors->has('address'))
             <div class="comment_error">{{ $errors->first('address') }}</div>
             @endif
@@ -67,7 +67,7 @@
         </div>
 
         <div class="regist_form_item">
-            <div class="user_name_title">備考（住所）</div>
+            <div class="user_name_title">以降の住所</div>
             @if($errors->has('address_remarks'))
             <div class="comment_error">{{ $errors->first('address_remarks') }}</div>
             @endif
@@ -150,14 +150,6 @@
             <div class="comment_error">{{ $errors->first('tel') }}</div>
             @endif
             {{ Form::text('tel', old('tel'), ['class' => 'tel_input', 'maxlength' => 20, 'placeholder' => '00-0000-0000']) }}
-        </div>
-
-        <div class="regist_form_item">
-            <div class="user_name_title">備考（お問合せ）</div>
-            @if($errors->has('inquiry_remarks'))
-            <div class="comment_error">{{ $errors->first('inquiry_remarks') }}</div>
-            @endif
-            {{ Form::text('inquiry_remarks', old('inquiry_remarks'), ['class' => 'inquiry_remarks_input']) }}
         </div>
 
         <div class="regist_form_item">

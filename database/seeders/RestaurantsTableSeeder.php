@@ -26,7 +26,6 @@ class RestaurantsTableSeeder extends Seeder
                 'tel' => '00-0000-0000',
                 'adress_remarks' => '備考',
                 'time_remarks' => '備考',
-                'inquiry_remarks' => '備考',
                 'recommend_flg' => '1',
             ]);
         }
