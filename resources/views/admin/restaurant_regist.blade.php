@@ -102,6 +102,24 @@
         </div>
 
         <div class="regist_form_item">
+            <div class="user_name_title">予算</div>
+            <div id="budget_list_admin">
+                昼
+                <select name="budget_lunch">
+                    @foreach (config('const.BudgetLunch') as $key => $value)
+                    <option value="{{ $key }}">{{ $value }}</option>
+                    @endforeach
+                </select>
+                　夜
+                <select name="budget_dinner">
+                    @foreach (config('const.BudgetDinner') as $key => $value)
+                    <option value="{{ $key }}">{{ $value }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+
+        <div class="regist_form_item">
             <div class="user_name_title">備考（営業時間）</div>
             @if($errors->has('time_remarks'))
             <div class="comment_error">{{ $errors->first('time_remarks') }}</div>

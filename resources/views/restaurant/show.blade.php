@@ -123,19 +123,26 @@
             電話番号：{{ $restaurant->tel }}<br>
             営業時間：{{ $restaurant->open_hm }}～{{ $restaurant->close_hm }}<br>
             {!! nl2br(e($restaurant->time_remarks)) !!}<br>
-            　定休日：{{ $restaurant_holidays }}
-
-
-
+            　定休日：{{ $restaurant_holidays }}<br>
+            　　予算：昼　{{ $restaurant->budget_lunch }}<br>
+            　　　　　夜　{{ $restaurant->budget_dinner }}<br>
+            　　評価：{{ $avg_star }} ({{ $comments->total() }} 評価)<br>
+            WEBページ：<a href="{{ $restaurant->url }}" target=”_blank”>{{ $restaurant->url }}</a>
         </div>
         <div id="info_list_access" hidden>
-            い
+            最寄り駅：あ<br>
+            アクセス：あ<br>
+            　駐車場：あ
         </div>
         <div id="info_list_pay" hidden>
-            う
+            　クレジットカード：あ<br>
+            電子マネー・その他：あ<br>
         </div>
         <div id="info_list_other" hidden>
-            えええ
+            　　席数：あ<br>
+            禁煙・喫煙：あ<br>
+            Cポンモール：あ<br>
+            　その他：あ
         </div>
     </div>
 

@@ -303,6 +303,8 @@ class AdminController extends Controller
             'tel' => $request['tel'],
             'inquiry_remarks' => $request['inquiry_remarks'],
             'recommend_flg' => isset($request['recommend_flg']) ? 1 : 0,
+            'budget_lunch' => $request['budget_lunch'],
+            'budget_dinner' => $request['budget_dinner'],
             'main_img' => $main_img_name,
             'sub_img1' => $sub_img1_name,
             'sub_img2' => $sub_img2_name,
@@ -475,6 +477,8 @@ class AdminController extends Controller
             'tel' => $request['tel'],
             'inquiry_remarks' => $request['inquiry_remarks'],
             'recommend_flg' => isset($request['recommend_flg']) ? 1 : 0,
+            'budget_lunch' => $request['budget_lunch'],
+            'budget_dinner' => $request['budget_dinner'],
         ];
 
         if (isset($main_img_name)) {
