@@ -221,10 +221,15 @@ class CponController extends Controller
         $categories = Category::all();
         $restaurants = Restaurant::where('category_id', $id)->paginate(24);
         $category_name = Category::where('id', $id)->first()->name;
+
+        $scenes = Scene::all();
+        $commitments = Commitment::all();
         return view('category', [
             'categories' => $categories,
             'restaurants' => $restaurants,
             'category_name' => $category_name,
+            'scenes' => $scenes,
+            'commitments' => $commitments,
         ]);
     }
 
