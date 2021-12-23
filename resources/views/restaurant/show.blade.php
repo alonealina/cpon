@@ -122,8 +122,8 @@
             <a href="https://www.google.com/maps/dir/{{ $restaurant->pref }}{{ $restaurant->address }}" target=”_blank”>地図アプリで見る</a><br>
             電話番号：{{ $restaurant->tel }}<br>
             営業時間：{{ $restaurant->open_hm }}～{{ $restaurant->close_hm }}<br>
-            {!! nl2br(e($restaurant->time_remarks)) !!}
-            
+            {!! nl2br(e($restaurant->time_remarks)) !!}<br>
+            　定休日：{{ $restaurant_holidays }}
 
 
 

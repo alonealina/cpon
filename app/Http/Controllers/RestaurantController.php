@@ -64,8 +64,7 @@ class RestaurantController extends Controller
             ->where('restaurant_id', $id)->get()->toArray(), 'name');
         $restaurant_commitments = array_column(RestaurantCommitment::join('commitments', 'commitments.id', '=', 'restaurant_commitments.commitment_id')
             ->where('restaurant_id', $id)->get()->toArray(), 'name');
-        $restaurant_holidays = array_column(RestaurantHoliday::join('commitments', 'commitments.id', '=', 'restaurant_commitments.commitment_id')
-            ->where('restaurant_id', $id)->get()->toArray(), 'name');
+        $restaurant_holidays = $this->output_holiday_array(RestaurantHoliday::where('restaurant_id', $id)->first()->toArray());
 
         return view('restaurant/recommend', [
             'restaurant' => $restaurant,
@@ -78,6 +77,7 @@ class RestaurantController extends Controller
             'sort' => $sort,
             'restaurant_scenes' => $restaurant_scenes,
             'restaurant_commitments' => $restaurant_commitments,
+            'restaurant_holidays' => $restaurant_holidays,
         ]);
     }
 
@@ -112,6 +112,7 @@ class RestaurantController extends Controller
             ->where('restaurant_id', $id)->get()->toArray(), 'name');
         $restaurant_commitments = array_column(RestaurantCommitment::join('commitments', 'commitments.id', '=', 'restaurant_commitments.commitment_id')
             ->where('restaurant_id', $id)->get()->toArray(), 'name');
+        $restaurant_holidays = $this->output_holiday_array(RestaurantHoliday::where('restaurant_id', $id)->first()->toArray());
 
         return view('restaurant/allmenu', [
             'restaurant' => $restaurant,
@@ -141,11 +142,13 @@ class RestaurantController extends Controller
         $comments = Comment::where('restaurant_id', $id)->orderBy('created_at', 'desc')->paginate(5);
         $avg_star = Comment::where('restaurant_id', $id)
         ->selectRaw('CAST(AVG(fivestar) AS DECIMAL(2,1)) AS star_avg')->first()->star_avg;
+        $restaurant_id = $id;
+
         $restaurant_scenes = array_column(RestaurantScene::join('scenes', 'scenes.id', '=', 'restaurant_scenes.scene_id')
             ->where('restaurant_id', $id)->get()->toArray(), 'name');
         $restaurant_commitments = array_column(RestaurantCommitment::join('commitments', 'commitments.id', '=', 'restaurant_commitments.commitment_id')
             ->where('restaurant_id', $id)->get()->toArray(), 'name');
-        $restaurant_id = $id;
+        $restaurant_holidays = $this->output_holiday_array(RestaurantHoliday::where('restaurant_id', $id)->first()->toArray());
 
         return view('restaurant/detail', [
             'restaurant' => $restaurant,
@@ -174,11 +177,13 @@ class RestaurantController extends Controller
             $comments = Comment::where('restaurant_id', $id)->orderBy($column, $sort)->paginate(5)
             ->appends(["column" => $column, "sort" => $sort]);
         }
+        $restaurant_id = $id;
+
         $restaurant_scenes = array_column(RestaurantScene::join('scenes', 'scenes.id', '=', 'restaurant_scenes.scene_id')
             ->where('restaurant_id', $id)->get()->toArray(), 'name');
         $restaurant_commitments = array_column(RestaurantCommitment::join('commitments', 'commitments.id', '=', 'restaurant_commitments.commitment_id')
             ->where('restaurant_id', $id)->get()->toArray(), 'name');
-        $restaurant_id = $id;
+        $restaurant_holidays = $this->output_holiday_array(RestaurantHoliday::where('restaurant_id', $id)->first()->toArray());
 
         return view('restaurant/comment_list_sp', [
             'restaurant' => $restaurant,
@@ -204,11 +209,13 @@ class RestaurantController extends Controller
         $comments = Comment::where('restaurant_id', $id)->paginate(5);
         $avg_star = Comment::where('restaurant_id', $id)
             ->selectRaw('CAST(AVG(fivestar) AS DECIMAL(2,1)) AS star_avg')->first()->star_avg;
+        $restaurant_id = $id;
+
         $restaurant_scenes = array_column(RestaurantScene::join('scenes', 'scenes.id', '=', 'restaurant_scenes.scene_id')
             ->where('restaurant_id', $id)->get()->toArray(), 'name');
         $restaurant_commitments = array_column(RestaurantCommitment::join('commitments', 'commitments.id', '=', 'restaurant_commitments.commitment_id')
             ->where('restaurant_id', $id)->get()->toArray(), 'name');
-        $restaurant_id = $id;
+        $restaurant_holidays = $this->output_holiday_array(RestaurantHoliday::where('restaurant_id', $id)->first()->toArray());
 
         return view('restaurant/comment_form', [
             'restaurant' => $restaurant,
@@ -234,11 +241,13 @@ class RestaurantController extends Controller
         $comments = Comment::where('restaurant_id', $id)->paginate(5);
         $avg_star = Comment::where('restaurant_id', $id)
             ->selectRaw('CAST(AVG(fivestar) AS DECIMAL(2,1)) AS star_avg')->first()->star_avg;
+        $restaurant_id = $id;
+
         $restaurant_scenes = array_column(RestaurantScene::join('scenes', 'scenes.id', '=', 'restaurant_scenes.scene_id')
             ->where('restaurant_id', $id)->get()->toArray(), 'name');
         $restaurant_commitments = array_column(RestaurantCommitment::join('commitments', 'commitments.id', '=', 'restaurant_commitments.commitment_id')
             ->where('restaurant_id', $id)->get()->toArray(), 'name');
-        $restaurant_id = $id;
+        $restaurant_holidays = $this->output_holiday_array(RestaurantHoliday::where('restaurant_id', $id)->first()->toArray());
 
         return view('restaurant/comment_form_sp', [
             'restaurant' => $restaurant,
@@ -310,15 +319,36 @@ class RestaurantController extends Controller
         }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+
+    private function output_holiday_array($array)
     {
-        //
+        $tmp_array = [];
+        if ($array['monday'] == 1) {
+            $tmp_array[] = '月曜日';
+        }
+        if ($array['tuesday'] == 1) {
+            $tmp_array[] = '火曜日';
+        }
+        if ($array['wednesday'] == 1) {
+            $tmp_array[] = '水曜日';
+        }
+        if ($array['thursday'] == 1) {
+            $tmp_array[] = '木曜日';
+        }
+        if ($array['friday'] == 1) {
+            $tmp_array[] = '金曜日';
+        }
+        if ($array['saturday'] == 1) {
+            $tmp_array[] = '土曜日';
+        }
+        if ($array['sunday'] == 1) {
+            $tmp_array[] = '日曜日';
+        }
+        if ($array['none'] == 1) {
+            $tmp_array[] = '定休日なし';
+        }
+
+        return implode("・", $tmp_array);
     }
 
     /**
