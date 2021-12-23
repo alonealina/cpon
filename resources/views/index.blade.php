@@ -34,7 +34,7 @@
 
 
 @section('restaurant_list')
-<p class="restaurant_list_title">Cポンお店ナビからのおすすめ</p>
+<p class="restaurant_list_title"><img src="{{ asset('img/icon/yubi.png') }}" alt="">Cポンお店ナビからのおすすめ</p>
 <div class="recommend_list">
     @foreach ($recommends as $recommend)
     <div class="recommend_restaurant">
@@ -56,7 +56,7 @@
     </div>
     @endforeach
 </div>
-<p class="restaurant_list_title">新着店舗情報</p>
+<p class="restaurant_list_title"><img src="{{ asset('img/icon/new.png') }}" alt="">新着店舗情報</p>
 <div class="new_list">
     @foreach ($news as $new)
     <div class="new_restaurant">
@@ -82,7 +82,7 @@
     <a href="{{ route('new') }}">新着店舗一覧</a>
 </div>
 
-<p class="center">Cポンお店ナビからのお知らせ</p>
+<p class="center"><img src="{{ asset('img/icon/bell.png') }}" alt="">Cポンお店ナビからのお知らせ</p>
 <hr>
 <div class="notice_home">
     @foreach ($notices as $notice)
