@@ -34,7 +34,7 @@
 
 
 @section('restaurant_list')
-<p class="restaurant_list_title">Cポンポータルからのおすすめ</p>
+<p class="restaurant_list_title">Cポンお店ナビからのおすすめ</p>
 <div class="recommend_list">
     @foreach ($recommends as $recommend)
     <div class="recommend_restaurant">
@@ -82,7 +82,7 @@
     <a href="{{ route('new') }}">新着店舗一覧</a>
 </div>
 
-<p class="center">Cポンポータルからのお知らせ</p>
+<p class="center">Cポンお店ナビからのお知らせ</p>
 <hr>
 <div class="notice_home">
     @foreach ($notices as $notice)
@@ -101,7 +101,7 @@
 
 
 @section('restaurant_list_ipad')
-<p class="restaurant_list_title_ipad">Cポンポータルからのおすすめ</p>
+<p class="restaurant_list_title_ipad">Cポンお店ナビからのおすすめ</p>
 <div class="recommend_list_ipad">
     @foreach ($recommends as $recommend)
     <div class="recommend_restaurant_ipad">
@@ -149,7 +149,7 @@
     <a href="{{ route('new') }}">新着店舗一覧</a>
 </div>
 
-<p class="center">Cポンポータルからのお知らせ</p>
+<p class="center">Cポンお店ナビからのお知らせ</p>
 <div class="notice_home_ipad">
     <hr>
     @foreach ($notices as $notice)
@@ -168,7 +168,7 @@
 
 
 @section('restaurant_list_sp')
-<p class="restaurant_list_title_sp">Cポンポータルからのおすすめ</p>
+<p class="restaurant_list_title_sp">Cポンお店ナビからのおすすめ</p>
 
 @foreach ($recommends as $recommend)
 <div class="recommend_restaurant_sp">
@@ -216,7 +216,7 @@
     <a href="{{ route('new') }}">新着店舗一覧</a>
 </div>
 
-<p class="index_notice_title_sp">Cポンポータルからのお知らせ</p>
+<p class="index_notice_title_sp">Cポンお店ナビからのお知らせ</p>
 <div class="notice_home_sp">
     <hr>
     @foreach ($notices as $notice)

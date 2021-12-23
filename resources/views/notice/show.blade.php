@@ -4,7 +4,7 @@
 
 <div class="notice_background">
     <div class="notice_name_title">
-    Cポンポータルからのお知らせ
+    Cポンお店ナビからのお知らせ
     </div>
     <div class="category_img">
     <img src="{{ asset('img/osirase.png') }}" alt="">
@@ -37,7 +37,7 @@
 
 <div class="notice_background_ipad">
     <div class="notice_name_title_ipad">
-    Cポンポータルからの<br>お知らせ
+    Cポンお店ナビからの<br>お知らせ
     </div>
     <div class="notice_img_ipad">
     <img src="{{ asset('img/osirase.png') }}" alt="">
@@ -77,7 +77,7 @@
 
 @section('content_sp')
 
-<p class="cpon_notice_title">Cポンポータルからのお知らせ</p>
+<p class="cpon_notice_title">Cポンお店ナビからのお知らせ</p>
 <hr>
 <div class="notice_show_sp">
     <div class="notice_content_date">{{ $notice->notice_date }}</div>
