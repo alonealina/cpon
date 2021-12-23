@@ -1458,6 +1458,11 @@ label {
     height:440px;
 }
 
+.banner_sp .draggable,
+.banner_sp .slick-slide img {
+    height:160px;
+}
+
 .banner .slick-dots,
 .banner_ipad .slick-dots {
     padding-top: 10px;
