@@ -5,7 +5,9 @@
         <div class="filter_form_sp">
             <hr>
             <div class="search_radio_list">
-                <input type="radio" name="search_radio" class="search_radio" value="area"> 都道府県<br>
+                <input type="checkbox" name="search_radio" class="search_radio" value="area"> 都道府県
+                <input type="checkbox" name="search_radio" class="search_radio" value="open_only"> OPEN
+                <input type="checkbox" name="search_radio" class="search_radio" value="4_or_more"> 高評価
                 <div id="pref_list">
                     <select name="pref">
                     @foreach (config('const.Prefs') as $name)
@@ -13,16 +15,15 @@
                     @endforeach
                     </select>
                 </div>
-                <input type="radio" name="search_radio" class="search_radio" value="open_only"> OPEN<br>
-                <input type="radio" name="search_radio" class="search_radio" value="4_or_more"> 高評価<br>
             </div>
             <div class="filter_name">利用シーン</div>
             <hr>
             @include('form.scenes')
-            <div class="filter_name">こだわり条件</div>
+            <div class="filter_name">キーワード</div>
             <hr>
             @include('form.commitments')
             <hr>
+            <div class="filter_name">こだわり条件</div>
             {!! Form::text('freeword' ,'', ['class' => 'filter_freeword', 'placeholder' => '入力してください'] ) !!}
             <div class="filter_name">オープン時間</div>
             <hr>
