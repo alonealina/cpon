@@ -4,7 +4,7 @@
 
 @yield('banner')
 
-<p>カテゴリーから探す</p>
+<p style="margin-left:30px;">カテゴリから探す</p>
 <div class="category">
     <ul class="slider">
     @foreach ($categories as $category)
@@ -41,7 +41,7 @@
 
 @yield('banner_ipad')
 
-<p class="category_title_ipad">カテゴリーから探す</p>
+<p class="category_title_ipad">カテゴリから探す</p>
 <div class="category_ipad">
     <ul class="slider_ipad">
         @foreach ($categories as $category)
@@ -73,7 +73,7 @@
 
 @yield('banner_sp')
 
-<p class="category_title_sp">カテゴリーから探す</p>
+<p class="category_title_sp">カテゴリから探す</p>
 <div class="category_sp">
     <ul class="slider_sp">
         @foreach ($categories as $category)

@@ -49,20 +49,22 @@ body {
 }
 
 .header_orange {
-    height: 15px;
-    background-color: #FFB01A;
+    height: 30px;
+    background: transparent linear-gradient(89deg, #FFC645 0%, #FFC24E 17%, #FFCD45 62%, #FFAD10 100%) 0% 0% no-repeat padding-box;
 }
 
 .header_content {
     text-align:center;
     width: 1090px;
     margin: 0 auto;
-    height:100px
+    height:80px
 }
 
 .cpon_logo {
     width: 250px;
     height: 102px;
+    position:relative;
+    top:10px;
 }
 
 .cpon_logo_div {
@@ -111,8 +113,13 @@ footer a, footer a:hover {
 }
 
 #freeword_form, #freeword_form_ipad {
-    height:40px;
-    width:650px;
+    height: 40px;
+    width: 650px;
+    position: relative;
+    top: 22px;
+    left: 150px;
+    color: #646464;
+}
 }
 
 #freeword_form_ipad {
@@ -125,8 +132,8 @@ footer a, footer a:hover {
 }
 
 .freeword_text, .freeword_text_ipad {
-    height:40px;
-    border-radius:20px;
+    height:47px;
+    border-radius:29px;
     border:solid 2px;
     border-color: #A2A2A2;
     padding-left: 20px;
@@ -284,7 +291,6 @@ td {
 
 p {
     font-size: 20px;
-    font-weight: bold;
 }
 
 .restaurant_list_title {
@@ -1476,6 +1482,10 @@ label {
 .banner_ipad .slick-dots {
     padding-top: 10px;
 }
+
+.slick-dots li button {
+    text-indent: -9999px;
+ }
 .banner_ipad .draggable {
     height:300px;
 }
@@ -1504,19 +1514,19 @@ label {
 }
 
 .slider .slick-prev {
-    top: 42%;
+    top: 36%;
 }
 
 .slider .slick-next {
-    top: 42%;
+    top: 36%;
 }
 
 .slider_banner .slick-prev {
-    top: 42%;
+    top: 43%;
 }
 
 .slider_banner .slick-next {
-    top: 42%;
+    top: 43%;
 }
 
 .slider_ipad .slick-prev {/*戻る矢印の位置と形状*/
@@ -1596,21 +1606,27 @@ label {
 }
 
 .slick-dots button {
-    color: transparent;
+    color: none;
     outline: none;
-    width:8px;/*ドットボタンのサイズ*/
-    height:8px;/*ドットボタンのサイズ*/
+    width:10px;/*ドットボタンのサイズ*/
+    height:10px;/*ドットボタンのサイズ*/
     display:block;
-    border-radius:50%;
-    background:gray;/*ドットボタンの色*/
-    border-color: gray;
+    border-radius:100%;
+    background:#8D8D8D;/*ドットボタンの色*/
+    border-color: #8D8D8D;
     padding:1px;
-    opacity: 0.5;
+    opacity: 1.0;
+    cursor: pointer;
+    border: #A2A2A2;
 }
 
 .slick-dots .slick-active button{
-    background:black;/*ドットボタンの現在地表示の色*/
-    border-color: black;
+    content:'';
+    background:#FFB01A;/*ドットボタンの現在地表示の色*/
+    border-color: #FFB01A;
+    text-decoration: none;
+    color: #FFB01A;
+    border: #A2A2A2;
 }
 
 /*以下五つ星デザインについて*/
