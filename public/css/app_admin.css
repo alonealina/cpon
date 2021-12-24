@@ -476,13 +476,17 @@ hr {
     text-align:center;
 }
 
-.button_black_sp a {
+.button_black, .button_comment, .notice_button_back, .notice_button_next {
+    text-align:center;
+}
+
+.button_black a {
     font-size: 20px;
     font-weight: bold;
     display:block;
-    width:380px;
+    width:400px;
     height:50px;
-    margin:20px auto;
+    margin:60px auto;
     line-height:50px;
     background:black;
     color:#fff;
@@ -1824,7 +1828,17 @@ content       : "閉じる";
 bottom        : 26px;
 }
 
+/*以下サムネイルについて*/
+.img_tmb_sub {
+    width:720px;
+}
 
+.img_tmb_main img, .img_tmb_sub img {
+    height:166px;
+    width:166px;
+    margin:5px;
+}
+    
 
 /*以下ローディング画面について*/
 

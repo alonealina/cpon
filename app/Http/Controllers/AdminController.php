@@ -262,28 +262,13 @@ class AdminController extends Controller
         $main_img = $request->main_img;
         $main_img_name = 'main_' . $main_img->getClientOriginalName();
 
-        if ($sub_img1 = $request->sub_img1) {
-            $sub_img1_name = 'sub1_' . $sub_img1->getClientOriginalName();
-        } else {
-            $sub_img1_name = null;
-        }
-
-        if ($sub_img2 = $request->sub_img2) {
-            $sub_img2_name = 'sub2_' . $sub_img2->getClientOriginalName();
-        } else {
-            $sub_img2_name = null;
-        }
-
-        if ($sub_img3 = $request->sub_img3) {
-            $sub_img3_name = 'sub3_' . $sub_img3->getClientOriginalName();
-        } else {
-            $sub_img3_name = null;
-        }
-
-        if ($sub_img4 = $request->sub_img4) {
-            $sub_img4_name = 'sub4_' . $sub_img4->getClientOriginalName();
-        } else {
-            $sub_img4_name = null;
+        $filename_array = [];
+        $file_count = 1;
+        if ($file_array = $request->sub_img) {
+            foreach ($file_array as $file) {
+                $filename_array['sub_img' . $file_count] = 'sub' . $file_count . time() . $file->getClientOriginalName();
+                $file_count++;
+            }
         }
 
         $request = $request->all();
@@ -322,11 +307,10 @@ class AdminController extends Controller
             'smoking' => $request['smoking'],
             'other' => $request['other'],
             'main_img' => $main_img_name,
-            'sub_img1' => $sub_img1_name,
-            'sub_img2' => $sub_img2_name,
-            'sub_img3' => $sub_img3_name,
-            'sub_img4' => $sub_img4_name,
         ];
+        foreach ($filename_array as $key => $value) {
+            $fill_data_restaurant = array_merge($fill_data_restaurant, [$key => $value]);
+        }
 
         $holidays = $request['holidays'];
         $fill_data_holiday = [];
@@ -373,18 +357,16 @@ class AdminController extends Controller
 
             $target_path = public_path('restaurant/'. $restaurant_id . '/');
             $main_img->move($target_path, $main_img_name);
-            if ($sub_img1) {
-                $sub_img1->move($target_path, $sub_img1_name);
+
+            $file_count = 1;
+            if (!empty($file_array)) {
+                foreach ($file_array as $file) {
+                    $file->move($target_path, $filename_array['sub_img' . $file_count]);
+                    $file_count++;
+                }
             }
-            if ($sub_img2) {
-                $sub_img2->move($target_path, $sub_img2_name);
-            }
-            if ($sub_img3) {
-                $sub_img3->move($target_path, $sub_img3_name);
-            }
-            if ($sub_img4) {
-                $sub_img4->move($target_path, $sub_img4_name);
-            }
+    
+    
             DB::commit();
             return redirect()->to('admin/restaurant_regist')->with('flashmessage', '登録が完了いたしました。');
         } catch (\Exception $e) {
@@ -462,28 +444,13 @@ class AdminController extends Controller
             $main_img_name = null;
         }
 
-        if ($sub_img1 = $request->sub_img1) {
-            $sub_img1_name = 'sub1_' . $sub_img1->getClientOriginalName();
-        } else {
-            $sub_img1_name = null;
-        }
-
-        if ($sub_img2 = $request->sub_img2) {
-            $sub_img2_name = 'sub2_' . $sub_img2->getClientOriginalName();
-        } else {
-            $sub_img2_name = null;
-        }
-
-        if ($sub_img3 = $request->sub_img3) {
-            $sub_img3_name = 'sub3_' . $sub_img3->getClientOriginalName();
-        } else {
-            $sub_img3_name = null;
-        }
-
-        if ($sub_img4 = $request->sub_img4) {
-            $sub_img4_name = 'sub4_' . $sub_img4->getClientOriginalName();
-        } else {
-            $sub_img4_name = null;
+        $filename_array = [];
+        $file_count = 1;
+        if ($file_array = $request->sub_img) {
+            foreach ($file_array as $file) {
+                $filename_array['sub_img' . $file_count] = time() . $file->getClientOriginalName();
+                $file_count++;
+            }
         }
 
         $request = $request->all();
@@ -526,17 +493,8 @@ class AdminController extends Controller
         if (isset($main_img_name)) {
             $fill_data_restaurant['main_img'] = $main_img_name;
         }
-        if (isset($sub_img1_name)) {
-            $fill_data_restaurant['sub_img1'] = $sub_img1_name;
-        }
-        if (isset($sub_img2_name)) {
-            $fill_data_restaurant['sub_img2'] = $sub_img2_name;
-        }
-        if (isset($sub_img3_name)) {
-            $fill_data_restaurant['sub_img3'] = $sub_img3_name;
-        }
-        if (isset($sub_img4_name)) {
-            $fill_data_restaurant['sub_img4'] = $sub_img4_name;
+        foreach ($filename_array as $key => $value) {
+            $fill_data_restaurant = array_merge($fill_data_restaurant, [$key => $value]);
         }
 
         $restaurant_id = $request['restaurant_id'];
@@ -599,30 +557,30 @@ class AdminController extends Controller
                 }
                 $main_img->move($target_path, $main_img_name);
             }
-            if ($sub_img1) {
-                if($old_sub_img1 && file_exists($target_path . $old_sub_img1)){
-                    unlink($target_path . $old_sub_img1);
-                }
-                $sub_img1->move($target_path, $sub_img1_name);
-            }
-            if ($sub_img2) {
-                if($old_sub_img2 && file_exists($target_path . $old_sub_img2)){
-                    unlink($target_path . $old_sub_img2);
-                }
-                $sub_img2->move($target_path, $sub_img2_name);
-            }
-            if ($sub_img3) {
-                if($old_sub_img3 && file_exists($target_path . $old_sub_img3)){
-                    unlink($target_path . $old_sub_img3);
-                }
-                $sub_img3->move($target_path, $sub_img3_name);
-            }
-            if ($sub_img4) {
-                if($old_sub_img4 && file_exists($target_path . $old_sub_img4)){
-                    unlink($target_path . $old_sub_img4);
-                }
-                $sub_img4->move($target_path, $sub_img4_name);
-            }
+            // if ($sub_img1) {
+            //     if($old_sub_img1 && file_exists($target_path . $old_sub_img1)){
+            //         unlink($target_path . $old_sub_img1);
+            //     }
+            //     $sub_img1->move($target_path, $sub_img1_name);
+            // }
+            // if ($sub_img2) {
+            //     if($old_sub_img2 && file_exists($target_path . $old_sub_img2)){
+            //         unlink($target_path . $old_sub_img2);
+            //     }
+            //     $sub_img2->move($target_path, $sub_img2_name);
+            // }
+            // if ($sub_img3) {
+            //     if($old_sub_img3 && file_exists($target_path . $old_sub_img3)){
+            //         unlink($target_path . $old_sub_img3);
+            //     }
+            //     $sub_img3->move($target_path, $sub_img3_name);
+            // }
+            // if ($sub_img4) {
+            //     if($old_sub_img4 && file_exists($target_path . $old_sub_img4)){
+            //         unlink($target_path . $old_sub_img4);
+            //     }
+            //     $sub_img4->move($target_path, $sub_img4_name);
+            // }
             DB::commit();
             return redirect()->to('admin/restaurant_regist')->with('flashmessage', '登録が完了いたしました。');
         } catch (\Exception $e) {

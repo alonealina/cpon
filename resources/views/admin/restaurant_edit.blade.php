@@ -1,11 +1,58 @@
-@extends('layouts.app')
+@extends('layouts.app_admin')
 
 @section('content')
 <div class="comment_form">
     <form id="form" name="regist_form" action="{{ route('admin.restaurant_update') }}" method="post" enctype="multipart/form-data">
         @csrf
         {{ Form::hidden('restaurant_id', $restaurant->id) }}
-        <div class="comment_form_title">店舗の編集</div>
+        <div class="comment_form_title">店舗情報編集</div>
+
+        <div class="regist_form_item">
+            <div class="user_name_title">メイン画像<p class="required_mark">必須</p></div>
+            @if($errors->has('main_img'))
+            <div class="comment_error">{{ $errors->first('main_img') }}</div>
+            @endif
+            <div class="regist_file_button"><input type="file" id="file_btn_main" accept="image/*" onclick="fileCheckMain();" name="main_img"></div>
+            <div class="img_tmb_main">
+                @if (!empty($restaurant->main_img))
+                <img src="../../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}">
+                @endif
+            </div>
+        </div>
+
+        <div class="regist_form_item">
+            <div class="user_name_title">サブ画像（8枚まで）</div>
+            @if($errors->has('sub_img1'))
+            <div class="comment_error">{{ $errors->first('sub_img1') }}</div>
+            @endif
+            <div class="regist_file_button"><input type="file" id="file_btn_sub" accept="image/*" onclick="fileCheckSub();" name="sub_img[]" multiple></div>
+            <div class="img_tmb_sub">
+                @if (!empty($restaurant->sub_img1))
+                <img src="../../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img1 }}">
+                @endif
+                @if (!empty($restaurant->sub_img2))
+                <img src="../../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img2 }}">
+                @endif
+                @if (!empty($restaurant->sub_img3))
+                <img src="../../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img3 }}">
+                @endif
+                @if (!empty($restaurant->sub_img4))
+                <img src="../../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img4 }}">
+                @endif
+                @if (!empty($restaurant->sub_img5))
+                <img src="../../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img5 }}">
+                @endif
+                @if (!empty($restaurant->sub_img6))
+                <img src="../../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img6 }}">
+                @endif
+                @if (!empty($restaurant->sub_img7))
+                <img src="../../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img7 }}">
+                @endif
+                @if (!empty($restaurant->sub_img8))
+                <img src="../../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img8 }}">
+                @endif
+            </div>
+        </div>
 
         <div class="regist_form_item">
             <div class="user_name_title">店舗名1<p class="required_mark">必須</p></div>
@@ -290,60 +337,6 @@
             @include('form.commitments_edit')
         </div>
 
-        <div class="regist_form_item">
-            <div class="user_name_title">メイン画像<p class="required_mark">必須</p></div>
-            @if (!empty($restaurant->main_img))
-            <img src="../../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" class="edit_thumb_img">
-            @endif
-            @if($errors->has('main_img'))
-            <div class="comment_error">{{ $errors->first('main_img') }}</div>
-            @endif
-            <div class="regist_file_button"><input type="file" name="main_img"></div>
-        </div>
-
-        <div class="regist_form_item">
-            <div class="user_name_title">サブ画像1</div>
-            @if (!empty($restaurant->sub_img1))
-            <img src="../../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img1 }}" class="edit_thumb_img">
-            @endif
-            @if($errors->has('sub_img1'))
-            <div class="comment_error">{{ $errors->first('sub_img1') }}</div>
-            @endif
-            <div class="regist_file_button"><input type="file" name="sub_img1"></div>
-        </div>
-
-        <div class="regist_form_item">
-            <div class="user_name_title">サブ画像2</div>
-            @if (!empty($restaurant->sub_img2))
-            <img src="../../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img2 }}" class="edit_thumb_img">
-            @endif
-            @if($errors->has('sub_img2'))
-            <div class="comment_error">{{ $errors->first('sub_img2') }}</div>
-            @endif
-            <div class="regist_file_button"><input type="file" name="sub_img2"></div>
-        </div>
-
-        <div class="regist_form_item">
-            <div class="user_name_title">サブ画像3</div>
-            @if (!empty($restaurant->sub_img3))
-            <img src="../../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img3 }}" class="edit_thumb_img">
-            @endif
-            @if($errors->has('sub_img3'))
-            <div class="comment_error">{{ $errors->first('sub_img3') }}</div>
-            @endif
-            <div class="regist_file_button"><input type="file" name="sub_img3"></div>
-        </div>
-
-        <div class="regist_form_item">
-            <div class="user_name_title">サブ画像4</div>
-            @if (!empty($restaurant->sub_img4))
-            <img src="../../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img4 }}" class="edit_thumb_img">
-            @endif
-            @if($errors->has('sub_img4'))
-            <div class="comment_error">{{ $errors->first('sub_img4') }}</div>
-            @endif
-            <div class="regist_file_button"><input type="file" name="sub_img4"></div>
-        </div>
 
 
         <div class="button_black">
