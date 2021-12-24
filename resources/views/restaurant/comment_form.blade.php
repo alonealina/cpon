@@ -60,7 +60,7 @@
             <div class="comment_error">{{ $errors->first('comment_img') }}</div>
         @endif
         <div class="comment_create_title">イメージ画像（5枚まで）</div>
-        <div class="file_button"><input type="file" name="comment_img"></div>
+        <div class="file_button"><input type="file" id="file_btn_pc" accept="image/*" name="comment_img[]" onclick="fileCheck();" multiple></div>
         <div class="button_black">
             <a href="#" onclick="clickCommentButton()">クチコミを投稿する</a>
         </div>
@@ -77,6 +77,7 @@ window.onload = function () {
     window.location.href = '/';
   });
 };
+
 </script>
 
 @endif
@@ -153,7 +154,7 @@ window.onload = function () {
         @if($errors->has('comment_img'))
             <div class="comment_error">{{ $errors->first('comment_img') }}</div>
         @endif
-        <div class="file_button"><input type="file" name="comment_img"></div>
+        <div class="file_button"><input type="file" id="file_btn_ipad" accept="image/*" name="comment_img[]" multiple></div>
         <div class="button_black">
             <a href="#" onclick="clickCommentButtonIpad()">クチコミを投稿する</a>
         </div>

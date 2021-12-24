@@ -346,12 +346,15 @@ class RestaurantController extends Controller
 
         $comment = new Comment;
 
-        if ($file = $request->comment_img) {
-            $fileName = time() . $file->getClientOriginalName();
-            $target_path = public_path('uploads/');
-            $file->move($target_path, $fileName);
-        } else {
-            $fileName = "";
+        $filename_array = [];
+        $file_count = 1;
+        if ($file_array = $request->comment_img) {
+            foreach ($file_array as $file) {
+                $filename_array['comment_img' . $file_count] = time() . $file->getClientOriginalName();
+                $target_path = public_path('uploads/');
+                $file->move($target_path, $filename_array['comment_img' . $file_count]);
+                $file_count++;
+            }
         }
 
         $request = $request->all();
@@ -360,9 +363,12 @@ class RestaurantController extends Controller
             'user_name' => $request['user_name'],
             'fivestar' => $request['fivestar'],
             'comment' => $request['comment'],
-            'filename' => $fileName,
             'user_id' => 1
         ];
+
+        foreach ($filename_array as $key => $value) {
+            $fill_data = array_merge($fill_data, [$key => $value]);
+        }
 
         DB::beginTransaction();
         try {

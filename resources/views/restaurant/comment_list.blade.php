@@ -67,9 +67,29 @@
                 <input type="checkbox" id="sp{{ $comment->id }}" class="comment_checkbox"><label for="sp{{ $comment->id }}" id="" class="comment_label"></label>
                 <div class="comment_content">{!! nl2br(e($comment->comment)) !!}</div>
             </div>
-            @if (!empty($comment->filename))
-            <a href="../../uploads/{{ $comment->filename }}" data-lightbox="group{{ $comment->id }}pc">
-                <img src="../../uploads/{{ $comment->filename }}" width="100px" height="100px">
+            @if (!empty($comment->comment_img1))
+            <a href="../../uploads/{{ $comment->comment_img1 }}" data-lightbox="group{{ $comment->id }}pc">
+                <img src="../../uploads/{{ $comment->comment_img1 }}" width="100px" height="100px">
+            </a>
+            @endif
+            @if (!empty($comment->comment_img2))
+            <a href="../../uploads/{{ $comment->comment_img2 }}" data-lightbox="group{{ $comment->id }}pc">
+                <img src="../../uploads/{{ $comment->comment_img2 }}" width="100px" height="100px">
+            </a>
+            @endif
+            @if (!empty($comment->comment_img3))
+            <a href="../../uploads/{{ $comment->comment_img3 }}" data-lightbox="group{{ $comment->id }}pc">
+                <img src="../../uploads/{{ $comment->comment_img3 }}" width="100px" height="100px">
+            </a>
+            @endif
+            @if (!empty($comment->comment_img4))
+            <a href="../../uploads/{{ $comment->comment_img4 }}" data-lightbox="group{{ $comment->id }}pc">
+                <img src="../../uploads/{{ $comment->comment_img4 }}" width="100px" height="100px">
+            </a>
+            @endif
+            @if (!empty($comment->comment_img5))
+            <a href="../../uploads/{{ $comment->comment_img5 }}" data-lightbox="group{{ $comment->id }}pc">
+                <img src="../../uploads/{{ $comment->comment_img5 }}" width="100px" height="100px">
             </a>
             @endif
         </div>
@@ -182,9 +202,29 @@ $('.comment_checkbox').click(function() {
                 <input type="checkbox" id="ipad{{ $comment->id }}" class="comment_checkbox_ipad"><label for="ipad{{ $comment->id }}" id="" class="comment_label_ipad"></label>
                 <div class="comment_content_ipad">{!! nl2br(e($comment->comment)) !!}</div>
             </div>
-            @if (!empty($comment->filename))
-            <a href="../../uploads/{{ $comment->filename }}" data-lightbox="group{{ $comment->id }}ipad">
-                <img src="../../uploads/{{ $comment->filename }}" width="100px" height="100px">
+            @if (!empty($comment->comment_img1))
+            <a href="../../uploads/{{ $comment->comment_img1 }}" data-lightbox="group{{ $comment->id }}ipad">
+                <img src="../../uploads/{{ $comment->comment_img1 }}" width="100px" height="100px">
+            </a>
+            @endif
+            @if (!empty($comment->comment_img2))
+            <a href="../../uploads/{{ $comment->comment_img2 }}" data-lightbox="group{{ $comment->id }}ipad">
+                <img src="../../uploads/{{ $comment->comment_img2 }}" width="100px" height="100px">
+            </a>
+            @endif
+            @if (!empty($comment->comment_img3))
+            <a href="../../uploads/{{ $comment->comment_img3 }}" data-lightbox="group{{ $comment->id }}ipad">
+                <img src="../../uploads/{{ $comment->comment_img3 }}" width="100px" height="100px">
+            </a>
+            @endif
+            @if (!empty($comment->comment_img4))
+            <a href="../../uploads/{{ $comment->comment_img4 }}" data-lightbox="group{{ $comment->id }}ipad">
+                <img src="../../uploads/{{ $comment->comment_img4 }}" width="100px" height="100px">
+            </a>
+            @endif
+            @if (!empty($comment->comment_img5))
+            <a href="../../uploads/{{ $comment->comment_img5 }}" data-lightbox="group{{ $comment->id }}ipad">
+                <img src="../../uploads/{{ $comment->comment_img5 }}" width="100px" height="100px">
             </a>
             @endif
         </div>

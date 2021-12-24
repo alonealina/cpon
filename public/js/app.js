@@ -30,6 +30,31 @@ function clickClearButton() {
     document.forms.filter_form.reset();
 }
 
+const maxFiles = 5;
+function fileCheck(){
+
+  let $file_btn = $("#file_btn_pc");
+
+  // addEventListener() の jQuery による略記
+  $file_btn.on("change", function(evt){
+    // jQuery オブジェクトの最初の要素は Element が格納されているので
+    // 次のようにHTMLElementを取得できる。
+    // $(this)[0];　$(this).get(0);
+
+    // 変数 $file_btn に格納済みのjQueryオブジェクトを使っても良い。
+    let elm = $file_btn[0];
+    if( maxFiles < elm.files.length ) {
+
+      alert(`添付できるのは ${maxFiles} 枚までです` );
+
+      elm.value = null; // input[type=file] をリセット
+
+      return false;// イベントリスナを抜ける。
+    }
+    // プレビュー処理など。
+  })
+};
+
 function clickReleaseOnButton() {
     // エレメントを作成
     var ele = document.createElement('input');

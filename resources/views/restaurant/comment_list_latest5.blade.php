@@ -31,9 +31,29 @@
                 <input type="checkbox" id="pc{{ $comment->id }}" class="comment_checkbox"><label for="pc{{ $comment->id }}" id="" class="comment_label"></label>
                 <div class="comment_content">{!! nl2br(e($comment->comment)) !!}</div>
             </div>
-            @if (!empty($comment->filename))
-            <a href="../../uploads/{{ $comment->filename }}" data-lightbox="group{{ $comment->id }}{{ $version }}">
-                <img src="../../uploads/{{ $comment->filename }}" width="100px" height="100px">
+            @if (!empty($comment->comment_img1))
+            <a href="../../uploads/{{ $comment->comment_img1 }}" data-lightbox="group{{ $comment->id }}{{ $version }}">
+                <img src="../../uploads/{{ $comment->comment_img1 }}" width="100px" height="100px">
+            </a>
+            @endif
+            @if (!empty($comment->comment_img2))
+            <a href="../../uploads/{{ $comment->comment_img2 }}" data-lightbox="group{{ $comment->id }}{{ $version }}">
+                <img src="../../uploads/{{ $comment->comment_img2 }}" width="100px" height="100px">
+            </a>
+            @endif
+            @if (!empty($comment->comment_img3))
+            <a href="../../uploads/{{ $comment->comment_img3 }}" data-lightbox="group{{ $comment->id }}{{ $version }}">
+                <img src="../../uploads/{{ $comment->comment_img3 }}" width="100px" height="100px">
+            </a>
+            @endif
+            @if (!empty($comment->comment_img4))
+            <a href="../../uploads/{{ $comment->comment_img4 }}" data-lightbox="group{{ $comment->id }}{{ $version }}">
+                <img src="../../uploads/{{ $comment->comment_img4 }}" width="100px" height="100px">
+            </a>
+            @endif
+            @if (!empty($comment->comment_img5))
+            <a href="../../uploads/{{ $comment->comment_img5 }}" data-lightbox="group{{ $comment->id }}{{ $version }}">
+                <img src="../../uploads/{{ $comment->comment_img5 }}" width="100px" height="100px">
             </a>
             @endif
         </div>
