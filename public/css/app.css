@@ -128,7 +128,7 @@ footer a, footer a:hover {
     left: 150px;
     color: #646464;
 }
-}
+
 
 #freeword_form_ipad {
     margin:0 100px;
@@ -1638,8 +1638,8 @@ label {
 .slick-dots button {
     color: none;
     outline: none;
-    width:10px;/*ドットボタンのサイズ*/
-    height:10px;/*ドットボタンのサイズ*/
+    width: 8px;/*ドットボタンのサイズ*/
+    height:8px;/*ドットボタンのサイズ*/
     display:block;
     border-radius:100%;
     background:#8D8D8D;/*ドットボタンの色*/
