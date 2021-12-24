@@ -1486,7 +1486,6 @@ label {
 .slick-prev, 
 .slick-next {
     position: absolute;/*絶対配置にする*/
-    top: 42%;
     cursor: pointer;/*マウスカーソルを指マークに*/
     outline: none;/*クリックをしたら出てくる枠線を消す*/
     height: 15px;
@@ -1502,6 +1501,22 @@ label {
 .slider .slick-next,
 .slider_banner .slick-next {/*次へ矢印の位置と形状*/
     right: -1.5%;
+}
+
+.slider .slick-prev {
+    top: 42%;
+}
+
+.slider .slick-next {
+    top: 42%;
+}
+
+.slider_banner .slick-prev {
+    top: 42%;
+}
+
+.slider_banner .slick-next {
+    top: 42%;
 }
 
 .slider_ipad .slick-prev {/*戻る矢印の位置と形状*/
