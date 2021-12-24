@@ -8,24 +8,22 @@
 
 @section('content_sp')
 
-<div class="banner_sp">
-    <ul class="restaurant_img_sp">
-        @if (!empty($restaurant->main_img))
-        <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" class="banner_img" alt=""></li>
-        @endif
-        @if (!empty($restaurant->sub_img1))
-        <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img1 }}" class="banner_img" alt=""></li>
-        @endif
-        @if (!empty($restaurant->sub_img2))
-        <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img2 }}" class="banner_img" alt=""></li>
-        @endif
-        @if (!empty($restaurant->sub_img3))
-        <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img3 }}" class="banner_img" alt=""></li>
-        @endif
-        @if (!empty($restaurant->sub_img4))
-        <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img4 }}" class="banner_img" alt=""></li>
-        @endif
-    </ul>
+<div class="restaurant_show">
+    <div class="restaurant_category">{{ $category->name }}</div>
+    <div class="restaurant_name">{{ $restaurant->name1 }} {{ $restaurant->name2 }} {{ $restaurant->name3 }}</div>
+    <div class="scene_commitment">
+        @foreach ($restaurant_scenes as $name)
+        <label class="label">{{ $name }}</label>
+        @endforeach
+        @foreach ($restaurant_commitments as $name)
+        <label class="label">{{ $name }}</label>
+        @endforeach
+    </div>
+    @if(!empty($restaurant->cpon_mall_url))
+    <div class="cpon_mall_url">
+        <a href="{{ $restaurant->cpon_mall_url }}" target="_blank">Cポンモール出店中</a>
+    </div>
+    @endif
 </div>
 
 <div class="comment_form">
@@ -67,7 +65,9 @@
         @if($errors->has('comment_img'))
             <div class="comment_error">{{ $errors->first('comment_img') }}</div>
         @endif
-        <div class="file_button"><input type="file" name="comment_img"></div>
+        <div class="comment_create_title_sp">イメージ画像（5枚まで）</div>
+        <div class="file_button"><input type="file" id="file_btn_pc" accept="image/*" name="comment_img[]" onclick="fileCheck();" multiple></div>
+        <div class="img_tmb"></div>
         <div class="button_black_sp">
             <a href="#" onclick="clickCommentButtonSp()">クチコミを投稿する</a>
         </div>

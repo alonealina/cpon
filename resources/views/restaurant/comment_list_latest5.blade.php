@@ -2,7 +2,11 @@
     <div class="comment_list_header">
         <p class="comment_list_title">最新のクチコミ</p>
         <div class="button_comment">
+            @if($version == 'sp')
+            <a href="{{ route('restaurant.comment_form_sp', ['id' => $restaurant_id]) }}">クチコミを投稿する</a>
+            @else
             <a href="{{ route('restaurant.comment_form', ['id' => $restaurant_id]) }}">クチコミを投稿する</a>
+            @endif
         </div>
     </div>
     <div class="number">
