@@ -323,9 +323,21 @@ p {
 }
 
 .restaurant_list_title {
-    font-family: "ヒラギノ丸ゴシック";
-    margin-left: 10px;
+    font: normal normal normal 20px/51px Hiragino Sans;
+    margin-left: 20px;
     margin-bottom: 0px;
+    color: #FFB01A;
+}
+.restaurant_list_te {
+position: relative;
+top:3px;
+margin-left:10px;
+}
+.restaurant_list_line{
+    width: 844px;
+    height: 15px;
+    background: #FFB01A 0% 0% no-repeat padding-box;
+    margin-left:10px;
 }
 
 .restaurant_list_title_ipad {

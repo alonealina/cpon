@@ -34,7 +34,8 @@
 
 
 @section('restaurant_list')
-<p class="restaurant_list_title"><img src="{{ asset('img/icon/yubi.png') }}" alt="">Cポンお店ナビからのおすすめ</p>
+<p class="restaurant_list_title"><img style="width:36px;" src="{{ asset('img/icon/yubi.png') }}" alt=""><span class="restaurant_list_te">Cポンお店ナビからのおすすめ</span></p>
+<div class="restaurant_list_line"></div>
 <div class="recommend_list">
     @foreach ($recommends as $recommend)
     <div class="recommend_restaurant">
@@ -56,7 +57,8 @@
     </div>
     @endforeach
 </div>
-<p class="restaurant_list_title"><img src="{{ asset('img/icon/new.png') }}" alt="">新着店舗情報</p>
+<p class="restaurant_list_title"><img style="width:44px;" src="{{ asset('img/icon/new.png') }}" alt=""><span class="restaurant_list_te">新着店舗情報</span></p>
+<div class="restaurant_list_line"></div>
 <div class="new_list">
     @foreach ($news as $new)
     <div class="new_restaurant">
