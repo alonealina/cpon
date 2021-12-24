@@ -15,7 +15,7 @@
     </div>
     @if(!empty($restaurant->cpon_mall_url))
     <div class="cpon_mall_url">
-        <a href="{{ $restaurant->cpon_mall_url }}">Cポンモール出店中</a>
+        <a href="{{ $restaurant->cpon_mall_url }}" target="_blank">Cポンモール出店中</a>
     </div>
     @endif
 </div>
@@ -150,7 +150,7 @@ $('.comment_checkbox').click(function() {
     </div>
     @if(!empty($restaurant->cpon_mall_url))
     <div class="cpon_mall_url">
-        <a href="{{ $restaurant->cpon_mall_url }}">Cポンモール出店中</a>
+        <a href="{{ $restaurant->cpon_mall_url }}" target="_blank">Cポンモール出店中</a>
     </div>
     @endif
 </div>

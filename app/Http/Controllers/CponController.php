@@ -204,10 +204,14 @@ class CponController extends Controller
         if ($news_count <= 5) {
             $news = Restaurant::orderBy('created_at', 'desc')->take(6)->get();
         }
+        $scenes = Scene::all();
+        $commitments = Commitment::all();
         return view('new', [
             'categories' => $categories,
             'news' => $news,
             'news_count' => $news_count,
+            'scenes' => $scenes,
+            'commitments' => $commitments,
         ]);
     }
 

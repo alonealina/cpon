@@ -45,7 +45,7 @@
         <div class="restaurant_detail_img"><img src="{{ asset('img/icon/tizu.png') }}" alt=""></div>
         <div class="restaurant_detail_content">
             〒{{ $restaurant->zip }}　{{ $restaurant->pref }}{{ $restaurant->address }}<br>
-            <a href="https://www.google.com/maps/dir/{{ $restaurant->pref }}{{ $restaurant->address }}" target=”_blank”>地図アプリで見る</a>
+            <a href="https://www.google.com/maps/dir/{{ $restaurant->pref }}{{ $restaurant->address }}" target="_blank">地図アプリで見る</a>
             <br>
             {{ $restaurant->address_remarks }}
         </div>
@@ -80,7 +80,7 @@
         <div class="restaurant_detail_content">
         ご予約・お問合せ
         <br>
-        <a href="{{ $restaurant->url }}" target=”_blank”>{{ $restaurant->url }}</a>
+        <a href="{{ $restaurant->url }}" target="_blank">{{ $restaurant->url }}</a>
         <br>
         {{ $restaurant->tel }}
         </div>

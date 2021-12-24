@@ -43,8 +43,8 @@
                     <a href ="{{ route('help') }}">ヘルプ・お問い合わせ</a> ｜
                     <a href ="{{ route('terms') }}">利用規約</a> ｜
                     <a href ="{{ route('policy') }}">プライバシーポリシー</a> ｜
-                    <a href ="https://app.cpon.co.jp/">CポンWEBAPP</a> ｜
-                    <a href ="https://mall.cpon.co.jp/">Cポンモール</a>
+                    <a href ="https://app.cpon.co.jp/" target="_blank">CポンWEBAPP</a> ｜
+                    <a href ="https://mall.cpon.co.jp/" target="_blank">Cポンモール</a>
                 </div>
                 <div class="copyright">copyright (c) © KOC・JAPAN, Inc. all rights reserved.</div>
                 <div class="footer_black"></div>
@@ -74,8 +74,8 @@
                     <a href ="{{ route('help') }}">ヘルプ・お問い合わせ</a> ｜
                     <a href ="{{ route('terms') }}">利用規約</a> ｜
                     <a href ="{{ route('policy') }}">プライバシーポリシー</a> ｜
-                    <a href ="https://app.cpon.co.jp/">CポンWEBAPP</a> ｜
-                    <a href ="https://mall.cpon.co.jp/">Cポンモール</a>
+                    <a href ="https://app.cpon.co.jp/" target="_blank">CポンWEBAPP</a> ｜
+                    <a href ="https://mall.cpon.co.jp/" target="_blank">Cポンモール</a>
                 </div>
                 <div class="copyright">copyright (c) © KOC・JAPAN, Inc. all rights reserved.</div>
                 <div class="footer_black"></div>
@@ -145,8 +145,8 @@
                     @endif
                     </a>
                 </li>
-                <li class="sp_menu_phone"><a href="https://app.cpon.co.jp/"><img src="{{ asset('img/phone.png') }}" class="" alt=""><br>CポンWEBAPPへ</a></li>
-                <li class="sp_menu_mail"><a href="https://mall.cpon.co.jp/"><img src="{{ asset('img/mail.png') }}" class="" alt=""><br>Cポンモールへ</a></li>
+                <li class="sp_menu_phone"><a href="https://app.cpon.co.jp/" target="_blank"><img src="{{ asset('img/phone.png') }}" class="" alt=""><br>CポンWEBAPPへ</a></li>
+                <li class="sp_menu_mail"><a href="https://mall.cpon.co.jp/" target="_blank"><img src="{{ asset('img/mail.png') }}" class="" alt=""><br>Cポンモールへ</a></li>
             </ul>
         </div>
     </div>
