@@ -28,8 +28,9 @@
             <b>{{ $comment->fivestar }}.0</b>
             </div>
             <div class="comment_box">
-                <input type="checkbox" id="pc{{ $comment->id }}" class="comment_checkbox"><label for="pc{{ $comment->id }}" id="" class="comment_label"></label>
-                <div class="comment_content">{!! nl2br(e($comment->comment)) !!}</div>
+                <input type="checkbox" id="{{ $version }}{{ $comment->id }}" class="comment_checkbox_{{ $version }}">
+                <label for="{{ $version }}{{ $comment->id }}" id="" class="comment_label"></label>
+                <div class="comment_content_{{ $version }}">{!! nl2br(e($comment->comment)) !!}</div>
             </div>
             @if (!empty($comment->comment_img1))
             <a href="../../uploads/{{ $comment->comment_img1 }}" data-lightbox="group{{ $comment->id }}{{ $version }}">
@@ -70,7 +71,7 @@
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script>
-let comment_content_list = document.getElementsByClassName('comment_content');
+var comment_content_list = document.getElementsByClassName('comment_content_{{ $version }}');
 var array = Array.prototype.slice.call(comment_content_list);//配列に変換
 array.forEach((comment_content) => {
     let client_h = comment_content.clientHeight;
@@ -82,11 +83,11 @@ array.forEach((comment_content) => {
     }
 });
 
-$('.comment_checkbox').click(function() {
+$('.comment_checkbox_{{ $version }}').click(function() {
     if (this.checked) {
-        this.parentElement.getElementsByClassName('comment_content')[0].style.display = "block";
+        this.parentElement.getElementsByClassName('comment_content_{{ $version }}')[0].style.display = "block";
     } else {
-        this.parentElement.getElementsByClassName('comment_content')[0].style.display = "-webkit-box";
+        this.parentElement.getElementsByClassName('comment_content_{{ $version }}')[0].style.display = "-webkit-box";
     }
 });
 </script>
