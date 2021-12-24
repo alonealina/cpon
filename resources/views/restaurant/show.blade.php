@@ -181,49 +181,39 @@ $('#sp01').click(function() {
 
 @include('form.header_search_ipad')
 <div class="body_ipad">
-    <div class="flexible_img_list_ipad">
-        <div class="flexible_main_img_ipad">
+
+    <div class="banner_ipad">
+        <ul class="restaurant_img_ipad">
             @if (empty($restaurant->main_img))
-            <img src="../../img/imgerror.jpg" class="main_img_ipad">
+            <li><img src="../../img/imgerror.jpg" class="banner_img" alt=""></li>
             @else
-            <a href="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" data-lightbox="group_ipad">
-                <img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" class="main_img_ipad">
-            </a>
+            <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" class="slide_restaurant_img_ipad" alt=""></li>
             @endif
-        </div>
-        <div class="flexible_sub_img_ipad">
-            @if (empty($restaurant->sub_img1))
-            <img src="../../img/imgerror.jpg" class="sub_img_ipad">
-            @else
-            <a href="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" data-lightbox="group_ipad">
-                <img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img1 }}" class="sub_img_ipad">
-            </a>
+            @if (!empty($restaurant->sub_img1))
+            <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img1 }}" class="slide_restaurant_img_ipad" alt=""></li>
             @endif
-
-            @if (empty($restaurant->sub_img2))
-            <img src="../../img/imgerror.jpg" class="sub_img_ipad">
-            @else
-            <a href="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" data-lightbox="group_ipad">
-                <img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img2 }}" class="sub_img_ipad">
-            </a>
+            @if (!empty($restaurant->sub_img2))
+            <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img2 }}" class="slide_restaurant_img_ipad" alt=""></li>
             @endif
-
-            @if (empty($restaurant->sub_img3))
-            <img src="../../img/imgerror.jpg" class="sub_img_ipad">
-            @else
-            <a href="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" data-lightbox="group_ipad">
-                <img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img3 }}" class="sub_img_ipad">
-            </a>
+            @if (!empty($restaurant->sub_img3))
+            <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img3 }}" class="slide_restaurant_img_ipad" alt=""></li>
             @endif
-
-            @if (empty($restaurant->sub_img4))
-            <img src="../../img/imgerror.jpg" class="sub_img_ipad">
-            @else
-            <a href="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" data-lightbox="group_ipad">
-                <img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img4 }}" class="sub_img_ipad">
-            </a>
+            @if (!empty($restaurant->sub_img4))
+            <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img4 }}" class="slide_restaurant_img_ipad" alt=""></li>
             @endif
-        </div>
+            @if (!empty($restaurant->sub_img5))
+            <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img5 }}" class="slide_restaurant_img_ipad" alt=""></li>
+            @endif
+            @if (!empty($restaurant->sub_img6))
+            <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img6 }}" class="slide_restaurant_img_ipad" alt=""></li>
+            @endif
+            @if (!empty($restaurant->sub_img7))
+            <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img7 }}" class="slide_restaurant_img_ipad" alt=""></li>
+            @endif
+            @if (!empty($restaurant->sub_img8))
+            <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img8 }}" class="slide_restaurant_img_ipad" alt=""></li>
+            @endif
+        </ul>
     </div>
 
     <div class="restaurant_show">
@@ -248,6 +238,43 @@ $('#sp01').click(function() {
                 <div id="restaurant_profile_text_ipad">
                 {!! nl2br(e($restaurant->profile)) !!}
                 </div>
+            </div>
+        </div>
+        <nav class="info_list_bar info_list_bar_ipad">
+            <ul>
+                <li class="info_basic_ipad current"><a><img src="{{ asset('img/icon/ie.png') }}" alt=""> 店舗基本情報</a></li>
+                <li class="info_access_ipad"><a><img src="{{ asset('img/icon/access.png') }}" alt=""> アクセス情報</a></li>
+                <li class="info_pay_ipad"><a><img src="{{ asset('img/icon/siharai.png') }}" alt=""> 支払い方法</a></li>
+                <li class="info_other_ipad"><a><img src="{{ asset('img/icon/haguruma.png') }}" alt=""> 設備・その他の情報</a></li>
+            </ul>
+        </nav>
+        <div class="info_list">
+            <div id="info_list_basic_ipad">
+                　所在地：〒{{ $restaurant->zip }}　{{ $restaurant->pref }}{{ $restaurant->address }}
+                <a href="https://www.google.com/maps/dir/{{ $restaurant->pref }}{{ $restaurant->address }}" target=”_blank”>地図アプリで見る</a><br>
+                電話番号：{{ $restaurant->tel }}<br>
+                営業時間：{{ $restaurant->open_hm }}～{{ $restaurant->close_hm }}<br>
+                {!! nl2br(e($restaurant->time_remarks)) !!}<br>
+                　定休日：{{ $restaurant_holidays }}<br>
+                　　予算：昼　{{ $restaurant->budget_lunch }}<br>
+                　　　　　夜　{{ $restaurant->budget_dinner }}<br>
+                　　評価：{{ $avg_star }} ({{ $comments->total() }} 評価)<br>
+                WEBページ：<a href="{{ $restaurant->url }}" target=”_blank”>{{ $restaurant->url }}</a>
+            </div>
+            <div id="info_list_access_ipad" hidden>
+                最寄り駅：{{ $restaurant_stations }}<br>
+                アクセス：{!! nl2br(e($restaurant->access)) !!}<br>
+                　駐車場：{!! nl2br(e($restaurant->parking)) !!}
+            </div>
+            <div id="info_list_pay_ipad" hidden>
+                　クレジットカード：{{ $restaurant_cards }}<br>
+                電子マネー・その他：{!! nl2br(e($restaurant->e_money)) !!}<br>
+            </div>
+            <div id="info_list_other_ipad" hidden>
+                　　席数：{!! nl2br(e($restaurant->seats)) !!}<br>
+                禁煙・喫煙：{!! nl2br(e($restaurant->smoking)) !!}<br>
+                Cポンモール：<a href="{{ $restaurant->url }}" target=”_blank”>{{ $restaurant->cpon_mall_url }}</a><br>
+                　その他：{!! nl2br(e($restaurant->other)) !!}
             </div>
         </div>
 
@@ -278,6 +305,7 @@ $('#ipad_label').click(function() {
 });
 
 </script>
+<script src="{{ asset('js/info_ipad.js') }}"></script>
 @endsection
 
 

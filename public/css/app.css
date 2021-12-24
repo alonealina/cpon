@@ -1195,7 +1195,7 @@ label {
     display: table;
     margin: 0;
     padding: 0;
-    width: 50%;
+    width: 100%;
 
 }
 
@@ -1367,6 +1367,10 @@ label {
     padding-left: 0px;
 }
 
+.restaurant_img_ipad {
+    padding-left: 0px;
+}
+
 .category_name {
     font-size: 15px;
     color:#FFFFFF;
@@ -1405,10 +1409,20 @@ label {
     margin-top: 15px;
 }
 
+.slide_restaurant_img_ipad{
+    width: 320px;
+    height: 320px;
+    margin:auto;
+}
+
 /*slickのJSで書かれるタグ内、スライド左右の余白調整*/
 
 .slider .slick-slide {
     margin:0 3px 10px 3px;
+}
+
+.restaurant_img_ipad .slick-slide {
+    margin:5px;
 }
 
 .banner_img {
@@ -1535,6 +1549,18 @@ label {
 .restaurant_img_sp .slick-next {/*次へ矢印の位置と形状*/
     right: 0px;
     top: 80px;
+}
+
+
+
+.restaurant_img_ipad .slick-prev {/*戻る矢印の位置と形状*/
+    left: -15px;
+    top: 140px;
+}
+
+.restaurant_img_ipad .slick-next {/*次へ矢印の位置と形状*/
+    right: -15px;
+    top: 140px;
 }
 
 /*ドットナビゲーションの設定*/
