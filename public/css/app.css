@@ -55,8 +55,9 @@ body {
 
 .header_content {
     text-align:center;
-    width: 1140px;
+    width: 1090px;
     margin: 0 auto;
+    height:100px
 }
 
 .cpon_logo {
@@ -129,6 +130,7 @@ footer a, footer a:hover {
     border:solid 2px;
     border-color: #A2A2A2;
     padding-left: 20px;
+    font-weight:300;
 }
 
 .freeword_text, .freeword_text_ipad {
@@ -1365,7 +1367,8 @@ label {
 }
 
 .category_name {
-    font-size: 13px;
+    font-size: 15px;
+    color:#FFFFFF;
 }
 
 .category_name_ipad {
@@ -1429,7 +1432,7 @@ label {
 
 .category_link {
     text-align:center;
-    background-color: #F0F0F0;
+    background:transparent linear-gradient(230deg, #FDB731 0%, #FACD78 33%, #FFB831 71%, #FFA600 100%) 0% 0% no-repeat padding-box;;
     width:100px;
     border-radius:15%;
 }
@@ -1437,6 +1440,7 @@ label {
 .category li img,
 .category_ipad li img {
     margin:15px auto;
+    width:90px;
 }
 
 .category_sp li img {
