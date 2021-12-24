@@ -33,26 +33,114 @@ function clickClearButton() {
 const maxFiles = 5;
 function fileCheck(){
 
-  let $file_btn = $("#file_btn_pc");
-
-  // addEventListener() の jQuery による略記
-  $file_btn.on("change", function(evt){
-    // jQuery オブジェクトの最初の要素は Element が格納されているので
-    // 次のようにHTMLElementを取得できる。
-    // $(this)[0];　$(this).get(0);
-
-    // 変数 $file_btn に格納済みのjQueryオブジェクトを使っても良い。
-    let elm = $file_btn[0];
-    if( maxFiles < elm.files.length ) {
-
-      alert(`添付できるのは ${maxFiles} 枚までです` );
-
-      elm.value = null; // input[type=file] をリセット
-
-      return false;// イベントリスナを抜ける。
-    }
-    // プレビュー処理など。
+    let file_btn = $("#file_btn_pc");
+  
+    // addEventListener() の jQuery による略記
+    file_btn.off('change');
+    file_btn.on("change", function(evt){
+      // jQuery オブジェクトの最初の要素は Element が格納されているので
+      // 次のようにHTMLElementを取得できる。
+      // $(this)[0];　$(this).get(0);
+  
+      // 変数 $file_btn に格納済みのjQueryオブジェクトを使っても良い。
+      let elm = file_btn[0];
+      if( maxFiles < elm.files.length ) {
+  
+        alert(`添付できるのは ${maxFiles} 枚までです` );
+  
+        elm.value = null; // input[type=file] をリセット
+  
+        $('.img_tmb').html('');
+  
+        return false;// イベントリスナを抜ける。
+      }
+      // プレビュー処理など。
+  
+      $('.img_tmb').html('');
+      var file = elm.files;
+  
+      var img_count = 1;
+      $(file).each(function(i) {
+      // 5枚まで
+      if (img_count > 5) {
+          return false;
+      }
+  
+      if (! file[i].type.match('image.*')) {
+          $(this).val('');
+          elm.value = null;
+          alert(`画像ファイルを選択してください` );
+          $('.img_tmb').html('');
+          return;
+      }
+  
+      var reader = new FileReader();
+      reader.onload = function() {
+          var img_src = $('<img>').attr('src', reader.result);
+          $('.img_tmb').append(img_src);
+      }
+      reader.readAsDataURL(file[i]);
+  
+      img_count = img_count + 1;
+      });
+  
   })
+};
+
+function fileCheckIpad(){
+
+    let file_btn = $("#file_btn_ipad");
+  
+    // addEventListener() の jQuery による略記
+    file_btn.off('change');
+    file_btn.on("change", function(evt){
+      // jQuery オブジェクトの最初の要素は Element が格納されているので
+      // 次のようにHTMLElementを取得できる。
+      // $(this)[0];　$(this).get(0);
+  
+      // 変数 $file_btn に格納済みのjQueryオブジェクトを使っても良い。
+      let elm = file_btn[0];
+      if( maxFiles < elm.files.length ) {
+  
+        alert(`添付できるのは ${maxFiles} 枚までです` );
+  
+        elm.value = null; // input[type=file] をリセット
+  
+        $('.img_tmb_ipad').html('');
+  
+        return false;// イベントリスナを抜ける。
+      }
+      // プレビュー処理など。
+  
+      $('.img_tmb_ipad').html('');
+      var file = elm.files;
+  
+      var img_count = 1;
+      $(file).each(function(i) {
+      // 5枚まで
+      if (img_count > 5) {
+          return false;
+      }
+  
+      if (! file[i].type.match('image.*')) {
+          $(this).val('');
+          elm.value = null;
+          alert(`画像ファイルを選択してください` );
+          $('.img_tmb').html('');
+          return;
+      }
+  
+      var reader = new FileReader();
+      reader.onload = function() {
+          var img_src = $('<img>').attr('src', reader.result);
+          $('.img_tmb_ipad').append(img_src);
+      }
+      reader.readAsDataURL(file[i]);
+  
+      img_count = img_count + 1;
+      });
+  
+    })
 };
 
 function clickReleaseOnButton() {

@@ -1999,6 +1999,12 @@ bottom        : 26px;
 }
 
 
+/*以下サムネイルについて*/
+.img_tmb img, .img_tmb_ipad img {
+height:100px;
+margin:10px;
+}
+
 
 /*以下ローディング画面について*/
 
