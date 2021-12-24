@@ -201,8 +201,11 @@ function fileCheckSub(){
     // addEventListener() の jQuery による略記
     file_btn.off('change');
     file_btn.on("change", function(evt){
-  
-      // 変数 $file_btn に格納済みのjQueryオブジェクトを使っても良い。
+
+    var result = window.confirm('既に登録されているサブ画像を削除しますが、よろしいでしょうか？');
+    
+    if( result ) {
+    // 変数 $file_btn に格納済みのjQueryオブジェクトを使っても良い。
       let elm = file_btn[0];
       if( maxFilesAdmin < elm.files.length ) {
   
@@ -243,7 +246,12 @@ function fileCheckSub(){
   
       img_count = img_count + 1;
       });
-  
+
+    } else {
+        $(this).val('');
+        elm.value = null;
+        return false;
+    }
   })
 };
 
