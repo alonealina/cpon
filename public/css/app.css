@@ -1412,8 +1412,9 @@ label {
 }
 
 .category_name {
-    font-size: 15px;
+    font-size: 16px;
     color:#FFFFFF;
+    margin-top:-13px;
 }
 
 .category_name_ipad {
