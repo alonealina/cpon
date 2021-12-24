@@ -34,27 +34,27 @@
             </div>
             @if (!empty($comment->comment_img1))
             <a href="../../uploads/{{ $comment->comment_img1 }}" data-lightbox="group{{ $comment->id }}{{ $version }}">
-                <img src="../../uploads/{{ $comment->comment_img1 }}" width="100px" height="100px">
+                <img src="../../uploads/{{ $comment->comment_img1 }}" width="{{ $px }}" height="{{ $px }}">
             </a>
             @endif
             @if (!empty($comment->comment_img2))
             <a href="../../uploads/{{ $comment->comment_img2 }}" data-lightbox="group{{ $comment->id }}{{ $version }}">
-                <img src="../../uploads/{{ $comment->comment_img2 }}" width="100px" height="100px">
+                <img src="../../uploads/{{ $comment->comment_img2 }}" width="{{ $px }}" height="{{ $px }}">
             </a>
             @endif
             @if (!empty($comment->comment_img3))
             <a href="../../uploads/{{ $comment->comment_img3 }}" data-lightbox="group{{ $comment->id }}{{ $version }}">
-                <img src="../../uploads/{{ $comment->comment_img3 }}" width="100px" height="100px">
+                <img src="../../uploads/{{ $comment->comment_img3 }}" width="{{ $px }}" height="{{ $px }}">
             </a>
             @endif
             @if (!empty($comment->comment_img4))
             <a href="../../uploads/{{ $comment->comment_img4 }}" data-lightbox="group{{ $comment->id }}{{ $version }}">
-                <img src="../../uploads/{{ $comment->comment_img4 }}" width="100px" height="100px">
+                <img src="../../uploads/{{ $comment->comment_img4 }}" width="{{ $px }}" height="{{ $px }}">
             </a>
             @endif
             @if (!empty($comment->comment_img5))
             <a href="../../uploads/{{ $comment->comment_img5 }}" data-lightbox="group{{ $comment->id }}{{ $version }}">
-                <img src="../../uploads/{{ $comment->comment_img5 }}" width="100px" height="100px">
+                <img src="../../uploads/{{ $comment->comment_img5 }}" width="{{ $px }}" height="{{ $px }}">
             </a>
             @endif
         </div>
@@ -63,9 +63,13 @@
     </div>
     
     @if($comments->total() > 5)
-    <div class="button_black">
-        <a href="{{ route('restaurant.comment_list', ['id' => $restaurant_id]) }}">クチコミ一覧</a>
-    </div>
+        @if($version == 'sp')
+        <div class="button_black_sp">
+        @else
+        <div class="button_black">
+        @endif
+            <a href="{{ route('restaurant.comment_list', ['id' => $restaurant_id]) }}">クチコミ一覧</a>
+        </div>
     @endif
 
 </div>
@@ -73,13 +77,20 @@
 <script>
 var comment_content_list = document.getElementsByClassName('comment_content_{{ $version }}');
 var array = Array.prototype.slice.call(comment_content_list);//配列に変換
+if ('{{ $version }}' == 'sp') {
+    var maxHeight = 140;
+    var clampDigit = 7;
+} else {
+    var maxHeight = 65;
+    var clampDigit = 3;
+}
 array.forEach((comment_content) => {
     let client_h = comment_content.clientHeight;
-    if (client_h < 65) {
+    if (client_h < maxHeight) {
         comment_content.parentElement.getElementsByClassName("comment_label")[0].style.display ="none";
     } else {
         comment_content.style.overflow = "hidden";
-        $clamp(comment_content, {clamp: 3});
+        $clamp(comment_content, {clamp: clampDigit});
     }
 });
 

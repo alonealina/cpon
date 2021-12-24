@@ -1240,7 +1240,11 @@ label {
     margin: 0;
     padding: 0;
     width: 100%;
+    font-size: 12px;
+}
 
+.info_list_bar_sp img{
+    width: 10px;
 }
 
 .info_list_bar li{
@@ -1924,10 +1928,15 @@ content       : "一部を表示";
 
 /* --- ボタンに表示する文字（開いているとき） -------------------- */
 .restaurant_profile > input[type="checkbox"]:checked + label {
-bottom        : 0px;
+    bottom        : 0px;
 }
-
-
+    
+/* --- ボタンに表示する文字（開いているとき） -------------------- */
+.restaurant_profile > input[type="checkbox"]:checked + #restaurant_profile_label_sp {
+    bottom        : -30px;
+}
+    
+        
 
 /*以下クチコミの「もっと見る」ボタンについて*/
 /* === BOXの定義 ================================================= */

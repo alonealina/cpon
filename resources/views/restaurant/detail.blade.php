@@ -8,89 +8,62 @@
 
 @section('content_sp')
 
-<div class="banner_sp">
-    <ul class="restaurant_img_sp">
-        @if (empty($restaurant->main_img))
-        <li><img src="../../img/imgerror.jpg" class="banner_img" alt=""></li>
-        @else
-        <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" class="banner_img" alt=""></li>
-        @endif
-        @if (!empty($restaurant->sub_img1))
-        <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img1 }}" class="banner_img" alt=""></li>
-        @endif
-        @if (!empty($restaurant->sub_img2))
-        <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img2 }}" class="banner_img" alt=""></li>
-        @endif
-        @if (!empty($restaurant->sub_img3))
-        <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img3 }}" class="banner_img" alt=""></li>
-        @endif
-        @if (!empty($restaurant->sub_img4))
-        <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img4 }}" class="banner_img" alt=""></li>
-        @endif
-    </ul>
-</div>
-
 <div class="restaurant_show">
-    <div class="restaurant_show_name">{{ $restaurant->name1 }} {{ $restaurant->name2 }} {{ $restaurant->name3 }}</div>
-    <div class="restaurant_profile">
-        <input type="checkbox" id="sp_label"><label for="sp_label" id="restaurant_profile_label_sp"></label>
-        <div>
-            <div id="restaurant_profile_text_sp">
-            {!! nl2br(e($restaurant->profile)) !!}
-            </div>
-        </div>
+    <div class="restaurant_category">{{ $category->name }}</div>
+    <div class="restaurant_name">{{ $restaurant->name1 }} {{ $restaurant->name2 }} {{ $restaurant->name3 }}</div>
+    <div class="scene_commitment">
+        @foreach ($restaurant_scenes as $name)
+        <label class="label">{{ $name }}</label>
+        @endforeach
+        @foreach ($restaurant_commitments as $name)
+        <label class="label">{{ $name }}</label>
+        @endforeach
     </div>
-
-    <div class="restaurant_detail">
-        <div class="restaurant_detail_img"><img src="{{ asset('img/icon/tizu.png') }}" alt=""></div>
-        <div class="restaurant_detail_content">
-            〒{{ $restaurant->zip }}　{{ $restaurant->pref }}{{ $restaurant->address }}<br>
-            <a href="https://www.google.com/maps/dir/{{ $restaurant->pref }}{{ $restaurant->address }}" target="_blank">地図アプリで見る</a>
-            <br>
-            {{ $restaurant->address_remarks }}
-        </div>
+    @if(!empty($restaurant->cpon_mall_url))
+    <div class="cpon_mall_url">
+        <a href="{{ $restaurant->cpon_mall_url }}" target="_blank">Cポンモール出店中</a>
     </div>
+    @endif
 
-    <div class="restaurant_detail">
-        <div class="restaurant_detail_img"><img src="{{ asset('img/icon/tokei.png') }}" alt=""></div>
-        <div class="restaurant_detail_content">
-            @if($restaurant->opening_flg)
-            <div class="open_mark">OPEN</div>
-            @else
-            <div class="close_mark">CLOSE</div>
-            @endif
-            <br>
-            {{ $restaurant->open_hm }}～{{ $restaurant->close_hm }}
-            <br>
-            {{ $restaurant->time_remarks }}
+    <nav class="info_list_bar info_list_bar_sp">
+        <ul>
+            <li class="info_basic current"><a><img src="{{ asset('img/icon/ie.png') }}" alt=""> 店舗基本情報</a></li>
+            <li class="info_access"><a><img src="{{ asset('img/icon/access.png') }}" alt=""> アクセス情報</a></li>
+            <li class="info_pay"><a><img src="{{ asset('img/icon/siharai.png') }}" alt=""> 支払い方法</a></li>
+            <li class="info_other"><a><img src="{{ asset('img/icon/haguruma.png') }}" alt=""> 設備・その他の情報</a></li>
+        </ul>
+    </nav>
+    <div class="info_list">
+        <div id="info_list_basic">
+            　所在地：〒{{ $restaurant->zip }}　{{ $restaurant->pref }}{{ $restaurant->address }}
+            <a href="https://www.google.com/maps/dir/{{ $restaurant->pref }}{{ $restaurant->address }}" target="_blank">地図アプリで見る</a><br>
+            電話番号：{{ $restaurant->tel }}<br>
+            営業時間：{{ $restaurant->open_hm }}～{{ $restaurant->close_hm }}<br>
+            {!! nl2br(e($restaurant->time_remarks)) !!}<br>
+            　定休日：{{ $restaurant_holidays }}<br>
+            　　予算：昼　{{ $restaurant->budget_lunch }}<br>
+            　　　　　夜　{{ $restaurant->budget_dinner }}<br>
+            　　評価：{{ $avg_star }} ({{ $comments->total() }} 評価)<br>
+            WEBページ：<a href="{{ $restaurant->url }}" target="_blank">{{ $restaurant->url }}</a>
         </div>
-    </div>
-
-    <div class="restaurant_detail">
-        <div class="restaurant_detail_img"><img src="{{ asset('img/icon/star.png') }}" alt=""></div>
-        <div class="restaurant_detail_content">
-            {{ $avg_star }} ({{ $comments->total() }} 評価)・{{ $category->name }}
-            <br>
-            <a href="{{ route('restaurant.comment_list_sp', ['id' => $restaurant->id]) }}">クチコミを見る</a>
+        <div id="info_list_access" hidden>
+            最寄り駅：{{ $restaurant_stations }}<br>
+            アクセス：{!! nl2br(e($restaurant->access)) !!}<br>
+            　駐車場：{!! nl2br(e($restaurant->parking)) !!}
         </div>
-    </div>
-
-    <div class="restaurant_detail">
-        <div class="restaurant_detail_img"><img src="{{ asset('img/icon/yotei.png') }}" alt=""></div>
-        <div class="restaurant_detail_content">
-        ご予約・お問合せ
-        <br>
-        <a href="{{ $restaurant->url }}" target="_blank">{{ $restaurant->url }}</a>
-        <br>
-        {{ $restaurant->tel }}
+        <div id="info_list_pay" hidden>
+            　クレジットカード：{{ $restaurant_cards }}<br>
+            電子マネー・その他：{!! nl2br(e($restaurant->e_money)) !!}<br>
+        </div>
+        <div id="info_list_other" hidden>
+            　　席数：{!! nl2br(e($restaurant->seats)) !!}<br>
+            禁煙・喫煙：{!! nl2br(e($restaurant->smoking)) !!}<br>
+            Cポンモール：<a href="{{ $restaurant->url }}" target="_blank">{{ $restaurant->cpon_mall_url }}</a><br>
+            　その他：{!! nl2br(e($restaurant->other)) !!}
         </div>
     </div>
 </div>
+@include('restaurant.comment_list_latest5', ['version' => 'sp', 'px' => '60px'])
 
-<script>
-let client_h_sp = document.getElementById('restaurant_profile_text_sp').clientHeight;
-if (client_h_sp < 120) {
-    document.getElementById('restaurant_profile_label_sp').style.display ="none";
-}
-</script>
+<script src="{{ asset('js/info.js') }}"></script>
 @endsection

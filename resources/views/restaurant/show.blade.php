@@ -363,25 +363,32 @@ $('#ipad_label').click(function() {
             </div>
         </div>
     </div>
-
-    <div class="restaurant_show_name">{{ $restaurant->name1 }} {{ $restaurant->name2 }} {{ $restaurant->name3 }}</div>
-    <a href="{{ route('restaurant.detail', ['id' => $restaurant->id]) }}">
-        <img src="{{ asset('img/icon/star.png') }}" alt="" class="star_img_sp">
-        <div class="restaurant_fivestar_sp">
-            {{ $avg_star }} ({{ $comments->total() }} 評価)・{{ $category->name }}
-        </div>
-        <br>
-        <div class="restaurant_address_sp">
-            {{ $restaurant->pref }}{{ $restaurant->address }}
-        </div>
-        <div class="restaurant_detail_link">
-            タップして営業時間、所在地などを確認
-        </div>
-
-    </a>
+    <div class="button_black_sp">
+        <a href="{{ route('restaurant.detail', ['id' => $restaurant->id]) }}">店舗詳細情報はこちら</a>
+    </div>
 </div>
 
 @yield('menu_list_sp')
 
+<script>
+
+let profile_text_sp = document.getElementById('restaurant_profile_text_sp');
+let client_h_sp = profile_text_sp.clientHeight;
+if (client_h_sp < 140) {
+    document.getElementById('restaurant_profile_label').style.display ="none";
+} else {
+    profile_text_sp.style.overflow = "hidden";
+    $clamp(profile_text_sp, {clamp: 7});
+}
+
+$('#sp_label').click(function() {
+    if (this.checked) {
+        profile_text_sp.style.display = "block";
+    } else {
+        profile_text_sp.style.display = "-webkit-box";
+    }
+});
+
+</script>
 
 @endsection
