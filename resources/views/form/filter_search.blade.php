@@ -1,7 +1,7 @@
+
+<div class="filter_form_title">絞り込み</div>
 <div class="flexible-list-sidebar">
     <form id="form" name="filter_form" action="{{ route('filter') }}" method="get">
-        <div class="filter_form_title">絞り込み</div>
-        <hr>
         <div class="search_radio_list">
             <input type="checkbox" name="area" class="search_radio" value="area"> 都道府県<br>
             <div id="pref_list">

@@ -618,6 +618,11 @@ hr {
     min-width: 200px;
     max-width: 220px;
 }
+/*.flexible-list-sidebar_bg{
+    width: 220px;
+    min-width: 200px;
+    max-width: 220px;
+}*/
 
 .flexible-list-sidebar, .flexible-list-sidebar_ipad, .flexible-list-sidebar_sp {
     border: 3px solid;
@@ -661,6 +666,15 @@ hr {
 }
 
 .filter_form_title {
+    font-family:"Hiragino Sans";
+    font-weight: 100;
+    font-size:20px;
+    color: white;
+    text-align: center;
+    width: 220px;
+    height: 50px;
+    border-radius: 8px;
+    background: transparent linear-gradient(261deg, #FDB731 0%, #FACD78 33%, #FFB831 71%, #FFA600 100%) 0% 0% no-repeat padding-box;;
     font-size: 16px;
     font-weight: bold;
 }
