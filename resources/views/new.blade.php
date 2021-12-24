@@ -73,7 +73,7 @@
 
 @section('restaurant_list_sp')
 
-<p class="restaurant_list_title_sp">新着店舗情報</p>
+<p class="restaurant_list_title_sp"><img src="{{ asset('img/icon/new.png') }}" alt="">新着店舗情報</p>
 @foreach ($news as $new)
 <div class="new_restaurant_sp">
     <a href="{{ route('restaurant.show', ['id' => $new->id]) }}">

@@ -94,6 +94,23 @@
                         <img src="{{ asset('img/logo.png') }}" class="cpon_logo_sp" alt="">
                     </a>
                 </div>
+                <div class="hamburger-menu">
+                    <input type="checkbox" id="menu-btn-check">
+                    <label for="menu-btn-check" class="menu-btn"><span></span></label>
+                    <div class="menu-content">
+                        <ul>
+                            <li>
+                                <a href ="{{ route('help') }}" class="footer_menu_sp">ヘルプ・お問い合わせ</a>
+                            </li>
+                            <li>
+                                <a href ="{{ route('policy') }}" class="footer_menu_sp">プライバシーポリシー</a>
+                            </li>
+                            <li>
+                                <a href ="{{ route('terms') }}" class="footer_menu_sp">利用規約</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </header>
 
             <div class="body_sp">
@@ -115,8 +132,26 @@
         </body>
         <div id="sp-fixed-menu" class="for-sp">
             <ul>
-                <li class="sp_menu_home"><a href="{{ route('index') }}"><img src="{{ asset('img/home.png') }}" class="" alt=""><br>ホーム</a></li>
-                <li class="sp_menu_search"><a href="{{ route('search_sp') }}"><img src="{{ asset('img/search.png') }}" class="" alt=""><br>検索</a></li>
+                <li class="sp_menu_home"><a href="{{ route('index') }}">
+                    @if (\Route::currentRouteName() == 'index')
+                    <img src="{{ asset('img/home_ore.png') }}" class="" alt="">
+                    <br><font color="orange">ホーム</font>
+                    @else
+                    <img src="{{ asset('img/home.png') }}" class="" alt="">
+                    <br>ホーム
+                    @endif
+                    </a>
+                </li>
+                <li class="sp_menu_search"><a href="{{ route('search_sp') }}">
+                    @if (\Route::currentRouteName() == 'search_sp')
+                    <img src="{{ asset('img/megane_ore.png') }}" class="" alt="">
+                    <br><font color="orange">検索</font>
+                    @else
+                    <img src="{{ asset('img/search.png') }}" class="" alt="">
+                    <br>検索
+                    @endif
+                    </a>
+                </li>
                 <li class="sp_menu_phone"><a href="https://app.cpon.co.jp/"><img src="{{ asset('img/phone.png') }}" class="" alt=""><br>CポンWEBAPPへ</a></li>
                 <li class="sp_menu_mail"><a href="https://mall.cpon.co.jp/"><img src="{{ asset('img/mail.png') }}" class="" alt=""><br>Cポンモールへ</a></li>
             </ul>
