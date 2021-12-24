@@ -337,6 +337,8 @@ p {
 .restaurant_list_title_sp {
     font-size: 16px;
     margin-bottom: 10px;
+    text-align: center;
+    color: #FFB01A;
 }
 
 .index_notice_title_sp {
