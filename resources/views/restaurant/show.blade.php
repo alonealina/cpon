@@ -227,7 +227,21 @@ $('#sp01').click(function() {
     </div>
 
     <div class="restaurant_show">
+        <div class="restaurant_category">{{ $category->name }}</div>
         <div class="restaurant_name">{{ $restaurant->name1 }} {{ $restaurant->name2 }} {{ $restaurant->name3 }}</div>
+        <div class="scene_commitment">
+            @foreach ($restaurant_scenes as $name)
+            <label class="label">{{ $name }}</label>
+            @endforeach
+            @foreach ($restaurant_commitments as $name)
+            <label class="label">{{ $name }}</label>
+            @endforeach
+        </div>
+        @if(!empty($restaurant->cpon_mall_url))
+        <div class="cpon_mall_url">
+            <a href="{{ $restaurant->cpon_mall_url }}">Cポンモール出店中</a>
+        </div>
+        @endif
         <div class="restaurant_profile">
             <input type="checkbox" id="ipad_label"><label for="ipad_label" id="restaurant_profile_label_ipad"></label>
             <div>
@@ -236,29 +250,7 @@ $('#sp01').click(function() {
                 </div>
             </div>
         </div>
-        <div class="restaurant_address">
-            <img src="{{ asset('img/icon/tizu.png') }}" alt="">　
-            〒{{ $restaurant->zip }}　{{ $restaurant->pref }}{{ $restaurant->address }}
-            <a href="https://www.google.com/maps/dir/{{ $restaurant->pref }}{{ $restaurant->address }}" target=”_blank”>地図アプリで見る</a><br>
-            {{ $restaurant->address_remarks }}
-        </div>
-        <img src="{{ asset('img/icon/tokei.png') }}" alt="">　
-        @if($restaurant->opening_flg)
-        <div class="open_mark">OPEN</div>
-        @else
-        <div class="close_mark">CLOSE</div>
-        @endif
-        <div class="restaurant_time">
-            　{{ $restaurant->open_hm }}～{{ $restaurant->close_hm }}　{{ $restaurant->time_remarks }}
-        </div>
-        <div class="restaurant_comment">
-        <img src="{{ asset('img/icon/star.png') }}" alt="">　
-        {{ $avg_star }} ({{ $comments->total() }} 評価)・{{ $category->name }}
-        </div>
-        <div class="restaurant_inquiry">
-        <img src="{{ asset('img/icon/yotei.png') }}" alt="">　
-        ご予約・お問合せ　<a href="{{ $restaurant->url }}" target=”_blank”>{{ $restaurant->url }}</a>　{{ $restaurant->tel }}
-        </div>　
+
 
     </div>
 
@@ -267,10 +259,24 @@ $('#sp01').click(function() {
 </div>
 
 <script>
-let client_h_ipad = document.getElementById('restaurant_profile_text_ipad').clientHeight;
-if (client_h_ipad < 120) {
-    document.getElementById('restaurant_profile_label_ipad').style.display ="none";
+
+let profile_text_ipad = document.getElementById('restaurant_profile_text_ipad');
+let client_h_ipad = profile_text_ipad.clientHeight;
+if (client_h_ipad < 100) {
+    document.getElementById('restaurant_profile_label').style.display ="none";
+} else {
+    profile_text_ipad.style.overflow = "hidden";
+    $clamp(profile_text_ipad, {clamp: 5});
 }
+
+$('#ipad_label').click(function() {
+    if (this.checked) {
+        profile_text_ipad.style.display = "block";
+    } else {
+        profile_text_ipad.style.display = "-webkit-box";
+    }
+});
+
 </script>
 @endsection
 
