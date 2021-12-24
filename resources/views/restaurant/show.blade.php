@@ -96,7 +96,7 @@
     </div>
     @if(!empty($restaurant->cpon_mall_url))
     <div class="cpon_mall_url">
-        <a href="{{ $restaurant->cpon_mall_url }}">Cポンモール出店中</a>
+        <a href="{{ $restaurant->cpon_mall_url }}" target="_blank">Cポンモール出店中</a>
     </div>
     @endif
     <div class="restaurant_profile">
@@ -117,7 +117,7 @@
     <div class="info_list">
         <div id="info_list_basic">
             　所在地：〒{{ $restaurant->zip }}　{{ $restaurant->pref }}{{ $restaurant->address }}
-            <a href="https://www.google.com/maps/dir/{{ $restaurant->pref }}{{ $restaurant->address }}" target=”_blank”>地図アプリで見る</a><br>
+            <a href="https://www.google.com/maps/dir/{{ $restaurant->pref }}{{ $restaurant->address }}" target="_blank">地図アプリで見る</a><br>
             電話番号：{{ $restaurant->tel }}<br>
             営業時間：{{ $restaurant->open_hm }}～{{ $restaurant->close_hm }}<br>
             {!! nl2br(e($restaurant->time_remarks)) !!}<br>
@@ -125,7 +125,7 @@
             　　予算：昼　{{ $restaurant->budget_lunch }}<br>
             　　　　　夜　{{ $restaurant->budget_dinner }}<br>
             　　評価：{{ $avg_star }} ({{ $comments->total() }} 評価)<br>
-            WEBページ：<a href="{{ $restaurant->url }}" target=”_blank”>{{ $restaurant->url }}</a>
+            WEBページ：<a href="{{ $restaurant->url }}" target="_blank">{{ $restaurant->url }}</a>
         </div>
         <div id="info_list_access" hidden>
             最寄り駅：{{ $restaurant_stations }}<br>
@@ -139,7 +139,7 @@
         <div id="info_list_other" hidden>
             　　席数：{!! nl2br(e($restaurant->seats)) !!}<br>
             禁煙・喫煙：{!! nl2br(e($restaurant->smoking)) !!}<br>
-            Cポンモール：<a href="{{ $restaurant->url }}" target=”_blank”>{{ $restaurant->cpon_mall_url }}</a><br>
+            Cポンモール：<a href="{{ $restaurant->url }}" target="_blank">{{ $restaurant->cpon_mall_url }}</a><br>
             　その他：{!! nl2br(e($restaurant->other)) !!}
         </div>
     </div>
@@ -229,7 +229,7 @@ $('#sp01').click(function() {
         </div>
         @if(!empty($restaurant->cpon_mall_url))
         <div class="cpon_mall_url">
-            <a href="{{ $restaurant->cpon_mall_url }}">Cポンモール出店中</a>
+            <a href="{{ $restaurant->cpon_mall_url }}" target="_blank">Cポンモール出店中</a>
         </div>
         @endif
         <div class="restaurant_profile">
@@ -251,7 +251,7 @@ $('#sp01').click(function() {
         <div class="info_list">
             <div id="info_list_basic_ipad">
                 　所在地：〒{{ $restaurant->zip }}　{{ $restaurant->pref }}{{ $restaurant->address }}
-                <a href="https://www.google.com/maps/dir/{{ $restaurant->pref }}{{ $restaurant->address }}" target=”_blank”>地図アプリで見る</a><br>
+                <a href="https://www.google.com/maps/dir/{{ $restaurant->pref }}{{ $restaurant->address }}" target="_blank">地図アプリで見る</a><br>
                 電話番号：{{ $restaurant->tel }}<br>
                 営業時間：{{ $restaurant->open_hm }}～{{ $restaurant->close_hm }}<br>
                 {!! nl2br(e($restaurant->time_remarks)) !!}<br>
@@ -259,7 +259,7 @@ $('#sp01').click(function() {
                 　　予算：昼　{{ $restaurant->budget_lunch }}<br>
                 　　　　　夜　{{ $restaurant->budget_dinner }}<br>
                 　　評価：{{ $avg_star }} ({{ $comments->total() }} 評価)<br>
-                WEBページ：<a href="{{ $restaurant->url }}" target=”_blank”>{{ $restaurant->url }}</a>
+                WEBページ：<a href="{{ $restaurant->url }}" target="_blank">{{ $restaurant->url }}</a>
             </div>
             <div id="info_list_access_ipad" hidden>
                 最寄り駅：{{ $restaurant_stations }}<br>
@@ -273,7 +273,7 @@ $('#sp01').click(function() {
             <div id="info_list_other_ipad" hidden>
                 　　席数：{!! nl2br(e($restaurant->seats)) !!}<br>
                 禁煙・喫煙：{!! nl2br(e($restaurant->smoking)) !!}<br>
-                Cポンモール：<a href="{{ $restaurant->url }}" target=”_blank”>{{ $restaurant->cpon_mall_url }}</a><br>
+                Cポンモール：<a href="{{ $restaurant->url }}" target="_blank">{{ $restaurant->cpon_mall_url }}</a><br>
                 　その他：{!! nl2br(e($restaurant->other)) !!}
             </div>
         </div>
@@ -340,6 +340,30 @@ $('#ipad_label').click(function() {
 </div>
 
 <div class="restaurant_show">
+    <div class="restaurant_category">{{ $category->name }}</div>
+    <div class="restaurant_name">{{ $restaurant->name1 }} {{ $restaurant->name2 }} {{ $restaurant->name3 }}</div>
+    <div class="scene_commitment">
+        @foreach ($restaurant_scenes as $name)
+        <label class="label">{{ $name }}</label>
+        @endforeach
+        @foreach ($restaurant_commitments as $name)
+        <label class="label">{{ $name }}</label>
+        @endforeach
+    </div>
+    @if(!empty($restaurant->cpon_mall_url))
+    <div class="cpon_mall_url">
+        <a href="{{ $restaurant->cpon_mall_url }}" target="_blank">Cポンモール出店中</a>
+    </div>
+    @endif
+    <div class="restaurant_profile">
+        <input type="checkbox" id="sp_label"><label for="sp_label" id="restaurant_profile_label_sp"></label>
+        <div>
+            <div id="restaurant_profile_text_sp">
+            {!! nl2br(e($restaurant->profile)) !!}
+            </div>
+        </div>
+    </div>
+
     <div class="restaurant_show_name">{{ $restaurant->name1 }} {{ $restaurant->name2 }} {{ $restaurant->name3 }}</div>
     <a href="{{ route('restaurant.detail', ['id' => $restaurant->id]) }}">
         <img src="{{ asset('img/icon/star.png') }}" alt="" class="star_img_sp">
@@ -353,7 +377,7 @@ $('#ipad_label').click(function() {
         <div class="restaurant_detail_link">
             タップして営業時間、所在地などを確認
         </div>
-        <img src="{{ asset('img/yazi2.png') }}" alt="" class="link_img_sp">
+
     </a>
 </div>
 
