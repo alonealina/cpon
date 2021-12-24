@@ -206,7 +206,7 @@ class RestaurantController extends Controller
         $column = \Request::get('column');
         $sort = \Request::get('sort');
         if (isset($column)) {
-            $comments = Comment::where('restaurant_id', $id)->orderBy($column, $sort)->paginate(5)
+            $comments = Comment::where('restaurant_id', $id)->orderBy($column, $sort)->paginate(10)
             ->appends(["column" => $column, "sort" => $sort]);
         }
         $restaurant_id = $id;

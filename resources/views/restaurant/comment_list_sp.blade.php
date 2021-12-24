@@ -54,10 +54,8 @@
     </div>
     <div>
         @foreach ($comments as $comment)
-        <div class="comment_list_content_sp">
-            <div class="comment_name_sp"><b>{{ $comment->user_name }}</b>さんのクチコミ</div>
-            <div class="comment_datetime_sp">{{ $comment->created_at }}</div>
-            <br>
+        <div class="comment_list_content">
+            <b>{{ $comment->user_name }}</b>さんのクチコミ　<div class="comment_datetime">{{ $comment->created_at }}</div><br>
             <div class="fivestar">
             @if ($comment->fivestar == 1)
                 {{ '★☆☆☆☆' }}
@@ -70,12 +68,36 @@
             @elseif ($comment->fivestar == 5)
                 {{ '★★★★★' }}
             @endif
-            <b>{{ $comment->fivestar }}</b>
+            <b>{{ $comment->fivestar }}.0</b>
             </div>
-            <div class="comment_content">{!! nl2br(e($comment->comment)) !!}</div>
+            <div class="comment_box">
+                <input type="checkbox" id="sp{{ $comment->id }}" class="comment_checkbox_sp">
+                <label for="sp{{ $comment->id }}" id="" class="comment_label"></label>
+                <div class="comment_content_sp">{!! nl2br(e($comment->comment)) !!}</div>
+            </div>
             @if (!empty($comment->comment_img1))
             <a href="../../uploads/{{ $comment->comment_img1 }}" data-lightbox="group{{ $comment->id }}sp">
-                <img src="../../uploads/{{ $comment->comment_img1 }}" width="100px" height="100px">
+                <img src="../../uploads/{{ $comment->comment_img1 }}" width="60px" height="60px">
+            </a>
+            @endif
+            @if (!empty($comment->comment_img2))
+            <a href="../../uploads/{{ $comment->comment_img2 }}" data-lightbox="group{{ $comment->id }}sp">
+                <img src="../../uploads/{{ $comment->comment_img2 }}" width="60px" height="60px">
+            </a>
+            @endif
+            @if (!empty($comment->comment_img3))
+            <a href="../../uploads/{{ $comment->comment_img3 }}" data-lightbox="group{{ $comment->id }}sp">
+                <img src="../../uploads/{{ $comment->comment_img3 }}" width="60px" height="60px">
+            </a>
+            @endif
+            @if (!empty($comment->comment_img4))
+            <a href="../../uploads/{{ $comment->comment_img4 }}" data-lightbox="group{{ $comment->id }}sp">
+                <img src="../../uploads/{{ $comment->comment_img4 }}" width="60px" height="60px">
+            </a>
+            @endif
+            @if (!empty($comment->comment_img5))
+            <a href="../../uploads/{{ $comment->comment_img5 }}" data-lightbox="group{{ $comment->id }}sp">
+                <img src="../../uploads/{{ $comment->comment_img5 }}" width="60px" height="60px">
             </a>
             @endif
         </div>
@@ -92,5 +114,28 @@ selected = document.getElementById("change_sort_sp");
 selected.onchange = function() {
     window.location.href = selected.value;
 };
+
+var comment_content_list = document.getElementsByClassName('comment_content_sp');
+var array = Array.prototype.slice.call(comment_content_list);//配列に変換
+var maxHeight = 140;
+var clampDigit = 7;
+
+array.forEach((comment_content) => {
+    let client_h = comment_content.clientHeight;
+    if (client_h < maxHeight) {
+        comment_content.parentElement.getElementsByClassName("comment_label")[0].style.display ="none";
+    } else {
+        comment_content.style.overflow = "hidden";
+        $clamp(comment_content, {clamp: clampDigit});
+    }
+});
+
+$('.comment_checkbox_sp').click(function() {
+    if (this.checked) {
+        this.parentElement.getElementsByClassName('comment_content_sp')[0].style.display = "block";
+    } else {
+        this.parentElement.getElementsByClassName('comment_content_sp')[0].style.display = "-webkit-box";
+    }
+});
 </script>
 @endsection

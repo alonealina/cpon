@@ -20,7 +20,7 @@
     @endforeach
 </div>
 
-@include('restaurant.comment_list_latest5', ['version' => 'pc'])
+@include('restaurant.comment_list_latest5', ['version' => 'pc', 'px' => '100px'])
 
 @endsection
 
@@ -45,7 +45,7 @@
     @endforeach
 </div>
 
-@include('restaurant.comment_list_latest5', ['version' => 'ipad'])
+@include('restaurant.comment_list_latest5', ['version' => 'ipad', 'px' => '100px'])
 
 @endsection
 
