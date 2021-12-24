@@ -1336,6 +1336,10 @@ label {
 /*以下SP版の固定メニューについて*/
 .footer_sp {
     margin-bottom: 80px;
+    background: transparent linear-gradient(95deg, #FFC645 0%, #FFC24E 17%, #FFCD45 62%, #FFAD10 100%) 0% 0% no-repeat padding-box;
+}
+.footer_sp a {
+    font-size: 16px;
 }
 
 /*メニューをページ下部に固定*/
@@ -2101,8 +2105,8 @@ margin:10px;
 /*以下ハンバーガーメニューについて*/
 
 .menu-btn {
-    position: fixed;
-    top: 35px;
+    position: absolute;
+    top: 50px;
     right: 15px;
     display: flex;
     width: 45px;
@@ -2172,7 +2176,7 @@ margin:10px;
 }
 
 .menu-content ul {
-    padding: 90px 10px 0;
+    padding: 105px 10px 0;
 }
 .menu-content ul li {
     border-bottom: solid 1px #ffffff;

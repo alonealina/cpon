@@ -86,7 +86,7 @@
     <div id="registration_sp">
         <body>
             <header class="mb-4">
-                <div class="header_black"></div>
+                <div class="header_black" id="page_top"></div>
                 <div class="header_orange"></div>
                 @yield('back_button')
                 <div class="cpon_logo_div_sp">
@@ -118,14 +118,7 @@
             </div>
 
             <footer class="footer_sp">
-                <div class="footer_menu">
-                    <a href ="{{ route('help') }}" class="footer_menu_sp">ヘルプ・お問い合わせ</a>
-                    <a href ="{{ route('policy') }}" class="footer_menu_sp">プライバシーポリシー</a>
-                    <a href ="{{ route('terms') }}" class="footer_menu_sp">利用規約</a>
-                </div>
-                <a href="/">
-                    <img src="{{ asset('img/logo2.png') }}" class="cpon_logo2" alt="">
-                </a>
+                <a href="#page_top">ページTOPへ</a>
                 <div class="copyright">copyright (c) © KOC・JAPAN, Inc. all rights reserved.</div>
                 <div class="footer_black"></div>
             </footer>
