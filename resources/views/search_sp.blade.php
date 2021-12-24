@@ -18,7 +18,7 @@
     @foreach ($categories as $category)
     <li class="category_link">
         <a href="{{ route('category', ['id' => $category->id]) }}">
-            <img src="{{ asset('img/kategori2.png') }}" alt="">
+            <img src="../../img/category/{{$category->id}}.png" alt="">
             <div class="category_name_sp">{{ $category->name }}</div>
         </a>
     </li>

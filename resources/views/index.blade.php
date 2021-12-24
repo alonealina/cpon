@@ -101,7 +101,7 @@
 
 
 @section('restaurant_list_ipad')
-<p class="restaurant_list_title_ipad">Cポンお店ナビからのおすすめ</p>
+<p class="restaurant_list_title_ipad"><img src="{{ asset('img/icon/yubi.png') }}" alt="">Cポンお店ナビからのおすすめ</p>
 <div class="recommend_list_ipad">
     @foreach ($recommends as $recommend)
     <div class="recommend_restaurant_ipad">
@@ -123,7 +123,7 @@
     </div>
     @endforeach
 </div>
-<p class="restaurant_list_title_ipad">新着店舗情報</p>
+<p class="restaurant_list_title_ipad"><img src="{{ asset('img/icon/new.png') }}" alt="">新着店舗情報</p>
 <div class="new_list_ipad">
     @foreach ($news as $new)
     <div class="new_restaurant_ipad">
@@ -149,7 +149,7 @@
     <a href="{{ route('new') }}">新着店舗一覧</a>
 </div>
 
-<p class="center">Cポンお店ナビからのお知らせ</p>
+<p class="center"><img src="{{ asset('img/icon/bell.png') }}" alt="">Cポンお店ナビからのお知らせ</p>
 <div class="notice_home_ipad">
     <hr>
     @foreach ($notices as $notice)

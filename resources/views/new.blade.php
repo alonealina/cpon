@@ -2,7 +2,7 @@
 
 @section('restaurant_list')
 
-<p class="restaurant_list_title">新着店舗情報</p>
+<p class="restaurant_list_title"><img src="{{ asset('img/icon/new.png') }}" alt="">新着店舗情報</p>
 <div class="new_list">
     @foreach ($news as $new)
     <div class="new_restaurant">
@@ -34,7 +34,7 @@
 
 @section('restaurant_list_ipad')
 
-<p class="restaurant_list_title_ipad">新着店舗情報</p>
+<p class="restaurant_list_title_ipad"><img src="{{ asset('img/icon/new.png') }}" alt="">新着店舗情報</p>
 <div class="new_list_ipad">
     @foreach ($news as $new)
     <div class="new_restaurant_ipad">

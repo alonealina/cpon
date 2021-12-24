@@ -230,6 +230,7 @@ class CponController extends Controller
             'category_name' => $category_name,
             'scenes' => $scenes,
             'commitments' => $commitments,
+            'id' => $id,
         ]);
     }
 
