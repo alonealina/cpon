@@ -1835,7 +1835,7 @@ bottom        : 0px;
 
 /*以下クチコミの「もっと見る」ボタンについて*/
 /* === BOXの定義 ================================================= */
-.comment_box {
+.comment_box, .comment_box_ipad {
     position: relative;
     margin: 0 auto 43px auto;
     padding: 14px 0px 20px 0px;
@@ -1853,12 +1853,12 @@ display: -webkit-box;
 }
 
 /* === チェックボックス ========================================== */
-.comment_box > input {
+.comment_box > input, .comment_box_ipad > input {
 display       : none;                                   /* 非表示 */
 }
 
 /* === チェックボックスのlabel（＝ボタンに見せる） =============== */
-.comment_box > label {
+.comment_box > label, .comment_box_ipad > label {
 position      : absolute;
 display       : inline-block;
 bottom        : -30px;
@@ -1888,17 +1888,20 @@ height        : 75px;
 }
 
 /* --- ボタンに表示する文字（閉じているとき） -------------------- */
-.comment_box > input[type="checkbox"]:not(:checked) + label::after {
+.comment_box > input[type="checkbox"]:not(:checked) + label::after,
+.comment_box_ipad > input[type="checkbox"]:not(:checked) + label::after {
 content       : "もっと見る";
 }
 
 /* --- ボタンに表示する文字（開いているとき） -------------------- */
-.comment_box > input[type="checkbox"]:checked + label::after {
+.comment_box > input[type="checkbox"]:checked + label::after,
+.comment_box_ipad > input[type="checkbox"]:checked + label::after {
 content       : "一部を表示";
 }
 
 /* --- ボタンに表示する文字（開いているとき） -------------------- */
-.comment_box > input[type="checkbox"]:checked + label {
+.comment_box > input[type="checkbox"]:checked + label,
+.comment_box_ipad > input[type="checkbox"]:checked + label {
 bottom        : 0px;
 }
 

@@ -28,7 +28,7 @@
             <b>{{ $comment->fivestar }}.0</b>
             </div>
             <div class="comment_box">
-                <input type="checkbox" id="sp{{ $comment->id }}" class="comment_checkbox"><label for="sp{{ $comment->id }}" id="" class="comment_label"></label>
+                <input type="checkbox" id="pc{{ $comment->id }}" class="comment_checkbox"><label for="pc{{ $comment->id }}" id="" class="comment_label"></label>
                 <div class="comment_content">{!! nl2br(e($comment->comment)) !!}</div>
             </div>
             @if (!empty($comment->filename))

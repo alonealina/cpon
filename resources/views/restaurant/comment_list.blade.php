@@ -63,7 +63,10 @@
             @endif
             <b>{{ $comment->fivestar }}.0</b>
             </div>
-            <div class="comment_content">{!! nl2br(e($comment->comment)) !!}</div>
+            <div class="comment_box">
+                <input type="checkbox" id="sp{{ $comment->id }}" class="comment_checkbox"><label for="sp{{ $comment->id }}" id="" class="comment_label"></label>
+                <div class="comment_content">{!! nl2br(e($comment->comment)) !!}</div>
+            </div>
             @if (!empty($comment->filename))
             <a href="../../uploads/{{ $comment->filename }}" data-lightbox="group{{ $comment->id }}pc">
                 <img src="../../uploads/{{ $comment->filename }}" width="100px" height="100px">
@@ -81,10 +84,29 @@
     </div>
 </div>
 <script>
-    selected_pc = document.getElementById("change_sort_pc");
-    selected_pc.onchange = function() {
-    window.location.href = selected_pc.value;
-    };
+selected_pc = document.getElementById("change_sort_pc");
+selected_pc.onchange = function() {
+window.location.href = selected_pc.value;
+};
+let comment_content_list = document.getElementsByClassName('comment_content');
+var array = Array.prototype.slice.call(comment_content_list);//配列に変換
+array.forEach((comment_content) => {
+    let client_h = comment_content.clientHeight;
+    if (client_h < 65) {
+        comment_content.parentElement.getElementsByClassName("comment_label")[0].style.display ="none";
+    } else {
+        comment_content.style.overflow = "hidden";
+        $clamp(comment_content, {clamp: 3});
+    }
+});
+
+$('.comment_checkbox').click(function() {
+    if (this.checked) {
+        this.parentElement.getElementsByClassName('comment_content')[0].style.display = "block";
+    } else {
+        this.parentElement.getElementsByClassName('comment_content')[0].style.display = "-webkit-box";
+    }
+});
 </script>
 
 
@@ -156,7 +178,10 @@
             @endif
             <b>{{ $comment->fivestar }}.0</b>
             </div>
-            <div class="comment_content">{!! nl2br(e($comment->comment)) !!}</div>
+            <div class="comment_box_ipad">
+                <input type="checkbox" id="ipad{{ $comment->id }}" class="comment_checkbox_ipad"><label for="ipad{{ $comment->id }}" id="" class="comment_label_ipad"></label>
+                <div class="comment_content_ipad">{!! nl2br(e($comment->comment)) !!}</div>
+            </div>
             @if (!empty($comment->filename))
             <a href="../../uploads/{{ $comment->filename }}" data-lightbox="group{{ $comment->id }}ipad">
                 <img src="../../uploads/{{ $comment->filename }}" width="100px" height="100px">
@@ -171,10 +196,29 @@
     </div>
 </div>
 <script>
-    selected_ipad = document.getElementById("change_sort_ipad");
-    selected_ipad.onchange = function() {
-    window.location.href = selected_ipad.value;
-    };
+selected_ipad = document.getElementById("change_sort_ipad");
+selected_ipad.onchange = function() {
+window.location.href = selected_ipad.value;
+};
+let comment_content_list_ipad = document.getElementsByClassName('comment_content_ipad');
+var array_ipad = Array.prototype.slice.call(comment_content_list_ipad);//配列に変換
+array_ipad.forEach((comment_content) => {
+    let client_h = comment_content.clientHeight;
+    if (client_h < 65) {
+        comment_content.parentElement.getElementsByClassName("comment_label_ipad")[0].style.display ="none";
+    } else {
+        comment_content.style.overflow = "hidden";
+        $clamp(comment_content, {clamp: 3});
+    }
+});
+
+$('.comment_checkbox_ipad').click(function() {
+    if (this.checked) {
+        this.parentElement.getElementsByClassName('comment_content_ipad')[0].style.display = "block";
+    } else {
+        this.parentElement.getElementsByClassName('comment_content_ipad')[0].style.display = "-webkit-box";
+    }
+});
 </script>
 
 @endsection
