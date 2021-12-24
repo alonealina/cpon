@@ -157,7 +157,7 @@ $('.comment_checkbox').click(function() {
 
 <div class="comment_list" id="comment_list">
     <div class="comment_list_header">
-        <p class="comment_list_title">最新のクチコミ</p>
+        <p class="comment_list_title">クチコミ一覧</p>
         <div class="button_comment">
             <a href="{{ route('restaurant.comment_form', ['id' => $restaurant_id]) }}">クチコミを投稿する</a>
         </div>
