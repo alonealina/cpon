@@ -179,7 +179,6 @@ footer a, footer a:hover {
 }
 
 .category_background {
-    background-image: url(../img/bg_kategory.jpg);
     height:300px;
     margin-right: calc(50% - 50vw);
     margin-left: calc(50% - 50vw);
@@ -196,13 +195,17 @@ footer a, footer a:hover {
 }
 
 .category_img {
-    float:right;
-    margin-right:40px;
+    float:left;
+    margin-left:40px;
 }
 
 .category_background_ipad {
-    background-image: url(../img/bg_kategory.jpg);
     height:200px;
+    margin-bottom: 20px;
+}
+
+.category_background_sp {
+    height:130px;
     margin-bottom: 20px;
 }
 
@@ -217,11 +220,29 @@ footer a, footer a:hover {
 
 .category_img_ipad {
     position: relative;
-    float:right;
-    bottom: 10px;
+    float:left;
 }
 
 .category_img_ipad img {
+    width:60%;
+    height:60%;
+}
+
+.category_name_title_sp {
+    position: relative;
+    top:30%;
+    font-size: 40px;
+    font-weight: bold;
+    margin-left:60px;
+    width:300px;
+}
+
+.category_img_sp {
+    position: relative;
+    float:left;
+}
+
+.category_img_sp img {
     width:60%;
     height:60%;
 }
@@ -296,6 +317,7 @@ p {
 .restaurant_list_title_ipad {
     font-size: 25px;
     margin-left: 50px;
+    text-align: center;
 }
 
 .restaurant_list_title_sp {
