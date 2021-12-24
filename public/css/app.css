@@ -354,7 +354,7 @@ hr {
     text-align:center;
 }
 
-.button_black, .button_comment, .notice_button_back, .notice_button_next {
+.button_black, .button_comment, .notice_button_back, .notice_button_next, .notice_button_index {
     text-align:center;
 }
 
@@ -407,7 +407,8 @@ hr {
 .button_black a:hover,
 .button_comment a:hover,
 .notice_button_back a:hover,
-.notice_button_next a:hover {
+.notice_button_next a:hover,
+.notice_button_index a:hover {
     transition: 0.5s;
     opacity: 0.6;
 }
@@ -440,13 +441,13 @@ hr {
 }
 
 .notice_button_back a,
-.notice_button_next a {
+.notice_button_next a,
+.notice_button_index a {
     font-size: 15px;
     font-weight: bold;
     display:block;
     width:160px;
     height:40px;
-    margin:0px auto;
     line-height:40px;
     background:black;
     color:#fff;

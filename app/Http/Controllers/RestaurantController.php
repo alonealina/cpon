@@ -51,12 +51,6 @@ class RestaurantController extends Controller
         $recommend_menus = Menu::where('recommend_flg', 1)
             ->where('restaurant_id', $id)->take(8)->get();
         $comments = Comment::where('restaurant_id', $id)->orderBy('created_at', 'desc')->paginate(5);
-        $column = \Request::get('column');
-        $sort = \Request::get('sort');
-        if (isset($column)) {
-            $comments = Comment::where('restaurant_id', $id)->orderBy($column, $sort)->paginate(5)
-            ->appends(["column" => $column, "sort" => $sort]);
-        }
         $avg_star = Comment::where('restaurant_id', $id)
             ->selectRaw('CAST(AVG(fivestar) AS DECIMAL(2,1)) AS star_avg')->first()->star_avg;
         $restaurant_id = $id;
@@ -77,8 +71,6 @@ class RestaurantController extends Controller
             'comments' => $comments,
             'avg_star' => $avg_star,
             'restaurant_id' => $restaurant_id,
-            'column' => $column,
-            'sort' => $sort,
             'restaurant_scenes' => $restaurant_scenes,
             'restaurant_commitments' => $restaurant_commitments,
             'restaurant_holidays' => $restaurant_holidays,
@@ -97,19 +89,8 @@ class RestaurantController extends Controller
     {
         $restaurant = Restaurant::find($id);
         $category = Category::find($restaurant->category_id);
-        $menus = Menu::where('restaurant_id', $id)->paginate(12, ["*"], 'menupage')
-            ->appends(["commentpage" => \Request::get('commentpage')]);
-        $comments = Comment::where('restaurant_id', $id)->paginate(5, ["*"], 'commentpage')
-            ->appends(["menupage" => \Request::get('menupage')]);
-        $column = \Request::get('column');
-        $sort = \Request::get('sort');
-        $menupage = \Request::get('menupage');
-        if (isset($column)) {
-            $menus = Menu::where('restaurant_id', $id)->paginate(12, ["*"], 'menupage')
-            ->appends(["column" => $column, "sort" => $sort, "commentpage" => \Request::get('commentpage')]);
-            $comments = Comment::where('restaurant_id', $id)->orderBy($column, $sort)->paginate(5, ["*"], 'commentpage')
-            ->appends(["column" => $column, "sort" => $sort, "menupage" => \Request::get('menupage')]);
-        }
+        $menus = Menu::where('restaurant_id', $id)->paginate(12);
+        $comments = Comment::where('restaurant_id', $id)->orderBy('created_at', 'desc')->paginate(5);
         $avg_star = Comment::where('restaurant_id', $id)
             ->selectRaw('CAST(AVG(fivestar) AS DECIMAL(2,1)) AS star_avg')->first()->star_avg;
         $restaurant_id = $id;
@@ -130,9 +111,6 @@ class RestaurantController extends Controller
             'comments' => $comments,
             'avg_star' => $avg_star,
             'restaurant_id' => $restaurant_id,
-            'column' => $column,
-            'sort' => $sort,
-            'menupage' => $menupage,
             'restaurant_scenes' => $restaurant_scenes,
             'restaurant_commitments' => $restaurant_commitments,
             'restaurant_holidays' => $restaurant_holidays,
