@@ -22,11 +22,11 @@
 } */
 
 #registration_ipad {
-    width:800px;
+    min-width:800px;
 }
 
 #registration_sp {
-    width:400px;
+    min-width:400px;
 }
 
 body {
@@ -1378,7 +1378,7 @@ label {
 /*メニューをページ下部に固定*/
 #sp-fixed-menu{
     position: fixed;
-    width: 400px;
+    min-width: 400px;
     bottom: 0px;
     font-size: 0;
     z-index: 99;
