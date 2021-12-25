@@ -160,12 +160,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js" type="text/javascript"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     <script type="text/javascript">
-        console.log(navigator.userAgent);
     if ((navigator.userAgent.indexOf('iPhone') > 0 && navigator.userAgent.indexOf('iPad') == -1) 
         || navigator.userAgent.indexOf('iPod') > 0 || navigator.userAgent.indexOf('Android') > 0) {
-        document.getElementById('registration_pc').display = "none";
-        document.getElementById('registration_ipad').display = "none";
-        document.getElementById('registration_sp').visibility = "visible";
+        document.getElementById('registration_pc').style.display = "none";
+        document.getElementById('registration_ipad').style.display = "none";
+        document.getElementById('registration_sp').style.visibility = "visible";
+    } else if (navigator.userAgent.indexOf('iPad') > 0) {
+        document.getElementById('registration_pc').style.display = "none";
+        document.getElementById('registration_ipad').style.visibility = "visible";
+        document.getElementById('registration_sp').style.display = "none";
+    } else {
+        document.getElementById('registration_pc').style.visibility = "visible";
+        document.getElementById('registration_ipad').style.display = "none";
+        document.getElementById('registration_sp').style.display = "none";
     }
     </script>
 </html>
