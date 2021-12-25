@@ -69,11 +69,18 @@ return [
     '5' => '5',
   ],
 
-  'Status' => [
+  'StatusR' => [
     'none' => '指定なし',
     'release' => '公開',
     'no_release' => '非公開',
     'recommend' => 'オススメ',
+  ],
+
+  'StatusM' => [
+    'none' => '指定なし',
+    'release' => '公開',
+    'no_release' => '非公開',
+    'recommend' => 'イチオシ',
   ],
 
   'BudgetLunch' => [

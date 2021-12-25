@@ -16,6 +16,7 @@ use App\Models\RestaurantCommitment;
 use App\Models\RestaurantHoliday;
 use App\Models\RestaurantCard;
 use App\Models\AdminUser;
+use App\Models\Menu;
 use DB;
 
 class AdminController extends Controller
@@ -112,7 +113,7 @@ class AdminController extends Controller
 
         if (!empty($name)) {
             $query->where(function ($query) use ($name) {
-                $query->orwhere('name1', 'like', "%$name%")->orwhere('name1', 'like', "%$name%")->orwhere('name1', 'like', "%$name%");
+                $query->orwhere('name1', 'like', "%$name%")->orwhere('name2', 'like', "%$name%")->orwhere('name3', 'like', "%$name%");
             });
         }
 
@@ -242,13 +243,13 @@ class AdminController extends Controller
                 ->get()->pluck('id')->toArray();
                 $count_array = array_merge($recommend_id_list, $chk_list);
                 $count_array = array_unique($count_array);
-                if (count($count_array) <= 12) {
+                if (count($count_array) <= 6) {
                     foreach ($chk_list as $chk) {
                         Restaurant::where('id', $chk)
                             ->update(['recommend_flg' => $recommend_flg]);
                     }    
                 } else {
-                    return redirect('admin/restaurant_list')->with('message', 'おすすめ店舗は12店舗まででお願いします');
+                    return redirect('admin/restaurant_list')->with('message', 'おすすめ店舗は6店舗まででお願いします');
                 }
             }
         }
@@ -710,6 +711,140 @@ class AdminController extends Controller
         $response->headers->set('Content-Disposition', 'attachment; filename="sample.csv"');
  
         return $response;
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function restaurant_menu_list($restaurant_id, Request $request)
+    {
+        $query = Menu::where('restaurant_id', $restaurant_id);
+        $filter_array = $request->all();
+        $name = isset($filter_array['name']) ? $filter_array['name'] : null;
+        $price_before = isset($filter_array['price_before']) ? $filter_array['price_before'] : null;
+        $price_after = isset($filter_array['price_after']) ? $filter_array['price_after'] : null;
+        $status = isset($filter_array['status']) ? $filter_array['status'] : null;
+        $created_year_before = isset($filter_array['created_year_before']) ? $filter_array['created_year_before'] : null;
+        $created_month_before = isset($filter_array['created_month_before']) ? $filter_array['created_month_before'] : null;
+        $created_day_before = isset($filter_array['created_day_before']) ? $filter_array['created_day_before'] : null;
+        $created_year_after = isset($filter_array['created_year_after']) ? $filter_array['created_year_after'] : null;
+        $created_month_after = isset($filter_array['created_month_after']) ? $filter_array['created_month_after'] : null;
+        $created_day_after = isset($filter_array['created_day_after']) ? $filter_array['created_day_after'] : null;
+        $updated_year_before = isset($filter_array['updated_year_before']) ? $filter_array['updated_year_before'] : null;
+        $updated_month_before = isset($filter_array['updated_month_before']) ? $filter_array['updated_month_before'] : null;
+        $updated_day_before = isset($filter_array['updated_day_before']) ? $filter_array['updated_day_before'] : null;
+        $updated_year_after = isset($filter_array['updated_year_after']) ? $filter_array['updated_year_after'] : null;
+        $updated_month_after = isset($filter_array['updated_month_after']) ? $filter_array['updated_month_after'] : null;
+        $updated_day_after = isset($filter_array['updated_day_after']) ? $filter_array['updated_day_after'] : null;
+
+        if (!empty($name)) {
+            $query->where('name', 'like', "%$name%");
+        }
+
+        if (!empty($price_before)) {
+            $query->where('price', '>=', $price_before);
+        }
+
+        if (!empty($price_after)) {
+            $query->where('price', '<=', $price_after);
+        }
+
+        if (!empty($created_year_before) && !empty($created_month_before) && !empty($created_day_before)) {
+            $created_before = $created_year_before . '-' . $created_month_before . '-' . $created_day_before;
+            $query->whereDate('created_at', '>=', $created_before);
+        }
+        if (!empty($created_year_after) && !empty($created_month_after) && !empty($created_day_after)) {
+            $created_after = $created_year_after . '-' . $created_month_after . '-' . $created_day_after;
+            $query->whereDate('created_at', '<=', $created_after);
+        }
+        if (!empty($updated_year_before) && !empty($updated_month_before) && !empty($updated_day_before)) {
+            $updated_before = $updated_year_before . '-' . $updated_month_before . '-' . $updated_day_before;
+            $query->whereDate('updated_at', '>=', $updated_before);
+        }
+        if (!empty($updated_year_after) && !empty($updated_month_after) && !empty($updated_day_after)) {
+            $updated_after = $updated_year_after . '-' . $updated_month_after . '-' . $updated_day_after;
+            $query->whereDate('updated_at', '<=', $updated_after);
+        }
+
+        if ($status == 'release') {
+            $query->where('release_flg', 1);
+        } elseif ($status == 'no_release') {
+            $query->where('release_flg', 0);
+        } elseif ($status == 'recommend') {
+            $query->where('recommend_flg', 1);
+        }
+
+        $menus = $query->orderBy('id')->paginate(10);
+
+        $restaurant_name = Restaurant::where('id', $restaurant_id)->first()->name2;
+        return view('admin.restaurant_menu_list', [
+            'menus' => $menus,
+            'name' => $name,
+            'price_before' => $price_before,
+            'price_after' => $price_after,
+            'status' => $status,
+            'created_year_before' => $created_year_before,
+            'created_month_before' => $created_month_before,
+            'created_day_before' => $created_day_before,
+            'created_year_after' => $created_year_after,
+            'created_month_after' => $created_month_after,
+            'created_day_after' => $created_day_after,
+            'updated_year_before' => $updated_year_before,
+            'updated_month_before' => $updated_month_before,
+            'updated_day_before' => $updated_day_before,
+            'updated_year_after' => $updated_year_after,
+            'updated_month_after' => $updated_month_after,
+            'updated_day_after' => $updated_day_after,
+            'restaurant_id' => $restaurant_id,
+            'restaurant_name' => $restaurant_name,
+        ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function menu_list_update(Request $request)
+    {
+        $request = $request->all();
+        $chk_list = isset($request['chk']) ? $request['chk'] : null;
+        $release_flg = isset($request['release_flg']) ? $request['release_flg'] : null;
+        $recommend_flg = isset($request['recommend_flg']) ? $request['recommend_flg'] : null;
+        $restaurant_id = $request['restaurant_id'];
+
+        if (isset($release_flg) && !empty($chk_list)) {
+            foreach ($chk_list as $chk) {
+                Menu::where('id', $chk)
+                    ->where('restaurant_id', $restaurant_id)
+                    ->update(['release_flg' => $release_flg]);
+            }
+        } elseif (isset($recommend_flg) && !empty($chk_list)) {
+            if ($recommend_flg == 0) {
+                foreach ($chk_list as $chk) {
+                    Menu::where('id', $chk)
+                        ->where('restaurant_id', $restaurant_id)
+                        ->update(['recommend_flg' => $recommend_flg]);
+                }
+            } else {
+                $recommend_id_list = Menu::where('recommend_flg', $recommend_flg)
+                ->get()->pluck('id')->toArray();
+                $count_array = array_merge($recommend_id_list, $chk_list);
+                $count_array = array_unique($count_array);
+                if (count($count_array) <= 12) {
+                    foreach ($chk_list as $chk) {
+                        Menu::where('id', $chk)
+                            ->where('restaurant_id', $restaurant_id)
+                            ->update(['recommend_flg' => $recommend_flg]);
+                    }    
+                } else {
+                    return redirect()->route('admin.restaurant_menu_list', ['id' => $restaurant_id])->with('message', 'おすすめ店舗は12店舗まででお願いします');
+                }
+            }
+        }
+        return redirect()->route('admin.restaurant_menu_list', ['id' => $restaurant_id])->with('message', 'test');
     }
 
     /**

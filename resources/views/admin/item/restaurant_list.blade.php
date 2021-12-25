@@ -1,8 +1,8 @@
 <div class="restaurant_list_menu filter_flex">
-    一括操作
+    ステータス変更
     <div class="release_on_button"><a href="#" onclick="clickReleaseOnButton()">公開</a></div>
     <div class="release_off_button"><a href="#" onclick="clickReleaseOffButton()">非公開</a></div>
-    おすすめ
+    おすすめ設定（6店舗まで）
     <div class="recommend_on_button"><a href="#" onclick="clickRecommendOnButton()">設定</a></div>
     <div class="recommend_off_button"><a href="#" onclick="clickRecommendOffButton()">解除</a></div>
     <div class="restaurant_list_message">{{ session('message') }}</div>
@@ -84,7 +84,7 @@
                 <a href="restaurant_edit/{{ $restaurant->id }}" onclick="clickRegistButton()">編集</a>
             </div>
             <div class="restaurant_list_button_blue">
-                <a href="#" onclick="clickRegistButton()">メニュー<br>詳細</a>
+                <a href="{{ route('admin.restaurant_menu_list', ['id' => $restaurant->id]) }}">メニュー<br>詳細</a>
             </div>
             <div class="restaurant_list_button_red">
                 <a href="#" onclick="clickRegistButton()">削除</a>

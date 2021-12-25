@@ -80,7 +80,7 @@
             <div class="filter_name">ステータス</div>
             <div class="filter_status">
                 <select name="status">
-                    @foreach (config('const.Status') as $key => $value)
+                    @foreach (config('const.StatusR') as $key => $value)
                     <option value="{{ $key }}" @if($key == $status) selected @endif>{{ $value }}</option>
                     @endforeach
                 </select>

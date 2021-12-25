@@ -15,8 +15,9 @@ class LoginIdSeeder extends Seeder
     public function run()
     {
         for($i = 1; $i <= 104; $i++) {
-            DB::table('restaurants')->where('id', $i)->update([
-                'login_id' => 'A'. $i,
+            DB::table('menus')->where('id', $i)->update([
+                'created_at' => date("Y/m/d H:i:s"),
+                'updated_at' => date("Y/m/d H:i:s"),
             ]);
         }
     }
