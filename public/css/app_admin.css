@@ -722,7 +722,7 @@ input[type="text"]:focus {
 
 .flexible-list-sidebar input::placeholder,
 .filter_freeword::placeholder {
-    font-weight: bold;
+    /*font-weight: bold;*/
     font-size: 12px;
     color: #A2A2A2;
 }
