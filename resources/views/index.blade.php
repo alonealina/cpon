@@ -172,47 +172,52 @@
 @section('restaurant_list_sp')
 <p class="restaurant_list_title_sp"><img src="{{ asset('img/icon/yubi.png') }}" alt="">Cポンお店ナビからのおすすめ</p>
 
-@foreach ($recommends as $recommend)
-<div class="recommend_restaurant_sp">
-<a href="{{ route('restaurant.show', ['id' => $recommend->id]) }}">
-    @if (empty($recommend->main_img))
-    <img src="../../img/imgerror.jpg">
-    @else
-    <img src="../../restaurant/{{ $recommend->id }}/{{ $recommend->main_img }}">
-    @endif
-    <div class="recommend_name restaurant_name_sp">{{ $recommend->name1 }} {{ $recommend->name2 }} {{ $recommend->name3 }}</div>
-    <div class="recommend_address_sp">〒{{ $recommend->zip }} {{ $recommend->pref }}{{ $recommend->address }}</div>
-    <div class="recommend_time">営業時間　{{ $recommend->open_hm }} - {{ $recommend->close_hm }}　</div>
-    @if($recommend->opening_flg)
-    <div class="open_mark">OPEN</div>
-    @else
-    <div class="close_mark">CLOSE</div>
-    @endif
-</a>
+<div class="recommend_list_sp">
+    @foreach ($recommends as $recommend)
+    <div class="recommend_restaurant_sp">
+    <a href="{{ route('restaurant.show', ['id' => $recommend->id]) }}">
+        @if (empty($recommend->main_img))
+        <img src="../../img/imgerror.jpg">
+        @else
+        <img src="../../restaurant/{{ $recommend->id }}/{{ $recommend->main_img }}">
+        @endif
+        <div class="recommend_name restaurant_name_sp">{{ $recommend->name1 }} {{ $recommend->name2 }} {{ $recommend->name3 }}</div>
+        <div class="recommend_address_sp">〒{{ $recommend->zip }} {{ $recommend->pref }}{{ $recommend->address }}</div>
+        <div class="recommend_time">営業時間　{{ $recommend->open_hm }} - {{ $recommend->close_hm }}</div>
+        @if($recommend->opening_flg)
+        <div class="open_mark">OPEN</div>
+        @else
+        <div class="close_mark">CLOSE</div>
+        @endif
+    </a>
+    </div>
+    @endforeach
 </div>
-@endforeach
 
 <p class="restaurant_list_title_sp"><img src="{{ asset('img/icon/new.png') }}" alt="">新着店舗情報</p>
 
-@foreach ($news as $new)
-<div class="new_restaurant_sp">
-<a href="{{ route('restaurant.show', ['id' => $new->id]) }}">
-    @if (empty($new->main_img))
-    <img src="../../img/imgerror.jpg">
-    @else
-    <img src="../../restaurant/{{ $new->id }}/{{ $new->main_img }}">
-    @endif
-    <div class="new_name restaurant_name_sp">{{ $new->name1 }} {{ $new->name2 }} {{ $new->name3 }}</div>
-    <div class="new_address_sp">〒{{ $new->zip }} {{ $new->pref }}{{ $new->address }}</div>
-    <div class="new_time">営業時間　{{ $new->open_hm }} - {{ $new->close_hm }}　</div>
-    @if($new->opening_flg)
-    <div class="open_mark">OPEN</div>
-    @else
-    <div class="close_mark">CLOSE</div>
-    @endif
-</a>
+<div class="new_list_sp">
+    @foreach ($news as $new)
+    <div class="new_restaurant_sp">
+    <a href="{{ route('restaurant.show', ['id' => $new->id]) }}">
+        @if (empty($new->main_img))
+        <img src="../../img/imgerror.jpg">
+        @else
+        <img src="../../restaurant/{{ $new->id }}/{{ $new->main_img }}">
+        @endif
+        <div class="new_name restaurant_name_sp">{{ $new->name1 }} {{ $new->name2 }} {{ $new->name3 }}</div>
+        <div class="new_address_sp">〒{{ $new->zip }} {{ $new->pref }}{{ $new->address }}</div>
+        <div class="new_time">営業時間　{{ $new->open_hm }} - {{ $new->close_hm }}</div>
+        @if($new->opening_flg)
+        <div class="open_mark">OPEN</div>
+        @else
+        <div class="close_mark">CLOSE</div>
+        @endif
+    </a>
+    </div>
+    @endforeach
 </div>
-@endforeach
+
 
 <div class="button_black_sp">
     <a href="{{ route('new') }}">新着店舗一覧</a>

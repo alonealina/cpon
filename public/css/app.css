@@ -967,6 +967,7 @@ label {
 
 .recommend_list, .new_list, .search_list, #menu_list_recommend, #menu_list_all,
 .recommend_list_ipad, .new_list_ipad, .search_list_ipad, #menu_list_recommend_ipad, #menu_list_all_ipad,
+.recommend_list_sp, .new_list_sp, .search_list_sp, #menu_list_recommend_sp, #menu_list_all_sp,
 .category_list, .restaurant_detail {
     display:flex;
     flex-wrap:wrap;
@@ -991,9 +992,15 @@ label {
 }
 
 .recommend_restaurant_sp, .new_restaurant_sp, .search_restaurant_sp {
-    margin-bottom: 10px;
+    width: 50%;
+    padding:5px;
 }
 
+.recommend_restaurant_sp img, .new_restaurant_sp img, .search_restaurant_sp img {
+    width:180px;
+    height:180px;
+    margin:0 auto;
+}
 .recommend_name, .new_name, .search_name {
     margin-top: 10px;
     overflow: hidden;
@@ -1014,13 +1021,13 @@ label {
 }
 
 .recommend_address_sp, .new_address_sp, .search_address_sp {
-    font-size: 12px;
+    font-size: 10px;
     height: auto;
     color: #696969;
 }
 
 .recommend_time, .new_time, .search_time {
-    font-size: 12px;
+    font-size: 10px;
     color: #696969;
     display: inline-block;
 }
@@ -1116,6 +1123,8 @@ label {
     text-decoration:none;
     text-align:center;
     display: inline-block;
+    transform: scale(0.8);
+    transform-origin: left top;
 }
 
 .close_mark {
@@ -1131,6 +1140,8 @@ label {
     text-decoration:none;
     text-align:center;
     display: inline-block;
+    transform: scale(0.8);
+    transform-origin: left top;
 }
 
 .required_mark {

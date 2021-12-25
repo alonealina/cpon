@@ -74,8 +74,9 @@
 @section('restaurant_list_sp')
 
 <p class="restaurant_list_title_sp"><img src="{{ asset('img/icon/new.png') }}" alt="">新着店舗情報</p>
-@foreach ($news as $new)
-<div class="new_restaurant_sp">
+<div class="new_list_sp">
+    @foreach ($news as $new)
+    <div class="new_restaurant_sp">
     <a href="{{ route('restaurant.show', ['id' => $new->id]) }}">
         @if (empty($new->main_img))
         <img src="../../img/imgerror.jpg">
@@ -84,15 +85,16 @@
         @endif
         <div class="new_name restaurant_name_sp">{{ $new->name1 }} {{ $new->name2 }} {{ $new->name3 }}</div>
         <div class="new_address_sp">〒{{ $new->zip }} {{ $new->pref }}{{ $new->address }}</div>
-        <div class="new_time">営業時間　{{ $new->open_hm }} - {{ $new->close_hm }}　</div>
+        <div class="new_time">営業時間　{{ $new->open_hm }} - {{ $new->close_hm }}</div>
         @if($new->opening_flg)
         <div class="open_mark">OPEN</div>
         @else
         <div class="close_mark">CLOSE</div>
         @endif
     </a>
+    </div>
+    @endforeach
 </div>
-@endforeach
 @if($news_count > 6)
 <div class="d-flex justify-content-center">
 {{ $news->links('pagination::default') }}
