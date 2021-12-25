@@ -8,6 +8,7 @@
     </div>
     <div class="category_img">
     <img src="{{ asset('img/osirase.png') }}" alt="">
+    <div class="notice_name_line"></div>
     </div>
 </div>
 

@@ -84,8 +84,8 @@
     <a href="{{ route('new') }}">新着店舗一覧</a>
 </div>
 
-<p class="center"><img src="{{ asset('img/icon/bell.png') }}" alt="">Cポンお店ナビからのお知らせ</p>
-<hr>
+<p class="center"><img src="{{ asset('img/icon/bell.png') }}" alt=""><span class="notice_home_list_te">Cポンお店ナビからのお知らせ</span></p>
+<div class="notice_home_list_line"></div>
 <div class="notice_home">
     @foreach ($notices as $notice)
     <a class="notice_home_list" href="{{ route('notice.show', ['id' => $notice->id]) }}">
@@ -151,7 +151,8 @@
     <a href="{{ route('new') }}">新着店舗一覧</a>
 </div>
 
-<p class="center"><img src="{{ asset('img/icon/bell.png') }}" alt="">Cポンお店ナビからのお知らせ</p>
+<p class="center"><img src="{{ asset('img/icon/bell.png') }}" alt=""><span class="notice_home_list_te">Cポンお店ナビからのお知らせ</span></p>
+<div class="notice_home_list_line"></div>
 <div class="notice_home_ipad">
     <hr>
     @foreach ($notices as $notice)
@@ -218,7 +219,8 @@
     <a href="{{ route('new') }}">新着店舗一覧</a>
 </div>
 
-<p class="index_notice_title_sp"><img src="{{ asset('img/icon/bell.png') }}" alt="">Cポンお店ナビからのお知らせ</p>
+<p class="index_notice_title_sp"><img src="{{ asset('img/icon/bell.png') }}" alt=""><span class="notice_home_list_te">Cポンお店ナビからのお知らせ</span></p>
+<div class="notice_home_list_line"></div>
 <div class="notice_home_sp">
     <hr>
     @foreach ($notices as $notice)

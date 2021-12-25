@@ -410,17 +410,17 @@ hr {
 
 .button_black a {
     font-size: 20px;
-    font-weight: bold;
-    display:block;
-    width:400px;
-    height:50px;
-    margin:60px auto;
-    line-height:50px;
-    background:black;
-    color:#fff;
-    border-radius:25px;
-    text-decoration:none;
-    text-align:center;
+    /* font-weight: bold; */
+    display: block;
+    width: 480px;
+    height: 67px;
+    margin: 60px auto;
+    line-height: 66px;
+    background: #FFB01A;
+    color: #fff;
+    border-radius: 75px;
+    text-decoration: none;
+    text-align: center;
 }
 
 .button_black_sp a {
@@ -737,7 +737,7 @@ input[type="text"]:focus {
 
 .flexible-list-sidebar input::placeholder,
 .filter_freeword::placeholder {
-    font-weight: bold;
+    /*font-weight: bold;*/
     font-size: 12px;
     color: #A2A2A2;
 }
@@ -805,6 +805,19 @@ label {
 .category_sp a, .category_sp a:hover {
     color: black;
     text-decoration:none;
+}
+
+.notice_home_list_te{
+    position: relative;
+    top:3px;
+    margin-left:10px;
+    color: #666665;  
+}
+.notice_home_list_line{
+    width: 844px;
+    height: 15px;
+    background: #666665 0% 0% no-repeat padding-box;
+    margin-left:10px;
 }
 
 .recommend_restaurant img,
