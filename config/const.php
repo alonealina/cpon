@@ -69,6 +69,13 @@ return [
     '5' => '5',
   ],
 
+  'Status' => [
+    'none' => '指定なし',
+    'release' => '公開',
+    'no_release' => '非公開',
+    'recommend' => 'オススメ',
+  ],
+
   'BudgetLunch' => [
     '' => '空欄',
     '～500円' => '～500円',

@@ -51,7 +51,7 @@
                 <input type="checkbox" name="chk[]" value="{{ $restaurant->id }}">
             </div>
             <div class="restaurant_list_id">
-                <div class="restaurant_item_name">{{ $restaurant->id }}</div>
+                <div class="restaurant_item_name">{{ $restaurant->login_id }}</div>
             </div>
             <div class="restaurant_list_name">
                 <div class="restaurant_item_name">{{ $restaurant->name1 }} {{ $restaurant->name2 }} {{ $restaurant->name3 }}</div>

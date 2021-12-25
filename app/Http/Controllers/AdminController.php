@@ -83,15 +83,17 @@ class AdminController extends Controller
         $query = Restaurant::select('*');
         $filter_array = $request->all();
         $name = isset($filter_array['name']) ? $filter_array['name'] : null;
-        $id = isset($filter_array['id']) ? $filter_array['id'] : null;
+        $login_id = isset($filter_array['login_id']) ? $filter_array['login_id'] : null;
         $zip = isset($filter_array['zip']) ? $filter_array['zip'] : null;
         $pref = isset($filter_array['pref']) ? $filter_array['pref'] : null;
-        $address = isset($filter_array['address']) ? $filter_array['address'] : null;
+        $address1 = isset($filter_array['address1']) ? $filter_array['address1'] : null;
+        $address2 = isset($filter_array['address2']) ? $filter_array['address2'] : null;
         $tel = isset($filter_array['tel']) ? $filter_array['tel'] : null;
         $open = isset($filter_array['open']) ? $filter_array['open'] : null;
         $close = isset($filter_array['close']) ? $filter_array['close'] : null;
         $fivestar_before_old = isset($filter_array['fivestar_before']) ? $filter_array['fivestar_before'] : null;
         $fivestar_after_old = isset($filter_array['fivestar_after']) ? $filter_array['fivestar_after'] : null;
+        $status = isset($filter_array['status']) ? $filter_array['status'] : null;
         $created_year_before = isset($filter_array['created_year_before']) ? $filter_array['created_year_before'] : null;
         $created_month_before = isset($filter_array['created_month_before']) ? $filter_array['created_month_before'] : null;
         $created_day_before = isset($filter_array['created_day_before']) ? $filter_array['created_day_before'] : null;
@@ -114,8 +116,8 @@ class AdminController extends Controller
             });
         }
 
-        if (!empty($id)) {
-            $query->where('id', 'like', "%$id%");
+        if (!empty($login_id)) {
+            $query->where('login_id', 'like', "%$login_id%");
         }
 
         if (!empty($zip)) {
@@ -126,8 +128,12 @@ class AdminController extends Controller
             $query->where('pref', $pref);
         }
 
-        if (!empty($address)) {
-            $query->where('address', 'like', "%$address%");
+        if (!empty($address1)) {
+            $query->where('address', 'like', "%$address1%");
+        }
+
+        if (!empty($address2)) {
+            $query->where('address', 'like', "%$address2%");
         }
 
         if (!empty($tel)) {
@@ -169,20 +175,30 @@ class AdminController extends Controller
             $query->WhereIn('restaurants.id', $id_list);
         }
 
-        $restaurants = $query->orderBy('id')->paginate(10);
+        if ($status == 'release') {
+            $query->where('release_flg', 1);
+        } elseif ($status == 'no_release') {
+            $query->where('release_flg', 0);
+        } elseif ($status == 'recommend') {
+            $query->where('recommend_flg', 1);
+        }
+
+        $restaurants = $query->orderBy('login_id')->paginate(10);
 
         return view('admin.restaurant_list', [
             'restaurants' => $restaurants,
             'name' => $name,
-            'id' => $id,
+            'login_id' => $login_id,
             'zip' => $zip,
             'pref' => $pref,
-            'address' => $address,
+            'address1' => $address1,
+            'address2' => $address2,
             'tel' => $tel,
             'open' => $open,
             'close' => $close,
             'fivestar_before_old' => $fivestar_before_old,
             'fivestar_after_old' => $fivestar_after_old,
+            'status' => $status,
             'created_year_before' => $created_year_before,
             'created_month_before' => $created_month_before,
             'created_day_before' => $created_day_before,

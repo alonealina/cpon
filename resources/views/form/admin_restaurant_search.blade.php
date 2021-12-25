@@ -9,7 +9,7 @@
                 </div>
                 <div class="filter_flex_id">
                     <div class="filter_name">店舗ID</div>
-                    {!! Form::text('id', $id, ['class' => 'filter_id_input'] ) !!}
+                    {!! Form::text('login_id', $login_id, ['class' => 'filter_id_input'] ) !!}
                 </div>
             </div>
             <div class="filter_name">住所</div>
@@ -34,11 +34,16 @@
                     </div>
                 </div>
             </div>
-            <div class="filter_name_address">住所</div>
-            @if($errors->has('address'))
-            <div class="comment_error">{{ $errors->first('address') }}</div>
+            <div class="filter_name_address">市区町村</div>
+            @if($errors->has('address1'))
+            <div class="comment_error">{{ $errors->first('address1') }}</div>
             @endif
-            {{ Form::text('address', $address, ['class' => 'filter_address_input']) }}
+            {{ Form::text('address1', $address1, ['class' => 'filter_address_input']) }}
+            <div class="filter_name_address">以降の住所</div>
+            @if($errors->has('address2'))
+            <div class="comment_error">{{ $errors->first('address2') }}</div>
+            @endif
+            {{ Form::text('address2', $address2, ['class' => 'filter_address_input']) }}
         </div>
 
         <div class="filter_flex_center">
@@ -69,6 +74,14 @@
                 <select name="fivestar_after">
                     @foreach (config('const.Fivestar') as $key => $value)
                     <option value="{{ $key }}" @if($key === $fivestar_after_old) selected @endif>{{ $value }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="filter_name">ステータス</div>
+            <div class="filter_status">
+                <select name="status">
+                    @foreach (config('const.Status') as $key => $value)
+                    <option value="{{ $key }}" @if($key == $status) selected @endif>{{ $value }}</option>
                     @endforeach
                 </select>
             </div>
