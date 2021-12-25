@@ -20,7 +20,11 @@
                 <a class="navbar-brand" href="/">
                     <img src="{{ asset('img/logo.png') }}" class="cpon_logo" alt="">
                 </a>
-                <div class="header_user">管理者A（仮）</div>
+                <div class="header_user">{{ Session::get('name') }}　
+                    @if(!empty(Session::get('name')))
+                    <a href="{{ route('admin.logout') }}">ログアウト</a>
+                    @endif
+                </div>
             </nav>
         </header>
 

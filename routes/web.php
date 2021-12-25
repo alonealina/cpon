@@ -27,7 +27,7 @@ Route::get('restaurants/{id}/comment_sp', 'App\Http\Controllers\RestaurantContro
 Route::post('restaurants/comment_store', 'App\Http\Controllers\RestaurantController@comment_store')->name('restaurant.comment_store');
 
 // 以下管理側 //
-Route::get('admin/', 'App\Http\Controllers\AdminController@index')->name('admin.index');
+Route::get('admin/', 'App\Http\Controllers\AdminController@index')->name('admin.index')->middleware('login');
 
 Route::get('admin/restaurant_list', 'App\Http\Controllers\AdminController@restaurant_list')->name('admin.restaurant_list');
 Route::get('admin/restaurant_list_update', 'App\Http\Controllers\AdminController@restaurant_list_update')->name('admin.restaurant_list_update');
@@ -41,3 +41,10 @@ Route::get('admin/notice_regist', 'App\Http\Controllers\AdminController@notice_r
 Route::post('admin/notice_store', 'App\Http\Controllers\AdminController@notice_store')->name('admin.notice_store');
 Route::get('admin/notice_edit/{id}/', 'App\Http\Controllers\AdminController@notice_edit')->name('admin.notice_edit');
 Route::post('admin/notice_update', 'App\Http\Controllers\AdminController@notice_update')->name('admin.notice_update');
+
+// ログイン
+Route::get('admin/login', function () {
+    return view('admin/login');
+});
+Route::POST('/admin_login', 'App\Http\Controllers\AdminController@login')->name('admin.login');
+Route::get('/admin_logout', 'App\Http\Controllers\AdminController@logout')->name('admin.logout')->middleware('login');
