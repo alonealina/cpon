@@ -898,7 +898,7 @@ class AdminController extends Controller
             'name' => ['max:20', 'required'],
             'price' => ['integer', 'required'],
             'explain' => 'max:30',
-            'img' => ['max:10240', 'required'],
+            'img' => 'max:10240',
         ];
 
         $messages = [
@@ -907,7 +907,6 @@ class AdminController extends Controller
             'price.integer' => '数値を入力してください',
             'price.required' => '値段を入力してください',
             'explain.max' => '説明文は30文字以下でお願いします',
-            'img.required' => 'ファイルを選択してください',
             'img.max' => 'ファイルは10MB未満でお願いします',
         ];
 
@@ -915,8 +914,11 @@ class AdminController extends Controller
 
         $menu = new Menu;
 
-        $img = $request->img;
-        $img_name = 'menu_' . time() . $img->getClientOriginalName();
+        if ($img = $request->img) {
+            $img_name = 'menu_' . time() . $img->getClientOriginalName();
+        } else {
+            $img_name = null;
+        }
 
         $restaurant_id = $request['restaurant_id'];
 
@@ -933,8 +935,10 @@ class AdminController extends Controller
         try {
             $menu->fill($fill_data_menu)->save();
 
-            $target_path = public_path('restaurant/'. $restaurant_id . '/menu/');
-            $img->move($target_path, $img_name);
+            if ($img_name) {
+                $target_path = public_path('restaurant/'. $restaurant_id . '/menu/');
+                $img->move($target_path, $img_name);    
+            }
 
             DB::commit();
             return redirect()->route('admin.menu_list', ['id' => $restaurant_id])->with('flashmessage', '登録が完了いたしました。');

@@ -1,6 +1,13 @@
 @extends('layouts.app_admin')
 
 @section('content')
+<nav class="navbar admin_header">
+    <div class="content_title">メニュー登録</div>
+    <div class="button_red_admin">
+        <a href="{{ route('admin.menu_list', ['id' => $restaurant_id]) }}">メニュー管理ページ</a>
+    </div>
+</nav>
+
 <div class="menu_form">
     <form id="form" name="regist_form" action="{{ route('admin.menu_store') }}" method="post" enctype="multipart/form-data">
     {{ Form::hidden('restaurant_id', $restaurant_id) }}
@@ -8,7 +15,7 @@
         <div class="comment_form_title">メニュー登録1</div>
 
         <div class="regist_form_item">
-            <div class="user_name_title">画像（正方形300px以上を推奨）<p class="required_mark">必須</p></div>
+            <div class="user_name_title">画像（正方形300px以上を推奨）</div>
             @if($errors->has('img'))
             <div class="comment_error">{{ $errors->first('img') }}</div>
             @endif
