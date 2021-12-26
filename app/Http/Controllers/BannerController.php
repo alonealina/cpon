@@ -154,4 +154,22 @@ class BannerController extends Controller
         }
     }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function banner_delete($id)
+    {
+        DB::beginTransaction();
+        try {
+            Banner::where('id', $id)->delete();
+            DB::commit();
+            return redirect()->route('admin.banner_list')->with('flashmessage', 'バナー情報を削除しました');
+        } catch (\Exception $e) {
+            DB::rollback();
+        }
+    }
+
 }

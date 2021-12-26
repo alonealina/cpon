@@ -29,7 +29,7 @@
             <a href="{{ route('admin.banner_edit', ['id' => $banner->id]) }}">編集</a>
         </div>
         <div class="menu_list_button_red">
-            <a href="#" onclick="clickRegistButton()">削除</a>
+            <a href="{{ route('admin.banner_delete', ['id' => $banner->id]) }}" onclick="return confirm('本当に削除しますか？')">削除</a>
         </div>
     </div>
     @endforeach

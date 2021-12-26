@@ -117,7 +117,25 @@ class SettingController extends Controller
         try {
             $scene->update($fill_data);
             DB::commit();
-            return redirect()->to('admin/setting_list')->with('flashmessage', 'お知らせの更新が完了いたしました。');
+            return redirect()->to('admin/setting_list')->with('flashmessage', '利用シーンを更新しました');
+        } catch (\Exception $e) {
+            DB::rollback();
+        }
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function scene_delete($id)
+    {
+        DB::beginTransaction();
+        try {
+            Scene::where('id', $id)->delete();
+            DB::commit();
+            return redirect()->route('admin.setting_list')->with('flashmessage', '利用シーンを削除しました');
         } catch (\Exception $e) {
             DB::rollback();
         }
@@ -213,7 +231,25 @@ class SettingController extends Controller
         try {
             $commitment->update($fill_data);
             DB::commit();
-            return redirect()->to('admin/setting_list')->with('flashmessage', 'お知らせの更新が完了いたしました。');
+            return redirect()->to('admin/setting_list')->with('flashmessage', 'こだわり条件を更新しました');
+        } catch (\Exception $e) {
+            DB::rollback();
+        }
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function commitment_delete($id)
+    {
+        DB::beginTransaction();
+        try {
+            Commitment::where('id', $id)->delete();
+            DB::commit();
+            return redirect()->route('admin.setting_list')->with('flashmessage', 'こだわり条件を削除しました');
         } catch (\Exception $e) {
             DB::rollback();
         }

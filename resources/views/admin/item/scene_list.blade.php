@@ -17,7 +17,7 @@
             <a href="{{ route('admin.scene_edit', ['id' => $scene->id]) }}">編集</a>
         </div>
         <div class="menu_list_button_red">
-            <a href="#" onclick="clickRegistButton()">削除</a>
+            <a href="{{ route('admin.scene_delete', ['id' => $scene->id]) }}" onclick="return confirm('本当に削除しますか？')" onclick="clickRegistButton()">削除</a>
         </div>
     </div>
     @endforeach

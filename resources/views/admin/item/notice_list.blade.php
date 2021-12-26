@@ -29,7 +29,7 @@
             <a href="{{ route('admin.notice_edit', ['id' => $notice->id]) }}">編集</a>
         </div>
         <div class="menu_list_button_red">
-            <a href="#" onclick="clickRegistButton()">削除</a>
+            <a href="{{ route('admin.notice_delete', ['id' => $notice->id]) }}" onclick="return confirm('本当に削除しますか？')">削除</a>
         </div>
     </div>
     @endforeach

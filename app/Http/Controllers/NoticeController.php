@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Notice;
+use DB;
 
 class NoticeController extends Controller
 {
@@ -202,13 +203,21 @@ class NoticeController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Store a newly created resource in storage.
      *
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function notice_delete($id)
     {
-        //
+        DB::beginTransaction();
+        try {
+            Notice::where('id', $id)->delete();
+            DB::commit();
+            return redirect()->route('admin.notice_list')->with('flashmessage', 'お知らせ情報を削除しました');
+        } catch (\Exception $e) {
+            DB::rollback();
+        }
     }
+
 }

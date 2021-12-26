@@ -36,6 +36,7 @@ Route::post('admin/restaurant_store', 'App\Http\Controllers\AdminRestaurantContr
 Route::get('admin/restaurant_edit/{id}/', 'App\Http\Controllers\AdminRestaurantController@restaurant_edit')->name('admin.restaurant_edit');
 Route::post('admin/restaurant_update', 'App\Http\Controllers\AdminRestaurantController@restaurant_update')->name('admin.restaurant_update');
 Route::get('admin/restaurant_csv_export', 'App\Http\Controllers\AdminRestaurantController@restaurant_csv_export')->name('admin.restaurant_csv_export');
+Route::get('admin/restaurant_delete/{id}/', 'App\Http\Controllers\AdminRestaurantController@restaurant_delete')->name('admin.restaurant_delete');
 
 Route::get('admin/menu_list/{id}/', 'App\Http\Controllers\MenuController@menu_list')->name('admin.menu_list');
 Route::get('admin/menu_list_update', 'App\Http\Controllers\MenuController@menu_list_update')->name('admin.menu_list_update');
@@ -43,6 +44,7 @@ Route::get('admin/menu_regist/{id}/', 'App\Http\Controllers\MenuController@menu_
 Route::post('admin/menu_store', 'App\Http\Controllers\MenuController@menu_store')->name('admin.menu_store');
 Route::get('admin/menu_edit/{id_r}/{id_m}/', 'App\Http\Controllers\MenuController@menu_edit')->name('admin.menu_edit');
 Route::post('admin/menu_update', 'App\Http\Controllers\MenuController@menu_update')->name('admin.menu_update');
+Route::get('admin/menu_delete/{id_r}/{id_m}/', 'App\Http\Controllers\MenuController@menu_delete')->name('admin.menu_delete');
 
 Route::get('admin/notice_list', 'App\Http\Controllers\NoticeController@notice_list')->name('admin.notice_list');
 Route::get('admin/notice_list_update', 'App\Http\Controllers\NoticeController@notice_list_update')->name('admin.notice_list_update');
@@ -50,22 +52,26 @@ Route::get('admin/notice_regist', 'App\Http\Controllers\NoticeController@notice_
 Route::post('admin/notice_store', 'App\Http\Controllers\NoticeController@notice_store')->name('admin.notice_store');
 Route::get('admin/notice_edit/{id}/', 'App\Http\Controllers\NoticeController@notice_edit')->name('admin.notice_edit');
 Route::post('admin/notice_update', 'App\Http\Controllers\NoticeController@notice_update')->name('admin.notice_update');
+Route::get('admin/notice_delete/{id}/', 'App\Http\Controllers\NoticeController@notice_delete')->name('admin.notice_delete');
 
 Route::get('admin/banner_list', 'App\Http\Controllers\BannerController@banner_list')->name('admin.banner_list');
 Route::get('admin/banner_regist', 'App\Http\Controllers\BannerController@banner_regist')->name('admin.banner_regist');
 Route::post('admin/banner_store', 'App\Http\Controllers\BannerController@banner_store')->name('admin.banner_store');
 Route::get('admin/banner_edit/{id}/', 'App\Http\Controllers\BannerController@banner_edit')->name('admin.banner_edit');
 Route::post('admin/banner_update', 'App\Http\Controllers\BannerController@banner_update')->name('admin.banner_update');
+Route::get('admin/banner_delete/{id}/', 'App\Http\Controllers\BannerController@banner_delete')->name('admin.banner_delete');
 
 Route::get('admin/setting_list', 'App\Http\Controllers\SettingController@setting_list')->name('admin.setting_list');
 Route::get('admin/scene_regist', 'App\Http\Controllers\SettingController@scene_regist')->name('admin.scene_regist');
 Route::post('admin/scene_store', 'App\Http\Controllers\SettingController@scene_store')->name('admin.scene_store');
 Route::get('admin/scene_edit/{id}/', 'App\Http\Controllers\SettingController@scene_edit')->name('admin.scene_edit');
 Route::post('admin/scene_update', 'App\Http\Controllers\SettingController@scene_update')->name('admin.scene_update');
+Route::get('admin/scene_delete/{id}/', 'App\Http\Controllers\SettingController@scene_delete')->name('admin.scene_delete');
 Route::get('admin/commitment_regist', 'App\Http\Controllers\SettingController@commitment_regist')->name('admin.commitment_regist');
 Route::post('admin/commitment_store', 'App\Http\Controllers\SettingController@commitment_store')->name('admin.commitment_store');
 Route::get('admin/commitment_edit/{id}/', 'App\Http\Controllers\SettingController@commitment_edit')->name('admin.commitment_edit');
 Route::post('admin/commitment_update', 'App\Http\Controllers\SettingController@commitment_update')->name('admin.commitment_update');
+Route::get('admin/commitment_delete/{id}/', 'App\Http\Controllers\SettingController@commitment_delete')->name('admin.commitment_delete');
 
 // ログイン
 Route::get('admin/login', function () {

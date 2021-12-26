@@ -321,4 +321,22 @@ class MenuController extends Controller
         }
     }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function menu_delete($restaurant_id, $menu_id)
+    {
+        DB::beginTransaction();
+        try {
+            Menu::where('restaurant_id', $restaurant_id)->where('id', $menu_id)->delete();
+            DB::commit();
+            return redirect()->route('admin.menu_list', ['id' => $restaurant_id])->with('flashmessage', 'メニュー情報を削除しました');
+        } catch (\Exception $e) {
+            DB::rollback();
+        }
+    }
+
 }

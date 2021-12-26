@@ -670,103 +670,21 @@ class AdminRestaurantController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Store a newly created resource in storage.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function menu_list($restaurant_id, Request $request)
+    public function restaurant_delete($id)
     {
-        /////////////////////////////////////////
-        // 運営・該当店舗以外アクセス拒否する処理
-        /////////////////////////////////////////
-
-        $query = Menu::where('restaurant_id', $restaurant_id);
-        $filter_array = $request->all();
-        $name = isset($filter_array['name']) ? $filter_array['name'] : null;
-        $price_before = isset($filter_array['price_before']) ? $filter_array['price_before'] : null;
-        $price_after = isset($filter_array['price_after']) ? $filter_array['price_after'] : null;
-        $status = isset($filter_array['status']) ? $filter_array['status'] : null;
-        $created_year_before = isset($filter_array['created_year_before']) ? $filter_array['created_year_before'] : null;
-        $created_month_before = isset($filter_array['created_month_before']) ? $filter_array['created_month_before'] : null;
-        $created_day_before = isset($filter_array['created_day_before']) ? $filter_array['created_day_before'] : null;
-        $created_year_after = isset($filter_array['created_year_after']) ? $filter_array['created_year_after'] : null;
-        $created_month_after = isset($filter_array['created_month_after']) ? $filter_array['created_month_after'] : null;
-        $created_day_after = isset($filter_array['created_day_after']) ? $filter_array['created_day_after'] : null;
-        $updated_year_before = isset($filter_array['updated_year_before']) ? $filter_array['updated_year_before'] : null;
-        $updated_month_before = isset($filter_array['updated_month_before']) ? $filter_array['updated_month_before'] : null;
-        $updated_day_before = isset($filter_array['updated_day_before']) ? $filter_array['updated_day_before'] : null;
-        $updated_year_after = isset($filter_array['updated_year_after']) ? $filter_array['updated_year_after'] : null;
-        $updated_month_after = isset($filter_array['updated_month_after']) ? $filter_array['updated_month_after'] : null;
-        $updated_day_after = isset($filter_array['updated_day_after']) ? $filter_array['updated_day_after'] : null;
-
-        if (!empty($name)) {
-            $query->where('name', 'like', "%$name%");
+        DB::beginTransaction();
+        try {
+            Restaurant::where('id', $id)->delete();
+            DB::commit();
+            return redirect()->to('admin/restaurant_list')->with('flashmessage', '店舗情報を削除しました');
+        } catch (\Exception $e) {
+            DB::rollback();
         }
-
-        if (!empty($price_before)) {
-            $query->where('price', '>=', $price_before);
-        }
-
-        if (!empty($price_after)) {
-            $query->where('price', '<=', $price_after);
-        }
-
-        if (!empty($created_year_before) && !empty($created_month_before) && !empty($created_day_before)) {
-            $created_before = $created_year_before . '-' . $created_month_before . '-' . $created_day_before;
-            $query->whereDate('created_at', '>=', $created_before);
-        }
-        if (!empty($created_year_after) && !empty($created_month_after) && !empty($created_day_after)) {
-            $created_after = $created_year_after . '-' . $created_month_after . '-' . $created_day_after;
-            $query->whereDate('created_at', '<=', $created_after);
-        }
-        if (!empty($updated_year_before) && !empty($updated_month_before) && !empty($updated_day_before)) {
-            $updated_before = $updated_year_before . '-' . $updated_month_before . '-' . $updated_day_before;
-            $query->whereDate('updated_at', '>=', $updated_before);
-        }
-        if (!empty($updated_year_after) && !empty($updated_month_after) && !empty($updated_day_after)) {
-            $updated_after = $updated_year_after . '-' . $updated_month_after . '-' . $updated_day_after;
-            $query->whereDate('updated_at', '<=', $updated_after);
-        }
-
-        if ($status == 'release') {
-            $query->where('release_flg', 1);
-        } elseif ($status == 'no_release') {
-            $query->where('release_flg', 0);
-        } elseif ($status == 'recommend') {
-            $query->where('recommend_flg', 1);
-        }
-
-        $number = \Request::get('number');
-        if (isset($number)) {
-            $menus = $query->orderBy('id')->paginate($number)
-            ->appends(["number" => $number]);
-        } else {
-            $number = isset($filter_array['number']) ? $filter_array['number'] : 10;
-            $menus = $query->orderBy('id')->paginate($number);
-        }
-
-        $restaurant_name = Restaurant::where('id', $restaurant_id)->first()->name2;
-        return view('admin.menu_list', [
-            'menus' => $menus,
-            'number' => $number,
-            'name' => $name,
-            'price_before' => $price_before,
-            'price_after' => $price_after,
-            'status' => $status,
-            'created_year_before' => $created_year_before,
-            'created_month_before' => $created_month_before,
-            'created_day_before' => $created_day_before,
-            'created_year_after' => $created_year_after,
-            'created_month_after' => $created_month_after,
-            'created_day_after' => $created_day_after,
-            'updated_year_before' => $updated_year_before,
-            'updated_month_before' => $updated_month_before,
-            'updated_day_before' => $updated_day_before,
-            'updated_year_after' => $updated_year_after,
-            'updated_month_after' => $updated_month_after,
-            'updated_day_after' => $updated_day_after,
-            'restaurant_id' => $restaurant_id,
-            'restaurant_name' => $restaurant_name,
-        ]);
     }
+
 }

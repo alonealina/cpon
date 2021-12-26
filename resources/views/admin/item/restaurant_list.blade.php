@@ -95,7 +95,7 @@
                 <a href="{{ route('admin.menu_list', ['id' => $restaurant->id]) }}">メニュー<br>詳細</a>
             </div>
             <div class="restaurant_list_button_red">
-                <a href="#" onclick="clickRegistButton()">削除</a>
+                <a href="restaurant_delete/{{ $restaurant->id }}" onclick="return confirm('本当に削除しますか？')">削除</a>
             </div>
         </div>
         @endforeach

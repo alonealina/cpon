@@ -17,7 +17,7 @@
             <a href="{{ route('admin.commitment_edit', ['id' => $commitment->id]) }}">編集</a>
         </div>
         <div class="menu_list_button_red">
-            <a href="#" onclick="clickRegistButton()">削除</a>
+            <a href="{{ route('admin.commitment_delete', ['id' => $commitment->id]) }}" onclick="return confirm('本当に削除しますか？')" onclick="clickRegistButton()">削除</a>
         </div>
     </div>
     @endforeach
