@@ -1,6 +1,13 @@
 @extends('layouts.app_admin')
 
 @section('content')
+<nav class="navbar admin_header">
+    <div class="content_title">メニュー情報編集</div>
+    <div class="button_red_admin">
+        <a href="{{ route('admin.menu_list', ['id' => $restaurant_id]) }}">メニュー管理ページ</a>
+    </div>
+</nav>
+
 <div class="menu_form">
     <form id="form" name="regist_form" action="{{ route('admin.menu_update') }}" method="post" enctype="multipart/form-data">
         @csrf

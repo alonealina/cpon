@@ -1,6 +1,13 @@
 @extends('layouts.app_admin')
 
 @section('content')
+<nav class="navbar admin_header">
+    <div class="content_title">店舗情報編集</div>
+    <div class="button_red_admin">
+        <a href="{{ route('admin.restaurant_list') }}">店舗管理ページ</a>
+    </div>
+</nav>
+
 <div class="comment_form">
     <form id="form" name="regist_form" action="{{ route('admin.restaurant_update') }}" method="post" enctype="multipart/form-data">
         @csrf
@@ -309,14 +316,6 @@
             {{ Form::textarea('other', old('other', $restaurant->other), ['class' => 'other_input', 'rows' => 6, 'maxlength' => 500]) }}
         </div>
 
-
-
-
-
-
-
-
-
         <div class="regist_form_item">
             <div class="user_name_title">カテゴリー<p class="required_mark">必須</p></div>
             <select name="category_id">
@@ -336,8 +335,6 @@
             <div class="user_name_title">こだわり条件</div>
             @include('form.commitments_edit')
         </div>
-
-
 
         <div class="button_black">
             <a href="#" onclick="clickRegistButton()">確認画面へ</a>

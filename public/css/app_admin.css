@@ -221,7 +221,7 @@ footer a, footer a:hover {
 }
 
 .restaurant_recommend_text {
-    width: 200px;
+    width: 220px;
     text-align: center;
 }
 
@@ -253,11 +253,11 @@ footer a, footer a:hover {
 }
 
 .recommend_on_button {
-    margin-left: 40px;
+    margin-left: 50px;
 }
 
 .recommend_off_button {
-    margin-right: 40px;
+    margin-right: 50px;
 }
 
 
@@ -522,13 +522,13 @@ hr {
 }
 
 .button_red_admin a {
-    font-size: 12px;
+    font-size: 10px;
     font-weight: bold;
     display:block;
     width:130px;
     height:30px;
     line-height:30px;
-    background:red;
+    background:#CB0C0C;
     color:#fff;
     border-radius:5px;
     text-decoration:none;
