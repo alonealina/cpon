@@ -246,7 +246,8 @@ footer a, footer a:hover {
 .release_on_button a,
 .release_off_button a,
 .recommend_on_button a,
-.recommend_off_button a {
+.recommend_off_button a,
+.check_delete_button a {
     font-size: 14px;
     font-weight: bold;
     display:block;
@@ -278,6 +279,9 @@ footer a, footer a:hover {
     margin-right: 50px;
 }
 
+.check_delete_button {
+    margin-left: 15px;
+}
 
 .search_button, .clear_button {
     width:100px;
@@ -353,6 +357,25 @@ footer a, footer a:hover {
 
 .restaurant_list_created, .restaurant_list_updated {
     width:8%;
+}
+
+.comment_list_img {
+    width:25%;
+}
+
+.comment_list_content {
+    width:30%;
+}
+
+.comment_list_content div {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden; 
+}
+
+.comment_list_created {
+    width:13%;
 }
 
 .menu_list_name {
@@ -701,14 +724,6 @@ hr {
 
 .comment_list_title {
     float:left;
-}
-
-.comment_list_content {
-    margin:10px 20px;
-}
-
-.comment_list_content_sp {
-    margin:10px 10px;
 }
 
 .comment_datetime {

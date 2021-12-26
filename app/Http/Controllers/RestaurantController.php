@@ -308,8 +308,8 @@ class RestaurantController extends Controller
         $file_count = 1;
         if ($file_array = $request->comment_img) {
             foreach ($file_array as $file) {
-                $filename_array['comment_img' . $file_count] = time() . $file->getClientOriginalName();
-                $target_path = public_path('uploads/');
+                $filename_array['comment_img' . $file_count] = 'comment_' . $file_count . time() . $file->getClientOriginalName();
+                $target_path = public_path('restaurant/'.$request['restaurant_id'].'/comment/');
                 $file->move($target_path, $filename_array['comment_img' . $file_count]);
                 $file_count++;
             }

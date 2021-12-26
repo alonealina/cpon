@@ -23,7 +23,7 @@
             <div class="regist_file_button"><input type="file" id="file_btn_main" accept="image/*" onclick="fileCheckMain();" name="img"></div>
             <div class="img_tmb_main">
                 @if (!empty($menu->img))
-                <img src="../../../restaurant/{{ $restaurant_id }}/menu/{{ $menu->img }}">
+                <img src="../../../restaurant/{{ $restaurant_id }}/comment/menu/{{ $menu->img }}">
                 @endif
             </div>
         </div>

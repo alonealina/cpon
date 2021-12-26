@@ -58,7 +58,7 @@
                     @if (empty($menu->img))
                     <img src="../../img/imgerror.jpg" class="menu_img">
                     @else
-                    <img src="../../restaurant/{{ $restaurant_id }}/menu/{{ $menu->img }}" class="menu_img">
+                    <img src="../../restaurant/{{ $restaurant_id }}/comment/menu/{{ $menu->img }}" class="menu_img">
                     @endif
                 </div>
             </div>

@@ -37,28 +37,28 @@
                 <div class="comment_content_{{ $version }}">{!! nl2br(e($comment->comment)) !!}</div>
             </div>
             @if (!empty($comment->comment_img1))
-            <a href="../../uploads/{{ $comment->comment_img1 }}" data-lightbox="group{{ $comment->id }}{{ $version }}">
-                <img src="../../uploads/{{ $comment->comment_img1 }}" width="{{ $px }}" height="{{ $px }}">
+            <a href="../../restaurant/{{ $restaurant_id }}/comment/{{ $comment->comment_img1 }}" data-lightbox="group{{ $comment->id }}{{ $version }}">
+                <img src="../../restaurant/{{ $restaurant_id }}/comment/{{ $comment->comment_img1 }}" width="{{ $px }}" height="{{ $px }}">
             </a>
             @endif
             @if (!empty($comment->comment_img2))
-            <a href="../../uploads/{{ $comment->comment_img2 }}" data-lightbox="group{{ $comment->id }}{{ $version }}">
-                <img src="../../uploads/{{ $comment->comment_img2 }}" width="{{ $px }}" height="{{ $px }}">
+            <a href="../../restaurant/{{ $restaurant_id }}/comment/{{ $comment->comment_img2 }}" data-lightbox="group{{ $comment->id }}{{ $version }}">
+                <img src="../../restaurant/{{ $restaurant_id }}/comment/{{ $comment->comment_img2 }}" width="{{ $px }}" height="{{ $px }}">
             </a>
             @endif
             @if (!empty($comment->comment_img3))
-            <a href="../../uploads/{{ $comment->comment_img3 }}" data-lightbox="group{{ $comment->id }}{{ $version }}">
-                <img src="../../uploads/{{ $comment->comment_img3 }}" width="{{ $px }}" height="{{ $px }}">
+            <a href="../../restaurant/{{ $restaurant_id }}/comment/{{ $comment->comment_img3 }}" data-lightbox="group{{ $comment->id }}{{ $version }}">
+                <img src="../../restaurant/{{ $restaurant_id }}/comment/{{ $comment->comment_img3 }}" width="{{ $px }}" height="{{ $px }}">
             </a>
             @endif
             @if (!empty($comment->comment_img4))
-            <a href="../../uploads/{{ $comment->comment_img4 }}" data-lightbox="group{{ $comment->id }}{{ $version }}">
-                <img src="../../uploads/{{ $comment->comment_img4 }}" width="{{ $px }}" height="{{ $px }}">
+            <a href="../../restaurant/{{ $restaurant_id }}/comment/{{ $comment->comment_img4 }}" data-lightbox="group{{ $comment->id }}{{ $version }}">
+                <img src="../../restaurant/{{ $restaurant_id }}/comment/{{ $comment->comment_img4 }}" width="{{ $px }}" height="{{ $px }}">
             </a>
             @endif
             @if (!empty($comment->comment_img5))
-            <a href="../../uploads/{{ $comment->comment_img5 }}" data-lightbox="group{{ $comment->id }}{{ $version }}">
-                <img src="../../uploads/{{ $comment->comment_img5 }}" width="{{ $px }}" height="{{ $px }}">
+            <a href="../../restaurant/{{ $restaurant_id }}/comment/{{ $comment->comment_img5 }}" data-lightbox="group{{ $comment->id }}{{ $version }}">
+                <img src="../../restaurant/{{ $restaurant_id }}/comment/{{ $comment->comment_img5 }}" width="{{ $px }}" height="{{ $px }}">
             </a>
             @endif
         </div>

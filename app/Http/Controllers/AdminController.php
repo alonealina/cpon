@@ -33,6 +33,7 @@ class AdminController extends Controller
             if ($request->password == $admin_user->password) {
                 // セッション
                 session(['login_id' => $admin_user->login_id]);
+                session(['id' => 'admin']);
                 session(['name'  => $admin_user->name]);
                 session(['type'  => 'operation']);
                 return redirect('admin/'); 

@@ -89,7 +89,7 @@
                 <div class="restaurant_item_name">{{ $restaurant->updated_at }}</div>
             </div>
             <div class="restaurant_list_button_blue">
-                <a href="restaurant_edit/{{ $restaurant->id }}" onclick="clickRegistButton()">編集</a>
+                <a href="restaurant_edit/{{ $restaurant->id }}">編集</a>
             </div>
             <div class="restaurant_list_button_blue">
                 <a href="{{ route('admin.menu_list', ['id' => $restaurant->id]) }}">メニュー<br>詳細</a>

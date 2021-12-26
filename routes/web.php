@@ -73,6 +73,11 @@ Route::get('admin/commitment_edit/{id}/', 'App\Http\Controllers\SettingControlle
 Route::post('admin/commitment_update', 'App\Http\Controllers\SettingController@commitment_update')->name('admin.commitment_update');
 Route::get('admin/commitment_delete/{id}/', 'App\Http\Controllers\SettingController@commitment_delete')->name('admin.commitment_delete');
 
+Route::get('admin/comment_list/{id}/', 'App\Http\Controllers\CommentController@comment_list')->name('admin.comment_list');
+Route::get('admin/comment_list_update', 'App\Http\Controllers\CommentController@comment_list_update')->name('admin.comment_list_update');
+Route::get('admin/comment_detail/{id_r}/{id_c}/', 'App\Http\Controllers\CommentController@comment_detail')->name('admin.comment_detail');
+Route::get('admin/comment_delete/{id_r}/{id_c}/', 'App\Http\Controllers\CommentController@comment_delete')->name('admin.comment_delete');
+
 // ログイン
 Route::get('admin/login', function () {
     return view('admin/login');

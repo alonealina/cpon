@@ -30,6 +30,16 @@ function clickClearButton() {
     document.forms.filter_form.reset();
 }
 
+function clickCheckDeleteButton() {
+    console.log('aaa');
+    window.onload = function () {
+        $('#overlay, .modal-window').fadeIn();
+        $('.js-close').click(function () {
+            $('#overlay, .modal-window').fadeOut();
+        });
+    };
+}
+
 const maxFiles = 5;
 function fileCheck(){
 
