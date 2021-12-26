@@ -44,7 +44,7 @@
         @if($errors->has('fivestar'))
         <div class="comment_error_fivestar">{{ $errors->first('fivestar') }}</div>
         @endif
-        <div class="fivestar_title_sp">注文の評価</div>
+        <div class="fivestar_title_sp">注文の評価</div><br>
         <div class="rate-form rate-form_sp">
             <input id="star5_sp" type="radio" name="fivestar" value="5" {{ old('fivestar') == 5 ? 'checked' : '' }}>
             <label for="star5_sp">★</label>
