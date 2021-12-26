@@ -19,7 +19,6 @@
 </div>
 
 @yield('category_background')
-
 <div class="flexible-list">
     <aside id="column-side" class="flexible-list-side">
     @include('form.filter_search')

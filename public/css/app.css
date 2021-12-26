@@ -375,14 +375,14 @@ margin-left:10px;
 }
 
 .main_img {
-    width: 545px;
-    height: 545px;
+    width: 540px;
+    height: 540px;
     margin:5px;
 }
 
 .sub_img {
-    width: 170px;
-    height: 170px;
+    width: 173px;
+    height: 173px;
     margin:5px;
 }
 
@@ -484,18 +484,18 @@ hr {
 }
 
 .button_comment a {
-    font-size: 15px;
-    font-weight: bold;
-    display:block;
-    width:200px;
-    height:40px;
-    margin:0px auto;
-    line-height:40px;
-    background:black;
-    color:#fff;
-    border-radius:20px;
-    text-decoration:none;
-    text-align:center;
+    font-size: 14px;
+    font-weight: 300;
+    display: block;
+    width: 200px;
+    height: 40px;
+    margin: 0px auto;
+    line-height: 40px;
+    background: #FDB731;
+    color: #fff;
+    border-radius: 20px;
+    text-decoration: none;
+    text-align: center;
 }
 
 .notice_button_back {
@@ -536,6 +536,8 @@ hr {
 
 .comment_list_content {
     margin:10px 20px;
+    font-size:15px; 
+    font-weight:300;
 }
 
 .comment_list_content_sp {
@@ -562,7 +564,9 @@ hr {
 }
 
 .number b {
-    font-size: 18px;
+    font-size: 15px;
+    text-align: right;
+    font-weight: 300;
 }
 
 .number_sp {
@@ -570,7 +574,7 @@ hr {
 }
 
 .fivestar {
-    font-size: 18px;
+    font-size: 15px;
     color:#FD7E00;
 }
 
@@ -633,7 +637,7 @@ hr {
 }
 
 .flexible-list-side {
-    margin-top: 77px;
+    margin-top: 10px;
     min-width: 200px;
     max-width: 220px;
 }
@@ -786,8 +790,8 @@ select {
 
 label {
     cursor: pointer;
-    padding:5px;
-    border: 1px solid #434343;
+    padding: 5px 8px;
+    border: 1px solid #BBBBBB;
     border-radius: 5px;
     font-size: 12px;
 }
@@ -966,17 +970,24 @@ label {
 
 .restaurant_category {
     color: #FFFFFF;
-    width: 118px;
+    width: 100px;
     height: 24px;
     background: transparent linear-gradient(260deg, #FDB731 0%, #FACD78 33%, #FFB831 71%, #FFA600 100%) 0% 0% no-repeat padding-box;
     border-radius: 6px;
     opacity: 1;
     text-align: center;
+    font-size: 13px;
+    line-height: 25px;
 }
 
 .restaurant_name {
+    padding-top:3px;
+    padding-bottom:5px;
     font-size: 25px;
-    font-weight: bold;
+    /*font-weight: bold;*/
+}
+.restaurant_show{
+    margin-top:20px;
 }
 
 .restaurant_show_name {
@@ -985,19 +996,21 @@ label {
 }
 
 .cpon_mall_url {
-    width: 158px;
-    height: 33px;
+    width: 148px;
+    height: 28px;
     background: #FF7D1A 0% 0% no-repeat padding-box;
     border-radius: 62px;
     opacity: 1;
     font-size: 13px;
     text-align: center;
+    line-height: 30px;
+    margin: 5px 0;
 }
 
 .cpon_mall_url a, .cpon_mall_url a:hover {
     color: #FFFFFF;
     text-decoration:none;
-    line-height: 33px;
+    line-height: 29px;
 }
 
 .recommend_list, .new_list, .search_list, #menu_list_recommend, #menu_list_all,
@@ -1101,25 +1114,29 @@ label {
 
 .menu_name {
     font-size: 18px;
+    margin-top:8px;
 }
 
 .menu_price {
-    font-weight: bold;
+    font-weight: 600;
+    font-size:13px;
 }
 
 .menu_explain {
     color:#797979;
     font-size: 16px;
+    font-weight: 300;
+
 }
 
 .menu_name_sp {
     font-size: 13px;
-    font-weight: bold;
+    font-weight: 400;
 }
 
 .menu_price_sp {
     font-size: 11px;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 .menu_explain_sp {
@@ -1291,7 +1308,7 @@ label {
 
 .info_list_bar {
     margin-top: 10px;
-    font-weight: bold;
+    font-weight: 300;
 }
 
 .info_list_bar_pc ul{
@@ -1337,7 +1354,8 @@ label {
 }
 
 .info_list_bar li.current{
-    border-bottom: 3px solid black;
+    border-bottom: 3px solid #FFB01A;
+    color:#FFB01A;
 }
 
 .info_list_bar li{
@@ -1349,9 +1367,12 @@ label {
 }
 
 .info_list {
-    height:500px;
+    height: 500px;
     background-color: #FAFAFA;
-    padding: 20px;
+    padding: 30px;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 35px;
 }
 
 /*以下メニューバーについて*/
@@ -1388,28 +1409,32 @@ label {
 .menu_list_bar li{
     display: table-cell;
     min-width: 50px;
+    font-weight: 400;
 }
 
 .menu_list_bar a{
     display: block;
     width: 100%;
     text-decoration: none;
-    color: #555;
-    padding-bottom: 5px;
-    text-align:center;
+    padding-bottom: 10px;
+    text-align: center;
+    padding-top: 10px;
+    color: #E2E2E2;
 }
 
 .menu_list_bar li.current{
-    border-bottom: 3px solid black;
+    border-bottom: 2px solid #FDB731;
+    color: #FDB731;
 }
 
 .menu_list_bar li{
-    border-bottom: 3px solid #dcdcdc;
+    border-bottom: 2px solid #E2E2E2;
+    color:#E2E2E2;
 }
 
 .menu_list_bar li:hover{
-    color: #dcdcdc;
-    border-bottom: 3px solid #a9a9a9;
+    color: #FDB731;
+    border-bottom: 2px solid #a9a9a9;
 }
 
 /*以下SP版の固定メニューについて*/
@@ -1962,17 +1987,18 @@ display       : inline-block;
 bottom        : -30px;
 right         : 3px;
 padding-top       : 0px ;
-font-size: 14px;
-font-weight: bold;
+font-size: 11px;
+font-weight: 300;
 display: block;
 width: 120px;
 height: 26px;
 line-height: 25px;
-background:black;
+background:#FDB731;
 color:#fff;
 border-radius:25px;
 text-decoration:none;
 text-align:center;
+border: none;
 }
 
 /* === ボタンにカーソルが乗った時 ================================ */
