@@ -47,7 +47,7 @@
         @endif
         <div class="recommend_name">{{ $recommend->name1 }} {{ $recommend->name2 }} {{ $recommend->name3 }}</div>
         <div class="recommend_address">〒{{ $recommend->zip }} {{ $recommend->pref }}{{ $recommend->address }}</div>
-        <div class="recommend_time">営業時間　{{ $recommend->open_hm }} - {{ $recommend->close_hm }}　</div>
+        <div class="recommend_time">【営業時間】　{{ $recommend->open_hm }} - {{ $recommend->close_hm }}　</div>
         @if($recommend->opening_flg)
         <div class="open_mark">OPEN</div>
         @else
@@ -95,7 +95,7 @@
     <hr>
     @endforeach
 </div>
-<div class="button_black">
+<div class="button_grey">
     <a href="{{ route('notice.index') }}">お知らせ一覧</a>
 </div>
 @endsection
@@ -115,7 +115,7 @@
         @endif
         <div class="recommend_name">{{ $recommend->name1 }} {{ $recommend->name2 }} {{ $recommend->name3 }}</div>
         <div class="recommend_address">〒{{ $recommend->zip }} {{ $recommend->pref }}{{ $recommend->address }}</div>
-        <div class="recommend_time">営業時間　{{ $recommend->open_hm }} - {{ $recommend->close_hm }}　</div>
+        <div class="recommend_time">【営業時間】　{{ $recommend->open_hm }} - {{ $recommend->close_hm }}　</div>
         @if($recommend->opening_flg)
         <div class="open_mark">OPEN</div>
         @else
@@ -163,7 +163,7 @@
     <hr>
     @endforeach
 </div>
-<div class="button_black">
+<div class="button_grey">
     <a href="{{ route('notice.index') }}">お知らせ一覧</a>
 </div>
 @endsection
@@ -184,7 +184,7 @@
         @endif
         <div class="recommend_name restaurant_name_sp">{{ $recommend->name1 }} {{ $recommend->name2 }} {{ $recommend->name3 }}</div>
         <div class="recommend_address_sp">〒{{ $recommend->zip }} {{ $recommend->pref }}{{ $recommend->address }}</div>
-        <div class="recommend_time">営業時間　{{ $recommend->open_hm }} - {{ $recommend->close_hm }}</div>
+        <div class="recommend_time">【営業時間】　{{ $recommend->open_hm }} - {{ $recommend->close_hm }}</div>
         @if($recommend->opening_flg)
         <div class="open_mark">OPEN</div>
         @else
@@ -236,7 +236,7 @@
     <hr>
     @endforeach
 </div>
-<div class="button_black_sp">
+<div class="button_grey_sp">
     <a href="{{ route('notice.index') }}">お知らせ一覧</a>
 </div>
 @endsection
