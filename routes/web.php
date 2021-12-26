@@ -45,6 +45,7 @@ Route::get('admin/menu_edit/{id_r}/{id_m}/', 'App\Http\Controllers\AdminControll
 Route::post('admin/menu_update', 'App\Http\Controllers\AdminController@menu_update')->name('admin.menu_update');
 
 Route::get('admin/notice_list', 'App\Http\Controllers\AdminController@notice_list')->name('admin.notice_list');
+Route::get('admin/notice_list_update', 'App\Http\Controllers\AdminController@notice_list_update')->name('admin.notice_list_update');
 Route::get('admin/notice_regist', 'App\Http\Controllers\AdminController@notice_regist')->name('admin.notice_regist');
 Route::post('admin/notice_store', 'App\Http\Controllers\AdminController@notice_store')->name('admin.notice_store');
 Route::get('admin/notice_edit/{id}/', 'App\Http\Controllers\AdminController@notice_edit')->name('admin.notice_edit');

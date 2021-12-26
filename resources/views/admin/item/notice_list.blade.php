@@ -23,7 +23,7 @@
             <div class="restaurant_item_name">@if($notice->release_flg == 1) 公開 @else 非公開 @endif</div>
         </div>
         <div class="menu_list_button_blue">
-            <a href="{{ route('admin.notice_edit', ['id' => $notice->id]) }}">@if($notice->release_flg == 1) 非公開 @else 公開 @endif</a>
+            <a href="{{ route('admin.notice_list_update', ['id' => $notice->id, 'release_flg' => $notice->release_flg]) }}">@if($notice->release_flg == 1) 非公開 @else 公開 @endif</a>
         </div>
         <div class="menu_list_button_blue">
             <a href="{{ route('admin.notice_edit', ['id' => $notice->id]) }}">編集</a>
