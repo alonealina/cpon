@@ -57,12 +57,12 @@ footer a, footer a:hover {
     background-color: #f3f3f3;
 }
 
-.filter_flex, .restaurant_list_column {
+.filter_flex, .restaurant_list_column, .setting_list_column {
     display: flex;
     flex-wrap: wrap;
 }
 
-.restaurant_list_column {
+.restaurant_list_column, .setting_list_column {
     border:solid 1px #f3f3f3;
 }
 
@@ -121,10 +121,25 @@ footer a, footer a:hover {
 .filter_price_after_input {
     width:30%;
 }
+
 .restaurant_list_column div {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.setting_list_column div {
+    display: flex;
+    align-items: center;
+}
+
+.setting_list_title {
+    width:83%;
+    margin: 10px 5px;
+}
+
+.setting_list_name {
+    width:85%;
 }
 
 .search_button a {
@@ -570,6 +585,7 @@ hr {
     border-radius:5px;
     text-decoration:none;
     text-align:center;
+    margin:5px 0;
 }
 
 .button_black, .button_comment, .notice_button_back, .notice_button_next {

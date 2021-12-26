@@ -57,6 +57,16 @@ Route::post('admin/banner_store', 'App\Http\Controllers\AdminController@banner_s
 Route::get('admin/banner_edit/{id}/', 'App\Http\Controllers\AdminController@banner_edit')->name('admin.banner_edit');
 Route::post('admin/banner_update', 'App\Http\Controllers\AdminController@banner_update')->name('admin.banner_update');
 
+Route::get('admin/setting_list', 'App\Http\Controllers\AdminController@setting_list')->name('admin.setting_list');
+Route::get('admin/scene_regist', 'App\Http\Controllers\AdminController@scene_regist')->name('admin.scene_regist');
+Route::post('admin/scene_store', 'App\Http\Controllers\AdminController@scene_store')->name('admin.scene_store');
+Route::get('admin/scene_edit/{id}/', 'App\Http\Controllers\AdminController@scene_edit')->name('admin.scene_edit');
+Route::post('admin/scene_update', 'App\Http\Controllers\AdminController@scene_update')->name('admin.scene_update');
+Route::get('admin/commitment_regist', 'App\Http\Controllers\AdminController@commitment_regist')->name('admin.commitment_regist');
+Route::post('admin/commitment_store', 'App\Http\Controllers\AdminController@commitment_store')->name('admin.commitment_store');
+Route::get('admin/commitment_edit/{id}/', 'App\Http\Controllers\AdminController@commitment_edit')->name('admin.commitment_edit');
+Route::post('admin/commitment_update', 'App\Http\Controllers\AdminController@commitment_update')->name('admin.commitment_update');
+
 // ログイン
 Route::get('admin/login', function () {
     return view('admin/login');
