@@ -3,7 +3,7 @@
 @section('category_background')
 <div class="category_background" style="background-image: url(../img/bg_category/{{$id}}.jpg);">
     <div class="category_img">
-    <img src="../../img/category/{{$id}}.png" alt="">
+    <img src="../../img/category_big/{{$id}}.png" alt="">
     </div>
     <div class="category_name_title">
     {{ $category_name }}
@@ -45,7 +45,7 @@
 @section('category_background_ipad')
 <div class="category_background_ipad" style="background-image: url(../img/bg_category/{{$id}}.jpg);">
     <div class="category_img_ipad">
-    <img src="../../img/category/{{$id}}.png" alt="">
+    <img src="../../img/category_big/{{$id}}.png" alt="">
     </div>
     <div class="category_name_title_ipad">
     {{ $category_name }}
@@ -93,7 +93,7 @@
 @section('category_background_sp')
 <div class="category_background_sp" style="background-image: url(../img/bg_category/{{$id}}.jpg);">
     <div class="category_img_sp">
-    <img src="../../img/category/{{$id}}.png" alt="">
+    <img src="../../img/category_big/{{$id}}.png" alt="">
     </div>
     <div class="category_name_title_sp">
     {{ $category_name }}

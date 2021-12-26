@@ -18,6 +18,7 @@ use App\Models\RestaurantCard;
 use App\Models\AdminUser;
 use App\Models\Banner;
 use App\Models\Menu;
+use App\Rules\PriorityCheck;
 use DB;
 
 class AdminController extends Controller
@@ -1211,6 +1212,7 @@ class AdminController extends Controller
         $rules = [
             'img' => ['max:10240', 'required'],
             'url' => 'required',
+            'priority' => new PriorityCheck(0),
         ];
 
         $messages = [
@@ -1236,7 +1238,8 @@ class AdminController extends Controller
         DB::beginTransaction();
         try {
             $banner->fill($fill_data)->save();
-
+            $target_path = public_path('banner/');
+            $img->move($target_path, $img_name);
 
             DB::commit();
             return redirect()->to('admin/banner_list')->with('flashmessage', '登録が完了いたしました。');
@@ -1252,10 +1255,10 @@ class AdminController extends Controller
      */
     public function banner_edit($id)
     {
-        $notice = Notice::find($id);
+        $banner = Banner::find($id);
 
         return view('admin/banner_edit', [
-            'notice' => $notice,
+            'banner' => $banner,
         ]);
     }
 
@@ -1268,33 +1271,51 @@ class AdminController extends Controller
     public function banner_update(Request $request)
     {
         $rules = [
-            'title' => ['max:20', 'required'],
-            'content' => 'required',
+            'img' => 'max:10240',
+            'url' => 'required',
+            'priority' => new PriorityCheck($request['id']),
         ];
 
         $messages = [
-            'title.max' => 'タイトルは20文字以下でお願いします',
-            'title.required' => 'タイトルを入力してください',
-            'content.required' => '本文を入力してください',
-            'notice_date.required' => 'お知らせ日時を入力してください',
+            'img.max' => 'ファイルは10MB未満でお願いします',
+            'url.required' => 'URLを入力してください',
         ];
 
         Validator::make($request->all(), $rules, $messages)->validate();
 
+        if ($img = $request->img) {
+            $img_name = 'banner_' . time() . $img->getClientOriginalName();
+        } else {
+            $img_name = null;
+        }
+
+        $banner = Banner::find($request['id']);
+        $old_img = $banner->img;
         $request = $request->all();
-        $notice = Notice::find($request['id']);
 
         $fill_data = [
-            'title' => $request['title'],
-            'content' => $request['content'],
-            'notice_date' => date('Y/m/d'),
+            'url' => $request['url'],
+            'priority' => $request['priority'],
         ];
+
+        if (isset($img_name)) {
+            $fill_data['img'] = $img_name;
+        }
 
         DB::beginTransaction();
         try {
-            $notice->update($fill_data);
+            $banner->update($fill_data);
+
+            $target_path = public_path('banner/');
+            if ($img_name) {
+                if(file_exists($target_path . $old_img)){
+                    unlink($target_path . $old_img);
+                }
+                $img->move($target_path, $img_name);
+            }
+
             DB::commit();
-            return redirect()->to('admin/banner_list')->with('flashmessage', 'お知らせの更新が完了いたしました。');
+            return redirect()->to('admin/banner_list')->with('flashmessage', '画像の更新が完了いたしました。');
         } catch (\Exception $e) {
             DB::rollback();
         }
