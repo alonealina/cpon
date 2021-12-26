@@ -357,6 +357,28 @@ footer a, footer a:hover {
     width:13%;
 }
 
+.banner_list_url {
+    width:58%;
+}
+
+.flex_form_item {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.felx_form_title {
+    font-size: 14px;
+    margin:5px 0 5px 40px;
+    width:120px;
+}
+
+.felx_form_content {
+    margin:5px 0 5px 40px;
+}
+
+.banner_url_input {
+    width:400px;
+}
 
 .category_title_ipad {
     margin:10px 0 10px 50px;
@@ -1921,7 +1943,13 @@ bottom        : 26px;
     width:166px;
     margin:5px;
 }
-    
+
+.img_tmb_banner img {
+    height:166px;
+    width:166px;
+    margin:5px;
+}
+
 
 /*以下ローディング画面について*/
 

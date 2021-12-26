@@ -16,6 +16,7 @@ use App\Models\RestaurantCommitment;
 use App\Models\RestaurantHoliday;
 use App\Models\RestaurantCard;
 use App\Models\AdminUser;
+use App\Models\Banner;
 use App\Models\Menu;
 use DB;
 
@@ -426,8 +427,7 @@ class AdminController extends Controller
                     $file_count++;
                 }
             }
-    
-    
+
             DB::commit();
             return redirect()->to('admin/restaurant_regist')->with('flashmessage', '登録が完了いたしました。');
         } catch (\Exception $e) {
@@ -1171,6 +1171,130 @@ class AdminController extends Controller
             $notice->update($fill_data);
             DB::commit();
             return redirect()->to('admin/notice_list')->with('flashmessage', 'お知らせの更新が完了いたしました。');
+        } catch (\Exception $e) {
+            DB::rollback();
+        }
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function banner_list()
+    {
+        $banners = Banner::orderBy('priority')->get();
+        
+        return view('admin.banner_list', [
+            'banners' => $banners,
+        ]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function banner_regist()
+    {
+        return view('admin/banner_regist');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function banner_store(Request $request)
+    {
+        $rules = [
+            'img' => ['max:10240', 'required'],
+            'url' => 'required',
+        ];
+
+        $messages = [
+            'img.required' => 'ファイルを選択してください',
+            'img.max' => 'ファイルは10MB未満でお願いします',
+            'url.required' => 'URLを入力してください',
+        ];
+
+        Validator::make($request->all(), $rules, $messages)->validate();
+
+        $img = $request->img;
+        $img_name = 'banner_' . time() . $img->getClientOriginalName();
+
+        $banner = new Banner;
+
+        $request = $request->all();
+        $fill_data = [
+            'img' => $img_name,
+            'url' => $request['url'],
+            'priority' => $request['priority'],
+        ];
+
+        DB::beginTransaction();
+        try {
+            $banner->fill($fill_data)->save();
+
+
+            DB::commit();
+            return redirect()->to('admin/banner_list')->with('flashmessage', '登録が完了いたしました。');
+        } catch (\Exception $e) {
+            DB::rollback();
+        }
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function banner_edit($id)
+    {
+        $notice = Notice::find($id);
+
+        return view('admin/banner_edit', [
+            'notice' => $notice,
+        ]);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function banner_update(Request $request)
+    {
+        $rules = [
+            'title' => ['max:20', 'required'],
+            'content' => 'required',
+        ];
+
+        $messages = [
+            'title.max' => 'タイトルは20文字以下でお願いします',
+            'title.required' => 'タイトルを入力してください',
+            'content.required' => '本文を入力してください',
+            'notice_date.required' => 'お知らせ日時を入力してください',
+        ];
+
+        Validator::make($request->all(), $rules, $messages)->validate();
+
+        $request = $request->all();
+        $notice = Notice::find($request['id']);
+
+        $fill_data = [
+            'title' => $request['title'],
+            'content' => $request['content'],
+            'notice_date' => date('Y/m/d'),
+        ];
+
+        DB::beginTransaction();
+        try {
+            $notice->update($fill_data);
+            DB::commit();
+            return redirect()->to('admin/banner_list')->with('flashmessage', 'お知らせの更新が完了いたしました。');
         } catch (\Exception $e) {
             DB::rollback();
         }

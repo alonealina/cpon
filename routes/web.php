@@ -51,6 +51,12 @@ Route::post('admin/notice_store', 'App\Http\Controllers\AdminController@notice_s
 Route::get('admin/notice_edit/{id}/', 'App\Http\Controllers\AdminController@notice_edit')->name('admin.notice_edit');
 Route::post('admin/notice_update', 'App\Http\Controllers\AdminController@notice_update')->name('admin.notice_update');
 
+Route::get('admin/banner_list', 'App\Http\Controllers\AdminController@banner_list')->name('admin.banner_list');
+Route::get('admin/banner_regist', 'App\Http\Controllers\AdminController@banner_regist')->name('admin.banner_regist');
+Route::post('admin/banner_store', 'App\Http\Controllers\AdminController@banner_store')->name('admin.banner_store');
+Route::get('admin/banner_edit/{id}/', 'App\Http\Controllers\AdminController@banner_edit')->name('admin.banner_edit');
+Route::post('admin/banner_update', 'App\Http\Controllers\AdminController@banner_update')->name('admin.banner_update');
+
 // ログイン
 Route::get('admin/login', function () {
     return view('admin/login');
