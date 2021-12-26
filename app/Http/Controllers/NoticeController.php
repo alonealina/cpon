@@ -15,7 +15,7 @@ class NoticeController extends Controller
      */
     public function index()
     {
-        $notices = Notice::orderBy('notice_date', 'desc')->orderBy('id', 'desc')->paginate(10);
+        $notices = Notice::where('release_flg', 1)->orderBy('notice_date', 'desc')->orderBy('id', 'desc')->paginate(10);
 
         return view('notice/index', [
             'notices' => $notices,
