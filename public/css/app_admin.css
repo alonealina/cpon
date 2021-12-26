@@ -46,6 +46,9 @@ footer a, footer a:hover {
     font-size: 13px;
 }
 
+.admin_button {
+    display: inline-block;
+}
 .admin_header {
     background-color: white;
 }
@@ -588,8 +591,22 @@ hr {
     margin:5px 0;
 }
 
-.button_black, .button_comment, .notice_button_back, .notice_button_next {
+.button_black, .button_comment, .notice_button_back, .notice_button_next, .admin_button {
     text-align:center;
+}
+
+.admin_button a {
+    font-size: 20px;
+    display: block;
+    width: 300px;
+    height: 60px;
+    margin: 20px;
+    line-height: 60px;
+    background: #FFB01A;
+    color: #fff;
+    border-radius: 75px;
+    text-decoration: none;
+    text-align: center;
 }
 
 .button_black a {
