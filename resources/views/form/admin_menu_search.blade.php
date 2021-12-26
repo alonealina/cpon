@@ -1,5 +1,6 @@
 
 <form id="form" name="filter_form" action="{{ route('admin.menu_list', ['id' => $restaurant_id]) }}" method="get">
+{{ Form::hidden('number', $number) }}
     <div class="filter_flex">
         <div class="filter_flex_left">
 

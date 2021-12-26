@@ -67,13 +67,15 @@
             <div class="filter_fivestar">
                 <select name="fivestar_before">
                     @foreach (config('const.Fivestar') as $key => $value)
-                    <option value="{{ $key }}" @if($key === $fivestar_before_old) selected @endif>{{ $value }}</option>
+                    <option value="{{ $key }}" @if($key === $fivestar_before_old) selected 
+                    @elseif($key == $fivestar_before_old && $fivestar_before_old !== 'none') selected @endif>{{ $value }}</option>
                     @endforeach
                 </select>
                 　～　
                 <select name="fivestar_after">
                     @foreach (config('const.Fivestar') as $key => $value)
-                    <option value="{{ $key }}" @if($key === $fivestar_after_old) selected @endif>{{ $value }}</option>
+                    <option value="{{ $key }}" @if($key === $fivestar_after_old) selected
+                    @elseif($key == $fivestar_after_old && $fivestar_before_old !== 'none') selected @endif>{{ $value }}</option>
                     @endforeach
                 </select>
             </div>

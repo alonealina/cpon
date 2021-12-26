@@ -2,10 +2,11 @@
 
 @section('content')
 <div class="menu_form">
-    <form id="form" name="regist_form" action="{{ route('admin.menu_store') }}" method="post" enctype="multipart/form-data">
-    {{ Form::hidden('restaurant_id', $restaurant_id) }}
+    <form id="form" name="regist_form" action="{{ route('admin.menu_update') }}" method="post" enctype="multipart/form-data">
         @csrf
-        <div class="comment_form_title">メニュー登録1</div>
+        {{ Form::hidden('restaurant_id', $restaurant_id) }}
+        {{ Form::hidden('menu_id', $menu_id) }}
+        <div class="comment_form_title">メニュー情報編集</div>
 
         <div class="regist_form_item">
             <div class="user_name_title">画像（正方形300px以上を推奨）<p class="required_mark">必須</p></div>
@@ -13,7 +14,11 @@
             <div class="comment_error">{{ $errors->first('img') }}</div>
             @endif
             <div class="regist_file_button"><input type="file" id="file_btn_main" accept="image/*" onclick="fileCheckMain();" name="img"></div>
-            <div class="img_tmb_main"></div>
+            <div class="img_tmb_main">
+                @if (!empty($menu->img))
+                <img src="../../../restaurant/{{ $restaurant_id }}/menu/{{ $menu->img }}">
+                @endif
+            </div>
         </div>
 
         <div class="regist_form_item">
@@ -21,15 +26,15 @@
             @if($errors->has('name'))
             <div class="comment_error">{{ $errors->first('name') }}</div>
             @endif
-            {{ Form::text('name', old('name'), ['class' => 'name_input', 'maxlength' => 20]) }}
+            {{ Form::text('name', old('name', $menu->name), ['class' => 'name_input', 'maxlength' => 20]) }}
         </div>
 
         <div class="regist_form_item">
-            <div class="user_name_title">値段<p class="required_mark">必須</p></div>
+            <div class="user_name_title">値段</div>
             @if($errors->has('price'))
             <div class="comment_error">{{ $errors->first('price') }}</div>
             @endif
-            {{ Form::text('price', old('price'), ['class' => 'price_input', 'maxlength' => 10]) }}　円
+            {{ Form::text('price', old('price', $menu->price), ['class' => 'price_input', 'maxlength' => 20]) }}　円
         </div>
 
         <div class="regist_form_item">
@@ -37,14 +42,17 @@
             @if($errors->has('explain'))
             <div class="comment_error">{{ $errors->first('explain') }}</div>
             @endif
-            {{ Form::text('explain', old('explain'), ['class' => 'explain_input', 'maxlength' => 30]) }}
+            {{ Form::text('explain', old('explain', $menu->explain), ['class' => 'explain_input', 'maxlength' => 30]) }}
         </div>
 
+
         <div class="button_black">
-            <a href="#" onclick="clickRegistButton()">メニューを登録する</a>
+            <a href="#" onclick="clickRegistButton()">メニュー情報を更新する</a>
         </div>
     </form>
     <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
 </div>
 
 @endsection
+
+

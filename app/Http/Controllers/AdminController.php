@@ -184,10 +184,18 @@ class AdminController extends Controller
             $query->where('recommend_flg', 1);
         }
 
-        $restaurants = $query->orderBy('login_id')->paginate(10);
+        $number = \Request::get('number');
+        if (isset($number)) {
+            $restaurants = $query->orderBy('login_id')->paginate($number)
+            ->appends(["number" => $number]);
+        } else {
+            $restaurants = $query->orderBy('login_id')->paginate(10);
+        }
 
+        
         return view('admin.restaurant_list', [
             'restaurants' => $restaurants,
+            'number' => $number,
             'name' => $name,
             'login_id' => $login_id,
             'zip' => $zip,
@@ -785,11 +793,19 @@ class AdminController extends Controller
             $query->where('recommend_flg', 1);
         }
 
-        $menus = $query->orderBy('id')->paginate(10);
+        $number = \Request::get('number');
+        if (isset($number)) {
+            $menus = $query->orderBy('id')->paginate($number)
+            ->appends(["number" => $number]);
+        } else {
+            $number = isset($filter_array['number']) ? $filter_array['number'] : 10;
+            $menus = $query->orderBy('id')->paginate($number);
+        }
 
         $restaurant_name = Restaurant::where('id', $restaurant_id)->first()->name2;
         return view('admin.menu_list', [
             'menus' => $menus,
+            'number' => $number,
             'name' => $name,
             'price_before' => $price_before,
             'price_after' => $price_after,
@@ -926,6 +942,97 @@ class AdminController extends Controller
             DB::rollback();
         }
     }
+
+        /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function menu_edit($restaurant_id, $menu_id)
+    {
+        /////////////////////////////////////////
+        // 運営・該当店舗以外アクセス拒否する処理
+        /////////////////////////////////////////
+
+
+        $menu = Menu::where('restaurant_id', $restaurant_id)->where('id', $menu_id)->first();
+
+        return view('admin/menu_edit', [
+            'menu' => $menu,
+            'restaurant_id' => $restaurant_id,
+            'menu_id' => $menu_id,
+        ]);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function menu_update(Request $request)
+    {
+        $rules = [
+            'name' => ['max:20', 'required'],
+            'price' => ['integer', 'required'],
+            'explain' => 'max:30',
+            'img' => 'max:10240',
+        ];
+
+        $messages = [
+            'name.max' => 'メニュー名は20文字以下でお願いします',
+            'name.required' => 'メニュー名を入力してください',
+            'price.integer' => '数値を入力してください',
+            'price.required' => '値段を入力してください',
+            'explain.max' => '説明文は30文字以下でお願いします',
+            'img.max' => 'ファイルは10MB未満でお願いします',
+        ];
+
+        Validator::make($request->all(), $rules, $messages)->validate();
+
+        if ($img = $request->img) {
+            $img_name = 'menu_' . time() . $img->getClientOriginalName();
+        } else {
+            $img_name = null;
+        }
+
+        $request = $request->all();
+        $fill_data_menu = [
+            'name' => $request['name'],
+            'price' => $request['price'],
+            'explain' => $request['explain'],
+        ];
+
+        if (isset($img_name)) {
+            $fill_data_menu['img'] = $img_name;
+        }
+
+        $restaurant_id = $request['restaurant_id'];
+        $menu_id = $request['menu_id'];
+        
+        $menu = Menu::find($menu_id);
+        $old_img = $menu->img;
+
+        DB::beginTransaction();
+        try {
+            $menu->update($fill_data_menu);
+
+            $target_path = public_path('restaurant/'. $restaurant_id . '/menu/');
+
+            if ($img && $old_img) {
+                if(file_exists($target_path . $old_img)){
+                    unlink($target_path . $old_img);
+                }
+                $img->move($target_path, $img_name);
+            }
+
+            DB::commit();
+            return redirect()->route('admin.menu_list', ['id' => $restaurant_id])->with('flashmessage', 'メニューの更新が完了いたしました。');
+        } catch (\Exception $e) {
+            DB::rollback();
+        }
+    }
+
 
 
     /**

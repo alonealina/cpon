@@ -347,22 +347,3 @@
 </div>
 
 @endsection
-
-
-@section('content_ipad')
-
-@endsection
-
-
-
-
-@section('back_button')
-<div class="back_button">
-    <a href="{{ route('index') }}">←</a>
-</div>
-@endsection
-
-@section('content_sp')
-
-
-@endsection

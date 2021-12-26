@@ -1,11 +1,19 @@
 <div class="restaurant_list_menu filter_flex">
+    <div class="restaurant_release_text">
     ステータス変更
+    </div>
+    <div class="restaurant_recommend_text">
+    イチオシ設定（12個まで）
+    </div>
+</div>
+
+<div class="restaurant_list_menu filter_flex">
     <div class="release_on_button"><a href="#" onclick="clickReleaseOnButton()">公開</a></div>
     <div class="release_off_button"><a href="#" onclick="clickReleaseOffButton()">非公開</a></div>
-    イチオシ設定（12個まで）
     <div class="recommend_on_button"><a href="#" onclick="clickRecommendOnButton()">設定</a></div>
     <div class="recommend_off_button"><a href="#" onclick="clickRecommendOffButton()">解除</a></div>
     <div class="restaurant_list_message">{{ session('message') }}</div>
+    @include('admin.item.menu_number')
 </div>
 
 <div class="restaurant_list">
@@ -46,7 +54,13 @@
                 <input type="checkbox" name="chk[]" value="{{ $menu->id }}">
             </div>
             <div class="restaurant_list_id">
-                <div class="restaurant_item_name">{{ $menu->login_id }}</div>
+                <div class="restaurant_item_name">
+                    @if (empty($menu->img))
+                    <img src="../../img/imgerror.jpg" class="menu_img">
+                    @else
+                    <img src="../../restaurant/{{ $restaurant_id }}/menu/{{ $menu->img }}" class="menu_img">
+                    @endif
+                </div>
             </div>
             <div class="menu_list_name">
                 <div class="restaurant_item_name">{{ $menu->name }}</div>
@@ -70,7 +84,7 @@
                 <div class="restaurant_item_name">{{ $menu->updated_at }}</div>
             </div>
             <div class="menu_list_button_blue">
-                <a href="restaurant_edit/{{ $menu->id }}" onclick="clickRegistButton()">編集</a>
+                <a href="{{ route('admin.menu_edit', ['id_r' => $restaurant_id, 'id_m' => $menu->id]) }}" onclick="clickRegistButton()">編集</a>
             </div>
             <div class="menu_list_button_red">
                 <a href="#" onclick="clickRegistButton()">削除</a>
@@ -82,3 +96,9 @@
     {{ $menus->appends(request()->query())->links('pagination::default') }}
     </div>
 </div>
+<script>
+selected = document.getElementById("change_number");
+selected.onchange = function() {
+window.location.href = selected.value;
+};
+</script>

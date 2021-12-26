@@ -215,8 +215,20 @@ footer a, footer a:hover {
     text-align:center;
 }
 
+.restaurant_release_text {
+    width: 150px;
+    text-align: center;
+}
+
+.restaurant_recommend_text {
+    width: 200px;
+    text-align: center;
+}
+
 .release_on_button a,
-.release_off_button a {
+.release_off_button a,
+.recommend_on_button a,
+.recommend_off_button a {
     font-size: 14px;
     font-weight: bold;
     display:block;
@@ -232,22 +244,22 @@ footer a, footer a:hover {
     margin-bottom: 10px;
 }
 
-.recommend_on_button a,
-.recommend_off_button a {
-    font-size: 14px;
-    font-weight: bold;
-    display:block;
-    width: 50px;
-    height: 40px;
-    line-height: 40px;
-    background:#FFFFFF 0% 0% no-repeat padding-box;
-    border: 1px solid #595959;
-    color: #595959;
-    border-radius:4px;
-    text-decoration:none;
-    text-align:center;
-    margin-bottom: 10px;
+.release_on_button {
+    margin-left: 15px;
 }
+
+.release_off_button {
+    margin-right: 15px;
+}
+
+.recommend_on_button {
+    margin-left: 40px;
+}
+
+.recommend_off_button {
+    margin-right: 40px;
+}
+
 
 .search_button, .clear_button {
     width:100px;
@@ -491,16 +503,10 @@ p {
     margin:10px;
 }
 
-.main_img_ipad {
-    width: 320px;
-    height: 180px;
-    margin:10px;
-}
-
-.sub_img_ipad {
-    width: 170px;
-    height: 85px;
-    margin:10px 5px 0 0;
+.menu_img {
+    width: 45px;
+    height: 45px;
+    margin:5px;
 }
 
 hr {
@@ -804,6 +810,10 @@ select {
     width:170px;
     float:right;
     padding-left: 10px;
+}
+
+.number_select {
+    float: right;
 }
 
 label {

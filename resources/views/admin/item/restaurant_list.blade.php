@@ -1,11 +1,19 @@
 <div class="restaurant_list_menu filter_flex">
+    <div class="restaurant_release_text">
     ステータス変更
+    </div>
+    <div class="restaurant_recommend_text">
+    おすすめ設定（6店舗まで）
+    </div>
+</div>
+
+<div class="restaurant_list_menu filter_flex">
     <div class="release_on_button"><a href="#" onclick="clickReleaseOnButton()">公開</a></div>
     <div class="release_off_button"><a href="#" onclick="clickReleaseOffButton()">非公開</a></div>
-    おすすめ設定（6店舗まで）
     <div class="recommend_on_button"><a href="#" onclick="clickRecommendOnButton()">設定</a></div>
     <div class="recommend_off_button"><a href="#" onclick="clickRecommendOffButton()">解除</a></div>
     <div class="restaurant_list_message">{{ session('message') }}</div>
+    @include('admin.item.restaurant_number')
 </div>
 
 <div class="restaurant_list">
@@ -96,3 +104,9 @@
     {{ $restaurants->appends(request()->query())->links('pagination::default') }}
     </div>
 </div>
+<script>
+selected = document.getElementById("change_number");
+selected.onchange = function() {
+window.location.href = selected.value;
+};
+</script>
