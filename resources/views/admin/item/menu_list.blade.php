@@ -52,7 +52,7 @@
                 <div class="restaurant_item_name">{{ $menu->name }}</div>
             </div>
             <div class="menu_list_price">
-                <div class="restaurant_item_name">{{ $menu->price }}円</div>
+                <div class="restaurant_item_name">{{ number_format($menu->price) }}円</div>
             </div>
             <div class="menu_list_explain">
                 <div class="restaurant_item_name">{{ $menu->explain }}</div>

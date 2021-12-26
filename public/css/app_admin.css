@@ -340,6 +340,12 @@ footer a, footer a:hover {
     margin: 5px 0;
 }
 
+.menu_form {
+    background-color: #F0F0F0;
+    margin:20px;
+    width: 96%;
+}
+
 .category_background {
     background-image: url(../img/bg_kategory.jpg);
     height:300px;
@@ -725,7 +731,7 @@ hr {
 
 .flexible-list-main {
     width: 100%;
-    background-color: #f3f3f3;
+    background-color: #F5F6F8;
 }
 
 .filter_form_title {

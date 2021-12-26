@@ -84,7 +84,7 @@
                 <a href="restaurant_edit/{{ $restaurant->id }}" onclick="clickRegistButton()">編集</a>
             </div>
             <div class="restaurant_list_button_blue">
-                <a href="{{ route('admin.restaurant_menu_list', ['id' => $restaurant->id]) }}">メニュー<br>詳細</a>
+                <a href="{{ route('admin.menu_list', ['id' => $restaurant->id]) }}">メニュー<br>詳細</a>
             </div>
             <div class="restaurant_list_button_red">
                 <a href="#" onclick="clickRegistButton()">削除</a>

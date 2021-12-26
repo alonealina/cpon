@@ -1,5 +1,5 @@
 
-<form id="form" name="filter_form" action="{{ route('admin.restaurant_menu_list', ['id' => $restaurant_id]) }}" method="get">
+<form id="form" name="filter_form" action="{{ route('admin.menu_list', ['id' => $restaurant_id]) }}" method="get">
     <div class="filter_flex">
         <div class="filter_flex_left">
 

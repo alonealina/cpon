@@ -274,7 +274,7 @@ class AdminController extends Controller
         ]);
     }
 
-        /**
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -434,6 +434,11 @@ class AdminController extends Controller
      */
     public function restaurant_edit($id)
     {
+        /////////////////////////////////////////
+        // 運営・該当店舗以外アクセス拒否する処理
+        /////////////////////////////////////////
+
+
         $categories = Category::all();
         $restaurant = Restaurant::find($id);
         $scenes = Scene::all();
@@ -718,8 +723,12 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function restaurant_menu_list($restaurant_id, Request $request)
+    public function menu_list($restaurant_id, Request $request)
     {
+        /////////////////////////////////////////
+        // 運営・該当店舗以外アクセス拒否する処理
+        /////////////////////////////////////////
+
         $query = Menu::where('restaurant_id', $restaurant_id);
         $filter_array = $request->all();
         $name = isset($filter_array['name']) ? $filter_array['name'] : null;
@@ -779,7 +788,7 @@ class AdminController extends Controller
         $menus = $query->orderBy('id')->paginate(10);
 
         $restaurant_name = Restaurant::where('id', $restaurant_id)->first()->name2;
-        return view('admin.restaurant_menu_list', [
+        return view('admin.menu_list', [
             'menus' => $menus,
             'name' => $name,
             'price_before' => $price_before,
@@ -840,12 +849,84 @@ class AdminController extends Controller
                             ->update(['recommend_flg' => $recommend_flg]);
                     }    
                 } else {
-                    return redirect()->route('admin.restaurant_menu_list', ['id' => $restaurant_id])->with('message', 'おすすめ店舗は12店舗まででお願いします');
+                    return redirect()->route('admin.menu_list', ['id' => $restaurant_id])->with('message', 'イチオシメニューは12個まででお願いします');
                 }
             }
         }
-        return redirect()->route('admin.restaurant_menu_list', ['id' => $restaurant_id])->with('message', 'test');
+        return redirect()->route('admin.menu_list', ['id' => $restaurant_id])->with('message', 'test');
     }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function menu_regist($id)
+    {
+        $restaurant_id = $id;
+
+        return view('admin/menu_regist', [
+            'restaurant_id' => $restaurant_id,
+        ]);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function menu_store(Request $request)
+    {
+        $rules = [
+            'name' => ['max:20', 'required'],
+            'price' => ['integer', 'required'],
+            'explain' => 'max:30',
+            'img' => ['max:10240', 'required'],
+        ];
+
+        $messages = [
+            'name.max' => 'メニュー名は20文字以下でお願いします',
+            'name.required' => 'メニュー名を入力してください',
+            'price.integer' => '数値を入力してください',
+            'price.required' => '値段を入力してください',
+            'explain.max' => '説明文は30文字以下でお願いします',
+            'img.required' => 'ファイルを選択してください',
+            'img.max' => 'ファイルは10MB未満でお願いします',
+        ];
+
+        Validator::make($request->all(), $rules, $messages)->validate();
+
+        $menu = new Menu;
+
+        $img = $request->img;
+        $img_name = 'menu_' . time() . $img->getClientOriginalName();
+
+        $restaurant_id = $request['restaurant_id'];
+
+        $request = $request->all();
+        $fill_data_menu = [
+            'name' => $request['name'],
+            'price' => $request['price'],
+            'explain' => $request['explain'],
+            'img' => $img_name,
+            'restaurant_id' => $restaurant_id,
+        ];
+
+        DB::beginTransaction();
+        try {
+            $menu->fill($fill_data_menu)->save();
+
+            $target_path = public_path('restaurant/'. $restaurant_id . '/menu/');
+            $img->move($target_path, $img_name);
+
+            DB::commit();
+            return redirect()->route('admin.menu_list', ['id' => $restaurant_id])->with('flashmessage', '登録が完了いたしました。');
+        } catch (\Exception $e) {
+            DB::rollback();
+        }
+    }
+
 
     /**
      * Show the form for creating a new resource.
