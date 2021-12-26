@@ -209,18 +209,14 @@ footer a, footer a:hover {
     font-size: 40px;
     font-weight: bold;
     margin-left:30px;
+    color: white;
+    -webkit-text-stroke:2px #727272;
 }
 
 .category_img {
-    float: left;
-    margin-left: 40px;
-    height: 300px;
-    position: relative;
-    top: 38%;
-    width: 20%;
+    float:left;
+    margin-left:40px;
 }
-
-
 
 .category_background_ipad {
     height:200px;
@@ -586,16 +582,15 @@ hr {
 
 .comment_form_title {
     font-size: 20px;
-    font-weight: 400;
+    font-weight: bold;
     margin:20px 0;
 }
 
 .user_name_title, .comment_create_title {
-    font-size: 20px;
-    margin: 30px 0px 20px 0px;
-    border-left: orange solid 3px;
+    font-size: 25px;
+    margin: 30px 0px 10px 0px;
+    border-left: orange solid 5px;
     padding-left: 20px;
-    font-weight: 300;
 }
 
 .user_name_title_sp, .comment_create_title_sp {
@@ -604,7 +599,6 @@ hr {
     margin: 10px 0px;
     border-left: orange solid 5px;
     padding-left: 10px;
-    font-weight: 300;
 }
 
 .comment_input, .user_name_input {
@@ -615,7 +609,6 @@ hr {
 
 .user_name_input {
     width: 370px;
-    height: 45px;
 }
 
 .user_name_form {
@@ -939,9 +932,9 @@ label {
 
 .notice_name_title {
     position: relative;
-    top: 40%;
-    font-size: 60px;
-    font-weight: bold;
+    top: 35%;
+    left: 25%;
+    font-size: 45px;
 }
 
 .notice_background {
@@ -1781,15 +1774,15 @@ label {
 
 .fivestar_title {
     float:left;
-    font-size: 20px;
+    font-size: 25px;
     margin: 30px 0px;
-    border-left: orange solid 3px;
+    border-left: orange solid 5px;
     padding-left: 20px;
 }
 
 .fivestar_title_sp {
     float:left;
-    /*font-weight: bold;*/
+    font-weight: bold;
     margin: 10px 0px;
     border-left: orange solid 5px;
     padding-left: 10px;
@@ -1818,11 +1811,10 @@ label {
 }
 .rate-form label {
     position: relative;
-    float: left;
     padding: 0 5px;
     color: #ccc;
     cursor: pointer;
-    font-size: 45px;
+    font-size: 60px;
     border:none;
 }
 .rate-form label:hover {
@@ -1886,14 +1878,14 @@ label {
 
 /* 閉じるボタン */
 .button-close {
-    font-size: 25px;
+    font-size: 30px;
     position: absolute;
     top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 500px;
     height: 80px;
-    background-color: #FDB731;
+    background-color: black;
     color: #eaeaea;
     border-radius: 20rem;
     cursor: pointer;
@@ -1907,7 +1899,7 @@ label {
     transform: translate(-50%, -50%);
     width: 300px;
     height: 50px;
-    background-color: #FDB731;
+    background-color: black;
     color: #eaeaea;
     border-radius: 20rem;
     cursor: pointer;

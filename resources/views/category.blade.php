@@ -6,7 +6,7 @@
     <img src="../../img/category_big/{{$id}}.png" alt="">
     </div>
     <div class="category_name_title">
-    {{ $category_name }}
+   <span> {{ $category_name }} </span>
     </div>
 </div>
 @endsection
