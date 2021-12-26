@@ -13,8 +13,6 @@
         <form id="form" name="regist_form" action="{{ route('admin.notice_update') }}" method="post" enctype="multipart/form-data">
             @csrf
             {{ Form::hidden('id', $notice->id) }}
-            <div class="comment_form_title">お知らせの編集</div>
-
             <div class="regist_form_item">
                 <div class="user_name_title">タイトル</div>
                 @if($errors->has('title'))
