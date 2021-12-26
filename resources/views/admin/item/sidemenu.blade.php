@@ -7,4 +7,10 @@
     <hr>
     <div class="sidemenu_name"><a href="{{ route('admin.setting_list') }}">各種設定</a></div>
     <hr>
+    <div class="sidemenu_name"><a href="{{ route('admin.restaurant_list') }}">店舗情報編集</a></div>
+    <hr>
+    <div class="sidemenu_name"><a href="{{ route('admin.notice_list') }}">メニュー管理</a></div>
+    <hr>
+    <div class="sidemenu_name"><a href="{{ route('admin.banner_list') }}">クチコミ管理</a></div>
+    <hr>
 </div>
