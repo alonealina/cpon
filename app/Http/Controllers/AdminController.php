@@ -1037,6 +1037,19 @@ class AdminController extends Controller
         }
     }
 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function notice_list()
+    {
+        $notices = Notice::orderBy('updated_at', 'desc')->paginate(10);
+        
+        return view('admin.notice_list', [
+            'notices' => $notices,
+        ]);
+    }
 
 
     /**
@@ -1058,16 +1071,14 @@ class AdminController extends Controller
     public function notice_store(Request $request)
     {
         $rules = [
-            'title' => ['max:50', 'required'],
+            'title' => ['max:20', 'required'],
             'content' => 'required',
-            'notice_date' => 'required',
         ];
 
         $messages = [
             'title.max' => 'タイトルは20文字以下でお願いします',
             'title.required' => 'タイトルを入力してください',
             'content.required' => '本文を入力してください',
-            'notice_date.required' => 'お知らせ日時を入力してください',
         ];
 
         Validator::make($request->all(), $rules, $messages)->validate();

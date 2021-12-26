@@ -285,6 +285,13 @@ footer a, footer a:hover {
     margin-bottom: 30px;
 }
 
+.notice_list {
+    background:#fff;
+    font-size: 11px;
+    margin: 15px;
+    width:80%;
+}
+
 .restaurant_item_name, .restaurant_list_checkbox {
     margin:10px 5px;
     text-align: center;
@@ -340,6 +347,14 @@ footer a, footer a:hover {
 
 .menu_list_explain {
     width:20%;
+}
+
+.notice_list_title {
+    width:50%;
+}
+
+.notice_list_status {
+    width:13%;
 }
 
 
@@ -852,6 +867,11 @@ label {
 .category_ipad a, .category_ipad a:hover,
 .category_sp a, .category_sp a:hover {
     color: black;
+    text-decoration:none;
+}
+
+.sidemenu_name a, .sidemenu_name a:hover {
+    color: #2F3F4E;
     text-decoration:none;
 }
 
