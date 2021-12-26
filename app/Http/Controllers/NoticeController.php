@@ -22,27 +22,6 @@ class NoticeController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  int  $id
@@ -84,26 +63,142 @@ class NoticeController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Display a listing of the resource.
      *
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function notice_list()
     {
-        //
+        $notices = Notice::orderBy('updated_at', 'desc')->paginate(10);
+        
+        return view('admin.notice_list', [
+            'notices' => $notices,
+        ]);
     }
 
     /**
-     * Update the specified resource in storage.
+     * Display a listing of the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function notice_list_update(Request $request)
     {
-        //
+        $request = $request->all();
+        $id = $request['id'];
+        $release_flg = $request['release_flg'] == 1 ? 0 : 1;
+
+        $notice = Notice::find($id);
+        $notice->release_flg = $release_flg;
+        $notice->timestamps = false;
+        $notice->save();
+
+        return redirect()->route('admin.notice_list')->with('message', 'test');
+    }
+
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function notice_regist()
+    {
+        return view('admin/notice_regist');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function notice_store(Request $request)
+    {
+        $rules = [
+            'title' => ['max:20', 'required'],
+            'content' => 'required',
+        ];
+
+        $messages = [
+            'title.max' => 'タイトルは20文字以下でお願いします',
+            'title.required' => 'タイトルを入力してください',
+            'content.required' => '本文を入力してください',
+        ];
+
+        Validator::make($request->all(), $rules, $messages)->validate();
+
+        $notice = new Notice;
+
+        $request = $request->all();
+        $fill_data = [
+            'title' => $request['title'],
+            'content' => $request['content'],
+            'notice_date' => date('Y/m/d'),
+        ];
+
+        DB::beginTransaction();
+        try {
+            $notice->fill($fill_data)->save();
+            DB::commit();
+            return redirect()->to('admin/notice_list')->with('flashmessage', '登録が完了いたしました。');
+        } catch (\Exception $e) {
+            DB::rollback();
+        }
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function notice_edit($id)
+    {
+        $notice = Notice::find($id);
+
+        return view('admin/notice_edit', [
+            'notice' => $notice,
+        ]);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function notice_update(Request $request)
+    {
+        $rules = [
+            'title' => ['max:20', 'required'],
+            'content' => 'required',
+        ];
+
+        $messages = [
+            'title.max' => 'タイトルは20文字以下でお願いします',
+            'title.required' => 'タイトルを入力してください',
+            'content.required' => '本文を入力してください',
+            'notice_date.required' => 'お知らせ日時を入力してください',
+        ];
+
+        Validator::make($request->all(), $rules, $messages)->validate();
+
+        $request = $request->all();
+        $notice = Notice::find($request['id']);
+
+        $fill_data = [
+            'title' => $request['title'],
+            'content' => $request['content'],
+            'notice_date' => date('Y/m/d'),
+        ];
+
+        DB::beginTransaction();
+        try {
+            $notice->update($fill_data);
+            DB::commit();
+            return redirect()->to('admin/notice_list')->with('flashmessage', 'お知らせの更新が完了いたしました。');
+        } catch (\Exception $e) {
+            DB::rollback();
+        }
     }
 
     /**
