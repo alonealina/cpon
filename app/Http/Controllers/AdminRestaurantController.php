@@ -42,6 +42,7 @@ class AdminRestaurantController extends Controller
         $fivestar_before_old = isset($filter_array['fivestar_before']) ? $filter_array['fivestar_before'] : null;
         $fivestar_after_old = isset($filter_array['fivestar_after']) ? $filter_array['fivestar_after'] : null;
         $status = isset($filter_array['status']) ? $filter_array['status'] : null;
+        $category_id = isset($filter_array['category_id']) ? $filter_array['category_id'] : null;
         $created_year_before = isset($filter_array['created_year_before']) ? $filter_array['created_year_before'] : null;
         $created_month_before = isset($filter_array['created_month_before']) ? $filter_array['created_month_before'] : null;
         $created_day_before = isset($filter_array['created_day_before']) ? $filter_array['created_day_before'] : null;
@@ -87,6 +88,10 @@ class AdminRestaurantController extends Controller
 
         if (!empty($tel)) {
             $query->where('tel', $tel);
+        }
+
+        if (!empty($category_id) && $category_id != 'none') {
+            $query->where('category_id', $category_id);
         }
 
         if ($open != 0) {
@@ -140,6 +145,7 @@ class AdminRestaurantController extends Controller
             $restaurants = $query->orderBy('login_id')->paginate(10);
         }
 
+        $categories = Category::all();
         
         return view('admin.restaurant_list', [
             'restaurants' => $restaurants,
@@ -156,6 +162,7 @@ class AdminRestaurantController extends Controller
             'fivestar_before_old' => $fivestar_before_old,
             'fivestar_after_old' => $fivestar_after_old,
             'status' => $status,
+            'category_id' => $category_id,
             'created_year_before' => $created_year_before,
             'created_month_before' => $created_month_before,
             'created_day_before' => $created_day_before,
@@ -168,6 +175,7 @@ class AdminRestaurantController extends Controller
             'updated_year_after' => $updated_year_after,
             'updated_month_after' => $updated_month_after,
             'updated_day_after' => $updated_day_after,
+            'categories' => $categories,
         ]);
     }
 
