@@ -14,6 +14,8 @@ use App\Models\RestaurantCommitment;
 use App\Models\RestaurantHoliday;
 use App\Models\RestaurantCard;
 use App\Models\Menu;
+use App\Rules\HolidayCheck;
+use App\Rules\ZipCheck;
 use DB;
 
 class AdminRestaurantController extends Controller
@@ -236,29 +238,43 @@ class AdminRestaurantController extends Controller
     public function restaurant_store(Request $request)
     {
         $rules = [
-            'name1' => ['max:20', 'required'],
+            'login_id' => 'required',
+            'password' => 'required',
+            'name2' => 'required',
             'profile' => 'required',
-            'zip' => 'required',
+            'zip' => ['required', new ZipCheck()],
             'address' => 'required',
+            'holidays' => new HolidayCheck($request['holidays']),
+            'tel' => 'required',
             'main_img' => ['max:10240', 'required'],
             'sub_img1' => 'max:10240',
             'sub_img2' => 'max:10240',
             'sub_img3' => 'max:10240',
             'sub_img4' => 'max:10240',
+            'sub_img5' => 'max:10240',
+            'sub_img6' => 'max:10240',
+            'sub_img7' => 'max:10240',
+            'sub_img8' => 'max:10240',
         ];
 
         $messages = [
-            'name1.max' => '店舗名は20文字以下でお願いします',
-            'name1.required' => '店舗名を入力してください',
+            'login_id.required' => '店舗IDを入力してください',
+            'password.required' => 'パスワードを入力してください',
+            'name2.required' => '店舗名を入力してください',
             'profile.required' => 'プロフィールを入力してください',
             'zip.required' => '郵便番号を入力してください',
             'address.required' => '住所を入力してください',
+            'tel.required' => '電話番号を入力してください',
             'main_img.required' => 'ファイルを選択してください',
             'main_img.max' => 'ファイルは10MB未満でお願いします',
             'sub_img1.max' => 'ファイルは10MB未満でお願いします',
             'sub_img2.max' => 'ファイルは10MB未満でお願いします',
             'sub_img3.max' => 'ファイルは10MB未満でお願いします',
             'sub_img4.max' => 'ファイルは10MB未満でお願いします',
+            'sub_img5.max' => 'ファイルは10MB未満でお願いします',
+            'sub_img6.max' => 'ファイルは10MB未満でお願いします',
+            'sub_img7.max' => 'ファイルは10MB未満でお願いします',
+            'sub_img8.max' => 'ファイルは10MB未満でお願いします',
         ];
 
         Validator::make($request->all(), $rules, $messages)->validate();
@@ -286,7 +302,7 @@ class AdminRestaurantController extends Controller
             'name3' => $request['name3'],
             'profile' => $request['profile'],
             'pref' => $request['pref'],
-            'zip' => $request['zip'],
+            'zip' => ['required', new ZipCheck()],
             'address' => $request['address'],
             'address_remarks' => $request['address_remarks'],
             'open_time' => $request['open_time'],
@@ -424,28 +440,42 @@ class AdminRestaurantController extends Controller
     public function restaurant_update(Request $request)
     {
         $rules = [
-            'name1' => ['max:20', 'required'],
+            'login_id' => 'required',
+            'password' => 'required',
+            'name2' => 'required',
             'profile' => 'required',
             'zip' => 'required',
             'address' => 'required',
+            'holidays' => new HolidayCheck($request['holidays']),
+            'tel' => 'required',
             'main_img' => 'max:10240',
             'sub_img1' => 'max:10240',
             'sub_img2' => 'max:10240',
             'sub_img3' => 'max:10240',
             'sub_img4' => 'max:10240',
+            'sub_img5' => 'max:10240',
+            'sub_img6' => 'max:10240',
+            'sub_img7' => 'max:10240',
+            'sub_img8' => 'max:10240',
         ];
 
         $messages = [
-            'name1.max' => '店舗名は20文字以下でお願いします',
-            'name1.required' => '店舗名を入力してください',
+            'login_id.required' => '店舗IDを入力してください',
+            'password.required' => 'パスワードを入力してください',
+            'name2.required' => '店舗名を入力してください',
             'profile.required' => 'プロフィールを入力してください',
             'zip.required' => '郵便番号を入力してください',
             'address.required' => '住所を入力してください',
+            'tel.required' => '電話番号を入力してください',
             'main_img.max' => 'ファイルは10MB未満でお願いします',
             'sub_img1.max' => 'ファイルは10MB未満でお願いします',
             'sub_img2.max' => 'ファイルは10MB未満でお願いします',
             'sub_img3.max' => 'ファイルは10MB未満でお願いします',
             'sub_img4.max' => 'ファイルは10MB未満でお願いします',
+            'sub_img5.max' => 'ファイルは10MB未満でお願いします',
+            'sub_img6.max' => 'ファイルは10MB未満でお願いします',
+            'sub_img7.max' => 'ファイルは10MB未満でお願いします',
+            'sub_img8.max' => 'ファイルは10MB未満でお願いします',
         ];
 
         Validator::make($request->all(), $rules, $messages)->validate();

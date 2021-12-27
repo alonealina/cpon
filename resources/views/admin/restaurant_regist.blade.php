@@ -12,8 +12,15 @@
     <form id="form" class="restaurant_regist_form" name="regist_form" action="{{ route('admin.restaurant_store') }}" method="post" enctype="multipart/form-data">
         @csrf
         
+        @if($errors->has('login_id'))
+        <div class="comment_error">{{ $errors->first('login_id') }}</div>
+        @endif
         <div class="admin_form_name">店舗ID<p class="required_mark">※必須</p></div>
         {{ Form::text('login_id', old('login_id'), ['class' => 'login_id_input', 'maxlength' => 10]) }}
+
+        @if($errors->has('password'))
+        <div class="comment_error">{{ $errors->first('password') }}</div>
+        @endif
         <div class="admin_form_name">パスワード<p class="required_mark">※必須</p></div>
         {{ Form::text('password', old('password'), ['class' => 'password_input', 'maxlength' => 12]) }}
 
@@ -131,6 +138,9 @@
             </div>
 
             <div class="regist_form_item">
+                @if($errors->has('holidays'))
+                <div class="comment_error">{{ $errors->first('holidays') }}</div>
+                @endif
                 <div class="admin_form_name">定休日（複数選択可）<p class="required_mark">※必須</p></div>
                 @include('form.holidays')
             </div>

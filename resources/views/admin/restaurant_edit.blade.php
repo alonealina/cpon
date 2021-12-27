@@ -163,6 +163,9 @@
             </div>
 
             <div class="regist_form_item">
+                @if($errors->has('holidays'))
+                <div class="comment_error">{{ $errors->first('holidays') }}</div>
+                @endif
                 <div class="admin_form_name">定休日（複数選択可）<p class="required_mark">※必須</p></div>
                 @include('form.holidays_edit')
             </div>

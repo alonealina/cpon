@@ -30,6 +30,7 @@
         <a href="{{ route('admin.menu_list', ['id' => 71]) }}">メニュー管理</a>
     </div>
     <div class="admin_button">
+        <!-- 後で変更 -->
         <a href="{{ route('admin.comment_list', ['id' => 71]) }}">クチコミ管理</a>
     </div>
     <div class="admin_button">
