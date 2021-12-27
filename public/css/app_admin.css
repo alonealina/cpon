@@ -173,36 +173,8 @@ footer a, footer a:hover {
     text-align:center;
 }
 
-.restaurant_list_button_blue a {
-    font-size: 10px;
-    font-weight: bold;
-    display:block;
-    width: 40px;
-    height: 45px;
-    line-height: 45px;
-    background:#437EC4;
-    color:#fff;
-    margin:5px;
-    border-radius:8px;
-    text-decoration:none;
-    text-align:center;
-}
 
-.restaurant_list_button_red a {
-    font-size: 10px;
-    font-weight: bold;
-    display:block;
-    width: 40px;
-    height: 45px;
-    line-height: 45px;
-    background:#CB0C0C;
-    color:#fff;
-    margin:5px;
-    border-radius:8px;
-    text-decoration:none;
-    text-align:center;
-}
-
+.restaurant_list_button_blue a,
 .menu_list_button_blue a {
     font-size: 10px;
     font-weight: bold;
@@ -218,6 +190,22 @@ footer a, footer a:hover {
     text-align:center;
 }
 
+.restaurant_list_detail_button_blue a {
+    font-size: 10px;
+    font-weight: bold;
+    display:block;
+    width: 50px;
+    height: 50px;
+    padding-top:12px;
+    background:#437EC4;
+    color:#fff;
+    margin:5px;
+    border-radius:8px;
+    text-decoration:none;
+    text-align:center;
+}
+
+.restaurant_list_button_red a,
 .menu_list_button_red a {
     font-size: 10px;
     font-weight: bold;
@@ -375,7 +363,7 @@ footer a, footer a:hover {
 }
 
 .restaurant_list_tel {
-    width:11%;
+    width:10%;
 }
 
 .restaurant_list_time {
@@ -387,7 +375,7 @@ footer a, footer a:hover {
 }
 
 .restaurant_list_status {
-    width:8%;
+    width:7%;
 }
 
 .restaurant_list_recommend {

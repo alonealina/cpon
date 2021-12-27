@@ -14,6 +14,9 @@
         {{ Form::hidden('restaurant_id', $restaurant->id) }}
         <div class="admin_form_name">店舗ID<p class="required_mark">※必須</p></div>
         {{ Form::text('login_id', old('login_id', $restaurant->login_id), ['class' => 'login_id_input', 'maxlength' => 10]) }}
+        @if($errors->has('password'))
+        <div class="comment_error">{{ $errors->first('password') }}</div>
+        @endif
         <div class="admin_form_name">パスワード<p class="required_mark">※必須</p></div>
         {{ Form::text('password', old('password', $restaurant->password), ['class' => 'password_input', 'maxlength' => 12]) }}
 
@@ -336,7 +339,7 @@
             <div class="admin_form_title">検索情報関連</div>
 
             <div class="regist_form_item">
-                <div class="admin_form_name">カテゴリー<p class="required_mark">※必須</p></div>
+                <div class="admin_form_name">カテゴリ<p class="required_mark">※必須</p></div>
                 <select name="category_id">
                 @foreach ($categories as $category)
                 <option value="{{ $category->id }}"

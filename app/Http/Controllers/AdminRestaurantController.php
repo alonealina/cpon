@@ -17,6 +17,7 @@ use App\Models\Menu;
 use App\Rules\HolidayCheck;
 use App\Rules\ZipCheck;
 use App\Rules\PhoneCheck;
+use App\Rules\AlphaNumCheck;
 use DB;
 
 class AdminRestaurantController extends Controller
@@ -42,6 +43,7 @@ class AdminRestaurantController extends Controller
         $fivestar_before_old = isset($filter_array['fivestar_before']) ? $filter_array['fivestar_before'] : null;
         $fivestar_after_old = isset($filter_array['fivestar_after']) ? $filter_array['fivestar_after'] : null;
         $status = isset($filter_array['status']) ? $filter_array['status'] : null;
+        $category_id = isset($filter_array['category_id']) ? $filter_array['category_id'] : null;
         $created_year_before = isset($filter_array['created_year_before']) ? $filter_array['created_year_before'] : null;
         $created_month_before = isset($filter_array['created_month_before']) ? $filter_array['created_month_before'] : null;
         $created_day_before = isset($filter_array['created_day_before']) ? $filter_array['created_day_before'] : null;
@@ -87,6 +89,10 @@ class AdminRestaurantController extends Controller
 
         if (!empty($tel)) {
             $query->where('tel', $tel);
+        }
+
+        if (!empty($category_id) && $category_id != 'none') {
+            $query->where('category_id', $category_id);
         }
 
         if ($open != 0) {
@@ -140,6 +146,7 @@ class AdminRestaurantController extends Controller
             $restaurants = $query->orderBy('login_id')->paginate(10);
         }
 
+        $categories = Category::all();
         
         return view('admin.restaurant_list', [
             'restaurants' => $restaurants,
@@ -156,6 +163,7 @@ class AdminRestaurantController extends Controller
             'fivestar_before_old' => $fivestar_before_old,
             'fivestar_after_old' => $fivestar_after_old,
             'status' => $status,
+            'category_id' => $category_id,
             'created_year_before' => $created_year_before,
             'created_month_before' => $created_month_before,
             'created_day_before' => $created_day_before,
@@ -168,6 +176,7 @@ class AdminRestaurantController extends Controller
             'updated_year_after' => $updated_year_after,
             'updated_month_after' => $updated_month_after,
             'updated_day_after' => $updated_day_after,
+            'categories' => $categories,
         ]);
     }
 
@@ -293,26 +302,25 @@ class AdminRestaurantController extends Controller
                     'url' => $data[13],
                     'tel' => $data[14],
                     'time_remarks' => $data[15],
-                    'recommend_flg' => $data[16],
-                    'cpon_mall_url' => $data[17],
-                    'budget_lunch' => $data[18],
-                    'budget_dinner' => $data[19],
-                    'station1' => $data[20],
-                    'route1' => $data[21],
-                    'station2' => $data[22],
-                    'route2' => $data[23],
-                    'station3' => $data[24],
-                    'route3' => $data[25],
-                    'station4' => $data[26],
-                    'route4' => $data[27],
-                    'station5' => $data[28],
-                    'route5' => $data[29],
-                    'access' => $data[30],
-                    'parking' => $data[31],
-                    'e_money' => $data[32],
-                    'seats' => $data[33],
-                    'smoking' => $data[34],
-                    'other' => $data[35],
+                    'cpon_mall_url' => $data[16],
+                    'budget_lunch' => $data[17],
+                    'budget_dinner' => $data[18],
+                    'station1' => $data[19],
+                    'route1' => $data[20],
+                    'station2' => $data[21],
+                    'route2' => $data[22],
+                    'station3' => $data[23],
+                    'route3' => $data[24],
+                    'station4' => $data[25],
+                    'route4' => $data[26],
+                    'station5' => $data[27],
+                    'route5' => $data[28],
+                    'access' => $data[29],
+                    'parking' => $data[30],
+                    'e_money' => $data[31],
+                    'seats' => $data[32],
+                    'smoking' => $data[33],
+                    'other' => $data[34],
                     'main_img' => '',
                 ];
 
@@ -321,24 +329,24 @@ class AdminRestaurantController extends Controller
                 $restaurant_id = $restaurant->id;
 
                 $fill_data_holiday = [
-                'monday' => $data[36],
-                'tuesday' => $data[37],
-                'wednesday' => $data[38],
-                'thursday' => $data[39],
-                'friday' => $data[40],
-                'saturday' => $data[41],
-                'sunday' => $data[42],
+                'monday' => $data[35],
+                'tuesday' => $data[36],
+                'wednesday' => $data[37],
+                'thursday' => $data[38],
+                'friday' => $data[39],
+                'saturday' => $data[40],
+                'sunday' => $data[41],
                 'restaurant_id' => $restaurant_id,
                 ];
                 $fill_data_holiday['none'] = in_array(1, $fill_data_holiday) ? 0 : 1;
 
                 $fill_data_card = [
-                    'visa' => $data[43],
-                    'mastercard' => $data[44],
-                    'jcb' => $data[45],
-                    'diners' => $data[46],
-                    'amex' => $data[47],
-                    'other' => $data[48],
+                    'visa' => $data[42],
+                    'mastercard' => $data[43],
+                    'jcb' => $data[44],
+                    'diners' => $data[45],
+                    'amex' => $data[46],
+                    'other' => $data[47],
                     'restaurant_id' => $restaurant_id,
                 ];
     
@@ -387,8 +395,8 @@ class AdminRestaurantController extends Controller
     public function restaurant_store(Request $request)
     {
         $rules = [
-            'login_id' => 'required',
-            'password' => 'required',
+            'login_id' => ['required', new AlphaNumCheck()],
+            'password' => ['required', new AlphaNumCheck()],
             'name2' => 'required',
             'profile' => 'required',
             'zip' => ['required', new ZipCheck()],
@@ -451,7 +459,7 @@ class AdminRestaurantController extends Controller
             'name3' => $request['name3'],
             'profile' => $request['profile'],
             'pref' => $request['pref'],
-            'zip' => ['required', new ZipCheck()],
+            'zip' => $request['zip'],
             'address' => $request['address'],
             'address_remarks' => $request['address_remarks'],
             'open_time' => $request['open_time'],
@@ -589,8 +597,8 @@ class AdminRestaurantController extends Controller
     public function restaurant_update(Request $request)
     {
         $rules = [
-            'login_id' => 'required',
-            'password' => 'required',
+            'login_id' => ['required', new AlphaNumCheck()],
+            'password' => ['required', new AlphaNumCheck()],
             'name2' => 'required',
             'profile' => 'required',
             'zip' => 'required',

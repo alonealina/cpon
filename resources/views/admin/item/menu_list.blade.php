@@ -61,7 +61,7 @@
                     @if (empty($menu->img))
                     <img src="../../img/imgerror.jpg" class="menu_img">
                     @else
-                    <img src="../../restaurant/{{ $restaurant_id }}/comment/menu/{{ $menu->img }}" class="menu_img">
+                    <img src="../../restaurant/{{ $restaurant_id }}/menu/{{ $menu->img }}" class="menu_img">
                     @endif
                 </div>
             </div>
@@ -113,6 +113,6 @@ window.location.href = selected.value;
 {{ Form::hidden('restaurant_id', $restaurant_id) }}
     @csrf
     <input type="file" id="file_btn_csv" accept=".csv" name="csv">
-    <button class="js-close button-close" onclick="clickCsvImportButton()">CSVをインポートする</button>
+    <button class="js-close button-close" onclick="return clickCsvImportButton()">CSVをインポートする</button>
 </form>
 </div>

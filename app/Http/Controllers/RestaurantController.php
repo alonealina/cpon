@@ -29,7 +29,7 @@ class RestaurantController extends Controller
         $restaurant = Restaurant::find($id);
         $category = Category::find($restaurant->category_id);
         $recommend_menus = Menu::where('release_flg', 1)->where('recommend_flg', 1)
-            ->where('restaurant_id', $id)->take(8)->get();
+            ->where('restaurant_id', $id)->take(12)->get();
         $comments = Comment::where('restaurant_id', $id)->orderBy('created_at', 'desc')->paginate(5);
         $avg_star = Comment::where('restaurant_id', $id)
             ->selectRaw('CAST(AVG(fivestar) AS DECIMAL(2,1)) AS star_avg')->first()->star_avg;

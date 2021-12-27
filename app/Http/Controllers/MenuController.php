@@ -222,7 +222,6 @@ class MenuController extends Controller
                     'name' => $data[0],
                     'price' => $data[1],
                     'explain' => $data[2],
-                    'recommend_flg' => $data[3],
                     'restaurant_id' => $restaurant_id,
                 ];
 

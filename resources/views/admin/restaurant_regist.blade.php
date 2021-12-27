@@ -305,7 +305,7 @@
             <div class="admin_form_title">検索情報関連</div>
 
             <div class="regist_form_item">
-                <div class="admin_form_name">カテゴリー<p class="required_mark">※必須</p></div>
+                <div class="admin_form_name">カテゴリ<p class="required_mark">※必須</p></div>
                 <select name="category_id">
                 @foreach ($categories as $category)
                 <option value="{{ $category->id }}">{{ $category->name }}</option>

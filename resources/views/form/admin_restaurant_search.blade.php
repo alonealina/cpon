@@ -15,7 +15,7 @@
             <div class="filter_name">住所</div>
             <div class="filter_flex">
                 <div class="filter_flex_address_zip">
-                    <div class="filter_name_address">郵便番号</div>
+                    <div class="admin_form_sub">郵便番号</div>
                     @if($errors->has('zip'))
                     <div class="comment_error">{{ $errors->first('zip') }}</div>
                     @endif
@@ -23,7 +23,7 @@
                         'onkeyup' => "AjaxZip3.zip2addr(this, '', 'pref', 'address')"]) }}
                 </div>
                 <div class="filter_flex_address_pref">
-                    <div class="filter_name_address">都道府県</div>
+                    <div class="admin_form_sub">都道府県</div>
                     <div id="pref_list_admin">
                         <select name="pref">
                         <option value="">指定なし</option>
@@ -34,12 +34,12 @@
                     </div>
                 </div>
             </div>
-            <div class="filter_name_address">市区町村</div>
+            <div class="admin_form_sub">市区町村</div>
             @if($errors->has('address1'))
             <div class="comment_error">{{ $errors->first('address1') }}</div>
             @endif
             {{ Form::text('address1', $address1, ['class' => 'filter_address_input']) }}
-            <div class="filter_name_address">以降の住所</div>
+            <div class="admin_form_sub">以降の住所</div>
             @if($errors->has('address2'))
             <div class="comment_error">{{ $errors->first('address2') }}</div>
             @endif
@@ -90,6 +90,16 @@
         </div>
 
         <div class="filter_flex_right">
+            <div class="filter_name">カテゴリ</div>
+            <div class="filter_status">
+                <select name="category_id">
+                    <option value="none" @if($category_id == 'none') selected @endif>指定なし</option>
+
+                    @foreach ($categories as $category)
+                    <option value="{{ $category->id }}" @if($category->id == $category_id) selected @endif>{{ $category->name }}</option>
+                    @endforeach
+                </select>
+            </div>
             <div class="filter_name">登録日</div>
             <div class="filter_created">
                 {!! Form::selectRange('created_year_before', 2021, 2050, $created_year_before, ['placeholder'=>'年']) !!}
