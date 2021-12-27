@@ -370,6 +370,24 @@ function clickCsvExportButton() {
     document.forms.restaurant_list_form.submit();
 }
 
+function clickCsvImportButton() {
+    document.forms.csv_import_form.submit()
+}
+
+function clickCheckDeleteButton() {
+    if (confirm('本当に削除しますか？')) {
+        document.forms.restaurant_list_form.submit();
+    }
+}
+
+function openCsvImportButton() {
+    $('#overlay, .modal-window').fadeIn();
+}
+
+function modalClose() {
+    $('#overlay, .modal-window').fadeOut();
+}
+
 function clickCheckDeleteButton() {
     if (confirm('本当に削除しますか？')) {
         document.forms.restaurant_list_form.submit();

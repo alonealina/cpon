@@ -5,6 +5,9 @@
     <div class="restaurant_recommend_text">
     おすすめ設定（6店舗まで）
     </div>
+    <div class="">
+    おすすめ設定（6店舗まで）
+    </div>
 </div>
 
 <div class="restaurant_list_menu filter_flex">
@@ -12,7 +15,7 @@
     <div class="release_off_button"><a href="#" onclick="clickReleaseOffButton()">非公開</a></div>
     <div class="recommend_on_button"><a href="#" onclick="clickRecommendOnButton()">設定</a></div>
     <div class="recommend_off_button"><a href="#" onclick="clickRecommendOffButton()">解除</a></div>
-    <div class="csv_button"><a href="#" onclick="clickCsvImportButton()">CSVインポート</a></div>
+    <div class="csv_button"><a href="#" onclick="openCsvImportButton()">CSVインポート</a></div>
     <div class="csv_button"><a href="#" onclick="clickCsvExportButton()">CSVエクスポート</a></div>
     <div class="restaurant_list_message">{{ session('message') }}</div>
     @include('admin.item.restaurant_number')
@@ -113,3 +116,13 @@ selected.onchange = function() {
 window.location.href = selected.value;
 };
 </script>
+
+<div id="overlay" class="overlay" onclick="modalClose()"></div>
+<!-- モーダルウィンドウ -->
+<div class="modal-window">
+<form name="csv_import_form" action="{{ route('admin.restaurant_csv_import') }}" method="post" enctype="multipart/form-data">
+    @csrf
+    <input type="file" id="file_btn_csv" accept=".csv" name="csv">
+    <button class="js-close button-close" onclick="clickCsvImportButton()">CSVをインポートする</button>
+</form>
+</div>

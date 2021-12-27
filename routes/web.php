@@ -36,6 +36,7 @@ Route::post('admin/restaurant_store', 'App\Http\Controllers\AdminRestaurantContr
 Route::get('admin/restaurant_edit/{id}/', 'App\Http\Controllers\AdminRestaurantController@restaurant_edit')->name('admin.restaurant_edit');
 Route::post('admin/restaurant_update', 'App\Http\Controllers\AdminRestaurantController@restaurant_update')->name('admin.restaurant_update');
 Route::get('admin/restaurant_csv_export', 'App\Http\Controllers\AdminRestaurantController@restaurant_csv_export')->name('admin.restaurant_csv_export');
+Route::post('admin/restaurant_csv_import', 'App\Http\Controllers\AdminRestaurantController@restaurant_csv_import')->name('admin.restaurant_csv_import');
 Route::get('admin/restaurant_delete/{id}/', 'App\Http\Controllers\AdminRestaurantController@restaurant_delete')->name('admin.restaurant_delete');
 
 Route::get('admin/menu_list/{id}/', 'App\Http\Controllers\MenuController@menu_list')->name('admin.menu_list');
