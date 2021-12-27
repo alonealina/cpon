@@ -307,11 +307,30 @@ footer a, footer a:hover {
     margin-bottom: 30px;
 }
 
-.notice_list {
+.notice_list, .comment_detail {
     background:#fff;
     font-size: 11px;
     margin: 15px;
     width:80%;
+}
+
+.comment_detail {
+    padding-top: 20px;
+}
+
+.comment_detail_content {
+    width: 620px;
+}
+
+.comment_hr {
+    width:800px;
+    margin: 3px auto;
+}
+
+.comment_detail_img {
+    width: 140px;
+    height: 140px;
+    margin: 5px;
 }
 
 .restaurant_item_name, .restaurant_list_checkbox {

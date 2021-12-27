@@ -30,16 +30,6 @@ function clickClearButton() {
     document.forms.filter_form.reset();
 }
 
-function clickCheckDeleteButton() {
-    console.log('aaa');
-    window.onload = function () {
-        $('#overlay, .modal-window').fadeIn();
-        $('.js-close').click(function () {
-            $('#overlay, .modal-window').fadeOut();
-        });
-    };
-}
-
 const maxFiles = 5;
 function fileCheck(){
 
@@ -366,6 +356,12 @@ function clickRecommendOffButton() {
     // 要素を追加
     document.forms.restaurant_list_form.appendChild(ele);
     document.forms.restaurant_list_form.submit();
+}
+
+function clickCheckDeleteButton() {
+    if (confirm('本当に削除しますか？')) {
+        document.forms.restaurant_list_form.submit();
+    }
 }
 
 // 以下スライダー機能について
