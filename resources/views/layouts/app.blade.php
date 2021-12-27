@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Cポンお店ナビ</title>
-        <meta name="viewport" content="width=400, initial-scale=1, shrink-to-fit=no">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">

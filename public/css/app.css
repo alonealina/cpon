@@ -24,7 +24,8 @@
 }
 
 #registration_sp {
-    min-width:400px;
+    min-width: 375px;
+    overflow-x: hidden;
 }
 
 body {
@@ -148,7 +149,7 @@ footer a, footer a:hover {
 
 #freeword_form_sp {
     height:50px;
-
+text-align: center;
 }
 
 .freeword_text, .freeword_text_ipad {
@@ -1694,6 +1695,7 @@ height: 74px;
 .banner .draggable,
 .banner .slick-slide img {
     height:440px;
+    border-radius: 20px;
 }
 
 .banner_sp .draggable,
