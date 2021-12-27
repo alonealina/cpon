@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+<br>
 <p class="footer_item_title">ヘルプ・お問い合わせ</p>
 <div class="help_content">
     <div class="help_text">
@@ -17,6 +17,7 @@
 
 @section('content_ipad')
 @include('form.header_search_ipad')
+<br>
 <div class="body_ipad">
     <p class="footer_item_title_ipad">ヘルプ・お問い合わせ</p>
     <div class="help_content">
@@ -39,6 +40,7 @@
 @endsection
 
 @section('content_sp')
+<br>
 <p class="footer_item_title_sp">ヘルプ・お問い合わせ</p>
 <div class="help_content">
     <div class="help_text">
