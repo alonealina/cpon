@@ -103,7 +103,8 @@
 
 
 @section('restaurant_list_ipad')
-<p class="restaurant_list_title_ipad"><img src="{{ asset('img/icon/yubi.png') }}" alt="">Cポンお店ナビからのおすすめ</p>
+<p class="restaurant_list_title_ipad"><img style="width:36px;" src="{{ asset('img/icon/yubi.png') }}" alt=""><span class="restaurant_list_te_sp">Cポンお店ナビからのおすすめ</span></p>
+<div class="restaurant_list_line"></div>
 <div class="recommend_list_ipad">
     @foreach ($recommends as $recommend)
     <div class="recommend_restaurant_ipad">
@@ -125,7 +126,8 @@
     </div>
     @endforeach
 </div>
-<p class="restaurant_list_title_ipad"><img src="{{ asset('img/icon/new.png') }}" alt="">新着店舗情報</p>
+<p class="restaurant_list_title_ipad"><img style="width:44px;" src="{{ asset('img/icon/new.png') }}" alt=""><span class="restaurant_list_te_sp">新着店舗情報</span></p>
+<div class="restaurant_list_line"></div>
 <div class="new_list_ipad">
     @foreach ($news as $new)
     <div class="new_restaurant_ipad">
@@ -171,8 +173,8 @@
 
 
 @section('restaurant_list_sp')
-<p class="restaurant_list_title_sp"><img src="{{ asset('img/icon/yubi.png') }}" alt="">Cポンお店ナビからのおすすめ</p>
-
+<p class="restaurant_list_title_sp"><img style="width:36px;" src="{{ asset('img/icon/yubi.png') }}" alt=""><span class="restaurant_list_te_sp">Cポンお店ナビからのおすすめ</span></p>
+<div class="restaurant_list_line_sp"></div>
 <div class="recommend_list_sp">
     @foreach ($recommends as $recommend)
     <div class="recommend_restaurant_sp">
@@ -195,8 +197,8 @@
     @endforeach
 </div>
 
-<p class="restaurant_list_title_sp"><img src="{{ asset('img/icon/new.png') }}" alt="">新着店舗情報</p>
-
+<p class="restaurant_list_title_sp"><img style="width:44px;" src="{{ asset('img/icon/new.png') }}" alt=""><span class="restaurant_list_te_sp">新着店舗情報</span></p>
+<div class="restaurant_list_line_sp"></div>
 <div class="new_list_sp">
     @foreach ($news as $new)
     <div class="new_restaurant_sp">
@@ -224,9 +226,9 @@
     <a href="{{ route('new') }}">新着店舗一覧</a>
 </div>
 
-<p class="index_notice_title_sp"><img src="{{ asset('img/icon/bell.png') }}" alt=""><span class="notice_home_list_te">Cポンお店ナビからのお知らせ</span></p>
+<p class="index_notice_title_sp"><img style="width:39px" src="{{ asset('img/icon/bell.png') }}" alt=""><span class="notice_home_list_te_sp">Cポンお店ナビからのお知らせ</span></p>
 <div class="notice_home_list_line"></div>
-<div class="notice_home_sp">
+<div class="notice_home_sp" style="margin-top:-4px;">
     <hr>
     @foreach ($notices as $notice)
     <a class="notice_home_list" href="{{ route('notice.show', ['id' => $notice->id]) }}">
