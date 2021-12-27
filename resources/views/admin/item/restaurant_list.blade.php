@@ -97,8 +97,8 @@
             <div class="restaurant_list_button_blue">
                 <a href="restaurant_edit/{{ $restaurant->id }}">編集</a>
             </div>
-            <div class="restaurant_list_button_blue">
-                <a href="{{ route('admin.menu_list', ['id' => $restaurant->id]) }}">メニュー<br>詳細</a>
+            <div class="restaurant_list_detail_button_blue">
+                <a href="{{ route('admin.menu_list', ['id' => $restaurant->id]) }}">メニュー<br>一覧</a>
             </div>
             <div class="restaurant_list_button_red">
                 <a href="restaurant_delete/{{ $restaurant->id }}" onclick="return confirm('本当に削除しますか？')">削除</a>
