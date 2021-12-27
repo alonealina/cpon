@@ -23,7 +23,7 @@
                 <div class="header_user">
                     <div class="header_user_name">{{ Session::get('name') }}　</div>
                     @if(!empty(Session::get('name')))
-                    <div class="button_blue_admin">
+                    <div class="logout_button">
                         <a href="{{ route('admin.logout') }}">ログアウト</a>
                     </div>
                     @endif

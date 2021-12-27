@@ -9,6 +9,30 @@ body {
     background-color: #FFB01A;
 }
 
+.header_user {
+    display: flex;
+}
+
+.header_user_name {
+    padding-top: 6px;
+}
+
+.logout_button a {
+    font-size: 10px;
+    font-weight: bold;
+    display:block;
+    width:130px;
+    height:30px;
+    line-height:30px;
+    background:#437EC4;
+    color:#fff;
+    border-radius:5px;
+    text-decoration:none;
+    text-align:center;
+    margin:5px 0;
+    float:right;
+}
+
 .cpon_logo {
     height: 60px;
 }
@@ -653,21 +677,6 @@ hr {
     height:30px;
     line-height:30px;
     background:#CB0C0C;
-    color:#fff;
-    border-radius:5px;
-    text-decoration:none;
-    text-align:center;
-    margin:5px 0;
-}
-
-.button_blue_admin a {
-    font-size: 10px;
-    font-weight: bold;
-    display:block;
-    width:130px;
-    height:30px;
-    line-height:30px;
-    background:#437EC4;
     color:#fff;
     border-radius:5px;
     text-decoration:none;
