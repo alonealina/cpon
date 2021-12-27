@@ -20,9 +20,12 @@
                 <a class="navbar-brand" href="/">
                     <img src="{{ asset('img/logo.png') }}" class="cpon_logo" alt="">
                 </a>
-                <div class="header_user">{{ Session::get('name') }}　
+                <div class="header_user">
+                    <div class="header_user_name">{{ Session::get('name') }}　</div>
                     @if(!empty(Session::get('name')))
-                    <a href="{{ route('admin.logout') }}">ログアウト</a>
+                    <div class="logout_button">
+                        <a href="{{ route('admin.logout') }}">ログアウト</a>
+                    </div>
                     @endif
                 </div>
             </nav>
@@ -30,7 +33,9 @@
 
         <div class="flexible-list">
             <aside id="column-side" class="flexible-list-side">
+                @if(!empty(Session::get('login_id')))
                 @include('admin.item.sidemenu')
+                @endif
             </aside>
 
             <div class="flexible-list-main">
