@@ -119,8 +119,8 @@
 
             <footer class="footer_sp">
                 <a href="#page_top">ページTOPへ</a>
-                <div class="copyright">copyright (c) © KOC・JAPAN, Inc. all rights reserved.</div>
-                <div class="footer_black"></div>
+                <div class="copyright_sp">copyright (c) © KOC・JAPAN, Inc. all rights reserved.</div>
+                <div class="footer_black_sp"></div>
             </footer>
         </body>
         <div id="sp-fixed-menu" class="for-sp">
@@ -128,25 +128,25 @@
                 <li class="sp_menu_home"><a href="{{ route('index') }}">
                     @if (\Route::currentRouteName() == 'index')
                     <img src="{{ asset('img/home_ore.png') }}" class="" alt="">
-                    <br><font color="orange">ホーム</font>
+                    <br><span style="text-decoration:none;position:relative;top:5px"><font color="orange">ホーム</font></span>
                     @else
                     <img src="{{ asset('img/home.png') }}" class="" alt="">
-                    <br>ホーム
+                    <br><span style="text-decoration:none;position:relative;top:5px">ホーム</span>
                     @endif
                     </a>
                 </li>
                 <li class="sp_menu_search"><a href="{{ route('search_sp') }}">
                     @if (\Route::currentRouteName() == 'search_sp')
                     <img src="{{ asset('img/megane_ore.png') }}" class="" alt="">
-                    <br><font color="orange">検索</font>
+                    <br><span style="text-decoration:none;position:relative;top:5px"><font color="orange">検索</font></span>
                     @else
                     <img src="{{ asset('img/search.png') }}" class="" alt="">
-                    <br>検索
+                    <br><span style="text-decoration:none;position:relative;top:5px">検索</span>
                     @endif
                     </a>
                 </li>
-                <li class="sp_menu_phone"><a href="https://app.cpon.co.jp/" target="_blank"><img src="{{ asset('img/phone.png') }}" class="" alt=""><br>CポンWEBAPPへ</a></li>
-                <li class="sp_menu_mail"><a href="https://mall.cpon.co.jp/" target="_blank"><img src="{{ asset('img/mail.png') }}" class="" alt=""><br>Cポンモールへ</a></li>
+                <li class="sp_menu_phone"><a href="https://app.cpon.co.jp/" target="_blank"><img src="{{ asset('img/phone.png') }}" class="" alt=""><br><span style="text-decoration:none;position:relative;top:5px">CポンWEBAPP</span></a></li>
+                <li class="sp_menu_mail"><a href="https://mall.cpon.co.jp/" target="_blank"><img src="{{ asset('img/mail.png') }}" class="" alt=""><br><span style="text-decoration:none;position:relative;top:5px">Cポンモール</span></a></li>
             </ul>
         </div>
     </div>
