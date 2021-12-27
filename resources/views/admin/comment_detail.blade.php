@@ -51,6 +51,13 @@
                 @endif
             </div>
         </div>
+        <hr class="comment_hr">
+        <div class="flex_form_item">
+            <div class="felx_form_title">登録日時</div>
+            <div class="felx_form_content comment_detail_content">
+                {{ $comment->created_at }}
+            </div>
+        </div>
 
         <div class="button_black">
             <a href="{{ route('admin.comment_delete', ['id_r' => $restaurant_id, 'id_c' => $comment->id]) }}" onclick="return confirm('本当に削除しますか？')">クチコミを削除する</a>
