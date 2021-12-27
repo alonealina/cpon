@@ -116,11 +116,21 @@ class Restaurant extends Model
     }
 
     public function getHolidaysAttribute() {
-        return $this->output_holiday_array(RestaurantHoliday::where('restaurant_id', $this->id)->first()->toArray());
+        $holidays = RestaurantHoliday::where('restaurant_id', $this->id)->first();
+        if (is_null($holidays)) {
+            return;
+        } else {
+            return $this->output_holiday_array($holidays->toArray());
+        }
     }
 
     public function getCardsAttribute() {
-        return $this->output_card_array(RestaurantCard::where('restaurant_id', $this->id)->first()->toArray());
+        $cards = RestaurantCard::where('restaurant_id', $this->id)->first();
+        if (is_null($cards)) {
+            return;
+        } else {
+            return $this->output_card_array($cards->toArray());
+        }
     }
 
     public function getScenesAttribute() {
