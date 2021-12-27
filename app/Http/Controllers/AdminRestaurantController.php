@@ -16,6 +16,7 @@ use App\Models\RestaurantCard;
 use App\Models\Menu;
 use App\Rules\HolidayCheck;
 use App\Rules\ZipCheck;
+use App\Rules\PhoneCheck;
 use DB;
 
 class AdminRestaurantController extends Controller
@@ -245,7 +246,7 @@ class AdminRestaurantController extends Controller
             'zip' => ['required', new ZipCheck()],
             'address' => 'required',
             'holidays' => new HolidayCheck($request['holidays']),
-            'tel' => 'required',
+            'tel' => ['required', new PhoneCheck()],
             'main_img' => ['max:10240', 'required'],
             'sub_img1' => 'max:10240',
             'sub_img2' => 'max:10240',
@@ -447,7 +448,7 @@ class AdminRestaurantController extends Controller
             'zip' => 'required',
             'address' => 'required',
             'holidays' => new HolidayCheck($request['holidays']),
-            'tel' => 'required',
+            'tel' => ['required', new PhoneCheck()],
             'main_img' => 'max:10240',
             'sub_img1' => 'max:10240',
             'sub_img2' => 'max:10240',
