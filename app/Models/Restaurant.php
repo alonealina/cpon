@@ -163,18 +163,18 @@ class Restaurant extends Model
             $this->pref,    
             $this->zip, 
             $this->address, 
-            $this->open_hm,                 // 変換     10
+            $this->address_remarks_text,    // 改行なし 10
+            $this->open_hm,                 // 変換     
             $this->close_hm,                // 変換
             $this->category_name,           // 変換
             $this->url,
             $this->tel,
-            $this->address_remarks_text,    // 改行なし
             $this->time_remarks_text,       // 改行なし
             $this->recommend_flg_str,       // 変換
             $this->release_flg_str,         // 変換
             $this->cpon_mall_url,
             $this->budget_lunch,            // 20
-            $this->budget_dinne,
+            $this->budget_dinner,
             $this->station1,
             $this->route1,
             $this->station2,
