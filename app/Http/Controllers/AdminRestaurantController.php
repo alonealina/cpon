@@ -460,7 +460,7 @@ class AdminRestaurantController extends Controller
             'name3' => $request['name3'],
             'profile' => $request['profile'],
             'pref' => $request['pref'],
-            'zip' => ['required', new ZipCheck()],
+            'zip' => $request['zip'],
             'address' => $request['address'],
             'address_remarks' => $request['address_remarks'],
             'open_time' => $request['open_time'],
