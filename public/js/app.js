@@ -358,6 +358,18 @@ function clickRecommendOffButton() {
     document.forms.restaurant_list_form.submit();
 }
 
+function clickCsvExportButton() {
+    // エレメントを作成
+    var ele = document.createElement('input');
+    // データを設定
+    ele.setAttribute('type', 'hidden');
+    ele.setAttribute('name', 'csv_type');
+    ele.setAttribute('value', 'export');
+    // 要素を追加
+    document.forms.restaurant_list_form.appendChild(ele);
+    document.forms.restaurant_list_form.submit();
+}
+
 function clickCheckDeleteButton() {
     if (confirm('本当に削除しますか？')) {
         document.forms.restaurant_list_form.submit();

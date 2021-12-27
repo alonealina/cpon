@@ -35,7 +35,8 @@ class CommentController extends Controller
         $created_day_after = isset($filter_array['created_day_after']) ? $filter_array['created_day_after'] : null;
 
         $fivestar_before = $fivestar_before_old == 'none' || 'zero' ? 0 : $fivestar_before_old;
-        $fivestar_after = $fivestar_after_old == 'none' ? 5 : $fivestar_after_old == 'zero' ? 0 : $fivestar_after_old;
+        $fivestar_after = $fivestar_after_old == 'none' ? 5 : $fivestar_after_old;
+        $fivestar_after = $fivestar_after_old == 'zero' ? 0 : $fivestar_after;
         if (!empty($user_name)) {
             $query->where('user_name', 'like', "%$user_name%");
         }
