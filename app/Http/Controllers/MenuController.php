@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 use App\Models\Restaurant;
 use App\Models\Menu;
 use DB;
@@ -120,8 +121,10 @@ class MenuController extends Controller
     {
         $request = $request->all();
         $chk_list = isset($request['chk']) ? $request['chk'] : null;
+        $menu_id = $request['menu_id'];
         $release_flg = isset($request['release_flg']) ? $request['release_flg'] : null;
         $recommend_flg = isset($request['recommend_flg']) ? $request['recommend_flg'] : null;
+        $csv_type = isset($request['csv_type']) ? $request['csv_type'] : null;
         $restaurant_id = $request['restaurant_id'];
 
         if (isset($release_flg) && !empty($chk_list)) {
@@ -138,7 +141,7 @@ class MenuController extends Controller
                         ->update(['recommend_flg' => $recommend_flg]);
                 }
             } else {
-                $recommend_id_list = Menu::where('recommend_flg', $recommend_flg)
+                $recommend_id_list = Menu::where('recommend_flg', $recommend_flg)->where('restaurant_id', $restaurant_id)
                 ->get()->pluck('id')->toArray();
                 $count_array = array_merge($recommend_id_list, $chk_list);
                 $count_array = array_unique($count_array);
@@ -152,8 +155,90 @@ class MenuController extends Controller
                     return redirect()->route('admin.menu_list', ['id' => $restaurant_id])->with('message', 'イチオシメニューは12個まででお願いします');
                 }
             }
+        } elseif (isset($csv_type) && $csv_type == 'export') {
+            return $this->menu_csv_export($menu_id);
         }
         return redirect()->route('admin.menu_list', ['id' => $restaurant_id])->with('message', 'test');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function menu_csv_export($menu_id)
+    {
+        $menus = Menu::whereIn('id', $menu_id)->get();
+        $cvsList[] = ['メニュー名', '値段', '説明文', '公開・非公開', 'イチオシメニュー', '作成日時', '更新日時', 
+        ];
+        foreach ($menus as $menu) {
+            $cvsList[] = $menu->outputCsvContent();
+        }
+
+        $response = new StreamedResponse (function() use ($cvsList){
+            $stream = fopen('php://output', 'w');
+
+            //　文字化け回避
+            stream_filter_prepend($stream,'convert.iconv.utf-8/cp932//TRANSLIT');
+
+            // CSVデータ
+            foreach($cvsList as $key => $value) {
+                fputcsv($stream, $value);
+            }
+            $buffer = str_replace("\n", "\r\n", stream_get_contents($stream));
+            fclose($stream);
+            //出力ストリーム
+            $fp = fopen('php://output', 'w+b');
+            //さっき置換した内容を出力 
+            fwrite($fp, $buffer);
+        
+            fclose($fp);
+        });
+        
+        $response->headers->set('Content-Type', 'application/octet-stream');
+        $response->headers->set('Content-Disposition', 'attachment; filename="sample.csv"');
+ 
+        return $response;
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function menu_csv_import(Request $request)
+    {
+        $restaurant_id = $request->restaurant_id;
+        $fp = fopen($request->csv, 'r');
+        
+        DB::beginTransaction();
+        try {
+            while($data = fgetcsv($fp)){
+                mb_convert_variables('UTF-8', 'SJIS-win', $data);
+                if ($data[0] == 'メニュー名') {
+                    continue;
+                }
+                $fill_data = [
+                    'name' => $data[0],
+                    'price' => $data[1],
+                    'explain' => $data[2],
+                    'recommend_flg' => $data[3],
+                    'restaurant_id' => $restaurant_id,
+                ];
+
+                $menu = new Menu();
+                $menu->fill($fill_data)->save();
+            }
+
+            DB::commit();
+            fclose($fp);
+            return redirect()->to('admin/menu_list/'.$restaurant_id)->with('flashmessage', '登録が完了いたしました。');
+        } catch (\Exception $e) {
+            DB::rollback();
+        }  
+        fclose($fp);
+
+        return;
     }
 
     /**

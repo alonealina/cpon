@@ -45,6 +45,8 @@ Route::get('admin/menu_regist/{id}/', 'App\Http\Controllers\MenuController@menu_
 Route::post('admin/menu_store', 'App\Http\Controllers\MenuController@menu_store')->name('admin.menu_store');
 Route::get('admin/menu_edit/{id_r}/{id_m}/', 'App\Http\Controllers\MenuController@menu_edit')->name('admin.menu_edit');
 Route::post('admin/menu_update', 'App\Http\Controllers\MenuController@menu_update')->name('admin.menu_update');
+Route::get('admin/menu_csv_export', 'App\Http\Controllers\MenuController@menu_csv_export')->name('admin.menu_csv_export');
+Route::post('admin/menu_csv_import', 'App\Http\Controllers\MenuController@menu_csv_import')->name('admin.menu_csv_import');
 Route::get('admin/menu_delete/{id_r}/{id_m}/', 'App\Http\Controllers\MenuController@menu_delete')->name('admin.menu_delete');
 
 Route::get('admin/notice_list', 'App\Http\Controllers\NoticeController@notice_list')->name('admin.notice_list');

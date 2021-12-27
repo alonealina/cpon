@@ -12,6 +12,8 @@
     <div class="release_off_button"><a href="#" onclick="clickReleaseOffButton()">非公開</a></div>
     <div class="recommend_on_button"><a href="#" onclick="clickRecommendOnButton()">設定</a></div>
     <div class="recommend_off_button"><a href="#" onclick="clickRecommendOffButton()">解除</a></div>
+    <div class="csv_button"><a href="#" onclick="openCsvImportButton()">CSVインポート</a></div>
+    <div class="csv_button"><a href="#" onclick="clickCsvExportButton()">CSVエクスポート</a></div>
     <div class="restaurant_list_message">{{ session('message') }}</div>
     @include('admin.item.menu_number')
 </div>
@@ -49,6 +51,7 @@
     <form id="boxes" name="restaurant_list_form" action="{{ route('admin.menu_list_update') }}" method="get">
     {{ Form::hidden('restaurant_id', $restaurant_id) }}
         @foreach($menus as $menu)
+        {{ Form::hidden('menu_id[]', $menu->id) }}
         <div class="restaurant_list_column">
             <div class="restaurant_list_checkbox">
                 <input type="checkbox" name="chk[]" value="{{ $menu->id }}">
@@ -102,3 +105,14 @@ selected.onchange = function() {
 window.location.href = selected.value;
 };
 </script>
+
+<div id="overlay" class="overlay" onclick="modalClose()"></div>
+<!-- モーダルウィンドウ -->
+<div class="modal-window">
+<form name="csv_import_form" action="{{ route('admin.menu_csv_import') }}" method="post" enctype="multipart/form-data">
+{{ Form::hidden('restaurant_id', $restaurant_id) }}
+    @csrf
+    <input type="file" id="file_btn_csv" accept=".csv" name="csv">
+    <button class="js-close button-close" onclick="clickCsvImportButton()">CSVをインポートする</button>
+</form>
+</div>
