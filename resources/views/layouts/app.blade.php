@@ -165,13 +165,7 @@
         document.getElementById('registration_pc').style.display = "none";
         document.getElementById('registration_ipad').style.display = "none";
         document.getElementById('registration_sp').style.visibility = "visible";
-    } else if (navigator.userAgent.indexOf('iPad') > 0) {
-        document.getElementById('registration_pc').style.display = "none";
-        document.getElementById('registration_ipad').style.visibility = "visible";
-        document.getElementById('registration_sp').style.display = "none";
-    } else {
-        document.getElementById('registration_pc').style.visibility = "visible";
-        document.getElementById('registration_ipad').style.display = "none";
+    }  else {
         document.getElementById('registration_sp').style.display = "none";
     }
     </script>
