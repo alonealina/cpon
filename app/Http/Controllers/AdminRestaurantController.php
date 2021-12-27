@@ -814,7 +814,11 @@ class AdminRestaurantController extends Controller
                 }
             }
             DB::commit();
-            return redirect()->to('admin/restaurant_list')->with('flashmessage', '登録が完了いたしました。');
+            if (session('type') == 'restaurant') {
+                return redirect()->to('admin/')->with('flashmessage', '登録が完了いたしました。');
+            } else {
+                return redirect()->to('admin/restaurant_list')->with('flashmessage', '登録が完了いたしました。');
+            }
         } catch (\Exception $e) {
             DB::rollback();
         }

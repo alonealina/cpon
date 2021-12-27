@@ -3,9 +3,11 @@
 @section('content')
 <nav class="navbar admin_header">
     <div class="content_title">店舗情報編集</div>
+    @if(session('id') == 'admin')
     <div class="button_red_admin">
         <a href="{{ route('admin.restaurant_list') }}">店舗管理ページ</a>
     </div>
+    @endif
 </nav>
 
 <div class="comment_form">
