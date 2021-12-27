@@ -123,6 +123,6 @@ window.location.href = selected.value;
 <form name="csv_import_form" action="{{ route('admin.restaurant_csv_import') }}" method="post" enctype="multipart/form-data">
     @csrf
     <input type="file" id="file_btn_csv" accept=".csv" name="csv">
-    <button class="js-close button-close" onclick="clickCsvImportButton()">CSVをインポートする</button>
+    <button class="js-close button-close" onclick="return clickCsvImportButton()">CSVをインポートする</button>
 </form>
 </div>

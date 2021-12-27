@@ -384,6 +384,10 @@ function clickCsvExportButton() {
 }
 
 function clickCsvImportButton() {
+    let element = document.getElementById('file_btn_csv');
+    if (element.value == '') {
+        return false;
+    }
     document.forms.csv_import_form.submit()
 }
 
