@@ -36,6 +36,7 @@ Route::post('admin/restaurant_store', 'App\Http\Controllers\AdminRestaurantContr
 Route::get('admin/restaurant_edit/{id}/', 'App\Http\Controllers\AdminRestaurantController@restaurant_edit')->name('admin.restaurant_edit');
 Route::post('admin/restaurant_update', 'App\Http\Controllers\AdminRestaurantController@restaurant_update')->name('admin.restaurant_update');
 Route::get('admin/restaurant_csv_export', 'App\Http\Controllers\AdminRestaurantController@restaurant_csv_export')->name('admin.restaurant_csv_export');
+Route::post('admin/restaurant_csv_import', 'App\Http\Controllers\AdminRestaurantController@restaurant_csv_import')->name('admin.restaurant_csv_import');
 Route::get('admin/restaurant_delete/{id}/', 'App\Http\Controllers\AdminRestaurantController@restaurant_delete')->name('admin.restaurant_delete');
 
 Route::get('admin/menu_list/{id}/', 'App\Http\Controllers\MenuController@menu_list')->name('admin.menu_list');
@@ -44,6 +45,8 @@ Route::get('admin/menu_regist/{id}/', 'App\Http\Controllers\MenuController@menu_
 Route::post('admin/menu_store', 'App\Http\Controllers\MenuController@menu_store')->name('admin.menu_store');
 Route::get('admin/menu_edit/{id_r}/{id_m}/', 'App\Http\Controllers\MenuController@menu_edit')->name('admin.menu_edit');
 Route::post('admin/menu_update', 'App\Http\Controllers\MenuController@menu_update')->name('admin.menu_update');
+Route::get('admin/menu_csv_export', 'App\Http\Controllers\MenuController@menu_csv_export')->name('admin.menu_csv_export');
+Route::post('admin/menu_csv_import', 'App\Http\Controllers\MenuController@menu_csv_import')->name('admin.menu_csv_import');
 Route::get('admin/menu_delete/{id_r}/{id_m}/', 'App\Http\Controllers\MenuController@menu_delete')->name('admin.menu_delete');
 
 Route::get('admin/notice_list', 'App\Http\Controllers\NoticeController@notice_list')->name('admin.notice_list');

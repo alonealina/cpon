@@ -263,6 +263,107 @@ class AdminRestaurantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function restaurant_csv_import(Request $request)
+    {
+
+        $fp = fopen($request->csv, 'r');
+        
+        DB::beginTransaction();
+        try {
+            while($data = fgetcsv($fp)){
+                mb_convert_variables('UTF-8', 'SJIS-win', $data);
+                if ($data[0] == '店舗ID') {
+                    continue;
+                }
+                $fill_data = [
+                    'login_id' => $data[0],
+                    'password' => $data[1],
+                    'name1' => $data[2],
+                    'name2' => $data[3],
+                    'name3' => $data[4],
+                    'profile' => $data[5],
+                    'pref' => $data[6],
+                    'zip' => $data[7],
+                    'address' => $data[8],
+                    'open_time' => $data[9],
+                    'close_time' => $data[10],
+                    'category_id' => Category::where('name', $data[11])->first()->id,
+                    'url' => $data[12],
+                    'tel' => $data[13],
+                    'address_remarks' => $data[14],
+                    'time_remarks' => $data[15],
+                    'recommend_flg' => $data[16],
+                    'cpon_mall_url' => $data[17],
+                    'budget_lunch' => $data[18],
+                    'budget_dinner' => $data[19],
+                    'station1' => $data[20],
+                    'route1' => $data[21],
+                    'station2' => $data[22],
+                    'route2' => $data[23],
+                    'station3' => $data[24],
+                    'route3' => $data[25],
+                    'station4' => $data[26],
+                    'route4' => $data[27],
+                    'station5' => $data[28],
+                    'route5' => $data[29],
+                    'access' => $data[30],
+                    'parking' => $data[31],
+                    'e_money' => $data[32],
+                    'seats' => $data[33],
+                    'smoking' => $data[34],
+                    'other' => $data[35],
+                    'main_img' => '',
+                ];
+
+                $restaurant = new Restaurant();
+                $restaurant->fill($fill_data)->save();
+                $restaurant_id = $restaurant->id;
+
+                $fill_data_holiday = [
+                'monday' => $data[36],
+                'tuesday' => $data[37],
+                'wednesday' => $data[38],
+                'thursday' => $data[39],
+                'friday' => $data[40],
+                'saturday' => $data[41],
+                'sunday' => $data[42],
+                'restaurant_id' => $restaurant_id,
+                ];
+                $fill_data_holiday['none'] = in_array(1, $fill_data_holiday) ? 0 : 1;
+
+                $fill_data_card = [
+                    'visa' => $data[43],
+                    'mastercard' => $data[44],
+                    'jcb' => $data[45],
+                    'diners' => $data[46],
+                    'amex' => $data[47],
+                    'other' => $data[48],
+                    'restaurant_id' => $restaurant_id,
+                ];
+    
+                $restaurant_holiday = new RestaurantHoliday();
+                $restaurant_holiday->fill($fill_data_holiday)->save();
+
+                $restaurant_card = new RestaurantCard();
+                $restaurant_card->fill($fill_data_card)->save();
+            }
+
+            DB::commit();
+            fclose($fp);
+            return redirect()->to('admin/restaurant_list')->with('flashmessage', '登録が完了いたしました。');
+        } catch (\Exception $e) {
+            DB::rollback();
+        }  
+        fclose($fp);
+
+        return;
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function restaurant_regist()
     {
         $categories = Category::all();

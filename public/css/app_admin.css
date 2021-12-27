@@ -279,6 +279,10 @@ footer a, footer a:hover {
     margin-bottom: 10px;
 }
 
+#file_btn_csv {
+    margin-top:200px;
+    margin-left: 110px;
+}
 .release_on_button {
     margin-left: 15px;
 }
