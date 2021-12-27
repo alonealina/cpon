@@ -52,9 +52,10 @@ class AdminRestaurantController extends Controller
         $updated_month_after = isset($filter_array['updated_month_after']) ? $filter_array['updated_month_after'] : null;
         $updated_day_after = isset($filter_array['updated_day_after']) ? $filter_array['updated_day_after'] : null;
 
-        $fivestar_before = $fivestar_before_old == 'none' ? 0 : $fivestar_before_old;
+        $fivestar_before = $fivestar_before_old == 'none' || 'zero' ? 0 : $fivestar_before_old;
         $fivestar_after = $fivestar_after_old == 'none' ? 5 : $fivestar_after_old;
-
+        $fivestar_after = $fivestar_after_old == 'zero' ? 0 : $fivestar_after;
+        
         if (!empty($name)) {
             $query->where(function ($query) use ($name) {
                 $query->orwhere('name1', 'like', "%$name%")->orwhere('name2', 'like', "%$name%")->orwhere('name3', 'like', "%$name%");
@@ -278,6 +279,8 @@ class AdminRestaurantController extends Controller
 
         $request = $request->all();
         $fill_data_restaurant = [
+            'login_id' => $request['login_id'],
+            'password' => $request['password'],
             'name1' => $request['name1'],
             'name2' => $request['name2'],
             'name3' => $request['name3'],
@@ -372,7 +375,7 @@ class AdminRestaurantController extends Controller
             }
 
             DB::commit();
-            return redirect()->to('admin/restaurant_regist')->with('flashmessage', '登録が完了いたしました。');
+            return redirect()->to('admin/restaurant_list')->with('flashmessage', '登録が完了いたしました。');
         } catch (\Exception $e) {
             DB::rollback();
         }
@@ -467,6 +470,8 @@ class AdminRestaurantController extends Controller
 
         $request = $request->all();
         $fill_data_restaurant = [
+            'login_id' => $request['login_id'],
+            'password' => $request['password'],
             'name1' => $request['name1'],
             'name2' => $request['name2'],
             'name3' => $request['name3'],
@@ -622,7 +627,7 @@ class AdminRestaurantController extends Controller
                 }
             }
             DB::commit();
-            return redirect()->to('admin/restaurant_regist')->with('flashmessage', '登録が完了いたしました。');
+            return redirect()->to('admin/restaurant_list')->with('flashmessage', '登録が完了いたしました。');
         } catch (\Exception $e) {
             DB::rollback();
         }

@@ -421,6 +421,24 @@ footer a, footer a:hover {
     width:58%;
 }
 
+.restaurant_regist_form {
+    padding:20px;
+}
+
+.admin_form_name {
+    font-size: 12px;
+}
+
+.admin_form_sub {
+    font-size: 10px;
+    color:#959595;
+}
+.admin_form_outline {
+    padding:20px;
+    background-color: #F0F0F0;
+    margin:10px 0;
+}
+
 .flex_form_item {
     display: flex;
     flex-wrap: wrap;
@@ -452,6 +470,7 @@ footer a, footer a:hover {
 .menu_form {
     background-color: #F0F0F0;
     margin:20px;
+    padding: 20px;
     width: 96%;
 }
 
@@ -777,7 +796,7 @@ hr {
     color:#FD7E00;
 }
 
-.comment_form_title {
+.admin_form_title {
     font-size: 20px;
     font-weight: bold;
     margin:20px 0;
@@ -922,10 +941,11 @@ select {
 
 label {
     cursor: pointer;
-    padding:5px;
-    border: 1px solid #434343;
+    padding: 5px 8px;
+    border: 1px solid #BBBBBB;
     border-radius: 5px;
     font-size: 12px;
+    background-color: white;
 }
 
 .restaurant_profile label {
@@ -1270,6 +1290,13 @@ label {
 }
 
 .required_mark {
+    font-size: 10px;
+    margin:0 10px;
+    color:#FF0000;
+    display: inline-block;
+}
+
+/* .required_mark {
     font-size: 8px;
     font-weight: bold;
     display:block;
@@ -1282,7 +1309,7 @@ label {
     text-decoration:none;
     text-align:center;
     display: inline-block;
-}
+} */
 
 
 .restaurant_time {

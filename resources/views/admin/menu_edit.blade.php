@@ -13,10 +13,9 @@
         @csrf
         {{ Form::hidden('restaurant_id', $restaurant_id) }}
         {{ Form::hidden('menu_id', $menu_id) }}
-        <div class="comment_form_title">メニュー情報編集</div>
 
         <div class="regist_form_item">
-            <div class="user_name_title">画像（正方形300px以上を推奨）<p class="required_mark">必須</p></div>
+            <div class="admin_form_name">画像（正方形300px以上を推奨）</div>
             @if($errors->has('img'))
             <div class="comment_error">{{ $errors->first('img') }}</div>
             @endif
@@ -29,7 +28,7 @@
         </div>
 
         <div class="regist_form_item">
-            <div class="user_name_title">メニュー名<p class="required_mark">必須</p></div>
+            <div class="admin_form_name">メニュー名<p class="required_mark">※必須</p></div>
             @if($errors->has('name'))
             <div class="comment_error">{{ $errors->first('name') }}</div>
             @endif
@@ -37,7 +36,7 @@
         </div>
 
         <div class="regist_form_item">
-            <div class="user_name_title">値段</div>
+            <div class="admin_form_name">値段</div>
             @if($errors->has('price'))
             <div class="comment_error">{{ $errors->first('price') }}</div>
             @endif
@@ -45,7 +44,7 @@
         </div>
 
         <div class="regist_form_item">
-            <div class="user_name_title">メニュー説明文（30文字まで）</div>
+            <div class="admin_form_name">メニュー説明文（30文字まで）</div>
             @if($errors->has('explain'))
             <div class="comment_error">{{ $errors->first('explain') }}</div>
             @endif
