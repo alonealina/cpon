@@ -45,8 +45,10 @@ class AdminController extends Controller
     
     public function logout(Request $request)
     {
+        session()->forget('login_id');
+        session()->forget('id');
         session()->forget('name');
-        session()->forget('email');
+        session()->forget('type');
         return redirect('admin/login');
     }
 

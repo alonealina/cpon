@@ -30,7 +30,9 @@
 
         <div class="flexible-list">
             <aside id="column-side" class="flexible-list-side">
+                @if(!empty(Session::get('name')))
                 @include('admin.item.sidemenu')
+                @endif
             </aside>
 
             <div class="flexible-list-main">
