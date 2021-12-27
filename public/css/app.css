@@ -39,7 +39,7 @@ body {
 }
 
 .body_sp {
-    width:400px;
+    min-width:375px;
     margin:0 10px;
 }
 
@@ -168,7 +168,7 @@ footer a, footer a:hover {
 
 .freeword_text_sp {
     height: 53px;
-    width: 325px;
+    width: 290px;
     margin-top: -50px;
     border-radius: 50px;
     border: solid 1px;
