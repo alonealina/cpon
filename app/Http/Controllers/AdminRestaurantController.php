@@ -14,6 +14,9 @@ use App\Models\RestaurantCommitment;
 use App\Models\RestaurantHoliday;
 use App\Models\RestaurantCard;
 use App\Models\Menu;
+use App\Rules\HolidayCheck;
+use App\Rules\ZipCheck;
+use App\Rules\PhoneCheck;
 use DB;
 
 class AdminRestaurantController extends Controller
@@ -52,9 +55,10 @@ class AdminRestaurantController extends Controller
         $updated_month_after = isset($filter_array['updated_month_after']) ? $filter_array['updated_month_after'] : null;
         $updated_day_after = isset($filter_array['updated_day_after']) ? $filter_array['updated_day_after'] : null;
 
-        $fivestar_before = $fivestar_before_old == 'none' ? 0 : $fivestar_before_old;
+        $fivestar_before = $fivestar_before_old == 'none' || 'zero' ? 0 : $fivestar_before_old;
         $fivestar_after = $fivestar_after_old == 'none' ? 5 : $fivestar_after_old;
-
+        $fivestar_after = $fivestar_after_old == 'zero' ? 0 : $fivestar_after;
+        
         if (!empty($name)) {
             $query->where(function ($query) use ($name) {
                 $query->orwhere('name1', 'like', "%$name%")->orwhere('name2', 'like', "%$name%")->orwhere('name3', 'like', "%$name%");
@@ -235,29 +239,43 @@ class AdminRestaurantController extends Controller
     public function restaurant_store(Request $request)
     {
         $rules = [
-            'name1' => ['max:20', 'required'],
+            'login_id' => 'required',
+            'password' => 'required',
+            'name2' => 'required',
             'profile' => 'required',
-            'zip' => 'required',
+            'zip' => ['required', new ZipCheck()],
             'address' => 'required',
+            'holidays' => new HolidayCheck($request['holidays']),
+            'tel' => ['required', new PhoneCheck()],
             'main_img' => ['max:10240', 'required'],
             'sub_img1' => 'max:10240',
             'sub_img2' => 'max:10240',
             'sub_img3' => 'max:10240',
             'sub_img4' => 'max:10240',
+            'sub_img5' => 'max:10240',
+            'sub_img6' => 'max:10240',
+            'sub_img7' => 'max:10240',
+            'sub_img8' => 'max:10240',
         ];
 
         $messages = [
-            'name1.max' => '店舗名は20文字以下でお願いします',
-            'name1.required' => '店舗名を入力してください',
+            'login_id.required' => '店舗IDを入力してください',
+            'password.required' => 'パスワードを入力してください',
+            'name2.required' => '店舗名を入力してください',
             'profile.required' => 'プロフィールを入力してください',
             'zip.required' => '郵便番号を入力してください',
             'address.required' => '住所を入力してください',
+            'tel.required' => '電話番号を入力してください',
             'main_img.required' => 'ファイルを選択してください',
             'main_img.max' => 'ファイルは10MB未満でお願いします',
             'sub_img1.max' => 'ファイルは10MB未満でお願いします',
             'sub_img2.max' => 'ファイルは10MB未満でお願いします',
             'sub_img3.max' => 'ファイルは10MB未満でお願いします',
             'sub_img4.max' => 'ファイルは10MB未満でお願いします',
+            'sub_img5.max' => 'ファイルは10MB未満でお願いします',
+            'sub_img6.max' => 'ファイルは10MB未満でお願いします',
+            'sub_img7.max' => 'ファイルは10MB未満でお願いします',
+            'sub_img8.max' => 'ファイルは10MB未満でお願いします',
         ];
 
         Validator::make($request->all(), $rules, $messages)->validate();
@@ -278,12 +296,14 @@ class AdminRestaurantController extends Controller
 
         $request = $request->all();
         $fill_data_restaurant = [
+            'login_id' => $request['login_id'],
+            'password' => $request['password'],
             'name1' => $request['name1'],
             'name2' => $request['name2'],
             'name3' => $request['name3'],
             'profile' => $request['profile'],
             'pref' => $request['pref'],
-            'zip' => $request['zip'],
+            'zip' => ['required', new ZipCheck()],
             'address' => $request['address'],
             'address_remarks' => $request['address_remarks'],
             'open_time' => $request['open_time'],
@@ -372,7 +392,7 @@ class AdminRestaurantController extends Controller
             }
 
             DB::commit();
-            return redirect()->to('admin/restaurant_regist')->with('flashmessage', '登録が完了いたしました。');
+            return redirect()->to('admin/restaurant_list')->with('flashmessage', '登録が完了いたしました。');
         } catch (\Exception $e) {
             DB::rollback();
         }
@@ -421,28 +441,42 @@ class AdminRestaurantController extends Controller
     public function restaurant_update(Request $request)
     {
         $rules = [
-            'name1' => ['max:20', 'required'],
+            'login_id' => 'required',
+            'password' => 'required',
+            'name2' => 'required',
             'profile' => 'required',
             'zip' => 'required',
             'address' => 'required',
+            'holidays' => new HolidayCheck($request['holidays']),
+            'tel' => ['required', new PhoneCheck()],
             'main_img' => 'max:10240',
             'sub_img1' => 'max:10240',
             'sub_img2' => 'max:10240',
             'sub_img3' => 'max:10240',
             'sub_img4' => 'max:10240',
+            'sub_img5' => 'max:10240',
+            'sub_img6' => 'max:10240',
+            'sub_img7' => 'max:10240',
+            'sub_img8' => 'max:10240',
         ];
 
         $messages = [
-            'name1.max' => '店舗名は20文字以下でお願いします',
-            'name1.required' => '店舗名を入力してください',
+            'login_id.required' => '店舗IDを入力してください',
+            'password.required' => 'パスワードを入力してください',
+            'name2.required' => '店舗名を入力してください',
             'profile.required' => 'プロフィールを入力してください',
             'zip.required' => '郵便番号を入力してください',
             'address.required' => '住所を入力してください',
+            'tel.required' => '電話番号を入力してください',
             'main_img.max' => 'ファイルは10MB未満でお願いします',
             'sub_img1.max' => 'ファイルは10MB未満でお願いします',
             'sub_img2.max' => 'ファイルは10MB未満でお願いします',
             'sub_img3.max' => 'ファイルは10MB未満でお願いします',
             'sub_img4.max' => 'ファイルは10MB未満でお願いします',
+            'sub_img5.max' => 'ファイルは10MB未満でお願いします',
+            'sub_img6.max' => 'ファイルは10MB未満でお願いします',
+            'sub_img7.max' => 'ファイルは10MB未満でお願いします',
+            'sub_img8.max' => 'ファイルは10MB未満でお願いします',
         ];
 
         Validator::make($request->all(), $rules, $messages)->validate();
@@ -467,6 +501,8 @@ class AdminRestaurantController extends Controller
 
         $request = $request->all();
         $fill_data_restaurant = [
+            'login_id' => $request['login_id'],
+            'password' => $request['password'],
             'name1' => $request['name1'],
             'name2' => $request['name2'],
             'name3' => $request['name3'],
@@ -622,7 +658,7 @@ class AdminRestaurantController extends Controller
                 }
             }
             DB::commit();
-            return redirect()->to('admin/restaurant_regist')->with('flashmessage', '登録が完了いたしました。');
+            return redirect()->to('admin/restaurant_list')->with('flashmessage', '登録が完了いたしました。');
         } catch (\Exception $e) {
             DB::rollback();
         }
