@@ -180,9 +180,10 @@ class AdminRestaurantController extends Controller
     {
         $request = $request->all();
         $chk_list = isset($request['chk']) ? $request['chk'] : null;
+        $restaurant_id = $request['restaurant_id'];
         $release_flg = isset($request['release_flg']) ? $request['release_flg'] : null;
         $recommend_flg = isset($request['recommend_flg']) ? $request['recommend_flg'] : null;
-
+        $csv_type = isset($request['csv_type']) ? $request['csv_type'] : null;
         if (isset($release_flg) && !empty($chk_list)) {
             foreach ($chk_list as $chk) {
                 Restaurant::where('id', $chk)
@@ -208,8 +209,53 @@ class AdminRestaurantController extends Controller
                     return redirect('admin/restaurant_list')->with('message', 'おすすめ店舗は6店舗まででお願いします');
                 }
             }
+        } elseif (isset($csv_type) && $csv_type == 'export') {
+            return $this->restaurant_csv_export($restaurant_id);
         }
         return redirect('admin/restaurant_list')->with('message', 'test');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function restaurant_csv_export($restaurant_id)
+    {
+        $restaurants = Restaurant::whereIn('id', $restaurant_id)->orderBy('login_id')->get();
+        $cvsList[] = ['店舗ID', 'パスワード', '名前1', '名前2', '名前3', '店舗プロフィール', '都道府県', '郵便番号', '住所', '開店時間', '閉店時間', 'カテゴリー', 'URL', 'TEL',
+        '備考（住所）', '備考（営業時間）', 'オススメ店舗', '公開・非公開', 'CポンモールURL', '予算（昼）', '予算（夜）', '駅名1', '路線1', '駅名2', '路線2', 
+        '駅名3', '路線3', '駅名4', '路線4', '駅名5', '路線5', 'アクセス', '駐車場', '電子マネー・その他', '席数', '禁煙・喫煙', 'その他', '作成日時', '更新日時', 
+        '定休日', 'クレジットカード', '利用シーン', 'こだわり条件', 
+        ];
+        foreach ($restaurants as $restaurant) {
+            $cvsList[] = $restaurant->outputCsvContent();
+        }
+
+        $response = new StreamedResponse (function() use ($cvsList){
+            $stream = fopen('php://output', 'w');
+
+            //　文字化け回避
+            stream_filter_prepend($stream,'convert.iconv.utf-8/cp932//TRANSLIT');
+
+            // CSVデータ
+            foreach($cvsList as $key => $value) {
+                fputcsv($stream, $value);
+            }
+            $buffer = str_replace("\n", "\r\n", stream_get_contents($stream));
+            fclose($stream);
+            //出力ストリーム
+            $fp = fopen('php://output', 'w+b');
+            //さっき置換した内容を出力 
+            fwrite($fp, $buffer);
+        
+            fclose($fp);
+        });
+        
+        $response->headers->set('Content-Type', 'application/octet-stream');
+        $response->headers->set('Content-Disposition', 'attachment; filename="sample.csv"');
+ 
+        return $response;
     }
 
     /**
@@ -662,47 +708,6 @@ class AdminRestaurantController extends Controller
         } catch (\Exception $e) {
             DB::rollback();
         }
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function restaurant_csv_export()
-    {
-        $restaurants = Restaurant::get();
-        $cvsList[] = ['ID', '名前1', '名前2', '名前3', '店舗プロフィール', '都道府県', '郵便番号', '住所', '開店時間', '閉店時間', 'カテゴリー', 'URL', 'TEL',
-        '備考（住所）', '備考（営業時間）', '備考（お問合せ）', 'メイン画像', 'サブ画像1', 'サブ画像2', 'サブ画像3', 'サブ画像4', '作成日時', '更新日時', 
-        ];
-        foreach ($restaurants as $restaurant) {
-            $cvsList[] = $restaurant->outputCsvContent();
-        }
-
-        $response = new StreamedResponse (function() use ($cvsList){
-            $stream = fopen('php://output', 'w');
-
-            //　文字化け回避
-            stream_filter_prepend($stream,'convert.iconv.utf-8/cp932//TRANSLIT');
-
-            // CSVデータ
-            foreach($cvsList as $key => $value) {
-                fputcsv($stream, $value);
-            }
-            $buffer = str_replace("\n", "\r\n", stream_get_contents($stream));
-            fclose($stream);
-            //出力ストリーム
-            $fp = fopen('php://output', 'w+b');
-            //さっき置換した内容を出力 
-            fwrite($fp, $buffer);
-        
-            fclose($fp);
-        });
-        
-        $response->headers->set('Content-Type', 'application/octet-stream');
-        $response->headers->set('Content-Disposition', 'attachment; filename="sample.csv"');
- 
-        return $response;
     }
 
     /**

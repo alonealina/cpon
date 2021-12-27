@@ -12,6 +12,8 @@
     <div class="release_off_button"><a href="#" onclick="clickReleaseOffButton()">非公開</a></div>
     <div class="recommend_on_button"><a href="#" onclick="clickRecommendOnButton()">設定</a></div>
     <div class="recommend_off_button"><a href="#" onclick="clickRecommendOffButton()">解除</a></div>
+    <div class="csv_button"><a href="#" onclick="clickCsvImportButton()">CSVインポート</a></div>
+    <div class="csv_button"><a href="#" onclick="clickCsvExportButton()">CSVエクスポート</a></div>
     <div class="restaurant_list_message">{{ session('message') }}</div>
     @include('admin.item.restaurant_number')
 </div>
@@ -54,6 +56,7 @@
     </div>
     <form id="boxes" name="restaurant_list_form" action="{{ route('admin.restaurant_list_update') }}" method="get">
         @foreach($restaurants as $restaurant)
+        {{ Form::hidden('restaurant_id[]', $restaurant->id) }}
         <div class="restaurant_list_column">
             <div class="restaurant_list_checkbox">
                 <input type="checkbox" name="chk[]" value="{{ $restaurant->id }}">
