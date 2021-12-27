@@ -223,8 +223,9 @@ class AdminRestaurantController extends Controller
     public function restaurant_csv_export($restaurant_id)
     {
         $restaurants = Restaurant::whereIn('id', $restaurant_id)->orderBy('login_id')->get();
-        $cvsList[] = ['店舗ID', 'パスワード', '名前1', '名前2', '名前3', '店舗プロフィール', '都道府県', '郵便番号', '住所', '開店時間', '閉店時間', 'カテゴリー', 'URL', 'TEL',
-        '備考（住所）', '備考（営業時間）', 'オススメ店舗', '公開・非公開', 'CポンモールURL', '予算（昼）', '予算（夜）', '駅名1', '路線1', '駅名2', '路線2', 
+        $cvsList[] = ['店舗ID', 'パスワード', '飾り文字前', '店舗名', '飾り文字後', '店舗紹介文', '都道府県', '郵便番号', '市区町村', '以降の住所',
+        '開店時間', '閉店時間', 'カテゴリ', 'WEBページURL', 'TEL',
+         '備考欄（営業時間）', 'オススメ店舗', '公開・非公開', 'CポンモールURL', '予算（昼）', '予算（夜）', '駅名1', '路線1', '駅名2', '路線2', 
         '駅名3', '路線3', '駅名4', '路線4', '駅名5', '路線5', 'アクセス', '駐車場', '電子マネー・その他', '席数', '禁煙・喫煙', 'その他', '作成日時', '更新日時', 
         '定休日', 'クレジットカード', '利用シーン', 'こだわり条件', 
         ];
@@ -285,12 +286,12 @@ class AdminRestaurantController extends Controller
                     'pref' => $data[6],
                     'zip' => $data[7],
                     'address' => $data[8],
-                    'open_time' => $data[9],
-                    'close_time' => $data[10],
-                    'category_id' => Category::where('name', $data[11])->first()->id,
-                    'url' => $data[12],
-                    'tel' => $data[13],
-                    'address_remarks' => $data[14],
+                    'address_remarks' => $data[9],
+                    'open_time' => $data[10],
+                    'close_time' => $data[11],
+                    'category_id' => Category::where('name', $data[12])->first()->id,
+                    'url' => $data[13],
+                    'tel' => $data[14],
                     'time_remarks' => $data[15],
                     'recommend_flg' => $data[16],
                     'cpon_mall_url' => $data[17],
