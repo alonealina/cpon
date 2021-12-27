@@ -17,6 +17,7 @@ use App\Models\Menu;
 use App\Rules\HolidayCheck;
 use App\Rules\ZipCheck;
 use App\Rules\PhoneCheck;
+use App\Rules\AlphaNumCheck;
 use DB;
 
 class AdminRestaurantController extends Controller
@@ -395,8 +396,8 @@ class AdminRestaurantController extends Controller
     public function restaurant_store(Request $request)
     {
         $rules = [
-            'login_id' => 'required',
-            'password' => 'required',
+            'login_id' => ['required', new AlphaNumCheck()],
+            'password' => ['required', new AlphaNumCheck()],
             'name2' => 'required',
             'profile' => 'required',
             'zip' => ['required', new ZipCheck()],
@@ -597,8 +598,8 @@ class AdminRestaurantController extends Controller
     public function restaurant_update(Request $request)
     {
         $rules = [
-            'login_id' => 'required',
-            'password' => 'required',
+            'login_id' => ['required', new AlphaNumCheck()],
+            'password' => ['required', new AlphaNumCheck()],
             'name2' => 'required',
             'profile' => 'required',
             'zip' => 'required',

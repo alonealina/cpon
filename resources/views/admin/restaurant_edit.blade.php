@@ -14,6 +14,9 @@
         {{ Form::hidden('restaurant_id', $restaurant->id) }}
         <div class="admin_form_name">店舗ID<p class="required_mark">※必須</p></div>
         {{ Form::text('login_id', old('login_id', $restaurant->login_id), ['class' => 'login_id_input', 'maxlength' => 10]) }}
+        @if($errors->has('password'))
+        <div class="comment_error">{{ $errors->first('password') }}</div>
+        @endif
         <div class="admin_form_name">パスワード<p class="required_mark">※必須</p></div>
         {{ Form::text('password', old('password', $restaurant->password), ['class' => 'password_input', 'maxlength' => 12]) }}
 
