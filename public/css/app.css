@@ -1067,6 +1067,15 @@ label {
     width: 350px;
 }
 
+.notice_img_sp {
+    width:67px;
+}
+
+.cpon_notice_title {
+    font-size:14px;
+    font-weight: bold;
+}
+
 .notice_title_sp {
     font-size: 17px;
     margin: 0 0 10px 0px;
@@ -1665,6 +1674,10 @@ label {
 
 .menu_list_bar li.current{
     border-bottom: 2px solid #FDB731;
+    color: #FDB731;
+}
+
+.menu_list_bar li.current a {
     color: #FDB731;
 }
 

@@ -27,10 +27,18 @@
 <br>
     <nav class="info_list_bar info_list_bar_sp">
         <ul>
-            <li class="info_basic current"><a><img src="{{ asset('img/icon/ie.png') }}" alt=""> 店舗基本情報</a></li>
-            <li class="info_access"><a><img src="{{ asset('img/icon/access.png') }}" alt=""> アクセス情報</a></li>
-            <li class="info_pay"><a><img src="{{ asset('img/icon/siharai.png') }}" alt=""> 支払い方法</a></li>
-            <li class="info_other"><a><img src="{{ asset('img/icon/haguruma.png') }}" alt=""> 設備・その他の情報</a></li>
+            <li class="info_basic current"><a>
+                <img src="{{ asset('img/icon/ie.png') }}" id="img_basic" hidden>
+                <img src="{{ asset('img/icon/ie_c.png') }}" id="img_basic_current"> 店舗基本情報</a></li>
+            <li class="info_access"><a>
+                <img src="{{ asset('img/icon/access.png') }}" id="img_access">
+                <img src="{{ asset('img/icon/access_c.png') }}" id="img_access_current" hidden> アクセス情報</a></li>
+            <li class="info_pay"><a>
+                <img src="{{ asset('img/icon/siharai.png') }}" id="img_siharai">
+                <img src="{{ asset('img/icon/siharai_c.png') }}" id="img_siharai_current" hidden> 支払い方法</a></li>
+            <li class="info_other"><a>
+                <img src="{{ asset('img/icon/haguruma.png') }}" id="img_haguruma">
+                <img src="{{ asset('img/icon/haguruma_c.png') }}" id="img_haguruma_current" hidden> 設備・その他の情報</a></li>
         </ul>
     </nav>
     <div class="info_list_sp">
