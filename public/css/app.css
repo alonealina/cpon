@@ -274,16 +274,20 @@ footer a, footer a:hover {
 
 .category_name_title_sp {
     position: relative;
-    top:30%;
-    font-size: 40px;
+    top: 30%;
+    font-size: 33px;
     font-weight: bold;
-    margin-left:60px;
-    width:300px;
+    margin-left: -30px;
+    width: 360px;
+    color: white;
+    text-align: right;
+    -webkit-text-stroke:2px #727272;
 }
-
 .category_img_sp {
     position: relative;
-    float:left;
+    float: left;
+    width: 60%;
+    margin-left: -40px;
 }
 
 .category_img_sp img {
@@ -462,7 +466,7 @@ hr {
     text-align:center;
 }
 
-.button_black, .button_comment, .notice_button_back, .notice_button_next, .notice_button_index, .button_grey {
+.button_black, .button_comment, .notice_button_back, .notice_button_back_sp, .notice_button_next_sp, .notice_button_next, .notice_button_index, .button_grey {
     text-align:center;
 }
 .button_grey a {
@@ -487,7 +491,7 @@ hr {
     width: 310px;
     height: 60px;
     margin: 30px auto;
-    line-height: 66px;
+    line-height: 63px;
     background: #666665;
     color: #fff;
     text-decoration: none;
@@ -544,7 +548,9 @@ hr {
 .button_black a:hover,
 .button_comment a:hover,
 .notice_button_back a:hover,
+.notice_button_back_sp a:hover,
 .notice_button_next a:hover,
+.notice_button_next_sp a:hover,
 .notice_button_index a:hover {
     transition: 0.5s;
     opacity: 0.6;
@@ -589,6 +595,11 @@ hr {
 
 .notice_button_back {
     float:left;
+}
+.notice_button_back_sp {
+    float:left;
+
+}
 }
 
 .notice_button_next {
@@ -1043,7 +1054,7 @@ label {
 }
 
 .notice_title_sp {
-    font-size: 12px;
+    font-size: 17px;
     margin: 0 0 10px 0px;
     width: 350px;
     text-align: left;
@@ -1059,7 +1070,14 @@ label {
 
 .notice_content_sp {
     font-size: 12px;
-    font-weight: bold;
+    /*font-weight: bold;*/
+    text-align: left;
+    width: 350px;
+}
+.notice_content_date{
+    text-align: left;
+    font-size: 11px;
+    width: 360px;
 }
 
 .cpon_notice {

@@ -89,6 +89,7 @@
 <p class="cpon_notice_title">Cポンお店ナビからのお知らせ</p>
 <hr>
 <div class="notice_show_sp">
+    <br>
     <div class="notice_content_date">{{ $notice->notice_date }}</div>
     <div class="notice_title_sp">{{ $notice->title }}</div>
     <div class="notice_content_sp">{!! nl2br(e($notice->content)) !!}</div>
