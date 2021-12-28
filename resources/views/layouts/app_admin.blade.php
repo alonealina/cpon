@@ -15,7 +15,7 @@
     </div> -->
 
     <body>
-        @if(!empty(Session::get('name')))
+        @if(!empty(Session::get('login_id')))
         <header>
             <nav class="navbar">
                 <a class="navbar-brand" href=""{{ route('admin.index') }}">
