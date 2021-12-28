@@ -20,9 +20,9 @@
         @endforeach
     </div>
     @if(!empty($restaurant->cpon_mall_url))
-    <div class="cpon_mall_url">
+    <div style="width:350px;text-align:left;"><div class="cpon_mall_url_sp">
         <a href="{{ $restaurant->cpon_mall_url }}" target="_blank">Cポンモール出店中</a>
-    </div>
+    </div></div>
     @endif
 </div>
 

@@ -13,18 +13,18 @@
     <div style="width:350px;"><div class="restaurant_name_sp2">{{ $restaurant->name1 }} {{ $restaurant->name2 }} {{ $restaurant->name3 }}</div></div>
     <div class="scene_commitment">
         @foreach ($restaurant_scenes as $name)
-        <label class="label">{{ $name }}</label>
+        <div style="text-align:left;"><label class="label">{{ $name }}</label></div>
         @endforeach
         @foreach ($restaurant_commitments as $name)
-        <label class="label">{{ $name }}</label>
+        <div style="text-align:left;"><label class="label">{{ $name }}</label></div>
         @endforeach
     </div>
     @if(!empty($restaurant->cpon_mall_url))
-    <div class="cpon_mall_url">
+    <div style="width:350px;text-align:left;"><div class="cpon_mall_url_sp">
         <a href="{{ $restaurant->cpon_mall_url }}" target="_blank">Cポンモール出店中</a>
-    </div>
+    </div></div>
     @endif
-
+<br>
     <nav class="info_list_bar info_list_bar_sp">
         <ul>
             <li class="info_basic current"><a><img src="{{ asset('img/icon/ie.png') }}" alt=""> 店舗基本情報</a></li>

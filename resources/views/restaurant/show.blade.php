@@ -342,16 +342,16 @@ $('#ipad_label').click(function() {
 <div class="restaurant_show">
     <div style="width:350px"><div style="float:left;" class="restaurant_category_sp">{{ $category->name }}</div></div><br>
     <div style="width:350px"><div class="restaurant_name_sp2">{{ $restaurant->name1 }} {{ $restaurant->name2 }} {{ $restaurant->name3 }}</div></div>
-    <div style="width:350px" class="scene_commitment">
+    <div style="width:350px;"><div style="width:350px" class="scene_commitment">
         @foreach ($restaurant_scenes as $name)
-        <label class="label">{{ $name }}</label>
+        <div style="text-align:left;"><label class="label">{{ $name }}</label></div>
         @endforeach
         @foreach ($restaurant_commitments as $name)
-        <label class="label">{{ $name }}</label>
+        <div style="text-align:left;"><label class="label">{{ $name }}</label></div>
         @endforeach
-    </div>
+    </div></div>
     @if(!empty($restaurant->cpon_mall_url))
-    <div style="width:350px"><div style="float:left;" class="cpon_mall_url_sp">
+    <div style="width:350px;text-align:left;"><div style="" class="cpon_mall_url_sp">
         <a href="{{ $restaurant->cpon_mall_url }}" target="_blank">Cポンモール出店中</a>
     </div> </div>
     @endif
