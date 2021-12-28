@@ -922,7 +922,7 @@ hr {
 }
 
 .sidemenu_name {
-    padding:10px;
+    padding:6px 10px;
     font:normal normal normal 16px/27px Hiragino Sans;
     color: #2F3F4E;
     display: flex;
@@ -939,8 +939,9 @@ hr {
 }
 
 .flexible-list-sidebar hr {
+    margin:0;
     border: 1px solid;
-    border-color: rgb(175, 175, 175);
+    border-color: #D6D9E0;
 }
 
 .flexible-list-main {
