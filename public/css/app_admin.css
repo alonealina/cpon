@@ -152,6 +152,14 @@ footer a, footer a:hover {
     border:solid 1px #f3f3f3;
 }
 
+.border_bottom_column {
+    border-bottom: solid 1px #CCC;
+}
+
+.flex_form_priority {
+    margin-bottom: 20px;
+}
+
 .filter_flex_left, .filter_flex_right {
     width: 35%;
     padding:20px;
@@ -229,12 +237,13 @@ footer a, footer a:hover {
 }
 
 .setting_list_title {
-    width:83%;
-    margin: 10px 5px;
+    width:81%;
+    margin: 15px 10px;
 }
 
 .setting_list_name {
     width:85%;
+    padding-left: 20px;
 }
 
 .search_button a {
@@ -318,6 +327,10 @@ footer a, footer a:hover {
     text-align: center;
 }
 
+.comment_delete_text {
+    margin-left: 23px;
+}
+
 .restaurant_recommend_text {
     width: 260px;
     text-align: center;
@@ -395,6 +408,7 @@ footer a, footer a:hover {
 
 .check_delete_button {
     margin-left: 15px;
+    margin-right:920px;
 }
 
 .search_button, .clear_button {
@@ -435,10 +449,15 @@ footer a, footer a:hover {
 
 .comment_detail {
     padding-top: 20px;
+    font-size: 14px;
 }
 
 .comment_detail_content {
     width: 620px;
+}
+
+.comment_detail_created_at {
+    margin-bottom: 20px !important;
 }
 
 .comment_hr {
@@ -501,8 +520,11 @@ footer a, footer a:hover {
     width:25%;
 }
 
+.comment_list_fivestar {
+    width:3%;
+}
 .comment_list_content {
-    width:30%;
+    width:29%;
 }
 
 .comment_list_content div {
@@ -536,8 +558,12 @@ footer a, footer a:hover {
     width:13%;
 }
 
+.banner_list_title {
+    width:22%;
+}
+
 .banner_list_url {
-    width:58%;
+    width:50%;
 }
 
 .restaurant_regist_form {
@@ -958,16 +984,16 @@ hr {
     width: 500px;
 }
 
-.notice_title_input, .notice_content_input {
+.notice_title_input, .notice_content_input, .setting_name_input {
     width: 620px;
 }
 
-.notice_title_input {
+.notice_title_input, .setting_name_input {
     height:28px;
     font-size:16px;
 }
 
-.notice_content_input {
+.notice_content_input, .setting_name_input {
     margin-bottom: 20px;
 }
 .flex_notice_title {

@@ -1,10 +1,10 @@
 
 <div class="notice_list">
-    <div class="restaurant_list_column">
+    <div class="restaurant_list_column border_bottom_column">
         <div class="restaurant_item_name">画像一覧（20枚まで）</div>
     </div>
-    <div class="restaurant_list_column">
-        <div class="menu_list_name">
+    <div class="restaurant_list_column border_bottom_column">
+        <div class="banner_list_title">
             <div class="restaurant_item_name">画像</div>
         </div>
         <div class="banner_list_url">
@@ -16,7 +16,7 @@
     </div>
     @foreach($banners as $banner)
     <div class="restaurant_list_column">
-        <div class="menu_list_name">
+        <div class="banner_list_title">
             <img src="../../banner/{{ $banner->img }}" class="menu_img">
         </div>
         <div class="banner_list_url">

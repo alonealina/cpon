@@ -1,6 +1,6 @@
 
 <div class="notice_list">
-    <div class="setting_list_column">
+    <div class="setting_list_column border_bottom_column">
         <div class="setting_list_title">こだわり条件一覧（20個まで）</div>
         @if($commitments->count() < 20)
         <div class="button_red_admin">
