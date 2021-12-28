@@ -20,7 +20,7 @@
 } */
 
 #registration_ipad {
-    min-width:800px;
+min-width:850px;
 }
 
 #registration_sp {
@@ -144,7 +144,8 @@ footer a, footer a:hover {
 
 
 #freeword_form_ipad {
-    margin:0 100px;
+    margin:0 120px;
+    left: 0px;
 }
 
 #freeword_form_sp {
@@ -209,7 +210,7 @@ footer a, footer a:hover {
 }
 
 .category_title_ipad {
-    margin:10px 0 10px 50px;
+    margin: 40px 10px 10px 89px;
 }
 
 .category_title_sp {
@@ -268,7 +269,7 @@ footer a, footer a:hover {
 }
 
 .category_img_ipad img {
-    width:60%;
+    width:71%;
     height:60%;
 }
 
@@ -406,6 +407,14 @@ margin-left:10px;
     background: #FFB01A 0% 0% no-repeat padding-box;
     margin-left:10px;
 }
+#registration_ipad .restaurant_list_line{
+    width: 742px;
+    height: 15px;
+    background: #FFB01A 0% 0% no-repeat padding-box;
+    margin-left:10px;
+    margin:0 auto;
+}
+
 .restaurant_list_line_sp{
     width: 380px;
     height: 10px;
@@ -419,6 +428,8 @@ margin-left:10px;
     font-size: 25px;
     margin-left: 50px;
     text-align: center;
+    color: #FFB01A; 
+    margin-top: 30px;
 }
 
 .restaurant_list_title_sp {
@@ -613,8 +624,7 @@ hr {
 .notice_button_back_sp {
     float:left;
 
-}
-
+}s
 
 .notice_button_next {
     float:right;
@@ -996,11 +1006,15 @@ label {
 .new_restaurant_sp a, .new_restaurant_sp a:hover,
 .search_restaurant_sp a, .search_restaurant_sp a:hover,
 .menu_list_bar a, .menu_list_bar a:hover,
-.category a, .category a:hover,
-.category_ipad a, .category_ipad a:hover{
+.category a, .category a:hover{
     color: black;
     text-decoration:none;
     font-weight: 400px;
+}
+.category_ipad a, .category_ipad a:hover{
+    color: white;
+    text-decoration:none; 
+    font-size:13px; 
 }
 .category_sp a, .category_sp a:hover{
     color: white;
@@ -1036,7 +1050,7 @@ label {
 .recommend_restaurant_ipad img,
 .new_restaurant_ipad img,
 .search_restaurant_ipad img {
-    height: 180px;
+    height: 330px;
     width: 330px;
 }
 
@@ -1279,8 +1293,9 @@ label {
 }
 
 .recommend_restaurant_ipad, .new_restaurant_ipad, .search_restaurant_ipad {
-    width: 44%;
+    width: 46%;
     margin: 10px;
+    height: 47%;
 }
 
 .recommend_restaurant_sp, .new_restaurant_sp, .search_restaurant_sp {
@@ -1830,8 +1845,11 @@ height: 74px;
     margin:0 2px 10px 2px;
 }
 
-.banner_sp, .banner_ipad {
+.banner_sp{
     margin-top: 15px;
+}
+.banner_ipad {
+    margin-top: 65px;  
 }
 
 .slide_restaurant_img_ipad{
@@ -1864,7 +1882,7 @@ height: 74px;
 }
 
 .slider_banner_ipad li {
-    height:150px;
+    height:100px;
 }
 
 /*slickのJSで書かれるタグ内、スライド左右の余白調整*/
@@ -1881,10 +1899,13 @@ height: 74px;
     border-radius:15%;
 }
 
-.category li img,
-.category_ipad li img {
+.category li img{
     margin:15px auto;
     width:90px;
+}
+.category_ipad li img {
+    margin:10px auto;
+    width:70px; 
 }
 
 .category_sp li img {
@@ -1919,7 +1940,8 @@ height: 74px;
     text-indent: -9999px;
  }
 .banner_ipad .draggable {
-    height:300px;
+    height:230px;
+    border-radius: 35px;
 }
 
 /*矢印の設定*/
@@ -1968,7 +1990,7 @@ height: 74px;
 
 .slider_banner_ipad .slick-prev {/*戻る矢印の位置と形状*/
     left: -0.2%;
-    top: 140px;
+    top: 105px;
 }
 
 .slider_ipad .slick-next {/*次へ矢印の位置と形状*/
@@ -1978,7 +2000,7 @@ height: 74px;
 
 .slider_banner_ipad .slick-next {/*次へ矢印の位置と形状*/
     right: -0.2%;
-    top: 140px;
+    top: 105px;
 }
 
 .slider_sp .slick-prev {/*戻る矢印の位置と形状*/
@@ -2437,23 +2459,25 @@ display       : none;                                   /* 非表示 */
 
 /* === チェックボックスのlabel（＝ボタンに見せる） =============== */
 .filter_open_label {
-    position      : relative;
-    float:right;
-    right         : 13px;
-    margin-bottom: -40px;
-    bottom: 26px;
-    padding-top       : 0px ;
-    font-size: 15px;
-    font-weight: bold;
-    display:block;
-    width:120px;
-    height:30px;
-    line-height:30px;
-    background:black;
-    color:#fff;
-    border-radius:25px;
-    text-decoration:none;
-    text-align:center;
+    position: relative;
+    float: right;
+    right: -13px;
+    margin-bottom: -50px;
+    bottom: 37px;
+    padding-top: 0px;
+    font-size: 22px;
+    /* font-weight: bold; */
+    display: block;
+    width: 749px;
+    height: 51px;
+    line-height: 50px;
+    background: transparent linear-gradient(
+260deg, #FDB731 0%, #FACD78 33%, #FFB831 71%, #FFA600 100%) 0% 0% no-repeat padding-box;
+    color: #fff;
+    border-radius: 7px;
+    text-decoration: none;
+    text-align: center;
+    border: none;
 }
 
 .filter_open_label_sp {
@@ -2483,7 +2507,7 @@ display       : none;                                   /* 非表示 */
 /* === ボタンにカーソルが乗った時 ================================ */
 .filter_open_label:hover {
 transition: 0.5s;
-opacity: 0.6;
+opacity: 1.0;
 }
 
 /* === 文書のエリアの高さ（「続きを開く」が表示されているとき）=== */
@@ -2509,7 +2533,7 @@ content       : "閉じる";
 
 /* --- ボタンに表示する文字（開いているとき） -------------------- */
 .filter_open_checkbox:checked + label {
-bottom        : 38px;
+bottom        : 37px;
 }
 
 
