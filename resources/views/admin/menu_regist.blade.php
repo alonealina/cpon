@@ -46,11 +46,10 @@
             {{ Form::text('explain', old('explain'), ['class' => 'explain_input', 'maxlength' => 30]) }}
         </div>
 
-        <div class="button_black">
-            <a href="#" onclick="clickRegistButton()">メニューを登録する</a>
-        </div>
     </form>
     <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
 </div>
-
+<div class="regist_button menu_regist_button">
+    <a href="#" onclick="clickRegistButton()">メニューを登録する</a>
+</div>
 @endsection
