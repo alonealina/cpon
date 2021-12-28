@@ -228,7 +228,7 @@
 
 <p class="index_notice_title_sp"><img style="width:39px" src="{{ asset('img/icon/bell.png') }}" alt=""><span class="notice_home_list_te_sp">Cポンお店ナビからのお知らせ</span></p>
 <div class="notice_home_list_line"></div>
-<div class="notice_home_sp" style="margin-top:-4px;">
+<div class="notice_home_sp" style="margin-top:-5px;">
     <hr>
     @foreach ($notices as $notice)
     <a class="notice_home_list" href="{{ route('notice.show', ['id' => $notice->id]) }}">

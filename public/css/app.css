@@ -205,7 +205,7 @@ footer a, footer a:hover {
 .category_title_sp {
     font-size: 14px;
     margin: 1px 0;
-    margin-top: -35px;
+    margin-top: 0px;
     text-align: left;
     width: 345px;
 }
@@ -376,7 +376,7 @@ margin-left:10px;
     width: 844px;
     height: 15px;
     background: #FFB01A 0% 0% no-repeat padding-box;
-    margin-left:10px;
+    margin-left:0px;
 }
 .restaurant_list_line_sp{
     width: 380px;
@@ -518,17 +518,17 @@ hr {
 .back_button a {
     font-size: 20px;
     font-weight: bold;
-    display:block;
-    width:40px;
-    height:40px;
-    margin:15px 0 0 15px;
-    line-height:40px;
-    background:#FFB01A;
-    color:#fff;
-    border-radius:25px;
-    text-decoration:none;
-    text-align:center;
-    float:left;
+    display: block;
+    width: 45px;
+    height: 45px;
+    margin: 15px 0 0 15px;
+    line-height: 45px;
+    background: #FFB01A;
+    color: #fff;
+    border-radius: 25px;
+    text-decoration: none;
+    text-align: center;
+    float: left;
 }
 
 .button_black a:hover,
