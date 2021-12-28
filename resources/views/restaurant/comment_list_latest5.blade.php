@@ -72,10 +72,11 @@
     @if($comments->total() > 5)
         @if($version == 'sp')
         <div class="button_black_sp">
+            <a href="{{ route('restaurant.comment_list_sp', ['id' => $restaurant_id]) }}">クチコミ一覧</a>
         @else
         <div class="button_black">
-        @endif
             <a href="{{ route('restaurant.comment_list', ['id' => $restaurant_id]) }}">クチコミ一覧</a>
+        @endif
         </div>
     @endif
 
