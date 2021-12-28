@@ -430,7 +430,7 @@ Cポンのご利用期間は、Cポンを購入した日から６ヶ月としま
 
 
 @section('content_sp')
-
+<div class="footer_item_title_sp">
 <p class="footer_item_title_sp">利用規約</p>
 <br>
 <div class="foot_title">第１条（総則）</div>
@@ -639,6 +639,7 @@ Cポンのご利用期間は、Cポンを購入した日から６ヶ月としま
 <br>080-7216-2397（直通）
 <br>mail　support@koc-japan.co.jp
 
+</div>
 </div>
 @endsection
 

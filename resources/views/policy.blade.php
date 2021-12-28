@@ -205,8 +205,6 @@
 <br>Mail:　support@koc-japan.co.jp
 
 </div>
-
-</div>
 @endsection
 
 
