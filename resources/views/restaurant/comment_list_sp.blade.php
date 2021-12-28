@@ -27,7 +27,7 @@
         @endif
     </ul>
 </div>
-
+<br><br><br>
 <div class="comment_list" id="comment_list">
     <div class="comment_list_header">
         <p class="comment_list_title">クチコミ一覧</p>

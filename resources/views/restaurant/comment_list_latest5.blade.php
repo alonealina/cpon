@@ -1,14 +1,17 @@
 <div class="comment_list" id="comment_list">
-    <div class="comment_list_header">
-        <p class="comment_list_title">最新のクチコミ</p>
-        <div class="button_comment">
             @if($version == 'sp')
-            <a href="{{ route('restaurant.comment_form_sp', ['id' => $restaurant_id]) }}">クチコミを投稿する</a>
+            <div class="comment_list_header_sp">
+            <p class="comment_list_title_sp">最新のクチコミ</p>
+            <div class="button_comment_sp"><a href="{{ route('restaurant.comment_form_sp', ['id' => $restaurant_id]) }}">クチコミを投稿する</a></div>
+            </div>
             @else
-            <a href="{{ route('restaurant.comment_form', ['id' => $restaurant_id]) }}">クチコミを投稿する</a>
+            <div class="comment_list_header">
+            <p class="comment_list_title">最新のクチコミ</p>
+            <div class="button_comment"><a href="{{ route('restaurant.comment_form', ['id' => $restaurant_id]) }}">クチコミを投稿する</a></div>
+            </div>
             @endif
-        </div>
-    </div>
+        
+ 
     <div class="number">
         <b>最新の5件を表示</b>
     </div>

@@ -553,6 +553,9 @@ hr {
 .button_comment {
     float:right;
 }
+.button_comment_sp {
+    float:right;
+}
 
 .button_comment a {
     font-size: 14px;
@@ -562,6 +565,21 @@ hr {
     height: 40px;
     margin: 0px auto;
     line-height: 40px;
+    background: #FDB731;
+    color: #fff;
+    border-radius: 20px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.button_comment_sp a {
+    font-size: 13px;
+    font-weight: 300;
+    display: block;
+    width: 170px;
+    height: 40px;
+    margin: 0px auto;
+    line-height: 42px;
     background: #FDB731;
     color: #fff;
     border-radius: 20px;
@@ -599,20 +617,40 @@ hr {
 
 .comment_list_header {
     height:50px;
+    width: 1100px;
 }
 
-.comment_list_title {
-    float:left;
+.comment_list_header_sp {
+    height:50px;
+    width: 360px;
 }
+
+
+.comment_list_title{
+float:left;
+margin-top:-3px;
+font-size:17px;
+}
+.comment_list_title_sp{
+    float:left;
+    margin-top:-3px;
+    font-size:16px;
+    }
 
 .comment_list_content {
-    margin:10px 20px;
-    font-size:15px; 
-    font-weight:300;
+    margin: 10px 20px;
+    font-size: 15px;
+    font-weight: 300;
+    text-align: left;
+}
 }
 
 .comment_list_content_sp {
     margin:10px 10px;
+}
+.comment_list_sp{
+    position: relative;
+    top:20px;
 }
 
 .comment_datetime {
@@ -632,6 +670,9 @@ hr {
 
 .number {
     margin-bottom: 10px;
+    text-align: left;
+    position: relative;
+    left: -110px;
 }
 
 .number b {
@@ -1468,11 +1509,11 @@ label {
     margin: 0;
     padding: 0;
     width: 100%;
-    font-size: 12px;
+    font-size: 10px;
 }
 
 .info_list_bar_sp img{
-    width: 10px;
+    width: 11px;
 }
 
 .info_list_bar li{
@@ -1495,11 +1536,12 @@ label {
 }
 
 .info_list_bar li{
-    border-bottom: 3px solid #dcdcdc;
+    border-bottom: 3px solid #666665;
+    color: #666665;
 }
 
 .info_list_bar li:hover{
-    border-bottom: 3px solid #a9a9a9;
+    border-bottom: 3px solid #FFB01A;
 }
 
 .info_list {
@@ -1509,6 +1551,15 @@ label {
     font-weight: 300;
     font-size: 15px;
     line-height: 35px;
+}
+.info_list_sp {
+    height: 370px;
+    background-color: #FAFAFA;
+    padding: 30px;
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 25px;
+    text-align: left;
 }
 
 /*以下メニューバーについて*/
