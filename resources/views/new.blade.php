@@ -1,8 +1,10 @@
+
 @extends('home')
 
 @section('restaurant_list')
 
-<p class="restaurant_list_title"><img src="{{ asset('img/icon/new.png') }}" alt="">新着店舗情報</p>
+<p class="restaurant_list_title"><img style="width:44px;" src="{{ asset('img/icon/new.png') }}" alt=""><span class="restaurant_list_te">新着店舗情報</span></p>
+<div class="restaurant_list_line"></div>
 <div class="new_list">
     @foreach ($news as $new)
     <div class="new_restaurant">
@@ -34,7 +36,8 @@
 
 @section('restaurant_list_ipad')
 
-<p class="restaurant_list_title_ipad"><img src="{{ asset('img/icon/new.png') }}" alt="">新着店舗情報</p>
+<p class="restaurant_list_title"><img style="width:44px;" src="{{ asset('img/icon/new.png') }}" alt=""><span class="restaurant_list_te">新着店舗情報</span></p>
+<div class="restaurant_list_line"></div>
 <div class="new_list_ipad">
     @foreach ($news as $new)
     <div class="new_restaurant_ipad">
@@ -73,7 +76,8 @@
 
 @section('restaurant_list_sp')
 
-<p class="restaurant_list_title_sp"><img src="{{ asset('img/icon/new.png') }}" alt="">新着店舗情報</p>
+<p class="restaurant_list_title_sp"><img style="width:44px;" src="{{ asset('img/icon/new.png') }}" alt=""><span class="restaurant_list_te_sp">新着店舗情報</span></p>
+<div class="restaurant_list_line_sp"></div>
 <div class="new_list_sp">
     @foreach ($news as $new)
     <div class="new_restaurant_sp">

@@ -24,7 +24,8 @@
 }
 
 #registration_sp {
-    min-width:400px;
+    min-width: 375px;
+    overflow-x: hidden;
 }
 
 body {
@@ -38,7 +39,7 @@ body {
 
 .body_sp {
     min-width:375px;
-    margin:0 10px;
+    text-align:-webkit-center;
 }
 
 .header_black, .footer_black {
@@ -147,8 +148,9 @@ footer a, footer a:hover {
 }
 
 #freeword_form_sp {
+    width: 360px;
     height:50px;
-
+    text-align: center;
 }
 
 .freeword_text, .freeword_text_ipad {
@@ -193,7 +195,7 @@ footer a, footer a:hover {
     border: none;
     width: 49px;
     height: 49px;
-    margin-left: 10px;
+    margin-left: -1px;
 }
 
 .category_title_ipad {
@@ -203,7 +205,9 @@ footer a, footer a:hover {
 .category_title_sp {
     font-size: 14px;
     margin: 1px 0;
-    margin-top:-35px;
+    margin-top: 0px;
+    text-align: left;
+    width: 345px;
 }
 
 .category_background {
@@ -372,7 +376,7 @@ margin-left:10px;
     width: 844px;
     height: 15px;
     background: #FFB01A 0% 0% no-repeat padding-box;
-    margin-left:10px;
+    margin-left:0px;
 }
 .restaurant_list_line_sp{
     width: 380px;
@@ -514,17 +518,17 @@ hr {
 .back_button a {
     font-size: 20px;
     font-weight: bold;
-    display:block;
-    width:40px;
-    height:40px;
-    margin:15px 0 0 15px;
-    line-height:40px;
-    background:#FFB01A;
-    color:#fff;
-    border-radius:25px;
-    text-decoration:none;
-    text-align:center;
-    float:left;
+    display: block;
+    width: 45px;
+    height: 45px;
+    margin: 15px 0 0 15px;
+    line-height: 45px;
+    background: #FFB01A;
+    color: #fff;
+    border-radius: 25px;
+    text-decoration: none;
+    text-align: center;
+    float: left;
 }
 
 .button_black a:hover,
@@ -965,12 +969,15 @@ label {
     font-size: 12px;
     margin: 7px 0 5px 0px;
     font-weight: 200;
+    text-align: left;
+    width: 350px;
 }
 
 .notice_title_sp {
     font-size: 12px;
     margin: 0 0 10px 0px;
-   
+    width: 350px;
+    text-align: left;
 }
 
 .notice_title_big {
@@ -1129,6 +1136,7 @@ label {
 .restaurant_name_sp {
     font-size: 13px;
     color: black;
+    text-align: left;
 }
 
 .recommend_address, .new_address, .search_address {
@@ -1141,14 +1149,16 @@ label {
     font-size: 10px;
     height: auto;
     color: #696969;
+    text-align: left;
 }
 
 .recommend_time, .new_time, .search_time {
     font-size: 10px;
     color: #696969;
-    display: inline-block;
-    top: -5px;
+    /* display: inline-block; */
+    top: 3px;
     position: relative;
+    text-align: left;
 }
 
 .menu_detail {
@@ -1236,39 +1246,41 @@ label {
 .open_mark {
     font-size: 8px;
     font-weight: bold;
-    display:block;
-    width:50px;
-    height:15px;
-    margin:0px 0;
-    background:#DD0000;
-    color:#fff;
-    border-radius:25px;
-    text-decoration:none;
-    text-align:center;
+    display: block;
+    width: 50px;
+    height: 15px;
+    margin: 0px 0;
+    background: #DD0000;
+    color: #fff;
+    border-radius: 25px;
+    text-decoration: none;
+    text-align: center;
     display: inline-block;
     transform: scale(0.8);
     transform-origin: left top;
-    position:relative;
-    top: -10px;
+    position: relative;
+    top: 7px;
+    float: left;
 }
 
 .close_mark {
     font-size: 8px;
     font-weight: bold;
-    display:block;
-    width:50px;
-    height:15px;
-    margin:0px 0;
-    background:blue;
-    color:#fff;
-    border-radius:25px;
-    text-decoration:none;
-    text-align:center;
+    display: block;
+    width: 50px;
+    height: 15px;
+    margin: 0px 0;
+    background: blue;
+    color: #fff;
+    border-radius: 25px;
+    text-decoration: none;
+    text-align: center;
     display: inline-block;
     transform: scale(0.8);
     transform-origin: left top;
-    position:relative;
-    top: -10px;
+    position: relative;
+    top: 7px;
+    float: left;
 }
 
 .required_mark {
@@ -1589,7 +1601,7 @@ height: 74px;
 }
 
 .slider_sp, .slider_banner_sp, .restaurant_img_sp {
-    width:390px;
+    width:355px;
     padding-left: 0px;
 }
 
@@ -1694,6 +1706,7 @@ height: 74px;
 .banner .draggable,
 .banner .slick-slide img {
     height:440px;
+    border-radius: 20px;
 }
 
 .banner_sp .draggable,
