@@ -81,7 +81,7 @@
 window.onload = function () {
     $('#overlay, .modal-window_sp').fadeIn();
   $('.js-close').click(function () {
-    window.location.href = '/';
+    window.location.href = '/restaurants/' + document.comment_form_sp.restaurant_id.value + '/show';
   });
 };
 </script>

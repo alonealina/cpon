@@ -221,7 +221,7 @@ class AdminRestaurantController extends Controller
         } elseif (isset($csv_type) && $csv_type == 'export') {
             return $this->restaurant_csv_export($restaurant_id);
         }
-        return redirect('admin/restaurant_list')->with('message', 'test');
+        return redirect('admin/restaurant_list')->with('message', '店舗情報を更新しました');
     }
 
     /**
@@ -275,11 +275,9 @@ class AdminRestaurantController extends Controller
      */
     public function restaurant_csv_import(Request $request)
     {
-
-        $fp = fopen($request->csv, 'r');
-        
         DB::beginTransaction();
         try {
+        $fp = fopen($request->csv, 'r');
             while($data = fgetcsv($fp)){
                 mb_convert_variables('UTF-8', 'SJIS-win', $data);
                 if ($data[0] == '店舗ID') {
@@ -359,9 +357,10 @@ class AdminRestaurantController extends Controller
 
             DB::commit();
             fclose($fp);
-            return redirect()->to('admin/restaurant_list')->with('flashmessage', '登録が完了いたしました。');
+            return redirect()->to('admin/restaurant_list')->with('message', 'CSVインポートが完了いたしました。');
         } catch (\Exception $e) {
             DB::rollback();
+            return redirect()->to('admin/restaurant_list')->with('message', 'CSVインポートに失敗しました。');
         }  
         fclose($fp);
 
@@ -548,9 +547,10 @@ class AdminRestaurantController extends Controller
             }
 
             DB::commit();
-            return redirect()->to('admin/restaurant_list')->with('flashmessage', '登録が完了いたしました。');
+            return redirect()->to('admin/restaurant_list')->with('message', '登録が完了いたしました。');
         } catch (\Exception $e) {
             DB::rollback();
+            return redirect()->to('admin/restaurant_regist')->withInput();
         }
     }
 
@@ -660,7 +660,7 @@ class AdminRestaurantController extends Controller
             'login_id' => $request['login_id'],
             'password' => $request['password'],
             'name1' => $request['name1'],
-            'name2' => $request['name2'],
+            'name2' => null,
             'name3' => $request['name3'],
             'profile' => $request['profile'],
             'pref' => $request['pref'],
@@ -815,12 +815,13 @@ class AdminRestaurantController extends Controller
             }
             DB::commit();
             if (session('type') == 'restaurant') {
-                return redirect()->to('admin/')->with('flashmessage', '登録が完了いたしました。');
+                return redirect()->to('admin/')->with('message', '登録が完了いたしました。');
             } else {
-                return redirect()->to('admin/restaurant_list')->with('flashmessage', '登録が完了いたしました。');
+                return redirect()->to('admin/restaurant_list')->with('message', '登録が完了いたしました。');
             }
         } catch (\Exception $e) {
             DB::rollback();
+            return redirect()->route('admin.restaurant_edit', ['id' => $restaurant_id])->withInput();
         }
     }
 
@@ -836,7 +837,7 @@ class AdminRestaurantController extends Controller
         try {
             Restaurant::where('id', $id)->delete();
             DB::commit();
-            return redirect()->to('admin/restaurant_list')->with('flashmessage', '店舗情報を削除しました');
+            return redirect()->to('admin/restaurant_list')->with('message', '店舗情報を削除しました');
         } catch (\Exception $e) {
             DB::rollback();
         }

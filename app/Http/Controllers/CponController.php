@@ -68,6 +68,7 @@ class CponController extends Controller
             'restaurants' => $restaurants,
             'scenes' => $scenes,
             'commitments' => $commitments,
+            'freeword' => $freeword,
         ]);
     }
 
@@ -173,20 +174,38 @@ class CponController extends Controller
 
         if ($open != 0) {
             $query->whereTime('close_time', '>=', $open);
-        } 
+        } else {
+            // フィルター検索値保持用
+            $open = 'none';
+        }
         if ($close != 0) {
             $query->whereTime('open_time', '<=', $close);
+        } else {
+            // フィルター検索値保持用
+            $close = 'none';
         }
 
         $restaurants = $query->paginate(24);
 
         $scenes = Scene::all();
         $commitments = Commitment::all();
+        $filter_scenes = isset($request['scenes']) ? $request['scenes'] : null;
+        $filter_commitments = isset($request['commitments']) ? $request['commitments'] : null;
         return view('search', [
             'categories' => $categories,
             'restaurants' => $restaurants,
             'scenes' => $scenes,
             'commitments' => $commitments,
+            'freeword' => $freeword,
+            'filter_freeword' => $freeword,
+            'filter_pref' => $pref,
+            'area' => $area,
+            'open_only' => $open_only,
+            'highly_rated' => $highly_rated,
+            'filter_open' => $open,
+            'filter_close' => $close,
+            'filter_scenes' => $filter_scenes,
+            'filter_commitments' => $filter_commitments,
         ]);
     }
 

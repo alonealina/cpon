@@ -198,6 +198,16 @@ footer a, footer a:hover {
     margin-left: -1px;
 }
 
+.search_result_title {
+    font-size: 20px;
+}
+
+.search_result_title_ipad {
+    font-size: 20px;
+    width:100%;
+    margin-top: 20px;
+}
+
 .category_title_ipad {
     margin:10px 0 10px 50px;
 }
@@ -1989,7 +1999,7 @@ height: 74px;
     height: 580px;
     background-color: #dfdddd;
     border-radius: 5px;
-    z-index: 11;
+    z-index: 110;
     padding: 2rem;
 }
 

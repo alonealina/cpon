@@ -158,7 +158,7 @@ class MenuController extends Controller
         } elseif (isset($csv_type) && $csv_type == 'export') {
             return $this->menu_csv_export($menu_id);
         }
-        return redirect()->route('admin.menu_list', ['id' => $restaurant_id])->with('message', 'test');
+        return redirect()->route('admin.menu_list', ['id' => $restaurant_id])->with('message', 'メニュー情報を更新しました');
     }
 
     /**
@@ -231,7 +231,7 @@ class MenuController extends Controller
 
             DB::commit();
             fclose($fp);
-            return redirect()->to('admin/menu_list/'.$restaurant_id)->with('flashmessage', '登録が完了いたしました。');
+            return redirect()->to('admin/menu_list/'.$restaurant_id)->with('message', '登録が完了いたしました。');
         } catch (\Exception $e) {
             DB::rollback();
         }  
@@ -309,7 +309,7 @@ class MenuController extends Controller
             }
 
             DB::commit();
-            return redirect()->route('admin.menu_list', ['id' => $restaurant_id])->with('flashmessage', '登録が完了いたしました。');
+            return redirect()->route('admin.menu_list', ['id' => $restaurant_id])->with('message', '登録が完了いたしました。');
         } catch (\Exception $e) {
             DB::rollback();
         }
@@ -399,7 +399,7 @@ class MenuController extends Controller
             }
 
             DB::commit();
-            return redirect()->route('admin.menu_list', ['id' => $restaurant_id])->with('flashmessage', 'メニューの更新が完了いたしました。');
+            return redirect()->route('admin.menu_list', ['id' => $restaurant_id])->with('message', 'メニューの更新が完了いたしました。');
         } catch (\Exception $e) {
             DB::rollback();
         }
@@ -417,7 +417,7 @@ class MenuController extends Controller
         try {
             Menu::where('restaurant_id', $restaurant_id)->where('id', $menu_id)->delete();
             DB::commit();
-            return redirect()->route('admin.menu_list', ['id' => $restaurant_id])->with('flashmessage', 'メニュー情報を削除しました');
+            return redirect()->route('admin.menu_list', ['id' => $restaurant_id])->with('message', 'メニュー情報を削除しました');
         } catch (\Exception $e) {
             DB::rollback();
         }

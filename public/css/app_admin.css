@@ -4,6 +4,10 @@ body {
     margin:0 auto;
 }
 
+input[type="text"] {
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+}
 .header_orange {
     height: 15px;
     background-color: #FFB01A;
@@ -344,6 +348,10 @@ footer a, footer a:hover {
     font-size: 11px;
     margin: 15px;
     width:80%;
+}
+
+.notice_list input {
+    /* font-size:normal; */
 }
 
 .comment_detail {
