@@ -12,7 +12,7 @@
     <div class="notice_list">
         <form id="form" name="regist_form" action="{{ route('admin.banner_store') }}" method="post" enctype="multipart/form-data">
             @csrf
-            <div class="flex_form_item">
+            <div class="flex_form_item flex_notice_title">
                 <div class="felx_form_title">画像アップロード</div>
                 <div class="felx_form_content">
                     @if($errors->has('img'))
@@ -29,7 +29,7 @@
                     @if($errors->has('url'))
                     <div class="comment_error">{{ $errors->first('url') }}</div>
                     @endif
-                    {{ Form::text('url', old('url'), ['class' => 'banner_url_input', 'maxlength' => 255]) }}
+                    {{ Form::text('url', old('url'), ['class' => 'notice_title_input', 'maxlength' => 255]) }}
                 </div>
             </div>
 
@@ -39,7 +39,7 @@
                     @if($errors->has('priority'))
                     <div class="comment_error">{{ $errors->first('priority') }}</div>
                     @endif
-                    <select name="priority">
+                    <select name="priority" class="flex_form_priority">
                         @foreach (config('const.Priority') as $key => $value)
                         <option value="{{ $key }}" @if(old('priority') == $key ) selected @endif>{{ $value }}</option>
                         @endforeach
@@ -47,7 +47,7 @@
                 </div>
             </div>
 
-            <div class="button_black">
+            <div class="regist_button">
                 <a href="#" onclick="clickRegistButton()">画像を登録する</a>
             </div>
         </form>

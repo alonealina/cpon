@@ -13,17 +13,17 @@
         <form id="form" name="regist_form" action="{{ route('admin.scene_update') }}" method="post" enctype="multipart/form-data">
             @csrf
             {{ Form::hidden('id', $scene->id) }}
-            <div class="flex_form_item">
+            <div class="flex_form_item flex_notice_title">
                 <div class="felx_form_title">タイトル</div>
                 <div class="felx_form_content">
                 @if($errors->has('name'))
                 <div class="comment_error">{{ $errors->first('name') }}</div>
                 @endif
-                {{ Form::text('name', old('name', $scene->name), ['class' => 'name_input', 'maxlength' => 20]) }}
+                {{ Form::text('name', old('name', $scene->name), ['class' => 'setting_name_input', 'maxlength' => 20]) }}
                 </div>
             </div>
 
-            <div class="button_black">
+            <div class="regist_button">
                 <a href="#" onclick="clickRegistButton()">利用シーンを更新する</a>
             </div>
         </form>

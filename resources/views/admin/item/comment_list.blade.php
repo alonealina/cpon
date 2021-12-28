@@ -1,5 +1,5 @@
 <div class="restaurant_list_menu filter_flex">
-    <div class="restaurant_release_text">
+    <div class="comment_delete_text">
     一括操作
     </div>
 </div>
@@ -11,7 +11,7 @@
 </div>
 
 <div class="restaurant_list">
-    <div class="restaurant_list_column">
+    <div class="restaurant_list_column border_bottom_column">
         <div class="restaurant_list_checkbox">
             <input type="checkbox" id="all">
         </div>

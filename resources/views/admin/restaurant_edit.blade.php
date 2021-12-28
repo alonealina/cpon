@@ -405,7 +405,7 @@
             </div>
         </div>
 
-        <div class="button_black">
+        <div class="regist_button">
             <a href="#" onclick="clickRegistButton()">店舗情報を更新する</a>
         </div>
     </form>

@@ -13,17 +13,17 @@
         <form id="form" name="regist_form" action="{{ route('admin.commitment_update') }}" method="post" enctype="multipart/form-data">
             @csrf
             {{ Form::hidden('id', $commitment->id) }}
-            <div class="flex_form_item">
+            <div class="flex_form_item flex_notice_title">
                 <div class="felx_form_title">タイトル</div>
                 <div class="felx_form_content">
                 @if($errors->has('name'))
                 <div class="comment_error">{{ $errors->first('name') }}</div>
                 @endif
-                {{ Form::text('name', old('name', $commitment->name), ['class' => 'name_input', 'maxlength' => 20]) }}
+                {{ Form::text('name', old('name', $commitment->name), ['class' => 'setting_name_input', 'maxlength' => 20]) }}
                 </div>
             </div>
 
-            <div class="button_black">
+            <div class="regist_button">
                 <a href="#" onclick="clickRegistButton()">こだわり条件を更新する</a>
             </div>
         </form>

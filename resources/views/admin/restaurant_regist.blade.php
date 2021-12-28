@@ -358,7 +358,7 @@
             </div>
         </div>
 
-        <div class="button_black">
+        <div class="regist_button">
             <a href="#" onclick="clickRegistButton()">店舗を登録する</a>
         </div>
     </form>

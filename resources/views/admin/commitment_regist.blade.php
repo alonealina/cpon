@@ -12,17 +12,17 @@
     <div class="notice_list">
         <form id="form" name="regist_form" action="{{ route('admin.commitment_store') }}" method="post" enctype="multipart/form-data">
             @csrf
-            <div class="flex_form_item">
+            <div class="flex_form_item flex_notice_title">
                 <div class="felx_form_title">タイトル</div>
                 <div class="felx_form_content">
                 @if($errors->has('name'))
                 <div class="comment_error">{{ $errors->first('name') }}</div>
                 @endif
-                {{ Form::text('name', old('name'), ['class' => 'name_input', 'maxlength' => 20]) }}
+                {{ Form::text('name', old('name'), ['class' => 'setting_name_input', 'maxlength' => 20]) }}
                 </div>
             </div>
 
-            <div class="button_black">
+            <div class="regist_button">
                 <a href="#" onclick="clickRegistButton()">こだわり条件を登録する</a>
             </div>
         </form>
