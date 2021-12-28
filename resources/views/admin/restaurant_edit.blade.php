@@ -306,6 +306,7 @@
                         <div class="admin_form_sub">路線</div>{{ Form::text('route5', old('route5', $restaurant->route5), ['class' => 'route_input', 'maxlength' => 30]) }}
                     </div>
                 </div>
+            </div>
 
             <div class="regist_form_item">
                 <div class="admin_form_name">アクセス（200文字以内）</div>

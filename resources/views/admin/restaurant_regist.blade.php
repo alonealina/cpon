@@ -225,6 +225,7 @@
                     <div class="regist_form_item admin_form_route">
                         <div class="admin_form_sub">路線</div>{{ Form::text('route2', old('route2'), ['class' => 'route_input', 'maxlength' => 30]) }}
                     </div>
+                </div>
 
                 @if($errors->has('station3'))
                 <div class="comment_error">{{ $errors->first('station1') }}</div>
@@ -249,7 +250,7 @@
                         <div class="admin_form_sub">路線</div>{{ Form::text('route4', old('route4'), ['class' => 'route_input', 'maxlength' => 30]) }}
                     </div>
                 </div>
-                
+
                 @if($errors->has('station5'))
                 <div class="comment_error">{{ $errors->first('station1') }}</div>
                 @endif
