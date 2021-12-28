@@ -31,14 +31,14 @@
         @csrf
         {{ Form::hidden('restaurant_id', $restaurant_id) }}
         {{ Form::hidden('sp_flg', true) }}
-        <div style="text-align:left;"><div class="comment_form_title">クチコミの投稿</div></div>
+        <div style="text-align:left;"><div class="comment_form_title_sp">クチコミの投稿</div></div>
 
-        <div class="user_name_form">
+        <div class="user_name_form_sp">
             <div class="user_name_title_sp">お名前</div>
             @if($errors->has('user_name'))
             <div class="comment_error">{{ $errors->first('user_name') }}</div>
             @endif
-            {{ Form::text('user_name', old('user_name'), ['class' => 'user_name_input', 'maxlength' => 20]) }}
+            {{ Form::text('user_name', old('user_name'), ['class' => 'user_name_input_sp', 'maxlength' => 20]) }}
         </div>
 
         @if($errors->has('fivestar'))
@@ -61,7 +61,7 @@
         @if($errors->has('comment'))
             <div class="comment_error">{{ $errors->first('comment') }}</div>
         @endif
-        {{ Form::textarea('comment', old('comment'), ['class' => 'form-control comment_input', 'rows' => 6]) }}
+        {{ Form::textarea('comment', old('comment'), ['class' => 'form-control comment_input comment_input_sp', 'rows' => 6]) }}
         @if($errors->has('comment_img'))
             <div class="comment_error">{{ $errors->first('comment_img') }}</div>
         @endif

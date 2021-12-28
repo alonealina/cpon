@@ -722,6 +722,12 @@ font-size:17px;
     /* font-weight: bold; */
     margin: 20px 0;
 }
+.comment_form_title_sp {
+    font-size: 22px;
+    /* font-weight: bold; */
+    margin: 20px 0;
+    width: 360px;
+}
 
 .user_name_title, .comment_create_title {
     font-size: 19px;
@@ -732,7 +738,6 @@ font-size:17px;
 
 .user_name_title_sp, .comment_create_title_sp {
     float:left;
-    font-weight: bold;
     margin: 10px 0px;
     border-left: orange solid 5px;
     padding-left: 10px;
@@ -740,8 +745,16 @@ font-size:17px;
 
 .comment_input, .user_name_input {
     border-radius: 4px;
-    border: solid 2px;
+    border: solid 1px;
     border-color: #A2A2A2;
+}
+
+.comment_input_sp {
+    width: 360px;
+}
+.user_name_input_sp{
+    width: 350px;
+    height: 40px; 
 }
 
 .user_name_input {
@@ -751,6 +764,11 @@ font-size:17px;
 
 .user_name_form {
     margin-bottom: 20px;
+}
+.user_name_form_sp {
+    margin-bottom: 20px;
+    width:360px;
+    font-size: 15px;
 }
 
 .search_button a {
@@ -2058,7 +2076,6 @@ height: 74px;
 
 .fivestar_title_sp {
     float:left;
-    font-weight: bold;
     margin: 10px 0px;
     border-left: orange solid 5px;
     padding-left: 10px;
@@ -2083,7 +2100,9 @@ height: 74px;
 .rate-form_sp {
     display: flex;
     flex-direction: row-reverse;
-    margin: 50px 15px 0px 0px;
+    margin: 15px 15px 0px 0px;
+    float: left;
+    width: 190px;
 }
 
 .rate-form input[type=radio] {
