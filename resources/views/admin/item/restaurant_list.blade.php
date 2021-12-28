@@ -5,9 +5,7 @@
     <div class="restaurant_recommend_text">
     おすすめ設定（6店舗まで）
     </div>
-    <div class="">
-    おすすめ設定（6店舗まで）
-    </div>
+    <div class="restaurant_list_message">{{ session('message') }}</div>
 </div>
 
 <div class="restaurant_list_menu filter_flex">
@@ -15,9 +13,8 @@
     <div class="release_off_button"><a href="#" onclick="clickReleaseOffButton()">非公開</a></div>
     <div class="recommend_on_button"><a href="#" onclick="clickRecommendOnButton()">設定</a></div>
     <div class="recommend_off_button"><a href="#" onclick="clickRecommendOffButton()">解除</a></div>
-    <div class="csv_button"><a href="#" onclick="openCsvImportButton()">CSVインポート</a></div>
-    <div class="csv_button"><a href="#" onclick="clickCsvExportButton()">CSVエクスポート</a></div>
-    <div class="restaurant_list_message">{{ session('message') }}</div>
+    <div class="csv_import_button"><a href="#" onclick="openCsvImportButton()">CSVインポート</a></div>
+    <div class="csv_export_button"><a href="#" onclick="clickCsvExportButton()">CSVエクスポート</a></div>
     @include('admin.item.restaurant_number')
 </div>
 

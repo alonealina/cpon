@@ -1,5 +1,5 @@
 <div class="number_select">
-    <select class="number_select" name="sort" id="change_number">
+    <select class="" name="sort" id="change_number">
         <option value="{{ route('admin.restaurant_list', [
             'number' => '10',
             'name' => $name,
