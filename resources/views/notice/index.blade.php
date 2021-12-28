@@ -68,7 +68,7 @@
 
 @section('content_sp')
 
-<p class="cpon_notice_title"><img src="{{ asset('img/osirase.png') }}" class="notice_img_sp" alt="">Cポンお店ナビからのお知らせ</p>
+<p class="cpon_notice_title"><img src="{{ asset('img/osirase.png') }}" class="notice_img_sp" alt="" style="position:relative;margin-left:-10px;"><span style="margin-left:50px;">Cポンお店ナビからのお知らせ</span></p>
 <hr>
 <div class="notice_home_sp">
     @foreach ($notices as $notice)
