@@ -182,7 +182,10 @@ class RestaurantController extends Controller
     public function comment_list_sp($id)
     {
         $restaurant = Restaurant::find($id);
+        $category = Category::find($restaurant->category_id);
         $comments = Comment::where('restaurant_id', $id)->orderBy('created_at', 'desc')->paginate(10);
+        $avg_star = Comment::where('restaurant_id', $id)
+        ->selectRaw('CAST(AVG(fivestar) AS DECIMAL(2,1)) AS star_avg')->first()->star_avg;
         $column = \Request::get('column');
         $sort = \Request::get('sort');
         if (isset($column)) {
@@ -195,15 +198,24 @@ class RestaurantController extends Controller
             ->where('restaurant_id', $id)->get()->toArray(), 'name');
         $restaurant_commitments = array_column(RestaurantCommitment::join('commitments', 'commitments.id', '=', 'restaurant_commitments.commitment_id')
             ->where('restaurant_id', $id)->get()->toArray(), 'name');
+        $restaurant_holidays = $this->output_holiday_array(RestaurantHoliday::where('restaurant_id', $id)->first()->toArray());
+        $restaurant_cards = $this->output_card_array(RestaurantCard::where('restaurant_id', $id)->first()->toArray());
+        $restaurant_stations = $this->output_station_array($restaurant->station1, $restaurant->route1, $restaurant->station2, $restaurant->route2, 
+            $restaurant->station3, $restaurant->route3, $restaurant->station4, $restaurant->route4, $restaurant->station5, $restaurant->route5);
 
         return view('restaurant/comment_list_sp', [
             'restaurant' => $restaurant,
+            'category' => $category,
             'comments' => $comments,
+            'avg_star' => $avg_star,
             'restaurant_id' => $restaurant_id,
             'column' => $column,
             'sort' => $sort,
             'restaurant_scenes' => $restaurant_scenes,
             'restaurant_commitments' => $restaurant_commitments,
+            'restaurant_holidays' => $restaurant_holidays,
+            'restaurant_cards' => $restaurant_cards,
+            'restaurant_stations' => $restaurant_stations,
         ]);
     }
 

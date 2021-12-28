@@ -8,24 +8,22 @@
 
 @section('content_sp')
 
-<div class="banner_sp">
-    <ul class="restaurant_img_sp">
-        @if (!empty($restaurant->main_img))
-        <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" class="banner_img" alt=""></li>
-        @endif
-        @if (!empty($restaurant->sub_img1))
-        <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img1 }}" class="banner_img" alt=""></li>
-        @endif
-        @if (!empty($restaurant->sub_img2))
-        <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img2 }}" class="banner_img" alt=""></li>
-        @endif
-        @if (!empty($restaurant->sub_img3))
-        <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img3 }}" class="banner_img" alt=""></li>
-        @endif
-        @if (!empty($restaurant->sub_img4))
-        <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img4 }}" class="banner_img" alt=""></li>
-        @endif
-    </ul>
+<div class="restaurant_show">
+    <div style="width:350px;"><div style="float:left;" class="restaurant_category_sp">{{ $category->name }}</div><br>
+    <div style="width:350px;"><div class="restaurant_name_sp2">{{ $restaurant->name1 }} {{ $restaurant->name2 }} {{ $restaurant->name3 }}</div></div>
+    <div class="scene_commitment">
+        @foreach ($restaurant_scenes as $name)
+        <label class="label">{{ $name }}</label>
+        @endforeach
+        @foreach ($restaurant_commitments as $name)
+        <label class="label">{{ $name }}</label>
+        @endforeach
+    </div>
+    @if(!empty($restaurant->cpon_mall_url))
+    <div class="cpon_mall_url">
+        <a href="{{ $restaurant->cpon_mall_url }}" target="_blank">Cポンモール出店中</a>
+    </div>
+    @endif
 </div>
 <br><br><br>
 <div class="comment_list" id="comment_list">
