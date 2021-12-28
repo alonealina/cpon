@@ -30,7 +30,7 @@ input[type="text"], textarea {
 .login_form {
     background-color: #FFFFFF;
     width: 360px;
-    height: 397px;
+    min-height: 397px;
     margin:330px auto 20px auto;
     padding:30px;
 }
