@@ -2476,6 +2476,9 @@ display       : none;                                   /* 非表示 */
     text-align: center;
     left: -13px;
 }
+.filter_open_checkbox label{
+    border: none;
+}
 
 /* === ボタンにカーソルが乗った時 ================================ */
 .filter_open_label:hover {

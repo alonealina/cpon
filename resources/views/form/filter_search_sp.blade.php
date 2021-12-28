@@ -1,7 +1,7 @@
 <div class="flexible-list-sidebar_sp">
     <form id="form" name="filter_form_ipad" action="{{ route('filter') }}" method="get">
         <div class="filter_form_title_ipad">絞り込み</div>
-        <input type="checkbox" class="filter_open_checkbox" id="sp01"><label for="sp01" class="filter_open_label_sp"></label>
+        <input type="checkbox" class="filter_open_checkbox" id="sp01"><label for="sp01" class="filter_open_label_sp" style="border:none;"></label>
         <div class="filter_form_sp">
             <hr>
             <div class="search_radio_list">
