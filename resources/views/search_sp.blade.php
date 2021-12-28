@@ -14,7 +14,7 @@
 
 @include('form.filter_search_sp')
 
-<div class="category_list">
+<div style="width:375px;position:relative;left:2%;" class="category_list">
     @foreach ($categories as $category)
     <li class="category_link">
         <a href="{{ route('category', ['id' => $category->id]) }}">

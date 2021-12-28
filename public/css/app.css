@@ -643,7 +643,7 @@ font-size:17px;
     font-weight: 300;
     text-align: left;
 }
-}
+
 
 .comment_list_content_sp {
     margin:10px 10px;
@@ -682,7 +682,9 @@ font-size:17px;
 }
 
 .number_sp {
-    font-size: 14px;
+    font-size: 11px;
+    float: left;
+    width: 360px;
 }
 
 .fivestar {
@@ -823,11 +825,12 @@ font-size:17px;
 }
 
 .search_radio {
-    margin:7px 0;
+    margin: 7px 5px;
 }
 
 .search_radio_list, .search_radio_list_ipad {
-    margin-bottom:10px;
+    margin-bottom: 10px;
+    text-align: left;
 }
 
 .filter_flex_ipad_left {
@@ -847,8 +850,9 @@ font-size:17px;
 }
 
 .filter_name {
-    padding-bottom: 5px;
+    padding-bottom: 0px;
     color: #FFB01A;
+    text-align: left;
 }
 
 .filter_freeword {
@@ -885,6 +889,7 @@ select {
     border: 1px solid #aaa;
     border-radius: 8px;
     height: 30px;
+    margin-left:20px;
 }
 
 .comment_sort_select {
@@ -898,6 +903,19 @@ select {
     width:170px;
     float:right;
     padding-left: 10px;
+}
+.comment_sort_select_sp {
+    font-weight: normal;
+    font-size: 13px;
+    color: black;
+    background-color: #eeeeee;
+    border: none;
+    border-radius: 30px;
+    height: 30px;
+    width:140px;
+    float:right;
+    padding-left: 10px;
+    margin-top:-7px;
 }
 
 label {
@@ -1182,6 +1200,10 @@ label {
     display:flex;
     flex-wrap:wrap;
 }
+.category_list_sp{
+    text-align: center;
+}
+
 
 .recommend_list {
     margin-bottom: 10px;
@@ -1469,7 +1491,7 @@ label {
 }
 
 .category_list li a {
-    color:black;
+    color:white;
 }
 
 .category_list li img {
@@ -2366,22 +2388,24 @@ display       : none;                                   /* 非表示 */
 }
 
 .filter_open_label_sp {
-    position      : relative;
-    float:right;
-    margin-bottom: -40px;
-    bottom: 26px;
-    padding-top       : 0px ;
-    font-size: 12px;
-    font-weight: bold;
-    display:block;
-    width:120px;
-    height:30px;
-    line-height:30px;
-    background:black;
-    color:#fff;
-    border-radius:25px;
-    text-decoration:none;
-    text-align:center;
+    position: relative;
+    text-align: center;
+    margin-bottom: -54px;
+    bottom: 40px;
+    padding-top: 0px;
+    font-size: 15px;
+    /* font-weight: bold; */
+    display: block;
+    width: 375px;
+    height: 39px;
+    line-height: 39px;
+    background: transparent linear-gradient(
+265deg, #FDB731 0%, #FACD78 33%, #FFB831 71%, #FFA600 100%) 0% 0% no-repeat padding-box;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    left: -13px;
 }
 
 /* === ボタンにカーソルが乗った時 ================================ */
@@ -2398,11 +2422,12 @@ height        : 0px;
 /* === 文書のエリアの高さ（「続きを開く」が表示されているとき）=== */
 .filter_open_checkbox:checked ~ div {
 /* padding-bottom: 30px; */
+text-align:left;
 }
 
 /* --- ボタンに表示する文字（閉じているとき） -------------------- */
 .filter_open_checkbox:not(:checked) + label::after {
-content       : "開く";
+content       : "絞り込み";
 }
 
 /* --- ボタンに表示する文字（開いているとき） -------------------- */
@@ -2412,7 +2437,7 @@ content       : "閉じる";
 
 /* --- ボタンに表示する文字（開いているとき） -------------------- */
 .filter_open_checkbox:checked + label {
-bottom        : 26px;
+bottom        : 38px;
 }
 
 

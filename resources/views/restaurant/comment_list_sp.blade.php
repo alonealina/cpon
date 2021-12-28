@@ -13,23 +13,23 @@
     <div style="width:350px;"><div class="restaurant_name_sp2">{{ $restaurant->name1 }} {{ $restaurant->name2 }} {{ $restaurant->name3 }}</div></div>
     <div class="scene_commitment">
         @foreach ($restaurant_scenes as $name)
-        <label class="label">{{ $name }}</label>
+        <div style="text-align:left;"><label class="label">{{ $name }}</label></div>
         @endforeach
         @foreach ($restaurant_commitments as $name)
-        <label class="label">{{ $name }}</label>
+        <div style="text-align:left;"><label class="label">{{ $name }}</label></div>
         @endforeach
     </div>
     @if(!empty($restaurant->cpon_mall_url))
-    <div class="cpon_mall_url">
+    <div style="width:350px;text-align:left;"><div class="cpon_mall_url">
         <a href="{{ $restaurant->cpon_mall_url }}" target="_blank">Cポンモール出店中</a>
-    </div>
+    </div></div>
     @endif
 </div>
-<br><br><br>
+<br>
 <div class="comment_list" id="comment_list">
-    <div class="comment_list_header">
+    <div class="comment_list_header_sp">
         <p class="comment_list_title">クチコミ一覧</p>
-        <div class="button_comment">
+        <div class="button_comment_sp">
             <a href="{{ route('restaurant.comment_form_sp', ['id' => $restaurant_id]) }}">クチコミを投稿する</a>
         </div>
     </div>
@@ -39,7 +39,7 @@
         <b>{{ (($comments->currentPage() -1) * $comments->perPage() + 1) + (count($comments) -1) }}</b>件を表示 ／ 
         @endif
         全<b>{{ $comments->total() }}</b>件
-        <select class="comment_sort_select" name="sort" id="change_sort_sp">
+        <select class="comment_sort_select_sp" name="sort" id="change_sort_sp">
             <option value="{{ route('restaurant.comment_list_sp', ['id' => $restaurant_id, 'column' => 'created_at', 'sort' => 'desc']) }}"
             @if($column == "created_at" && $sort == "desc") selected @endif>投稿日時（降順）</option>
             <option value="{{ route('restaurant.comment_list_sp', ['id' => $restaurant_id, 'column' => 'created_at', 'sort' => 'asc']) }}"
@@ -50,6 +50,7 @@
             @if($column == "fivestar" && $sort == "asc") selected @endif>評価（昇順）</option>
         </select>
     </div>
+    <br><br>
     <div>
         @foreach ($comments as $comment)
         <div class="comment_list_content">
