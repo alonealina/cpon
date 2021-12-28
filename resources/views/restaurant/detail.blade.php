@@ -9,8 +9,8 @@
 @section('content_sp')
 
 <div class="restaurant_show">
-    <div class="restaurant_category">{{ $category->name }}</div>
-    <div class="restaurant_name">{{ $restaurant->name1 }} {{ $restaurant->name2 }} {{ $restaurant->name3 }}</div>
+    <div style="width:350px;"><div style="float:left;" class="restaurant_category_sp">{{ $category->name }}</div><br>
+    <div style="width:350px;"><div class="restaurant_name_sp2">{{ $restaurant->name1 }} {{ $restaurant->name2 }} {{ $restaurant->name3 }}</div></div>
     <div class="scene_commitment">
         @foreach ($restaurant_scenes as $name)
         <label class="label">{{ $name }}</label>
@@ -33,10 +33,10 @@
             <li class="info_other"><a><img src="{{ asset('img/icon/haguruma.png') }}" alt=""> 設備・その他の情報</a></li>
         </ul>
     </nav>
-    <div class="info_list">
+    <div class="info_list_sp">
         <div id="info_list_basic">
             　所在地：〒{{ $restaurant->zip }}　{{ $restaurant->pref }}{{ $restaurant->address }}
-            <a href="https://www.google.com/maps/dir/{{ $restaurant->pref }}{{ $restaurant->address }}" target="_blank">地図アプリで見る</a><br>
+            <br><a href="https://www.google.com/maps/dir/{{ $restaurant->pref }}{{ $restaurant->address }}" target="_blank">地図アプリで見る</a><br>
             電話番号：{{ $restaurant->tel }}<br>
             営業時間：{{ $restaurant->open_hm }}～{{ $restaurant->close_hm }}<br>
             {!! nl2br(e($restaurant->time_remarks)) !!}<br>
@@ -63,6 +63,8 @@
         </div>
     </div>
 </div>
+<br>
+
 @include('restaurant.comment_list_latest5', ['version' => 'sp', 'px' => '60px'])
 
 <script src="{{ asset('js/info.js') }}"></script>
