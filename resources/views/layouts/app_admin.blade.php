@@ -15,37 +15,34 @@
     </div> -->
 
     <body>
+        @if(!empty(Session::get('name')))
         <header>
             <nav class="navbar">
-                <a class="navbar-brand" href="/">
-                    <img src="{{ asset('img/logo.png') }}" class="cpon_logo" alt="">
+                <a class="navbar-brand" href=""{{ route('admin.index') }}">
+                    <img src="{{ asset('img/logo2.png') }}" class="cpon_logo" alt="">
                 </a>
                 <div class="header_user">
-                    <div class="header_user_name">{{ Session::get('name') }}　</div>
-                    @if(!empty(Session::get('name')))
+                    <div class="header_user_name"><img src="{{ asset('img/user.png') }}" class="" alt="">　{{ Session::get('name') }}　</div>
+
                     <div class="logout_button">
                         <a href="{{ route('admin.logout') }}">ログアウト</a>
                     </div>
-                    @endif
+                    
                 </div>
             </nav>
         </header>
-
+        @endif
         <div class="flexible-list">
-            <aside id="column-side" class="flexible-list-side">
-                @if(!empty(Session::get('login_id')))
+            @if(!empty(Session::get('login_id')))
+                <aside id="column-side" class="flexible-list-side">
                 @include('admin.item.sidemenu')
-                @endif
-            </aside>
-
+                </aside>
+            @endif
             <div class="flexible-list-main">
                 @yield('content')
             </div>
         </div>
 
-        <footer>
-            <div class="copyright">copyright (c) © KOC・JAPAN, Inc. all rights reserved.</div>
-        </footer>
     </body>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
