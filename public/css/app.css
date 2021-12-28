@@ -376,7 +376,7 @@ margin-left:10px;
     width: 844px;
     height: 15px;
     background: #FFB01A 0% 0% no-repeat padding-box;
-    margin-left:0px;
+    margin-left:10px;
 }
 .restaurant_list_line_sp{
     width: 380px;
@@ -1054,6 +1054,18 @@ label {
     font-size: 13px;
     line-height: 25px;
 }
+.restaurant_category_sp {
+    color: #FFFFFF;
+    width: 82px;
+    height: 20px;
+    background: transparent linear-gradient(
+260deg, #FDB731 0%, #FACD78 33%, #FFB831 71%, #FFA600 100%) 0% 0% no-repeat padding-box;
+    border-radius: 6px;
+    opacity: 1;
+    text-align: center;
+    font-size: 12px;
+    line-height: 21px;
+}
 
 .restaurant_name {
     padding-top:3px;
@@ -1061,6 +1073,13 @@ label {
     font-size: 25px;
     /*font-weight: bold;*/
 }
+.restaurant_name_sp2{
+    padding-top:3px;
+    padding-bottom:5px;
+    font-size:22px;
+    text-align: left;
+}
+
 .restaurant_show{
     margin-top:20px;
 }
@@ -1081,12 +1100,29 @@ label {
     line-height: 30px;
     margin: 5px 0;
 }
+.cpon_mall_url_sp {
+    width: 140px;
+    height: 20px;
+    background: #FF7D1A 0% 0% no-repeat padding-box;
+    border-radius: 62px;
+    opacity: 1;
+    font-size: 12px;
+    text-align: center;
+    line-height: 21px;
+    margin: 5px 0;
+}
 
 .cpon_mall_url a, .cpon_mall_url a:hover {
     color: #FFFFFF;
     text-decoration:none;
     line-height: 29px;
 }
+.cpon_mall_url_sp a, .cpon_mall_url_sp a:hover {
+    color: #FFFFFF;
+    text-decoration:none;
+    line-height: 21px;
+}
+
 
 .recommend_list, .new_list, .search_list, #menu_list_recommend, #menu_list_all,
 .recommend_list_ipad, .new_list_ipad, .search_list_ipad, #menu_list_recommend_ipad, #menu_list_all_ipad,
@@ -1182,7 +1218,7 @@ label {
 }
 
 .menu_detail_sp {
-    width: 380px;
+    width: 360px;
     height:110px;
     margin: 10px 0;
 }
@@ -1211,18 +1247,21 @@ label {
 }
 
 .menu_name_sp {
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 400;
+    text-align: left;
 }
 
 .menu_price_sp {
     font-size: 11px;
     font-weight: 600;
+    text-align: left;
 }
 
 .menu_explain_sp {
     color:#797979;
     font-size: 10px;
+    text-align: left;
 }
 
 .recommend_mark, .recommend_mark_sp {
@@ -1668,6 +1707,10 @@ height: 74px;
     width:100%;/*スライダー内の画像を横幅100%に*/
     height:auto;
 }
+.banner_img_sp {
+    width:100%;/*スライダー内の画像を横幅100%に*/
+    height:355px;
+}
 
 .slider_banner li {
     height:150px;
@@ -1712,6 +1755,11 @@ height: 74px;
 .banner_sp .draggable,
 .banner_sp .slick-slide img {
     height:160px;
+    border-radius:8px;
+}
+.banner_sp2 .draggable,
+.banner_sp2 .slick-slide img {
+    height:355px; 
     border-radius:8px;
 }
 
@@ -1833,6 +1881,9 @@ height: 74px;
 }
 
 .banner_sp .slick-dots {
+    margin-top: 5px;
+}
+.banner_sp2 .slick-dots {
     margin-top: 5px;
 }
 

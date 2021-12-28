@@ -9,7 +9,7 @@
 @section('content_sp')
 
 <div class="restaurant_show">
-    <div class="restaurant_category">{{ $category->name }}</div>
+    <div style="text-align:left;" class="restaurant_category_sp">{{ $category->name }}</div>
     <div class="restaurant_name">{{ $restaurant->name1 }} {{ $restaurant->name2 }} {{ $restaurant->name3 }}</div>
     <div class="scene_commitment">
         @foreach ($restaurant_scenes as $name)

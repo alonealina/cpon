@@ -317,32 +317,32 @@ $('#ipad_label').click(function() {
 
 @section('content_sp')
 
-<div class="banner_sp">
+<div class="banner_sp2">
     <ul class="restaurant_img_sp">
         @if (empty($restaurant->main_img))
-        <li><img src="../../img/imgerror.jpg" class="banner_img" alt=""></li>
+        <li><img src="../../img/imgerror.jpg" class="banner_img_sp" alt=""></li>
         @else
-        <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" class="banner_img" alt=""></li>
+        <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" class="banner_img_sp" alt=""></li>
         @endif
         @if (!empty($restaurant->sub_img1))
-        <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img1 }}" class="banner_img" alt=""></li>
+        <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img1 }}" class="banner_img_sp" alt=""></li>
         @endif
         @if (!empty($restaurant->sub_img2))
-        <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img2 }}" class="banner_img" alt=""></li>
+        <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img2 }}" class="banner_img_sp" alt=""></li>
         @endif
         @if (!empty($restaurant->sub_img3))
-        <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img3 }}" class="banner_img" alt=""></li>
+        <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img3 }}" class="banner_img_sp" alt=""></li>
         @endif
         @if (!empty($restaurant->sub_img4))
-        <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img4 }}" class="banner_img" alt=""></li>
+        <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img4 }}" class="banner_img_sp" alt=""></li>
         @endif
     </ul>
 </div>
 
 <div class="restaurant_show">
-    <div class="restaurant_category">{{ $category->name }}</div>
-    <div class="restaurant_name">{{ $restaurant->name1 }} {{ $restaurant->name2 }} {{ $restaurant->name3 }}</div>
-    <div class="scene_commitment">
+    <div style="width:350px"><div style="float:left;" class="restaurant_category_sp">{{ $category->name }}</div></div><br>
+    <div style="width:350px"><div class="restaurant_name_sp2">{{ $restaurant->name1 }} {{ $restaurant->name2 }} {{ $restaurant->name3 }}</div></div>
+    <div style="width:350px" class="scene_commitment">
         @foreach ($restaurant_scenes as $name)
         <label class="label">{{ $name }}</label>
         @endforeach
@@ -351,9 +351,9 @@ $('#ipad_label').click(function() {
         @endforeach
     </div>
     @if(!empty($restaurant->cpon_mall_url))
-    <div class="cpon_mall_url">
+    <div style="width:350px"><div style="float:left;" class="cpon_mall_url_sp">
         <a href="{{ $restaurant->cpon_mall_url }}" target="_blank">Cポンモール出店中</a>
-    </div>
+    </div> </div>
     @endif
     <div class="restaurant_profile">
         <input type="checkbox" id="sp_label"><label for="sp_label" id="restaurant_profile_label_sp"></label>
