@@ -1,7 +1,9 @@
 @extends('home')
 
 @section('restaurant_list')
-
+@if(isset($freeword))
+<div class="search_result_title">検索結果：{{ $freeword }}</div>
+@endif
 <div class="search_list">
     @foreach ($restaurants as $restaurant)
     <div class="search_restaurant">
@@ -31,8 +33,10 @@
 
 
 @section('restaurant_list_ipad')
-
 <div class="search_list_ipad">
+    @if(isset($freeword))
+    <div class="search_result_title_ipad">検索結果：{{ $freeword }}</div>
+    @endif
     @foreach ($restaurants as $restaurant)
     <div class="search_restaurant_ipad">
     <a href="{{ route('restaurant.show', ['id' => $restaurant->id]) }}">
@@ -68,7 +72,9 @@
 @endsection
 
 @section('restaurant_list_sp')
-
+@if(isset($freeword))
+<div class="search_result_title">検索結果：{{ $freeword }}</div>
+@endif
 <div class="search_list_sp">
     @foreach ($restaurants as $restaurant)
     <div class="search_restaurant_sp">

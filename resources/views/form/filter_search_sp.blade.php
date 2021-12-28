@@ -7,7 +7,7 @@
             <div class="search_radio_list">
                 <input type="checkbox" name="search_radio" class="search_radio" value="area"> 都道府県
                 <input type="checkbox" name="search_radio" class="search_radio" value="open_only"> OPEN
-                <input type="checkbox" name="search_radio" class="search_radio" value="4_or_more"> 高評価
+                <input type="checkbox" name="search_radio" class="search_radio" value="highly_rated"> 高評価
                 <div id="pref_list">
                     <select name="pref">
                     @foreach (config('const.Prefs') as $name)
