@@ -141,7 +141,7 @@ class NoticeController extends Controller
         try {
             $notice->fill($fill_data)->save();
             DB::commit();
-            return redirect()->to('admin/notice_list')->with('flashmessage', '登録が完了いたしました。');
+            return redirect()->to('admin/notice_list')->with('message', '登録が完了いたしました。');
         } catch (\Exception $e) {
             DB::rollback();
         }
@@ -196,7 +196,7 @@ class NoticeController extends Controller
         try {
             $notice->update($fill_data);
             DB::commit();
-            return redirect()->to('admin/notice_list')->with('flashmessage', 'お知らせの更新が完了いたしました。');
+            return redirect()->to('admin/notice_list')->with('message', 'お知らせの更新が完了いたしました。');
         } catch (\Exception $e) {
             DB::rollback();
         }
@@ -214,7 +214,7 @@ class NoticeController extends Controller
         try {
             Notice::where('id', $id)->delete();
             DB::commit();
-            return redirect()->route('admin.notice_list')->with('flashmessage', 'お知らせ情報を削除しました');
+            return redirect()->route('admin.notice_list')->with('message', 'お知らせ情報を削除しました');
         } catch (\Exception $e) {
             DB::rollback();
         }

@@ -67,7 +67,7 @@ class SettingController extends Controller
         try {
             $scene->fill($fill_data)->save();
             DB::commit();
-            return redirect()->to('admin/setting_list')->with('flashmessage', '登録が完了いたしました。');
+            return redirect()->to('admin/setting_list')->with('message', '登録が完了いたしました。');
         } catch (\Exception $e) {
             DB::rollback();
         }
@@ -117,7 +117,7 @@ class SettingController extends Controller
         try {
             $scene->update($fill_data);
             DB::commit();
-            return redirect()->to('admin/setting_list')->with('flashmessage', '利用シーンを更新しました');
+            return redirect()->to('admin/setting_list')->with('message', '利用シーンを更新しました');
         } catch (\Exception $e) {
             DB::rollback();
         }
@@ -135,7 +135,7 @@ class SettingController extends Controller
         try {
             Scene::where('id', $id)->delete();
             DB::commit();
-            return redirect()->route('admin.setting_list')->with('flashmessage', '利用シーンを削除しました');
+            return redirect()->route('admin.setting_list')->with('message', '利用シーンを削除しました');
         } catch (\Exception $e) {
             DB::rollback();
         }
@@ -181,7 +181,7 @@ class SettingController extends Controller
         try {
             $commitment->fill($fill_data)->save();
             DB::commit();
-            return redirect()->to('admin/setting_list')->with('flashmessage', '登録が完了いたしました。');
+            return redirect()->to('admin/setting_list')->with('message', '登録が完了いたしました。');
         } catch (\Exception $e) {
             DB::rollback();
         }
@@ -231,7 +231,7 @@ class SettingController extends Controller
         try {
             $commitment->update($fill_data);
             DB::commit();
-            return redirect()->to('admin/setting_list')->with('flashmessage', 'こだわり条件を更新しました');
+            return redirect()->to('admin/setting_list')->with('message', 'こだわり条件を更新しました');
         } catch (\Exception $e) {
             DB::rollback();
         }
@@ -249,7 +249,7 @@ class SettingController extends Controller
         try {
             Commitment::where('id', $id)->delete();
             DB::commit();
-            return redirect()->route('admin.setting_list')->with('flashmessage', 'こだわり条件を削除しました');
+            return redirect()->route('admin.setting_list')->with('message', 'こだわり条件を削除しました');
         } catch (\Exception $e) {
             DB::rollback();
         }

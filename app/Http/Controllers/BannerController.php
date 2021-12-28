@@ -75,7 +75,7 @@ class BannerController extends Controller
             $img->move($target_path, $img_name);
 
             DB::commit();
-            return redirect()->to('admin/banner_list')->with('flashmessage', '登録が完了いたしました。');
+            return redirect()->to('admin/banner_list')->with('message', '登録が完了いたしました。');
         } catch (\Exception $e) {
             DB::rollback();
         }
@@ -148,7 +148,7 @@ class BannerController extends Controller
             }
 
             DB::commit();
-            return redirect()->to('admin/banner_list')->with('flashmessage', '画像の更新が完了いたしました。');
+            return redirect()->to('admin/banner_list')->with('message', '画像の更新が完了いたしました。');
         } catch (\Exception $e) {
             DB::rollback();
         }
@@ -166,7 +166,7 @@ class BannerController extends Controller
         try {
             Banner::where('id', $id)->delete();
             DB::commit();
-            return redirect()->route('admin.banner_list')->with('flashmessage', 'バナー情報を削除しました');
+            return redirect()->route('admin.banner_list')->with('message', 'バナー情報を削除しました');
         } catch (\Exception $e) {
             DB::rollback();
         }

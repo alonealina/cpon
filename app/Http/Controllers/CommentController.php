@@ -125,7 +125,7 @@ class CommentController extends Controller
         try {
             Comment::where('restaurant_id', $restaurant_id)->where('id', $menu_id)->delete();
             DB::commit();
-            return redirect()->route('admin.comment_list', ['id' => $restaurant_id])->with('flashmessage', 'クチコミ情報を削除しました');
+            return redirect()->route('admin.comment_list', ['id' => $restaurant_id])->with('message', 'クチコミ情報を削除しました');
         } catch (\Exception $e) {
             DB::rollback();
         }
