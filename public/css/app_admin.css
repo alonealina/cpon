@@ -7,10 +7,12 @@ body {
 html {
     background-color: #F3F3F3;
 }
-input[type="text"] {
+
+input[type="text"], textarea {
     border: 1px solid #CCCCCC;
     border-radius: 4px;
 }
+
 .header_orange {
     height: 15px;
     background-color: #FFB01A;
@@ -526,6 +528,17 @@ footer a, footer a:hover {
     margin:5px 0 5px 40px;
 }
 
+.flex_form_password {
+    margin-left:10px;
+}
+
+.admin_form_name2, .admin_form_pref, .admin_form_budget, .admin_form_route {
+    margin: 0 10px;
+}
+
+.flex_station {
+    width:100%;
+}
 .banner_url_input {
     width:400px;
 }

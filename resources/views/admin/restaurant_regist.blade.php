@@ -11,18 +11,23 @@
 <div class="comment_form">
     <form id="form" class="restaurant_regist_form" name="regist_form" action="{{ route('admin.restaurant_store') }}" method="post" enctype="multipart/form-data">
         @csrf
-        
-        @if($errors->has('login_id'))
-        <div class="comment_error">{{ $errors->first('login_id') }}</div>
-        @endif
-        <div class="admin_form_name">店舗ID<p class="required_mark">※必須</p></div>
-        {{ Form::text('login_id', old('login_id'), ['class' => 'login_id_input', 'maxlength' => 10]) }}
+        <div class="flex_form_item">
+            <div class="">
+                @if($errors->has('login_id'))
+                <div class="comment_error">{{ $errors->first('login_id') }}</div>
+                @endif
+                <div class="admin_form_name">店舗ID<p class="required_mark">※必須</p></div>
+                {{ Form::text('login_id', old('login_id'), ['class' => 'login_id_input', 'maxlength' => 10]) }}
+            </div>
 
-        @if($errors->has('password'))
-        <div class="comment_error">{{ $errors->first('password') }}</div>
-        @endif
-        <div class="admin_form_name">パスワード<p class="required_mark">※必須</p></div>
-        {{ Form::text('password', old('password'), ['class' => 'password_input', 'maxlength' => 12]) }}
+            <div class="flex_form_password">
+                @if($errors->has('password'))
+                <div class="comment_error">{{ $errors->first('password') }}</div>
+                @endif
+                <div class="admin_form_name">パスワード<p class="required_mark">※必須</p></div>
+                {{ Form::text('password', old('password'), ['class' => 'password_input', 'maxlength' => 12]) }}
+            </div>
+        </div>
 
         <div class="admin_form_outline">
             <div class="admin_form_title">店舗基本情報</div>
@@ -45,29 +50,31 @@
                 <div class="img_tmb_sub"></div>
             </div>
 
-            <div class="regist_form_item">
-                <div class="admin_form_name">店舗名</div>
-                <div class="admin_form_sub">飾り文字（前）20文字以内</div>
-                @if($errors->has('name1'))
-                <div class="comment_error">{{ $errors->first('name1') }}</div>
-                @endif
-                {{ Form::text('name1', old('name1'), ['class' => 'name1_input', 'maxlength' => 20]) }}
-            </div>
+            <div class="admin_form_name">店舗名</div>
+            <div class="flex_form_item">
+                <div class="regist_form_item">
+                    <div class="admin_form_sub">飾り文字（前）20文字以内</div>
+                    @if($errors->has('name1'))
+                    <div class="comment_error">{{ $errors->first('name1') }}</div>
+                    @endif
+                    {{ Form::text('name1', old('name1'), ['class' => 'name1_input', 'maxlength' => 20]) }}
+                </div>
 
-            <div class="regist_form_item">
-                <div class="admin_form_sub">店舗名<p class="required_mark">※必須</p>30文字以内</div>
-                @if($errors->has('name2'))
-                <div class="comment_error">{{ $errors->first('name2') }}</div>
-                @endif
-                {{ Form::text('name2', old('name2'), ['class' => 'name2_input', 'maxlength' => 30]) }}
-            </div>
+                <div class="regist_form_item admin_form_name2">
+                    <div class="admin_form_sub">店舗名<p class="required_mark">※必須</p>30文字以内</div>
+                    @if($errors->has('name2'))
+                    <div class="comment_error">{{ $errors->first('name2') }}</div>
+                    @endif
+                    {{ Form::text('name2', old('name2'), ['class' => 'name2_input', 'maxlength' => 30]) }}
+                </div>
 
-            <div class="regist_form_item">
-                <div class="admin_form_sub">飾り文字（後）20文字以内</div>
-                @if($errors->has('name3'))
-                <div class="comment_error">{{ $errors->first('name3') }}</div>
-                @endif
-                {{ Form::text('name3', old('name3'), ['class' => 'name3_input', 'maxlength' => 20]) }}
+                <div class="regist_form_item">
+                    <div class="admin_form_sub">飾り文字（後）20文字以内</div>
+                    @if($errors->has('name3'))
+                    <div class="comment_error">{{ $errors->first('name3') }}</div>
+                    @endif
+                    {{ Form::text('name3', old('name3'), ['class' => 'name3_input', 'maxlength' => 20]) }}
+                </div>
             </div>
 
             <div class="regist_form_item">
@@ -79,32 +86,34 @@
             </div>
 
             <div class="admin_form_name">所在地<p class="required_mark">※必須</p></div>
-            <div class="regist_form_item">
-                <div class="admin_form_sub">郵便番号</div>
-                @if($errors->has('zip'))
-                <div class="comment_error">{{ $errors->first('zip') }}</div>
-                @endif
-                〒{{ Form::text('zip', old('zip'), ['class' => 'zip_input', 'maxlength' => 8, 'placeholder' => '000-0000',
-                    'onkeyup' => "AjaxZip3.zip2addr(this, '', 'pref', 'address')"]) }}
-            </div>
-
-            <div class="regist_form_item">
-                <div class="admin_form_sub">都道府県</div>
-                <div id="pref_list_admin">
-                    <select name="pref">
-                    @foreach (config('const.Prefs') as $name)
-                    <option value="{{ $name }}">{{ $name }}</option>
-                    @endforeach
-                    </select>
+            <div class="flex_form_item">
+                <div class="regist_form_item">
+                    <div class="admin_form_sub">郵便番号</div>
+                    @if($errors->has('zip'))
+                    <div class="comment_error">{{ $errors->first('zip') }}</div>
+                    @endif
+                    {{ Form::text('zip', old('zip'), ['class' => 'zip_input', 'maxlength' => 8, 'placeholder' => '000-0000',
+                        'onkeyup' => "AjaxZip3.zip2addr(this, '', 'pref', 'address')"]) }}
                 </div>
-            </div>
 
-            <div class="regist_form_item">
-                <div class="admin_form_sub">市区町村</div>
-                @if($errors->has('address'))
-                <div class="comment_error">{{ $errors->first('address') }}</div>
-                @endif
-                {{ Form::text('address', old('address'), ['class' => 'address_input', 'maxlength' => 50]) }}
+                <div class="regist_form_item admin_form_pref">
+                    <div class="admin_form_sub">都道府県</div>
+                    <div id="pref_list_admin">
+                        <select name="pref">
+                        @foreach (config('const.Prefs') as $name)
+                        <option value="{{ $name }}">{{ $name }}</option>
+                        @endforeach
+                        </select>
+                    </div>
+                </div>
+
+                <div class="regist_form_item">
+                    <div class="admin_form_sub">市区町村</div>
+                    @if($errors->has('address'))
+                    <div class="comment_error">{{ $errors->first('address') }}</div>
+                    @endif
+                    {{ Form::text('address', old('address'), ['class' => 'address_input', 'maxlength' => 50]) }}
+                </div>
             </div>
 
             <div class="regist_form_item">
@@ -161,16 +170,18 @@
                 {{ Form::text('tel', old('tel'), ['class' => 'tel_input', 'maxlength' => 20, 'placeholder' => '00-0000-0000']) }}
             </div>
 
-            <div class="regist_form_item">
-                <div class="admin_form_name">予算<p class="required_mark">※必須</p></div>
-                <div id="budget_list_admin">
-                    昼
+            <div class="admin_form_name">予算<p class="required_mark">※必須</p></div>
+            <div class="flex_form_item">
+                <div class="regist_form_item">
+                    <div class="admin_form_sub">昼</div>
                     <select name="budget_lunch">
                         @foreach (config('const.BudgetLunch') as $key => $value)
                         <option value="{{ $key }}">{{ $value }}</option>
                         @endforeach
                     </select>
-                    　夜
+                </div>
+                <div class="regist_form_item admin_form_budget">
+                    <div class="admin_form_sub">夜</div>
                     <select name="budget_dinner">
                         @foreach (config('const.BudgetDinner') as $key => $value)
                         <option value="{{ $key }}">{{ $value }}</option>
@@ -190,43 +201,65 @@
 
         <div class="admin_form_outline">
             <div class="admin_form_title">アクセス情報</div>
-
             <div class="regist_form_item">
                 <div class="admin_form_name">最寄り駅（最大5つ）</div>
                 @if($errors->has('station1'))
                 <div class="comment_error">{{ $errors->first('station1') }}</div>
                 @endif
-                <div class="station_admin">
-                    <div class="admin_form_sub">駅名</div>{{ Form::text('station1', old('station1'), ['class' => 'station_input', 'maxlength' => 30]) }}
-                    <div class="admin_form_sub">路線</div>{{ Form::text('route1', old('route1'), ['class' => 'route_input', 'maxlength' => 30]) }}
+                <div class="flex_form_item flex_station">
+                    <div class="regist_form_item">
+                        <div class="admin_form_sub">駅名</div>{{ Form::text('station1', old('station1'), ['class' => 'station_input', 'maxlength' => 30]) }}
+                    </div>
+                    <div class="regist_form_item admin_form_route">
+                        <div class="admin_form_sub">路線</div>{{ Form::text('route1', old('route1'), ['class' => 'route_input', 'maxlength' => 30]) }}
+                    </div>
                 </div>
+
                 @if($errors->has('station2'))
                 <div class="comment_error">{{ $errors->first('station1') }}</div>
                 @endif
-                <div class="station_admin">
-                    <div class="admin_form_sub">駅名</div>{{ Form::text('station2', old('station2'), ['class' => 'station_input', 'maxlength' => 30]) }}
-                    <div class="admin_form_sub">路線</div>{{ Form::text('route2', old('route2'), ['class' => 'route_input', 'maxlength' => 30]) }}
-                </div>
+                <div class="flex_form_item flex_station">
+                    <div class="regist_form_item">
+                        <div class="admin_form_sub">駅名</div>{{ Form::text('station2', old('station2'), ['class' => 'station_input', 'maxlength' => 30]) }}
+                    </div>
+                    <div class="regist_form_item admin_form_route">
+                        <div class="admin_form_sub">路線</div>{{ Form::text('route2', old('route2'), ['class' => 'route_input', 'maxlength' => 30]) }}
+                    </div>
+
                 @if($errors->has('station3'))
                 <div class="comment_error">{{ $errors->first('station1') }}</div>
                 @endif
-                <div class="station_admin">
-                    <div class="admin_form_sub">駅名</div>{{ Form::text('station3', old('station3'), ['class' => 'station_input', 'maxlength' => 30]) }}
-                    <div class="admin_form_sub">路線</div>{{ Form::text('route3', old('route3'), ['class' => 'route_input', 'maxlength' => 30]) }}
+                <div class="flex_form_item flex_station">
+                    <div class="regist_form_item">
+                        <div class="admin_form_sub">駅名</div>{{ Form::text('station3', old('station3'), ['class' => 'station_input', 'maxlength' => 30]) }}
+                    </div>
+                    <div class="regist_form_item admin_form_route">
+                        <div class="admin_form_sub">路線</div>{{ Form::text('route3', old('route3'), ['class' => 'route_input', 'maxlength' => 30]) }}
+                    </div>
                 </div>
+
                 @if($errors->has('station4'))
                 <div class="comment_error">{{ $errors->first('station1') }}</div>
                 @endif
-                <div class="station_admin">
-                    <div class="admin_form_sub">駅名</div>{{ Form::text('station4', old('station4'), ['class' => 'station_input', 'maxlength' => 30]) }}
-                    <div class="admin_form_sub">路線</div>{{ Form::text('route4', old('route4'), ['class' => 'route_input', 'maxlength' => 30]) }}
+                <div class="flex_form_item flex_station">
+                    <div class="regist_form_item">
+                        <div class="admin_form_sub">駅名</div>{{ Form::text('station4', old('station4'), ['class' => 'station_input', 'maxlength' => 30]) }}
+                    </div>
+                    <div class="regist_form_item admin_form_route">
+                        <div class="admin_form_sub">路線</div>{{ Form::text('route4', old('route4'), ['class' => 'route_input', 'maxlength' => 30]) }}
+                    </div>
                 </div>
+                
                 @if($errors->has('station5'))
                 <div class="comment_error">{{ $errors->first('station1') }}</div>
                 @endif
-                <div class="station_admin">
-                    <div class="admin_form_sub">駅名</div>{{ Form::text('station5', old('station5'), ['class' => 'station_input', 'maxlength' => 30]) }}
-                    <div class="admin_form_sub">路線</div>{{ Form::text('route5', old('route5'), ['class' => 'route_input', 'maxlength' => 30]) }}
+                <div class="flex_form_item flex_station">
+                    <div class="regist_form_item">
+                        <div class="admin_form_sub">駅名</div>{{ Form::text('station5', old('station5'), ['class' => 'station_input', 'maxlength' => 30]) }}
+                    </div>
+                    <div class="regist_form_item admin_form_route">
+                        <div class="admin_form_sub">路線</div>{{ Form::text('route5', old('route5'), ['class' => 'route_input', 'maxlength' => 30]) }}
+                    </div>
                 </div>
             </div>
 
