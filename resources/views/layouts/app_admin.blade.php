@@ -39,7 +39,7 @@
                 @include('admin.item.sidemenu')
                 </aside>
             @endif
-            <div class="flexible-list-main">
+            <div class="flexible-list-main" id="flexible-list-main">
                 @yield('content')
             </div>
         </div>

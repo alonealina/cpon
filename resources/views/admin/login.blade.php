@@ -4,7 +4,7 @@
  
 @section('content')
 
-<div class="login_form">
+<div class="login_form" id="login_form">
   <img src="{{ asset('img/logo.png') }}" class="login_logo" alt="">
   {{-- エラーメッセージ --}}
   @if (isset($login_error))
@@ -27,8 +27,20 @@
       <input type="password" class="form-control" id="user_password" name="password">
     </div>     
     <input type="submit" value="ログイン" class="btn login_button">  
-  </form>  
+  </form>
+  <div class="copyright">Copyright © 2021 KOC・JAPAN All Rights Reserved.</div>
 </div>
-<div class="copyright">Copyright © 2021 KOC・JAPAN All Rights Reserved.</div>
 
+
+<script>
+  var list = document.getElementById('flexible-list-main');
+  var form = document.getElementById('login_form');
+  list.style.height = window.innerHeight + 'px';
+  list.style.position = 'relative';
+  form.style.position = 'absolute';
+  form.style.top = '50%';
+  form.style.left = '50%';
+  form.style.transform = 'translateY(-50%) translateX(-50%)';
+
+</script>
 @endsection

@@ -31,7 +31,6 @@ input[type="text"], textarea {
     background-color: #FFFFFF;
     width: 360px;
     min-height: 397px;
-    margin:330px auto 20px auto;
     padding:30px;
 }
 
@@ -124,7 +123,7 @@ footer a, footer a:hover {
 
 .copyright {
     font-size: 11px;
-    margin:20px auto;
+    margin:20px auto 0 auto;
     text-align: center;
 }
 
@@ -1009,6 +1008,7 @@ hr {
 }
 
 .flexible-list {
+    min-height: 800px;
     display: flex;
     margin: 0 auto;
     padding: 0 0px;
