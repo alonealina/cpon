@@ -46,7 +46,7 @@
                     <a href ="https://app.cpon.co.jp/" target="_blank">CポンWEBAPP</a> ｜
                     <a href ="https://mall.cpon.co.jp/" target="_blank">Cポンモール</a>
                 </div>
-                <div class="copyright">copyright (c) © KOC・JAPAN, Inc. all rights reserved.</div>
+                <div class="copyright">copyright (c) © KOC・JAPAN, Inc. all rights reserved</div>
                 <div class="footer_black"></div>
             </footer>
         </body>
