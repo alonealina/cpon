@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+        <link rel="icon" type="image/png" href="https://mall.cpon.co.jp/favicon.png">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Clamp.js/0.5.1/clamp.min.js"></script>
@@ -46,7 +47,7 @@
                     <a href ="https://app.cpon.co.jp/" target="_blank">CポンWEBAPP</a> ｜
                     <a href ="https://mall.cpon.co.jp/" target="_blank">Cポンモール</a>
                 </div>
-                <div class="copyright">copyright (c) © KOC・JAPAN, Inc. all rights reserved</div>
+                <div class="copyright">copyright (c) © KOC・JAPAN, Inc. all rights reserved.</div>
                 <div class="footer_black"></div>
             </footer>
         </body>
