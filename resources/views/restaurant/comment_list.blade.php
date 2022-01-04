@@ -137,7 +137,7 @@ $('.comment_checkbox').click(function() {
 
 @include('form.header_search_ipad')
 <div class="body_ipad">
-<div class="restaurant_show">
+<div class="restaurant_show_ipad">
     <div class="restaurant_category">{{ $category->name }}</div>
     <div class="restaurant_name">{{ $restaurant->name1 }} {{ $restaurant->name2 }} {{ $restaurant->name3 }}</div>
     <div class="scene_commitment">
@@ -162,12 +162,14 @@ $('.comment_checkbox').click(function() {
             <a href="{{ route('restaurant.comment_form', ['id' => $restaurant_id]) }}">クチコミを投稿する</a>
         </div>
     </div>
-    <div class="number">
-        @if ($comments->total() != 0)
-        <b>{{ ($comments->currentPage() -1) * $comments->perPage() + 1}}</b> ～ 
-        <b>{{ (($comments->currentPage() -1) * $comments->perPage() + 1) + (count($comments) -1) }}</b>件を表示 ／ 
-        @endif
-        全<b>{{ $comments->total() }}</b>件
+    <div class="number number_ipad">
+        <div class="number_list">
+            @if ($comments->total() != 0)
+            <b>{{ ($comments->currentPage() -1) * $comments->perPage() + 1}}</b> ～ 
+            <b>{{ (($comments->currentPage() -1) * $comments->perPage() + 1) + (count($comments) -1) }}</b>件を表示 ／ 
+            @endif
+            全<b>{{ $comments->total() }}</b>件
+        </div>
         <select class="comment_sort_select" name="sort" id="change_sort_ipad">
             <option value="{{ route('restaurant.comment_list', ['id' => $restaurant_id, 'column' => 'created_at', 'sort' => 'desc']) }}"
             @if($column == "created_at" && $sort == "desc") selected @endif>投稿日時（降順）</option>

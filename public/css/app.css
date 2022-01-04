@@ -20,7 +20,7 @@
 } */
 
 #registration_ipad {
-min-width:850px;
+min-width:768px;
 }
 
 #registration_sp {
@@ -143,8 +143,12 @@ footer a, footer a:hover {
 }
 
 
+#freeword_form {
+    width: 650px;
+}
+
 #freeword_form_ipad {
-    margin:0 120px;
+    margin:0 auto;
     left: 0px;
 }
 
@@ -164,7 +168,7 @@ footer a, footer a:hover {
 }
 
 .freeword_text, .freeword_text_ipad {
-    width:600px;
+    width:99%;
 }
 
 .freeword_text_sp {
@@ -210,7 +214,7 @@ footer a, footer a:hover {
 }
 
 .category_title_ipad {
-    margin: 40px 10px 10px 89px;
+    margin: 40px 10px 10px 50px;
 }
 
 .category_title_sp {
@@ -408,7 +412,7 @@ margin-left:10px;
     margin-left:10px;
 }
 #registration_ipad .restaurant_list_line{
-    width: 742px;
+    width: 100%;
     height: 15px;
     background: #FFB01A 0% 0% no-repeat padding-box;
     margin-left:10px;
@@ -426,7 +430,6 @@ margin-left:10px;
 
 .restaurant_list_title_ipad {
     font-size: 25px;
-    margin-left: 50px;
     text-align: center;
     color: #FFB01A; 
     margin-top: 30px;
@@ -652,7 +655,6 @@ hr {
 
 .comment_list_header {
     height:50px;
-    width: 1100px;
 }
 
 .comment_list_header_sp {
@@ -707,7 +709,15 @@ font-size:17px;
     margin-bottom: 10px;
     text-align: left;
     position: relative;
-    left: -110px;
+}
+
+.number_ipad {
+    height:50px;
+}
+
+.number_list {
+    float:left;
+    margin-left: -100px;
 }
 
 .number b {
@@ -1227,6 +1237,10 @@ label {
     margin-top:20px;
 }
 
+.restaurant_show_ipad {
+    margin-top:60px;
+}
+
 .restaurant_show_name {
     font-size: 20px;
     font-weight: bold;
@@ -1284,7 +1298,7 @@ label {
 }
 
 .recommend_list_ipad, .new_list_ipad, .search_list_ipad {
-    margin-left: 50px;
+    margin-left: 30px;
 }
 
 .recommend_restaurant, .new_restaurant, .search_restaurant {
@@ -1293,7 +1307,7 @@ label {
 }
 
 .recommend_restaurant_ipad, .new_restaurant_ipad, .search_restaurant_ipad {
-    width: 46%;
+    width: 47%;
     margin: 10px;
     height: 47%;
 }
@@ -2468,7 +2482,7 @@ display       : none;                                   /* 非表示 */
     font-size: 22px;
     /* font-weight: bold; */
     display: block;
-    width: 749px;
+    width: 104%;
     height: 51px;
     line-height: 50px;
     background: transparent linear-gradient(
