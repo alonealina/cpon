@@ -22,8 +22,16 @@
             <div class="filter_name">こだわり条件</div>
             <hr>
             @include('form.commitments')
+            <div class="filter_name">カテゴリ</div>
             <hr>
+            <select name="category_id" class="select_category">
+                <option>指定なし</option>
+                @foreach ($categories as $category)
+                <option value="{{ $category->id }}" @if(isset($filter_category_id) && $filter_category_id == $category->id) selected @endif >{{ $category->name }}</option>
+                @endforeach
+            </select>
             <div class="filter_name">キーワード</div>
+            <hr>
             {!! Form::text('freeword' ,'', ['class' => 'filter_freeword', 'placeholder' => '入力してください'] ) !!}
             <div class="filter_name">オープン時間</div>
             <hr>

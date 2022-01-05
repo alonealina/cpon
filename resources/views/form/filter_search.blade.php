@@ -15,6 +15,14 @@
             <input type="checkbox" name="highly_rated" class="search_radio" value="highly_rated" @if(isset($highly_rated)) checked @endif> 高評価<br>
         </div>
 
+        <div class="filter_name">カテゴリ</div>
+        <select name="category_id" class="select_category">
+            <option>指定なし</option>
+            @foreach ($categories as $category)
+            <option value="{{ $category->id }}" @if(isset($filter_category_id) && $filter_category_id == $category->id) selected @endif >{{ $category->name }}</option>
+            @endforeach
+        </select>
+
         <div class="filter_name">利用シーン</div>
         @include('form.scenes')
 

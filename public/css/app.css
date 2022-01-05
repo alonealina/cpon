@@ -961,10 +961,13 @@ select {
     border: 1px solid #aaa;
     border-radius: 8px;
     height: 30px;
-    margin-left:10px;
+    /* margin-left:10px; */
     background-color: white;
 }
 
+.select_category {
+    margin-bottom: 10px;
+}
 .comment_sort_select {
     font-weight: normal;
     font-size: 15px;

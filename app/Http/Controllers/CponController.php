@@ -121,6 +121,7 @@ class CponController extends Controller
         }
 
         $freeword = $filter_array['freeword'];
+        $category_id = $filter_array['category_id'];
         $open = $filter_array['open'];
         $close = $filter_array['close'];
         $pref = $filter_array['pref'];
@@ -196,6 +197,12 @@ class CponController extends Controller
             // フィルター検索値保持用
             $close = 'none';
         }
+        if ($category_id != '指定なし') {
+            $query->where('category_id', $category_id);
+        } else {
+            // フィルター検索値保持用
+            $category_id = '指定なし';
+        }
 
         $restaurants = $query->paginate(24);
 
@@ -214,6 +221,7 @@ class CponController extends Controller
             'area' => $area,
             'open_only' => $open_only,
             'highly_rated' => $highly_rated,
+            'filter_category_id' => $category_id,
             'filter_open' => $open,
             'filter_close' => $close,
             'filter_scenes' => $filter_scenes,
