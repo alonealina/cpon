@@ -55,6 +55,7 @@
         <div class="notice_button_index">
             <a href="{{ route('notice.index') }}">お知らせ一覧ページへ</a>
         </div>
+        <br>
         <div class="notice_content_date">{{ $notice->notice_date }}</div>
         <div class="notice_title_big">{{ $notice->title }}</div>
         <div class="notice_content">{!! nl2br(e($notice->content)) !!}</div>

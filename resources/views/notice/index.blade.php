@@ -41,7 +41,7 @@
 </div>
 
 <div class="body_ipad">
-    <hr>
+    <div class="notice_home_list_line"></div>
     <div class="notice_home">
         @foreach ($notices as $notice)
         <a href="{{ route('notice.show', ['id' => $notice->id]) }}">

@@ -102,7 +102,7 @@ window.onload = function () {
 
 @include('form.header_search_ipad')
 <div class="body_ipad">
-<div class="restaurant_show">
+<div class="restaurant_show_ipad">
     <div class="restaurant_category">{{ $category->name }}</div>
     <div class="restaurant_name">{{ $restaurant->name1 }} {{ $restaurant->name2 }} {{ $restaurant->name3 }}</div>
     <div class="scene_commitment">
@@ -159,6 +159,7 @@ window.onload = function () {
         @if($errors->has('comment_img'))
             <div class="comment_error">{{ $errors->first('comment_img') }}</div>
         @endif
+        <div class="comment_create_title">イメージ画像（5枚まで）</div>
         <div class="file_button"><input type="file" id="file_btn_ipad" accept="image/*" onclick="fileCheckIpad();" name="comment_img[]" multiple></div>
         <div class="img_tmb_ipad"></div>
         <div class="button_black">
