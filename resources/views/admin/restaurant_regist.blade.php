@@ -21,11 +21,11 @@
             </div>
 
             <div class="flex_form_password">
-                @if($errors->has('password'))
-                <div class="comment_error">{{ $errors->first('password') }}</div>
+                @if($errors->has('pass'))
+                <div class="comment_error">{{ $errors->first('pass') }}</div>
                 @endif
                 <div class="admin_form_name">パスワード<p class="required_mark">※必須</p></div>
-                {{ Form::text('password', old('password'), ['class' => 'password_input', 'maxlength' => 12]) }}
+                {{ Form::text('pass', old('pass'), ['class' => 'password_input', 'maxlength' => 12]) }}
             </div>
         </div>
 
@@ -33,7 +33,7 @@
             <div class="admin_form_title">店舗基本情報</div>
 
             <div class="regist_form_item">
-                <div class="admin_form_name">メイン画像<p class="required_mark">※必須</p></div>
+                <div class="admin_form_name">メイン画像 [推奨：720px×720px]<p class="required_mark">※必須</p></div>
                 @if($errors->has('main_img'))
                 <div class="comment_error">{{ $errors->first('main_img') }}</div>
                 @endif
@@ -42,7 +42,7 @@
             </div>
 
             <div class="regist_form_item">
-                <div class="admin_form_name">サブ画像（8枚まで）</div>
+                <div class="admin_form_name">サブ画像（8枚まで） [推奨：720px×720px]</div>
                 @if($errors->has('sub_img1'))
                 <div class="comment_error">{{ $errors->first('sub_img1') }}</div>
                 @endif
@@ -101,7 +101,8 @@
                     <div id="pref_list_admin">
                         <select name="pref">
                         @foreach (config('const.Prefs') as $name)
-                        <option value="{{ $name }}">{{ $name }}</option>
+                        <option value="{{ $name }}"
+                            @if(old('pref') == $name) selected @endif >{{ $name }}</option>
                         @endforeach
                         </select>
                     </div>
@@ -132,7 +133,8 @@
                 <select name="open_time">
                     @foreach (config('const.Times') as $name)
                     @if ($name != '指定なし')
-                    <option value="{{ $name }}">{{ $name }}</option>
+                    <option value="{{ $name }}"
+                        @if(old('open_time') == $name) selected @endif >{{ $name }}</option>
                     @endif
                     @endforeach
                 </select>
@@ -140,7 +142,8 @@
                 <select name="close_time">
                     @foreach (config('const.Times') as $name)
                     @if ($name != '指定なし')
-                    <option value="{{ $name }}">{{ $name }}</option>
+                    <option value="{{ $name }}"
+                        @if(old('close_time') == $name) selected @endif >{{ $name }}</option>
                     @endif
                     @endforeach
                 </select>
@@ -176,7 +179,8 @@
                     <div class="admin_form_sub">昼</div>
                     <select name="budget_lunch">
                         @foreach (config('const.BudgetLunch') as $key => $value)
-                        <option value="{{ $key }}">{{ $value }}</option>
+                        <option value="{{ $key }}"
+                            @if(old('budget_lunch') == $key) selected @endif >{{ $value }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -184,7 +188,8 @@
                     <div class="admin_form_sub">夜</div>
                     <select name="budget_dinner">
                         @foreach (config('const.BudgetDinner') as $key => $value)
-                        <option value="{{ $key }}">{{ $value }}</option>
+                        <option value="{{ $key }}"
+                            @if(old('budget_dinner') == $key) selected @endif >{{ $value }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -342,7 +347,8 @@
                 <div class="admin_form_name">カテゴリ<p class="required_mark">※必須</p></div>
                 <select name="category_id">
                 @foreach ($categories as $category)
-                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                <option value="{{ $category->id }}"
+                    @if(old('category_id') == $category->id) selected @endif >{{ $category->name }}</option>
                 @endforeach
                 </select>
             </div>

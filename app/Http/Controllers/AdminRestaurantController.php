@@ -395,7 +395,7 @@ class AdminRestaurantController extends Controller
     {
         $rules = [
             'login_id' => ['required', new AlphaNumCheck()],
-            'password' => ['required', new AlphaNumCheck()],
+            'pass' => ['required', 'between:8,12', new AlphaNumCheck()],
             'name2' => 'required',
             'profile' => 'required',
             'zip' => ['required', new ZipCheck()],
@@ -415,7 +415,8 @@ class AdminRestaurantController extends Controller
 
         $messages = [
             'login_id.required' => '店舗IDを入力してください',
-            'password.required' => 'パスワードを入力してください',
+            'pass.required' => 'パスワードを入力してください',
+            'pass.between' => 'パスワードは8～12文字で入力してください',
             'name2.required' => '店舗名を入力してください',
             'profile.required' => 'プロフィールを入力してください',
             'zip.required' => '郵便番号を入力してください',
@@ -452,7 +453,7 @@ class AdminRestaurantController extends Controller
         $request = $request->all();
         $fill_data_restaurant = [
             'login_id' => $request['login_id'],
-            'password' => $request['password'],
+            'password' => $request['pass'],
             'name1' => $request['name1'],
             'name2' => $request['name2'],
             'name3' => $request['name3'],
@@ -597,8 +598,7 @@ class AdminRestaurantController extends Controller
     public function restaurant_update(Request $request)
     {
         $rules = [
-            'login_id' => ['required', new AlphaNumCheck()],
-            'password' => ['required', new AlphaNumCheck()],
+            'pass' => ['required', 'between:8,12', new AlphaNumCheck()],
             'name2' => 'required',
             'profile' => 'required',
             'zip' => 'required',
@@ -616,9 +616,14 @@ class AdminRestaurantController extends Controller
             'sub_img8' => 'max:10240',
         ];
 
+        if (session('type') == 'operation') {
+            $rules['login_id'] = ['required', new AlphaNumCheck()];
+        }
+
         $messages = [
             'login_id.required' => '店舗IDを入力してください',
-            'password.required' => 'パスワードを入力してください',
+            'pass.required' => 'パスワードを入力してください',
+            'pass.between' => 'パスワードは8～12文字で入力してください',
             'name2.required' => '店舗名を入力してください',
             'profile.required' => 'プロフィールを入力してください',
             'zip.required' => '郵便番号を入力してください',
@@ -657,10 +662,9 @@ class AdminRestaurantController extends Controller
 
         $request = $request->all();
         $fill_data_restaurant = [
-            'login_id' => $request['login_id'],
-            'password' => $request['password'],
+            'password' => $request['pass'],
             'name1' => $request['name1'],
-            'name2' => null,
+            'name2' => $request['name2'],
             'name3' => $request['name3'],
             'profile' => $request['profile'],
             'pref' => $request['pref'],
@@ -693,6 +697,10 @@ class AdminRestaurantController extends Controller
             'smoking' => $request['smoking'],
             'other' => $request['other'],
         ];
+
+        if (session('type') == 'operation') {
+            $fill_data_restaurant['login_id'] = $request['login_id'];
+        }
 
         if (isset($main_img_name)) {
             $fill_data_restaurant['main_img'] = $main_img_name;
@@ -815,9 +823,9 @@ class AdminRestaurantController extends Controller
             }
             DB::commit();
             if (session('type') == 'restaurant') {
-                return redirect()->to('admin/')->with('message', '登録が完了いたしました。');
+                return redirect()->to('admin/')->with('message', '店舗情報の更新が完了いたしました。');
             } else {
-                return redirect()->to('admin/restaurant_list')->with('message', '登録が完了いたしました。');
+                return redirect()->to('admin/restaurant_list')->with('message', '店舗情報の更新が完了いたしました。');
             }
         } catch (\Exception $e) {
             DB::rollback();

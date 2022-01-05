@@ -27,8 +27,7 @@ Route::get('restaurants/{id}/comment_sp', 'App\Http\Controllers\RestaurantContro
 Route::post('restaurants/comment_store', 'App\Http\Controllers\RestaurantController@comment_store')->name('restaurant.comment_store');
 
 // 以下管理側 //
-Route::get('admin/', 'App\Http\Controllers\AdminController@index')->name('admin.index');
-// ->middleware('login');
+Route::get('admin/', 'App\Http\Controllers\AdminController@index')->name('admin.index')->middleware('login');
 Route::get('admin/restaurant_list', 'App\Http\Controllers\AdminRestaurantController@restaurant_list')->name('admin.restaurant_list')->middleware('login');
 Route::get('admin/restaurant_list_update', 'App\Http\Controllers\AdminRestaurantController@restaurant_list_update')->name('admin.restaurant_list_update')->middleware('login');
 Route::get('admin/restaurant_regist', 'App\Http\Controllers\AdminRestaurantController@restaurant_regist')->name('admin.restaurant_regist')->middleware('login');

@@ -32,10 +32,10 @@
 
             <div class="flex_form_password">
                 @if($errors->has('password'))
-                <div class="comment_error">{{ $errors->first('password') }}</div>
+                <div class="comment_error">{{ $errors->first('pass') }}</div>
                 @endif
                 <div class="admin_form_name">パスワード<p class="required_mark">※必須</p></div>
-                {{ Form::text('password', old('password', $restaurant->password), ['class' => 'password_input', 'maxlength' => 12]) }}
+                {{ Form::text('pass', old('pass', $restaurant->password), ['class' => 'password_input', 'maxlength' => 12]) }}
             </div>
         </div>
 
@@ -43,7 +43,7 @@
             <div class="admin_form_title">店舗基本情報</div>
 
             <div class="regist_form_item">
-                <div class="admin_form_name">メイン画像<p class="required_mark">※必須</p></div>
+                <div class="admin_form_name">メイン画像 [推奨：720px×720px]<p class="required_mark">※必須</p></div>
                 @if($errors->has('main_img'))
                 <div class="comment_error">{{ $errors->first('main_img') }}</div>
                 @endif
@@ -56,7 +56,7 @@
             </div>
 
             <div class="regist_form_item">
-                <div class="admin_form_name">サブ画像（8枚まで）</div>
+                <div class="admin_form_name">サブ画像（8枚まで） [推奨：720px×720px]</div>
                 @if($errors->has('sub_img1'))
                 <div class="comment_error">{{ $errors->first('sub_img1') }}</div>
                 @endif
@@ -141,7 +141,8 @@
                         <select name="pref">
                         @foreach (config('const.Prefs') as $name)
                         <option value="{{ $name }}"
-                        @if($name == $restaurant->pref) selected @endif >{{ $name }}</option>
+                            @if(old('pref') == $name) selected 
+                            @elseif(empty(old('pref')) && $name == $restaurant->pref) selected @endif >{{ $name }}</option>
                         @endforeach
                         </select>
                     </div>
@@ -173,7 +174,8 @@
                     @foreach (config('const.Times') as $name)
                     @if ($name != '指定なし')
                     <option value="{{ $name }}"
-                    @if($name == $restaurant->open_hm) selected @endif >{{ $name }}</option>
+                    @if(old('open_time') == $name) selected 
+                    @elseif(empty(old('open_time')) && $name == $restaurant->open_hm) selected @endif >{{ $name }}</option>
                     @endif
                     @endforeach
                 </select>
@@ -182,7 +184,8 @@
                     @foreach (config('const.Times') as $name)
                     @if ($name != '指定なし')
                     <option value="{{ $name }}"
-                    @if($name == $restaurant->close_hm) selected @endif >{{ $name }}</option>
+                    @if(old('close_time') == $name) selected 
+                    @elseif(empty(old('close_time')) && $name == $restaurant->close_hm) selected @endif >{{ $name }}</option>
                     @endif
                     @endforeach
                 </select>
@@ -219,7 +222,8 @@
                         <select name="budget_lunch">
                             @foreach (config('const.BudgetLunch') as $key => $value)
                             <option value="{{ $key }}"
-                            @if($value == $restaurant->budget_lunch) selected @endif >{{ $value }}</option>
+                                @if(old('budget_lunch') == $value) selected 
+                                @elseif(empty(old('budget_lunch')) && $value == $restaurant->budget_lunch) selected @endif >{{ $value }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -228,7 +232,8 @@
                         <select name="budget_dinner">
                             @foreach (config('const.BudgetDinner') as $key => $value)
                             <option value="{{ $key }}"
-                            @if($value == $restaurant->budget_dinner) selected @endif >{{ $value }}</option>
+                                @if(old('budget_dinner') == $value) selected 
+                                @elseif(empty(old('budget_dinner')) && $value == $restaurant->budget_dinner) selected @endif >{{ $value }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -389,7 +394,8 @@
                 <select name="category_id">
                 @foreach ($categories as $category)
                 <option value="{{ $category->id }}"
-                @if($category->id == $restaurant->category_id) selected @endif >{{ $category->name }}</option>
+                    @if(old('category_id') == $category->id) selected 
+                    @elseif(empty(old('category_id')) && $category->id == $restaurant->category_id) selected @endif >{{ $category->name }}</option>
                 @endforeach
                 </select>
             </div>

@@ -4,6 +4,9 @@
 
 <nav class="navbar admin_header">
     <div class="content_title">店舗管理ページ</div>
+    @if(session('type') == 'restaurant')
+    <div class="content_title">{{ session('message') }}</div>
+    @endif
 </nav>
 <div class="admin_button_list">
     @if(session('type') == 'operation')
