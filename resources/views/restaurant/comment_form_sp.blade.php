@@ -92,7 +92,7 @@ window.onload = function () {
 <!-- モーダルウィンドウ -->
 <div class="modal-window_sp">
 <div class="modal-text_sp">クチコミの投稿が完了しました。</div>
-<button class="js-close button-close_sp">TOPへ戻る</button>
+<button class="js-close button-close_sp">店舗ページへ戻る</button>
 </div>
 
 

@@ -43,8 +43,8 @@
     </nav>
     <div class="info_list_sp">
         <div id="info_list_basic">
-            　所在地：〒{{ $restaurant->zip }}　{{ $restaurant->pref }}{{ $restaurant->address }}
-            <br><a href="https://www.google.com/maps/dir/{{ $restaurant->zip }}{{ $restaurant->pref }}{{ $restaurant->address }}" target="_blank">地図アプリで見る</a><br>
+            　所在地：〒{{ $restaurant->zip }}　{{ $restaurant->pref }}{{ $restaurant->address }}{{ $restaurant->address_remarks }}
+            <br><a href="https://www.google.com/maps/dir/{{ $restaurant->zip }}{{ $restaurant->pref }}{{ $restaurant->address }}{{ $restaurant->address_remarks }}" target="_blank">地図アプリで見る</a><br>
             電話番号：{{ $restaurant->tel }}<br>
             営業時間：{{ $restaurant->open_hm }}～{{ $restaurant->close_hm }}<br>
             {!! nl2br(e($restaurant->time_remarks)) !!}<br>

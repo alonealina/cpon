@@ -4,7 +4,7 @@
 <div class="banner">
     <ul class="slider_banner">
         @foreach($banners as $banner)
-        <li><a href="{{ $banner->url }}"><img src="{{ asset('banner/'. $banner->img) }}" class="banner_img" alt=""></a></li>
+        <li><a href="{{ $banner->url }}" target="_blank"><img src="{{ asset('banner/'. $banner->img) }}" class="banner_img" alt=""></a></li>
         @endforeach
     </ul>
 </div>
@@ -14,7 +14,7 @@
 <div class="banner_ipad">
     <ul class="slider_banner_ipad">
         @foreach($banners as $banner)
-        <li><a href="{{ $banner->url }}"><img src="{{ asset('banner/'. $banner->img) }}" class="banner_img" alt=""></a></li>
+        <li><a href="{{ $banner->url }}" target="_blank"><img src="{{ asset('banner/'. $banner->img) }}" class="banner_img" alt=""></a></li>
         @endforeach
     </ul>
 </div>
@@ -24,7 +24,7 @@
 <div class="banner_sp">
     <ul class="slider_banner_sp">
         @foreach($banners as $banner)
-        <li><a href="{{ $banner->url }}"><img src="{{ asset('banner/'. $banner->img) }}" class="banner_img" alt=""></a></li>
+        <li><a href="{{ $banner->url }}" target="_blank"><img src="{{ asset('banner/'. $banner->img) }}" class="banner_img" alt=""></a></li>
         @endforeach
     </ul>
 </div>

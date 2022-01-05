@@ -59,7 +59,13 @@ class CponController extends Controller
                     ->where('name', 'like', "%$freeword%")
                     ->groupBy('restaurant_id');
                 })
-                ->orwhere('name1', 'like', "%$freeword%")->orwhere('name1', 'like', "%$freeword%")->orwhere('name1', 'like', "%$freeword%");
+                ->orwhere('name1', 'like', "%$freeword%")->orwhere('name2', 'like', "%$freeword%")->orwhere('name3', 'like', "%$freeword%")
+                ->orwhere('profile', 'like', "%$freeword%")->orwhere('zip', 'like', "%$freeword%")->orwhere('pref', 'like', "%$freeword%")
+                ->orwhere('address', 'like', "%$freeword%")->orwhere('address_remarks', 'like', "%$freeword%")->orwhere('url', 'like', "%$freeword%")
+                ->orwhere('tel', 'like', "%$freeword%")->orwhere('access', 'like', "%$freeword%")->orwhere('station1', 'like', "%$freeword%")
+                ->orwhere('station2', 'like', "%$freeword%")->orwhere('station3', 'like', "%$freeword%")->orwhere('station4', 'like', "%$freeword%")
+                ->orwhere('station5', 'like', "%$freeword%")->orwhere('route1', 'like', "%$freeword%")->orwhere('route2', 'like', "%$freeword%")
+                ->orwhere('route3', 'like', "%$freeword%")->orwhere('route4', 'like', "%$freeword%")->orwhere('route5', 'like', "%$freeword%");
                 })->where('release_flg', 1)
                 ->paginate(24);
 
@@ -131,7 +137,13 @@ class CponController extends Controller
                         ->where('name', 'like', "%$freeword%")
                         ->groupBy('restaurant_id');
                     })
-                    ->orwhere('name1', 'like', "%$freeword%")->orwhere('name1', 'like', "%$freeword%")->orwhere('name1', 'like', "%$freeword%");
+                    ->orwhere('name1', 'like', "%$freeword%")->orwhere('name2', 'like', "%$freeword%")->orwhere('name3', 'like', "%$freeword%")
+                    ->orwhere('profile', 'like', "%$freeword%")->orwhere('zip', 'like', "%$freeword%")->orwhere('pref', 'like', "%$freeword%")
+                    ->orwhere('address', 'like', "%$freeword%")->orwhere('address_remarks', 'like', "%$freeword%")->orwhere('url', 'like', "%$freeword%")
+                    ->orwhere('tel', 'like', "%$freeword%")->orwhere('access', 'like', "%$freeword%")->orwhere('station1', 'like', "%$freeword%")
+                    ->orwhere('station2', 'like', "%$freeword%")->orwhere('station3', 'like', "%$freeword%")->orwhere('station4', 'like', "%$freeword%")
+                    ->orwhere('station5', 'like', "%$freeword%")->orwhere('route1', 'like', "%$freeword%")->orwhere('route2', 'like', "%$freeword%")
+                    ->orwhere('route3', 'like', "%$freeword%")->orwhere('route4', 'like', "%$freeword%")->orwhere('route5', 'like', "%$freeword%");
                 });
         }
 

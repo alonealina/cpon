@@ -954,6 +954,7 @@ select {
     border-radius: 8px;
     height: 30px;
     margin-left:10px;
+    background-color: white;
 }
 
 .comment_sort_select {
@@ -1673,6 +1674,33 @@ label {
     text-align: left;
 }
 
+.info_list_web {
+    float: left;
+    font-size: 11px;
+    margin-left: 2px;
+}
+
+.info_list_mall {
+    float: left;
+    font-size: 11px;
+    margin-left: 13px;
+}
+
+.info_list_basic, .info_list_access {
+    margin-left: 75px;
+    text-indent: -75px;
+}
+
+.info_list_pay {
+    margin-left: 150px;
+    text-indent: -150px;
+}
+
+.info_list_other {
+    margin-left: 90px;
+    text-indent: -90px;
+}
+
 /*以下メニューバーについて*/
 
 .menu_list_bar {
@@ -2347,7 +2375,7 @@ opacity: 0.6;
 
 /* === 文書のエリアの高さ（「もっと見る」が表示されているとき）=== */
 .restaurant_profile > input[type="checkbox"]:not(:checked) ~ #restaurant_profile_text {
-height        : 75px;
+/* height        : 75px; */
 }
 
 /* === 文書のエリアの高さ（「一部を表示」が表示されているとき）=== */

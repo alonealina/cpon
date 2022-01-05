@@ -66,6 +66,9 @@
         <div class="button_black">
             <a href="#" onclick="clickCommentButton()">クチコミを投稿する</a>
         </div>
+        <div class="button_grey">
+            <a href="{{ route('restaurant.show', ['id' => $restaurant_id]) }}">店舗ページへ戻る</a>
+        </div>
     </form>
 </div>
 
@@ -88,7 +91,7 @@ window.onload = function () {
 <!-- モーダルウィンドウ -->
 <div class="modal-window">
 <div class="modal-text">クチコミの投稿が完了しました</div>
-<button class="js-close button-close">TOPへ戻る</button>
+<button class="js-close button-close">店舗ページへ戻る</button>
 </div>
 
 
@@ -174,7 +177,7 @@ window.onload = function () {
 <!-- モーダルウィンドウ -->
 <div class="modal-window">
 <div class="modal-text">クチコミの投稿が完了しました</div>
-<button class="js-close button-close">TOPへ戻る</button>
+<button class="js-close button-close">店舗ページへ戻る</button>
 </div>
 
 @endsection

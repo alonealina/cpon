@@ -19,11 +19,11 @@
             <div class="filter_name">利用シーン</div>
             <hr>
             @include('form.scenes')
-            <div class="filter_name">キーワード</div>
+            <div class="filter_name">こだわり条件</div>
             <hr>
             @include('form.commitments')
             <hr>
-            <div class="filter_name">こだわり条件</div>
+            <div class="filter_name">キーワード</div>
             {!! Form::text('freeword' ,'', ['class' => 'filter_freeword', 'placeholder' => '入力してください'] ) !!}
             <div class="filter_name">オープン時間</div>
             <hr>

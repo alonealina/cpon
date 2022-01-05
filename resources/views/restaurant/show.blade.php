@@ -5,16 +5,22 @@
         @if (empty($restaurant->main_img))
         <img src="../../img/imgerror.jpg" class="main_img">
         @else
-        <a href="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" data-lightbox="group">
-            <img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" class="main_img">
-        </a>
+        <img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" class="main_img">
         @endif
     </div>
     <div class="flexible_sub_img">
-        @if (empty($restaurant->sub_img1))
+        @if (empty($restaurant->main_img))
         <img src="../../img/imgerror.jpg" class="sub_img">
         @else
         <a href="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" data-lightbox="group">
+            <img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" class="sub_img">
+        </a>
+        @endif
+
+        @if (empty($restaurant->sub_img1))
+        <img src="../../img/imgerror.jpg" class="sub_img">
+        @else
+        <a href="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img1 }}" data-lightbox="group">
             <img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img1 }}" class="sub_img">
         </a>
         @endif
@@ -22,7 +28,7 @@
         @if (empty($restaurant->sub_img2))
         <img src="../../img/imgerror.jpg" class="sub_img">
         @else
-        <a href="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" data-lightbox="group">
+        <a href="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img2 }}" data-lightbox="group">
             <img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img2 }}" class="sub_img">
         </a>
         @endif
@@ -30,7 +36,7 @@
         @if (empty($restaurant->sub_img3))
         <img src="../../img/imgerror.jpg" class="sub_img">
         @else
-        <a href="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" data-lightbox="group">
+        <a href="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img3 }}" data-lightbox="group">
             <img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img3 }}" class="sub_img">
         </a>
         @endif
@@ -38,7 +44,7 @@
         @if (empty($restaurant->sub_img4))
         <img src="../../img/imgerror.jpg" class="sub_img">
         @else
-        <a href="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" data-lightbox="group">
+        <a href="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img4 }}" data-lightbox="group">
             <img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img4 }}" class="sub_img">
         </a>
         @endif
@@ -46,7 +52,7 @@
         @if (empty($restaurant->sub_img5))
         <img src="../../img/imgerror.jpg" class="sub_img">
         @else
-        <a href="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" data-lightbox="group">
+        <a href="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img5 }}" data-lightbox="group">
             <img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img5 }}" class="sub_img">
         </a>
         @endif
@@ -54,30 +60,24 @@
         @if (empty($restaurant->sub_img6))
         <img src="../../img/imgerror.jpg" class="sub_img">
         @else
-        <a href="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" data-lightbox="group"><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img6 }}" class="sub_img">
+        <a href="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img6 }}" data-lightbox="group">
+            <img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img6 }}" class="sub_img">
         </a>
         @endif
 
         @if (empty($restaurant->sub_img7))
         <img src="../../img/imgerror.jpg" class="sub_img">
         @else
-        <a href="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" data-lightbox="group"><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img7 }}" class="sub_img">
+        <a href="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img7 }}" data-lightbox="group">
+            <img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img7 }}" class="sub_img">
         </a>
         @endif
 
         @if (empty($restaurant->sub_img8))
         <img src="../../img/imgerror.jpg" class="sub_img">
         @else
-        <a href="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" data-lightbox="group">
+        <a href="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img8 }}" data-lightbox="group">
             <img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img8 }}" class="sub_img">
-        </a>
-        @endif
-
-        @if (empty($restaurant->sub_img9))
-        <img src="../../img/imgerror.jpg" class="sub_img">
-        @else
-        <a href="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->main_img }}" data-lightbox="group">
-            <img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img9 }}" class="sub_img">
         </a>
         @endif
     </div>
@@ -124,31 +124,31 @@
     </nav>
     <div class="info_list">
         <div id="info_list_basic">
-            　所在地：〒{{ $restaurant->zip }}　{{ $restaurant->pref }}{{ $restaurant->address }}
-            <a href="https://www.google.com/maps/dir/{{ $restaurant->zip }}{{ $restaurant->pref }}{{ $restaurant->address }}" target="_blank">地図アプリで見る</a><br>
+            　所在地：〒{{ $restaurant->zip }}　{{ $restaurant->pref }}{{ $restaurant->address }}{{ $restaurant->address_remarks }}
+            <a href="https://www.google.com/maps/dir/{{ $restaurant->zip }}{{ $restaurant->pref }}{{ $restaurant->address }}{{ $restaurant->address_remarks }}" target="_blank">地図アプリで見る</a><br>
             電話番号：{{ $restaurant->tel }}<br>
             営業時間：{{ $restaurant->open_hm }}～{{ $restaurant->close_hm }}<br>
-            {!! nl2br(e($restaurant->time_remarks)) !!}<br>
+            <div class="info_list_basic">　　　　　{!! nl2br(e($restaurant->time_remarks)) !!}</div>
             　定休日：{{ $restaurant_holidays }}<br>
             　　予算：昼　{{ $restaurant->budget_lunch }}<br>
             　　　　　夜　{{ $restaurant->budget_dinner }}<br>
             　　評価：{{ $avg_star }} ({{ $comments->total() }} 評価)<br>
-            WEBページ：<a href="{{ $restaurant->url }}" target="_blank">{{ $restaurant->url }}</a>
+            <div class="info_list_web">WEBページ</div>：<a href="{{ $restaurant->url }}" target="_blank">{{ $restaurant->url }}</a>
         </div>
         <div id="info_list_access" hidden>
             最寄り駅：{{ $restaurant_stations }}<br>
-            アクセス：{!! nl2br(e($restaurant->access)) !!}<br>
-            　駐車場：{!! nl2br(e($restaurant->parking)) !!}
+            <div class="info_list_access">アクセス：{!! nl2br(e($restaurant->access)) !!}</div>
+            <div class="info_list_access">　駐車場：{!! nl2br(e($restaurant->parking)) !!}</div>
         </div>
         <div id="info_list_pay" hidden>
             　クレジットカード：{{ $restaurant_cards }}<br>
-            電子マネー・その他：{!! nl2br(e($restaurant->e_money)) !!}<br>
+            <div class="info_list_pay">電子マネー・その他：{!! nl2br(e($restaurant->e_money)) !!}</div>
         </div>
         <div id="info_list_other" hidden>
-            　　席数：{!! nl2br(e($restaurant->seats)) !!}<br>
-            禁煙・喫煙：{!! nl2br(e($restaurant->smoking)) !!}<br>
-            Cポンモール：<a href="{{ $restaurant->url }}" target="_blank">{{ $restaurant->cpon_mall_url }}</a><br>
-            　その他：{!! nl2br(e($restaurant->other)) !!}
+            <div class="info_list_other">　　　席数：{!! nl2br(e($restaurant->seats)) !!}</div>
+            <div class="info_list_other">禁煙・喫煙：{!! nl2br(e($restaurant->smoking)) !!}</div>
+            <div class="info_list_mall">Cポンモール</div>：<a href="{{ $restaurant->url }}" target="_blank">{{ $restaurant->cpon_mall_url }}</a><br>
+            <div class="info_list_other">　　その他：{!! nl2br(e($restaurant->other)) !!}</div>
         </div>
     </div>
 
@@ -165,7 +165,7 @@
 <script>
 let profile_text = document.getElementById('restaurant_profile_text');
 let client_h = profile_text.clientHeight;
-if (client_h < 70) {
+if (client_h < 80) {
     document.getElementById('restaurant_profile_label').style.display ="none";
 } else {
     profile_text.style.overflow = "hidden";
@@ -266,7 +266,7 @@ $('#sp01').click(function() {
         </nav>
         <div class="info_list">
             <div id="info_list_basic_ipad">
-                　所在地：〒{{ $restaurant->zip }}　{{ $restaurant->pref }}{{ $restaurant->address }}
+                　所在地：〒{{ $restaurant->zip }}　{{ $restaurant->pref }}{{ $restaurant->address }}{{ $restaurant->address_remarks }}
                 <a href="https://www.google.com/maps/dir/{{ $restaurant->zip }}{{ $restaurant->pref }}{{ $restaurant->address }}{{ $restaurant->address_remarks }}" target="_blank">地図アプリで見る</a><br>
                 電話番号：{{ $restaurant->tel }}<br>
                 営業時間：{{ $restaurant->open_hm }}～{{ $restaurant->close_hm }}<br>
@@ -306,7 +306,7 @@ $('#sp01').click(function() {
 let profile_text_ipad = document.getElementById('restaurant_profile_text_ipad');
 let client_h_ipad = profile_text_ipad.clientHeight;
 if (client_h_ipad < 100) {
-    document.getElementById('restaurant_profile_label').style.display ="none";
+    document.getElementById('restaurant_profile_label_ipad').style.display ="none";
 } else {
     profile_text_ipad.style.overflow = "hidden";
     $clamp(profile_text_ipad, {clamp: 5});
@@ -352,18 +352,30 @@ $('#ipad_label').click(function() {
         @if (!empty($restaurant->sub_img4))
         <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img4 }}" class="banner_img_sp" alt=""></li>
         @endif
+        @if (!empty($restaurant->sub_img5))
+        <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img5 }}" class="banner_img_sp" alt=""></li>
+        @endif
+        @if (!empty($restaurant->sub_img6))
+        <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img6 }}" class="banner_img_sp" alt=""></li>
+        @endif
+        @if (!empty($restaurant->sub_img7))
+        <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img7 }}" class="banner_img_sp" alt=""></li>
+        @endif
+        @if (!empty($restaurant->sub_img8))
+        <li><img src="../../restaurant/{{ $restaurant->id }}/{{ $restaurant->sub_img8 }}" class="banner_img_sp" alt=""></li>
+        @endif
     </ul>
 </div>
 
 <div class="restaurant_show">
     <div style="width:350px"><div style="float:left;" class="restaurant_category_sp">{{ $category->name }}</div></div><br>
     <div style="width:350px"><div class="restaurant_name_sp2">{{ $restaurant->name1 }} {{ $restaurant->name2 }} {{ $restaurant->name3 }}</div></div>
-    <div style="width:350px;"><div style="width:350px" class="scene_commitment">
+    <div style="width:350px;"><div style="width:350px; text-align:left;" class="scene_commitment">
         @foreach ($restaurant_scenes as $name)
-        <div style="text-align:left;"><label class="label">{{ $name }}</label></div>
+        <label class="label">{{ $name }}</label>
         @endforeach
         @foreach ($restaurant_commitments as $name)
-        <div style="text-align:left;"><label class="label">{{ $name }}</label></div>
+        <label class="label">{{ $name }}</label>
         @endforeach
     </div></div>
     @if(!empty($restaurant->cpon_mall_url))
@@ -391,7 +403,7 @@ $('#ipad_label').click(function() {
 let profile_text_sp = document.getElementById('restaurant_profile_text_sp');
 let client_h_sp = profile_text_sp.clientHeight;
 if (client_h_sp < 140) {
-    document.getElementById('restaurant_profile_label').style.display ="none";
+    document.getElementById('restaurant_profile_label_sp').style.display ="none";
 } else {
     profile_text_sp.style.overflow = "hidden";
     $clamp(profile_text_sp, {clamp: 7});
