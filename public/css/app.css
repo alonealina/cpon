@@ -2576,12 +2576,24 @@ text-align:left;
 
 /* --- ボタンに表示する文字（閉じているとき） -------------------- */
 .filter_open_checkbox:not(:checked) + label::after {
-content       : "絞り込み　▼";
+content       : "絞り込み";
+float:left;
+}
+
+/* --- ボタンに表示する文字（閉じているとき） -------------------- */
+.filter_open_checkbox:not(:checked) + label div::after {
+content       : "▼";
+}
+    
+/* --- ボタンに表示する文字（開いているとき） -------------------- */
+.filter_open_checkbox:checked + label::after {
+content       : "閉じる";
+float:left;
 }
 
 /* --- ボタンに表示する文字（開いているとき） -------------------- */
-.filter_open_checkbox:checked + label::after {
-content       : "閉じる　▲";
+.filter_open_checkbox:checked + label div::after {
+content       : "▲";
 }
 
 /* --- ボタンに表示する文字（開いているとき） -------------------- */
@@ -2589,6 +2601,10 @@ content       : "閉じる　▲";
 bottom        : 37px;
 }
 
+.filter_open_label_sp div {
+    float:right;
+    font-size: 12px;
+}
 
 /*以下サムネイルについて*/
 .img_tmb img, .img_tmb_ipad img {
