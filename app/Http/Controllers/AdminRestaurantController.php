@@ -403,7 +403,7 @@ class AdminRestaurantController extends Controller
             'holidays' => new HolidayCheck($request['holidays']),
             'tel' => ['required', new PhoneCheck()],
             'main_img' => ['max:10240', 'required'],
-            'sub_img1' => 'max:10240',
+            'sub_img' => 'max:10240',
         ];
 
         $messages = [
@@ -417,7 +417,7 @@ class AdminRestaurantController extends Controller
             'tel.required' => '電話番号を入力してください',
             'main_img.required' => 'メイン画像を選択してください',
             'main_img.max' => 'ファイルは10MB未満でお願いします',
-            'sub_img1.max' => 'ファイルは10MB未満でお願いします',
+            'sub_img.max' => 'ファイルは10MB未満でお願いします',
         ];
 
         Validator::make($request->all(), $rules, $messages)->validate();
@@ -592,7 +592,7 @@ class AdminRestaurantController extends Controller
             'holidays' => new HolidayCheck($request['holidays']),
             'tel' => ['required', new PhoneCheck()],
             'main_img' => 'max:10240',
-            'sub_img1' => 'max:10240',
+            'sub_img' => 'max:10240',
         ];
 
         if (session('type') == 'operation') {
@@ -609,7 +609,7 @@ class AdminRestaurantController extends Controller
             'address.required' => '住所を入力してください',
             'tel.required' => '電話番号を入力してください',
             'main_img.max' => 'ファイルは10MB未満でお願いします',
-            'sub_img1.max' => 'ファイルは10MB未満でお願いします',
+            'sub_img.max' => 'ファイルは10MB未満でお願いします',
         ];
 
         Validator::make($request->all(), $rules, $messages)->validate();

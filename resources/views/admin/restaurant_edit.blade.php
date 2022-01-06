@@ -35,6 +35,9 @@
     @if($errors->has('address'))
     <div class="comment_error">{{ $errors->first('address') }}</div>
     @endif
+    @if($errors->has('holidays'))
+    <div class="comment_error">{{ $errors->first('holidays') }}</div>
+    @endif
     @if($errors->has('tel'))
     <div class="comment_error">{{ $errors->first('tel') }}</div>
     @endif
