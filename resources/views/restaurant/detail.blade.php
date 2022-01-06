@@ -62,6 +62,7 @@
         <div id="info_list_pay" hidden>
             　クレジットカード：{{ $restaurant_cards }}<br>
             電子マネー・その他：{!! nl2br(e($restaurant->e_money)) !!}<br>
+            Cポン（クーポン）支払可能
         </div>
         <div id="info_list_other" hidden>
             　　席数：{!! nl2br(e($restaurant->seats)) !!}<br>

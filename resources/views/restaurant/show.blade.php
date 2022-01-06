@@ -143,6 +143,7 @@
         <div id="info_list_pay" hidden>
             　クレジットカード：{{ $restaurant_cards }}<br>
             <div class="info_list_pay">電子マネー・その他：{!! nl2br(e($restaurant->e_money)) !!}</div>
+            Cポン（クーポン）支払可能
         </div>
         <div id="info_list_other" hidden>
             <div class="info_list_other">　　　席数：{!! nl2br(e($restaurant->seats)) !!}</div>
@@ -270,27 +271,28 @@ $('#sp01').click(function() {
                 <a href="https://www.google.com/maps/dir/{{ $restaurant->zip }}{{ $restaurant->pref }}{{ $restaurant->address }}{{ $restaurant->address_remarks }}" target="_blank">地図アプリで見る</a><br>
                 電話番号：{{ $restaurant->tel }}<br>
                 営業時間：{{ $restaurant->open_hm }}～{{ $restaurant->close_hm }}<br>
-                {!! nl2br(e($restaurant->time_remarks)) !!}<br>
+                <div class="info_list_basic">　　　　　{!! nl2br(e($restaurant->time_remarks)) !!}</div>
                 　定休日：{{ $restaurant_holidays }}<br>
                 　　予算：昼　{{ $restaurant->budget_lunch }}<br>
                 　　　　　夜　{{ $restaurant->budget_dinner }}<br>
                 　　評価：{{ $avg_star }} ({{ $comments->total() }} 評価)<br>
-                WEBページ：<a href="{{ $restaurant->url }}" target="_blank">{{ $restaurant->url }}</a>
+                <div class="info_list_web">WEBページ</div>：<a href="{{ $restaurant->url }}" target="_blank">{{ $restaurant->url }}</a>
             </div>
             <div id="info_list_access_ipad" hidden>
                 最寄り駅：{{ $restaurant_stations }}<br>
-                アクセス：{!! nl2br(e($restaurant->access)) !!}<br>
-                　駐車場：{!! nl2br(e($restaurant->parking)) !!}
+                <div class="info_list_access">アクセス：{!! nl2br(e($restaurant->access)) !!}</div>
+                <div class="info_list_access">　駐車場：{!! nl2br(e($restaurant->parking)) !!}</div>
             </div>
             <div id="info_list_pay_ipad" hidden>
                 　クレジットカード：{{ $restaurant_cards }}<br>
-                電子マネー・その他：{!! nl2br(e($restaurant->e_money)) !!}<br>
+                <div class="info_list_pay">電子マネー・その他：{!! nl2br(e($restaurant->e_money)) !!}</div>
+                Cポン（クーポン）支払可能
             </div>
             <div id="info_list_other_ipad" hidden>
-                　　席数：{!! nl2br(e($restaurant->seats)) !!}<br>
-                禁煙・喫煙：{!! nl2br(e($restaurant->smoking)) !!}<br>
-                Cポンモール：<a href="{{ $restaurant->url }}" target="_blank">{{ $restaurant->cpon_mall_url }}</a><br>
-                　その他：{!! nl2br(e($restaurant->other)) !!}
+                <div class="info_list_other">　　　席数：{!! nl2br(e($restaurant->seats)) !!}</div>
+                <div class="info_list_other">禁煙・喫煙：{!! nl2br(e($restaurant->smoking)) !!}</div>
+                <div class="info_list_mall">Cポンモール</div>：<a href="{{ $restaurant->url }}" target="_blank">{{ $restaurant->cpon_mall_url }}</a><br>
+                <div class="info_list_other">　　その他：{!! nl2br(e($restaurant->other)) !!}</div>
             </div>
         </div>
 
