@@ -24,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        ini_set('mbstring.internal_encoding' , 'UTF-8');
         Schema::defaultStringLength(191);
         if (\App::environment('production')) {
             \URL::forceScheme('https');
