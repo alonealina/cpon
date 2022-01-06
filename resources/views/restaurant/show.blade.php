@@ -182,7 +182,7 @@ $('#sp01').click(function() {
 });
 
 </script>
-<script src="{{ asset('js/info.js') }}"></script>
+<script src="../../../js/info.js"></script>
 @endsection
 
 
@@ -323,7 +323,7 @@ $('#ipad_label').click(function() {
 });
 
 </script>
-<script src="{{ asset('js/info_ipad.js') }}"></script>
+<script src="../../../js/info_ipad.js"></script>
 @endsection
 
 

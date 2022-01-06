@@ -76,5 +76,5 @@
 
 @include('restaurant.comment_list_latest5', ['version' => 'sp', 'px' => '60px'])
 
-<script src="{{ asset('js/info.js') }}"></script>
+<script src="../../../js/info.js"></script>
 @endsection
