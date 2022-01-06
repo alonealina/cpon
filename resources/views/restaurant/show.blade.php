@@ -143,7 +143,7 @@
         <div id="info_list_pay" hidden>
             　クレジットカード：{{ $restaurant_cards }}<br>
             <div class="info_list_pay">電子マネー・その他：{!! nl2br(e($restaurant->e_money)) !!}</div>
-            Cポン（クーポン）支払可能
+            Cポンまたはクーポン券支払可能
         </div>
         <div id="info_list_other" hidden>
             <div class="info_list_other">　　　席数：{!! nl2br(e($restaurant->seats)) !!}</div>
@@ -286,7 +286,7 @@ $('#sp01').click(function() {
             <div id="info_list_pay_ipad" hidden>
                 　クレジットカード：{{ $restaurant_cards }}<br>
                 <div class="info_list_pay">電子マネー・その他：{!! nl2br(e($restaurant->e_money)) !!}</div>
-                Cポン（クーポン）支払可能
+                Cポンまたはクーポン券支払可能
             </div>
             <div id="info_list_other_ipad" hidden>
                 <div class="info_list_other">　　　席数：{!! nl2br(e($restaurant->seats)) !!}</div>
