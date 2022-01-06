@@ -3,6 +3,8 @@
         Options -MultiViews -Indexes
     </IfModule>
 
+    php_flag mbstring.encoding_translation off
+    php_value default_charset "UTF-8"
     RewriteEngine On
 
     # Handle Authorization Header
