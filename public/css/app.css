@@ -511,7 +511,7 @@ hr {
     display: block;
     width: 480px;
     height: 67px;
-    margin: 60px auto;
+    margin: 50px auto;
     line-height: 66px;
     background: #666665;
     color: #fff;
@@ -541,7 +541,7 @@ hr {
     display: block;
     width: 480px;
     height: 67px;
-    margin: 60px auto;
+    margin: 50px auto;
     line-height: 66px;
     background: #FFB01A;
     color: #fff;
@@ -2252,7 +2252,7 @@ height: 74px;
 
 /* 閉じるボタン */
 .button-close {
-    font-size: 30px;
+    font-size: 25px;
     position: absolute;
     top: 60%;
     left: 50%;
