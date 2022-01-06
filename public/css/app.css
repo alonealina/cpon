@@ -2601,7 +2601,8 @@ content       : "▲";
 bottom        : 37px;
 }
 
-.filter_open_label_sp div {
+.filter_open_label_sp div,
+.filter_open_label div {
     float:right;
     font-size: 12px;
 }

@@ -165,6 +165,9 @@ window.onload = function () {
         <div class="button_black">
             <a href="#" onclick="clickCommentButtonIpad()">クチコミを投稿する</a>
         </div>
+        <div class="button_grey">
+            <a href="{{ route('restaurant.show', ['id' => $restaurant_id]) }}">店舗ページへ戻る</a>
+        </div>
     </form>
 </div>
 
