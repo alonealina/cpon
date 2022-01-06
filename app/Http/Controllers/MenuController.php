@@ -272,7 +272,7 @@ class MenuController extends Controller
         $messages = [
             'name.max' => 'メニュー名は20文字以下でお願いします',
             'name.required' => 'メニュー名を入力してください',
-            'price.integer' => '数値を入力してください',
+            'price.integer' => '値段は数値を入力してください',
             'price.required' => '値段を入力してください',
             'explain.max' => '説明文は30文字以下でお願いします',
             'img.max' => 'ファイルは10MB未満でお願いします',

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use App\Models\Notice;
 use DB;
 
@@ -123,7 +124,7 @@ class NoticeController extends Controller
         $messages = [
             'title.max' => 'タイトルは20文字以下でお願いします',
             'title.required' => 'タイトルを入力してください',
-            'content.required' => '本文を入力してください',
+            'content.required' => '内容を入力してください',
         ];
 
         Validator::make($request->all(), $rules, $messages)->validate();
@@ -177,8 +178,7 @@ class NoticeController extends Controller
         $messages = [
             'title.max' => 'タイトルは20文字以下でお願いします',
             'title.required' => 'タイトルを入力してください',
-            'content.required' => '本文を入力してください',
-            'notice_date.required' => 'お知らせ日時を入力してください',
+            'content.required' => '内容を入力してください',
         ];
 
         Validator::make($request->all(), $rules, $messages)->validate();

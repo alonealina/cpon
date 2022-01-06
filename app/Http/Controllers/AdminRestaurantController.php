@@ -404,13 +404,6 @@ class AdminRestaurantController extends Controller
             'tel' => ['required', new PhoneCheck()],
             'main_img' => ['max:10240', 'required'],
             'sub_img1' => 'max:10240',
-            'sub_img2' => 'max:10240',
-            'sub_img3' => 'max:10240',
-            'sub_img4' => 'max:10240',
-            'sub_img5' => 'max:10240',
-            'sub_img6' => 'max:10240',
-            'sub_img7' => 'max:10240',
-            'sub_img8' => 'max:10240',
         ];
 
         $messages = [
@@ -422,16 +415,9 @@ class AdminRestaurantController extends Controller
             'zip.required' => '郵便番号を入力してください',
             'address.required' => '住所を入力してください',
             'tel.required' => '電話番号を入力してください',
-            'main_img.required' => 'ファイルを選択してください',
+            'main_img.required' => 'メイン画像を選択してください',
             'main_img.max' => 'ファイルは10MB未満でお願いします',
             'sub_img1.max' => 'ファイルは10MB未満でお願いします',
-            'sub_img2.max' => 'ファイルは10MB未満でお願いします',
-            'sub_img3.max' => 'ファイルは10MB未満でお願いします',
-            'sub_img4.max' => 'ファイルは10MB未満でお願いします',
-            'sub_img5.max' => 'ファイルは10MB未満でお願いします',
-            'sub_img6.max' => 'ファイルは10MB未満でお願いします',
-            'sub_img7.max' => 'ファイルは10MB未満でお願いします',
-            'sub_img8.max' => 'ファイルは10MB未満でお願いします',
         ];
 
         Validator::make($request->all(), $rules, $messages)->validate();
@@ -607,13 +593,6 @@ class AdminRestaurantController extends Controller
             'tel' => ['required', new PhoneCheck()],
             'main_img' => 'max:10240',
             'sub_img1' => 'max:10240',
-            'sub_img2' => 'max:10240',
-            'sub_img3' => 'max:10240',
-            'sub_img4' => 'max:10240',
-            'sub_img5' => 'max:10240',
-            'sub_img6' => 'max:10240',
-            'sub_img7' => 'max:10240',
-            'sub_img8' => 'max:10240',
         ];
 
         if (session('type') == 'operation') {
@@ -631,13 +610,6 @@ class AdminRestaurantController extends Controller
             'tel.required' => '電話番号を入力してください',
             'main_img.max' => 'ファイルは10MB未満でお願いします',
             'sub_img1.max' => 'ファイルは10MB未満でお願いします',
-            'sub_img2.max' => 'ファイルは10MB未満でお願いします',
-            'sub_img3.max' => 'ファイルは10MB未満でお願いします',
-            'sub_img4.max' => 'ファイルは10MB未満でお願いします',
-            'sub_img5.max' => 'ファイルは10MB未満でお願いします',
-            'sub_img6.max' => 'ファイルは10MB未満でお願いします',
-            'sub_img7.max' => 'ファイルは10MB未満でお願いします',
-            'sub_img8.max' => 'ファイルは10MB未満でお願いします',
         ];
 
         Validator::make($request->all(), $rules, $messages)->validate();
