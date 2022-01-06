@@ -511,7 +511,7 @@ hr {
     display: block;
     width: 480px;
     height: 67px;
-    margin: 50px auto;
+    margin: 35px auto;
     line-height: 66px;
     background: #666665;
     color: #fff;
@@ -541,7 +541,7 @@ hr {
     display: block;
     width: 480px;
     height: 67px;
-    margin: 50px auto;
+    margin: 35px auto;
     line-height: 66px;
     background: #FFB01A;
     color: #fff;
@@ -2576,12 +2576,12 @@ text-align:left;
 
 /* --- ボタンに表示する文字（閉じているとき） -------------------- */
 .filter_open_checkbox:not(:checked) + label::after {
-content       : "絞り込み";
+content       : "絞り込み　▼";
 }
 
 /* --- ボタンに表示する文字（開いているとき） -------------------- */
 .filter_open_checkbox:checked + label::after {
-content       : "閉じる";
+content       : "閉じる　▲";
 }
 
 /* --- ボタンに表示する文字（開いているとき） -------------------- */
