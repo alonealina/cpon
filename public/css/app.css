@@ -1901,7 +1901,7 @@ height: 74px;
 .banner_sp{
     margin-top: 15px;
 }
-.banner_ipad {
+.banner_ipad, .banner_ipad2 {
     margin-top: 65px;  
 }
 
@@ -1985,15 +1985,22 @@ height: 74px;
 }
 
 .banner .slick-dots,
-.banner_ipad .slick-dots {
+.banner_ipad .slick-dots,
+.banner_ipad2 .slick-dots {
     padding-top: 10px;
 }
 
 .slick-dots li button {
     text-indent: -9999px;
- }
+}
+
 .banner_ipad .draggable {
-    height:230px;
+    height:270px;
+    border-radius: 35px;
+}
+
+.banner_ipad2 .draggable {
+    height:330px;
     border-radius: 35px;
 }
 

@@ -191,7 +191,7 @@ $('#sp01').click(function() {
 @include('form.header_search_ipad')
 <div class="body_ipad">
 
-    <div class="banner_ipad">
+    <div class="banner_ipad2">
         <ul class="restaurant_img_ipad">
             @if (empty($restaurant->main_img))
             <li><img src="../../img/imgerror.jpg" class="banner_img" alt=""></li>
