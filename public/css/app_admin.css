@@ -337,8 +337,8 @@ footer a, footer a:hover {
 
 .restaurant_list_message {
     color:red;
-    right: 70px;
-    position: absolute;
+    padding-left: 240px;
+    width: 620px;
 }
 
 .release_on_button a,
