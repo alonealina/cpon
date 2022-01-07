@@ -12,7 +12,11 @@
 <div id="menu_list_recommend">
     @foreach ($recommend_menus as $recommend_menu)
     <div class="menu_detail">
-        <img src="{{ asset('img/shohin.png') }}" alt="">
+        @if (empty($recommend_menu->img))
+        <img src="../../img/imgerror.jpg">
+        @else
+        <img src="../../restaurant/{{ $restaurant->id }}/menu/{{ $recommend_menu->img }}" alt="">
+        @endif
         <div class="menu_name">{{ $recommend_menu->name }}</div>
         <div class="menu_price">￥{{ number_format($recommend_menu->price) }}</div>
         <div class="menu_explain">{{ $recommend_menu->explain }}</div>
@@ -37,7 +41,11 @@
 <div id="menu_list_recommend">
     @foreach ($recommend_menus as $recommend_menu)
     <div class="menu_detail_ipad">
-        <img src="{{ asset('img/shohin.png') }}" alt="">
+        @if (empty($recommend_menu->img))
+        <img src="../../img/imgerror.jpg">
+        @else
+        <img src="../../restaurant/{{ $restaurant->id }}/menu/{{ $recommend_menu->img }}" alt="">
+        @endif
         <div class="menu_name">{{ $recommend_menu->name }}</div>
         <div class="menu_price">￥{{ number_format($recommend_menu->price) }}</div>
         <div class="menu_explain">{{ $recommend_menu->explain }}</div>
@@ -61,7 +69,11 @@
 
 @foreach ($recommend_menus as $recommend_menu)
 <div class="menu_detail_sp">
-    <img src="{{ asset('img/shohin.png') }}" alt="">
+    @if (empty($recommend_menu->img))
+    <img src="../../img/imgerror.jpg">
+    @else
+    <img src="../../restaurant/{{ $restaurant->id }}/menu/{{ $recommend_menu->img }}" alt="">
+    @endif
     <div class="menu_name_sp">{{ $recommend_menu->name }}</div>
     <div class="menu_price_sp">￥{{ number_format($recommend_menu->price) }}</div>
     <div class="menu_explain_sp">{{ $recommend_menu->explain }}</div>

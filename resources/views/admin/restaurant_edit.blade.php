@@ -170,7 +170,7 @@
                     @if ($name != '指定なし')
                     <option value="{{ $name }}"
                     @if(old('open_time') == $name) selected 
-                    @elseif(empty(old('open_time')) && $name == $restaurant->open_hm) selected @endif >{{ $name }}</option>
+                    @elseif(empty(old('open_time')) && $name == $restaurant->open_hm_old) selected @endif >{{ $name }}</option>
                     @endif
                     @endforeach
                 </select>
@@ -180,7 +180,7 @@
                     @if ($name != '指定なし')
                     <option value="{{ $name }}"
                     @if(old('close_time') == $name) selected 
-                    @elseif(empty(old('close_time')) && $name == $restaurant->close_hm) selected @endif >{{ $name }}</option>
+                    @elseif(empty(old('close_time')) && $name == $restaurant->close_hm_old) selected @endif >{{ $name }}</option>
                     @endif
                     @endforeach
                 </select>

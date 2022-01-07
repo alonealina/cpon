@@ -11,12 +11,12 @@
 <div class="restaurant_show">
     <div style="width:350px;"><div style="float:left;" class="restaurant_category_sp">{{ $category->name }}</div><br>
     <div style="width:350px;"><div class="restaurant_name_sp2">{{ $restaurant->name1 }} {{ $restaurant->name2 }} {{ $restaurant->name3 }}</div></div>
-    <div class="scene_commitment">
+    <div class="scene_commitment" style="width:350px; text-align:left;">
         @foreach ($restaurant_scenes as $name)
-        <div style="text-align:left;"><label class="label">{{ $name }}</label></div>
+        <label class="label">{{ $name }}</label>
         @endforeach
         @foreach ($restaurant_commitments as $name)
-        <div style="text-align:left;"><label class="label">{{ $name }}</label></div>
+        <label class="label">{{ $name }}</label>
         @endforeach
     </div>
     @if(!empty($restaurant->cpon_mall_url))

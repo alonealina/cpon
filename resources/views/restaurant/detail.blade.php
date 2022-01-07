@@ -11,12 +11,12 @@
 <div class="restaurant_show">
     <div style="width:350px;"><div style="float:left;" class="restaurant_category_sp">{{ $category->name }}</div><br>
     <div style="width:350px;"><div class="restaurant_name_sp2">{{ $restaurant->name1 }} {{ $restaurant->name2 }} {{ $restaurant->name3 }}</div></div>
-    <div style="width:350px;"><div class="scene_commitment">
+    <div style="width:350px;"><div class="scene_commitment" style="width:350px; text-align:left;">
         @foreach ($restaurant_scenes as $name)
-        <div style="text-align:left;"><label class="label">{{ $name }}</label></div>
+        <label class="label">{{ $name }}</label>
         @endforeach
         @foreach ($restaurant_commitments as $name)
-        <div style="text-align:left;"><label class="label">{{ $name }}</label></div>
+        <label class="label">{{ $name }}</label>
         @endforeach
     </div></div>
     @if(!empty($restaurant->cpon_mall_url))
@@ -47,28 +47,28 @@
             <br><a href="https://www.google.com/maps/dir/{{ $restaurant->zip }}{{ $restaurant->pref }}{{ $restaurant->address }}{{ $restaurant->address_remarks }}" target="_blank">地図アプリで見る</a><br>
             電話番号：{{ $restaurant->tel }}<br>
             営業時間：{{ $restaurant->open_hm }}～{{ $restaurant->close_hm }}<br>
-            {!! nl2br(e($restaurant->time_remarks)) !!}<br>
-            　定休日：{{ $restaurant_holidays }}<br>
+            <div class="info_list_basic_sp">　　　　　{!! nl2br(e($restaurant->time_remarks)) !!}</div>
+            <div class="info_list_basic_sp">　定休日：{{ $restaurant_holidays }}</div>
             　　予算：昼　{{ $restaurant->budget_lunch }}<br>
             　　　　　夜　{{ $restaurant->budget_dinner }}<br>
             　　評価：{{ $avg_star }} ({{ $comments->total() }} 評価)<br>
-            WEBページ：<a href="{{ $restaurant->url }}" target="_blank">{{ $restaurant->url }}</a>
+            <div class="info_list_web_sp">WEBページ</div>：<a href="{{ $restaurant->url }}" target="_blank">{{ $restaurant->url }}</a>
         </div>
         <div id="info_list_access" hidden>
             最寄り駅：{{ $restaurant_stations }}<br>
-            アクセス：{!! nl2br(e($restaurant->access)) !!}<br>
-            　駐車場：{!! nl2br(e($restaurant->parking)) !!}
+            <div class="info_list_access_sp">アクセス：{!! nl2br(e($restaurant->access)) !!}</div>
+            <div class="info_list_access_sp">　駐車場：{!! nl2br(e($restaurant->parking)) !!}</div>
         </div>
         <div id="info_list_pay" hidden>
-            　クレジットカード：{{ $restaurant_cards }}<br>
-            電子マネー・その他：{!! nl2br(e($restaurant->e_money)) !!}<br>
+            <div class="info_list_pay_sp">　クレジットカード：{{ $restaurant_cards }}</div>
+            <div class="info_list_pay_sp">電子マネー・その他：{!! nl2br(e($restaurant->e_money)) !!}</div>
             Cポンまたはクーポン券支払可能
         </div>
         <div id="info_list_other" hidden>
-            　　席数：{!! nl2br(e($restaurant->seats)) !!}<br>
-            禁煙・喫煙：{!! nl2br(e($restaurant->smoking)) !!}<br>
-            Cポンモール：<a href="{{ $restaurant->url }}" target="_blank">{{ $restaurant->cpon_mall_url }}</a><br>
-            　その他：{!! nl2br(e($restaurant->other)) !!}
+            <div class="info_list_other_sp">　　　席数：{!! nl2br(e($restaurant->seats)) !!}</div>
+            <div class="info_list_other_sp">禁煙・喫煙：{!! nl2br(e($restaurant->smoking)) !!}</div>
+            <div class="info_list_mall_sp">Cポンモール</div>：<a href="{{ $restaurant->url }}" target="_blank">{{ $restaurant->cpon_mall_url }}</a><br>
+            <div class="info_list_other_sp">　　その他：{!! nl2br(e($restaurant->other)) !!}</div>
         </div>
     </div>
 </div>

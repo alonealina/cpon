@@ -23,7 +23,7 @@ class Restaurant extends Model
     protected $dates = ['created_at', 'updated_at'];
 
     protected $appends = [
-        'open_hm', 'close_hm', 'opening_flg', 'profile_text', 'category_name', 'avg_star',
+        'open_hm', 'close_hm', 'open_hm_old', 'close_hm_old', 'opening_flg', 'profile_text', 'category_name', 'avg_star',
         'address_remarks_text', 'time_remarks_text', 'recommend_flg_str', 'release_flg_str', 'access_text', 
         'parking_text', 'e_money_text', 'seats_text', 'smoking_text', 'other_text', 
         'holidays', 'cards', 'scenes', 'commitments', 
@@ -43,6 +43,14 @@ class Restaurant extends Model
         $minute = substr($hm, 3, 2);
         
         return $hour . ':' . $minute;
+    }
+
+    public function getOpenHmOldAttribute() {
+        return substr($this->open_time, 0, 5);
+    }
+
+    public function getCloseHmOldAttribute() {
+        return substr($this->close_time, 0, 5);
     }
 
     public function getOpeningFlgAttribute() {

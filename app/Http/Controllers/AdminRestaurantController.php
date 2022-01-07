@@ -472,6 +472,7 @@ class AdminRestaurantController extends Controller
             'e_money' => $request['e_money'],
             'seats' => $request['seats'],
             'smoking' => $request['smoking'],
+            'cpon_mall_url' => $request['cpon_mall_url'],
             'other' => $request['other'],
             'main_img' => $main_img_name,
         ];
@@ -667,6 +668,7 @@ class AdminRestaurantController extends Controller
             'e_money' => $request['e_money'],
             'seats' => $request['seats'],
             'smoking' => $request['smoking'],
+            'cpon_mall_url' => $request['cpon_mall_url'],
             'other' => $request['other'],
         ];
 

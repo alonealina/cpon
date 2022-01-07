@@ -4,7 +4,7 @@
 <nav class="navbar admin_header">
     <div class="content_title">クチコミ詳細</div>
     <div class="button_red_admin">
-        <a href="{{ route('admin.notice_list') }}">クチコミ一覧ページ</a>
+        <a href="{{ route('admin.comment_list', ['id' => session('id')]) }}">クチコミ一覧ページ</a>
     </div>
 </nav>
 

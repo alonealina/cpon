@@ -49,7 +49,7 @@
                 </select>
             </div>
             <div class="search_button">
-            <a href="#" onclick="clickFilterButton()">検索</a>
+            <a href="#" onclick="clickFilterButtonIpad()">検索</a>
             </div>
         </div>
     </form>

@@ -1676,7 +1676,7 @@ label {
     line-height: 35px;
 }
 .info_list_sp {
-    height: 370px;
+    min-height: 370px;
     background-color: #FAFAFA;
     padding: 30px;
     font-weight: 300;
@@ -1691,10 +1691,22 @@ label {
     margin-left: 2px;
 }
 
+.info_list_web_sp {
+    float: left;
+    font-size: 10px;
+    margin-left: -1px;
+}
+
 .info_list_mall {
     float: left;
     font-size: 11px;
     margin-left: 13px;
+}
+
+.info_list_mall_sp {
+    float: left;
+    font-size: 10px;
+    margin-left: 8px;
 }
 
 .info_list_basic, .info_list_access {
@@ -1702,14 +1714,29 @@ label {
     text-indent: -75px;
 }
 
+.info_list_basic_sp, .info_list_access_sp {
+    margin-left: 65px;
+    text-indent: -65px;
+}
+
 .info_list_pay {
     margin-left: 150px;
     text-indent: -150px;
 }
 
+.info_list_pay_sp {
+    margin-left: 130px;
+    text-indent: -130px;
+}
+
 .info_list_other {
     margin-left: 90px;
     text-indent: -90px;
+}
+
+.info_list_other_sp {
+    margin-left: 78px;
+    text-indent: -78px;
 }
 
 /*以下メニューバーについて*/

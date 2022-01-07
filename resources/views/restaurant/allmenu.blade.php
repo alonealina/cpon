@@ -12,7 +12,11 @@
 <div id="menu_list_all">
     @foreach ($menus as $menu)
     <div class="menu_detail">
-        <img src="{{ asset('img/shohin.png') }}" alt="">
+        @if (empty($menu->img))
+        <img src="../../img/imgerror.jpg">
+        @else
+        <img src="../../restaurant/{{ $restaurant->id }}/menu/{{ $menu->img }}" alt="">
+        @endif
         <div class="menu_name">{{ $menu->name }}</div>
         <div class="menu_price">￥{{ number_format($menu->price) }}</div>
         <div class="menu_explain">{{ $menu->explain }}</div>
@@ -41,7 +45,11 @@
 <div id="menu_list_all">
     @foreach ($menus as $menu)
     <div class="menu_detail_ipad">
-        <img src="{{ asset('img/shohin.png') }}" alt="">
+        @if (empty($menu->img))
+        <img src="../../img/imgerror.jpg">
+        @else
+        <img src="../../restaurant/{{ $restaurant->id }}/menu/{{ $menu->img }}" alt="">
+        @endif
         <div class="menu_name">{{ $menu->name }}</div>
         <div class="menu_price">￥{{ number_format($menu->price) }}</div>
         <div class="menu_explain">{{ $menu->explain }}</div>
@@ -69,7 +77,11 @@
 
 @foreach ($menus as $menu)
 <div class="menu_detail_sp">
-<img src="{{ asset('img/shohin.png') }}" alt="">
+    @if (empty($menu->img))
+    <img src="../../img/imgerror.jpg">
+    @else
+    <img src="../../restaurant/{{ $restaurant->id }}/menu/{{ $menu->img }}" alt="">
+    @endif
     <div class="menu_name_sp">{{ $menu->name }}</div>
     <div class="menu_price_sp">￥{{ number_format($menu->price) }}</div>
     <div class="menu_explain_sp">{{ $menu->explain }}</div>
