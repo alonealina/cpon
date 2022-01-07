@@ -55,7 +55,7 @@
             <div class="info_list_web_sp">WEBページ</div>：<a href="{{ $restaurant->url }}" target="_blank">{{ $restaurant->url }}</a>
         </div>
         <div id="info_list_access" hidden>
-            最寄り駅：{{ $restaurant_stations }}<br>
+            <div class="info_list_access_sp">最寄り駅：{{ $restaurant_stations }}</div>
             <div class="info_list_access_sp">アクセス：{!! nl2br(e($restaurant->access)) !!}</div>
             <div class="info_list_access_sp">　駐車場：{!! nl2br(e($restaurant->parking)) !!}</div>
         </div>
