@@ -43,8 +43,8 @@
     </nav>
     <div class="info_list_sp">
         <div id="info_list_basic">
-            　所在地：〒{{ $restaurant->zip }}　{{ $restaurant->pref }}{{ $restaurant->address }}{{ $restaurant->address_remarks }}
-            <br><a href="https://www.google.com/maps/dir/{{ $restaurant->zip }}{{ $restaurant->pref }}{{ $restaurant->address }}{{ $restaurant->address_remarks }}" target="_blank">地図アプリで見る</a><br>
+            <div class="info_list_basic_sp">　所在地：〒{{ $restaurant->zip }}　{{ $restaurant->pref }}{{ $restaurant->address }}{{ $restaurant->address_remarks }}
+            <br><a href="https://www.google.com/maps/dir/{{ $restaurant->zip }}{{ $restaurant->pref }}{{ $restaurant->address }}{{ $restaurant->address_remarks }}" target="_blank">地図アプリで見る</a></div>
             電話番号：{{ $restaurant->tel }}<br>
             営業時間：{{ $restaurant->open_hm }}～{{ $restaurant->close_hm }}<br>
             <div class="info_list_basic_sp">　　　　　{!! nl2br(e($restaurant->time_remarks)) !!}</div>
@@ -67,7 +67,7 @@
         <div id="info_list_other" hidden>
             <div class="info_list_other_sp">　　　席数：{!! nl2br(e($restaurant->seats)) !!}</div>
             <div class="info_list_other_sp">禁煙・喫煙：{!! nl2br(e($restaurant->smoking)) !!}</div>
-            <div class="info_list_mall_sp">Cポンモール</div>：<a href="{{ $restaurant->url }}" target="_blank">{{ $restaurant->cpon_mall_url }}</a><br>
+            <div class="info_list_mall_sp">Cポンモール</div>：<a href="{{ $restaurant->cpon_mall_url }}" target="_blank">{{ $restaurant->cpon_mall_url }}</a><br>
             <div class="info_list_other_sp">　　その他：{!! nl2br(e($restaurant->other)) !!}</div>
         </div>
     </div>

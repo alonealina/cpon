@@ -18,6 +18,7 @@ use App\Rules\HolidayCheck;
 use App\Rules\ZipCheck;
 use App\Rules\PhoneCheck;
 use App\Rules\AlphaNumCheck;
+use App\Exceptions\LoginIdException;
 use DB;
 
 class AdminRestaurantController extends Controller
@@ -322,6 +323,12 @@ class AdminRestaurantController extends Controller
                     'main_img' => '',
                 ];
 
+                $login_id_count = Restaurant::where('login_id', $data[0])->count();
+
+                if ($login_id_count > 0) {
+                    throw new LoginIdException($data[0]);
+                }
+
                 $restaurant = new Restaurant();
                 $restaurant->fill($fill_data)->save();
                 $restaurant_id = $restaurant->id;
@@ -358,6 +365,9 @@ class AdminRestaurantController extends Controller
             DB::commit();
             fclose($fp);
             return redirect()->to('admin/restaurant_list')->with('message', 'CSVインポートが完了いたしました。');
+        } catch (LoginIdException $e) {
+            DB::rollback();
+            return redirect()->to('admin/restaurant_list')->with('message', $e->getMessage()); 
         } catch (\Exception $e) {
             DB::rollback();
             return redirect()->to('admin/restaurant_list')->with('message', 'CSVインポートに失敗しました。');

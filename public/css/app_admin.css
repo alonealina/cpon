@@ -335,6 +335,12 @@ footer a, footer a:hover {
     text-align: center;
 }
 
+.restaurant_list_message {
+    color:red;
+    right: 70px;
+    position: absolute;
+}
+
 .release_on_button a,
 .release_off_button a,
 .recommend_on_button a,

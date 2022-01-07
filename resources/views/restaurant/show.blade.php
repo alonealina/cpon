@@ -148,7 +148,7 @@
         <div id="info_list_other" hidden>
             <div class="info_list_other">　　　席数：{!! nl2br(e($restaurant->seats)) !!}</div>
             <div class="info_list_other">禁煙・喫煙：{!! nl2br(e($restaurant->smoking)) !!}</div>
-            <div class="info_list_mall">Cポンモール</div>：<a href="{{ $restaurant->url }}" target="_blank">{{ $restaurant->cpon_mall_url }}</a><br>
+            <div class="info_list_mall">Cポンモール</div>：<a href="{{ $restaurant->cpon_mall_url }}" target="_blank">{{ $restaurant->cpon_mall_url }}</a><br>
             <div class="info_list_other">　　その他：{!! nl2br(e($restaurant->other)) !!}</div>
         </div>
     </div>
@@ -291,7 +291,7 @@ $('#sp01').click(function() {
             <div id="info_list_other_ipad" hidden>
                 <div class="info_list_other">　　　席数：{!! nl2br(e($restaurant->seats)) !!}</div>
                 <div class="info_list_other">禁煙・喫煙：{!! nl2br(e($restaurant->smoking)) !!}</div>
-                <div class="info_list_mall">Cポンモール</div>：<a href="{{ $restaurant->url }}" target="_blank">{{ $restaurant->cpon_mall_url }}</a><br>
+                <div class="info_list_mall">Cポンモール</div>：<a href="{{ $restaurant->cpon_mall_url }}" target="_blank">{{ $restaurant->cpon_mall_url }}</a><br>
                 <div class="info_list_other">　　その他：{!! nl2br(e($restaurant->other)) !!}</div>
             </div>
         </div>

@@ -34,8 +34,8 @@ class NoticeController extends Controller
         $notice = Notice::find($id);
         $max_flg = false;
         $min_flg = false;
-        $max_notice = Notice::orderBy('notice_date', 'desc')->orderBy('id', 'desc')->first();
-        $min_notice = Notice::orderBy('notice_date', 'asc')->orderBy('id', 'asc')->first();
+        $max_notice = Notice::where('release_flg', 1)->orderBy('notice_date', 'desc')->orderBy('id', 'desc')->first();
+        $min_notice = Notice::where('release_flg', 1)->orderBy('notice_date', 'asc')->orderBy('id', 'asc')->first();
         if ($id == $max_notice->id) {
             $max_flg = true;
         }
@@ -43,7 +43,7 @@ class NoticeController extends Controller
             $min_flg = true;
         }
 
-        $notices = Notice::orderBy('notice_date', 'desc')->orderBy('id', 'desc')->get();
+        $notices = Notice::where('release_flg', 1)->orderBy('notice_date', 'desc')->orderBy('id', 'desc')->get();
         $notice_key = $notices->where('id', $id)->keys()->first();
         $back_id = null;
         $next_id = null;

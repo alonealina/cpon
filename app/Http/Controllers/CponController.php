@@ -192,7 +192,7 @@ class CponController extends Controller
             $open = 'none';
         }
         if ($close != 0) {
-            $query->whereTime('open_time', '<=', $close);
+            $query->whereTime('open_time', '<', $close);
         } else {
             // フィルター検索値保持用
             $close = 'none';
