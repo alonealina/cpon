@@ -25,7 +25,7 @@ class CponController extends Controller
         $categories = Category::all();
         $recommends = Restaurant::where('recommend_flg', 1)->where('release_flg', 1)->take(6)->get();
         $news = Restaurant::orderBy('created_at', 'desc')->where('release_flg', 1)->take(6)->get();
-        $notices = Notice::orderBy('notice_date', 'desc')->where('release_flg', 1)->take(5)->get();
+        $notices = Notice::orderBy('notice_date', 'desc')->orderBy('title', 'asc')->where('release_flg', 1)->take(5)->get();
         $banners = Banner::where('priority', '<>', '7')->orderBy('priority', 'asc')->take(6)->get();
         $scenes = Scene::all();
         $commitments = Commitment::all();

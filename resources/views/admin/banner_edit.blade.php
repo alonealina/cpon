@@ -4,7 +4,7 @@
 <nav class="navbar admin_header">
     <div class="content_title">バナー編集</div>
     <div class="button_red_admin">
-        <a href="{{ route('admin.notice_list') }}">画像管理ページ</a>
+        <a href="{{ route('admin.banner_list') }}">画像管理ページ</a>
     </div>
 </nav>
 

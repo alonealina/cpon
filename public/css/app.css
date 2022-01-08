@@ -1015,6 +1015,10 @@ label {
     font-size: 12px;
 }
 
+.scene_commitment {
+    pointer-events: none;
+}
+
 .restaurant_profile label {
     font-weight: bold;
 }
@@ -1655,6 +1659,7 @@ label {
 .info_list_bar li{
     display: table-cell;
     min-width: 50px;
+    cursor: pointer;
 }
 
 .info_list_bar a{
@@ -1681,7 +1686,7 @@ label {
 }
 
 .info_list {
-    height: 500px;
+    min-height: 500px;
     background-color: #FAFAFA;
     padding: 30px;
     font-weight: 300;
@@ -2393,7 +2398,6 @@ height: 74px;
 
 /* === 文書を書くBOX ============================================= */
 #restaurant_profile_text {
-cursor: pointer;
 display: -webkit-box;
 -webkit-box-orient: vertical;
 }
@@ -2473,13 +2477,6 @@ content       : "一部を表示";
     text-align: left;
     font-size: 13px;
     color: #696969;
-}
-
-/* === 文書を書くBOX ============================================= */
-#restaurant_profile_text {
-cursor: pointer;
-display: -webkit-box;
--webkit-box-orient: vertical;
 }
 
 /* === チェックボックス ========================================== */
