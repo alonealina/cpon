@@ -44,14 +44,12 @@ class BannerController extends Controller
     {
         $rules = [
             'img' => ['max:10240', 'required'],
-            'url' => 'required',
             'priority' => new PriorityCheck(0),
         ];
 
         $messages = [
             'img.required' => 'ファイルを選択してください',
             'img.max' => 'ファイルは10MB未満でお願いします',
-            'url.required' => 'URLを入力してください',
         ];
 
         Validator::make($request->all(), $rules, $messages)->validate();
@@ -105,13 +103,11 @@ class BannerController extends Controller
     {
         $rules = [
             'img' => 'max:10240',
-            'url' => 'required',
             'priority' => new PriorityCheck($request['id']),
         ];
 
         $messages = [
             'img.max' => 'ファイルは10MB未満でお願いします',
-            'url.required' => 'URLを入力してください',
         ];
 
         Validator::make($request->all(), $rules, $messages)->validate();
