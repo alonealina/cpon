@@ -71,7 +71,7 @@ class NoticeController extends Controller
      */
     public function notice_list()
     {
-        $notices = Notice::orderBy('updated_at', 'desc')->paginate(10);
+        $notices = Notice::orderBy('notice_date', 'desc')->orderBy('title', 'asc')->paginate(10);
         
         return view('admin.notice_list', [
             'notices' => $notices,
