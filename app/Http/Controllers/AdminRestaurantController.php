@@ -752,8 +752,10 @@ class AdminRestaurantController extends Controller
             $target_path = public_path('restaurant/'. $restaurant_id . '/');
 
             if ($main_img) {
-                if(file_exists($target_path . $old_main_img)){
-                    unlink($target_path . $old_main_img);
+                if(!empty($old_main_img)) {
+                    if(file_exists($target_path . $old_main_img)){
+                        unlink($target_path . $old_main_img);
+                    }
                 }
                 $main_img->move($target_path, $main_img_name);
             }
