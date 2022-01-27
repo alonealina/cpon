@@ -4,7 +4,7 @@
 
 @yield('banner')
 
-<p style="margin-left:30px;margin-bottom:0.2rem;" data="A">カテゴリから探す</p>
+<p style="margin-left:30px;margin-bottom:0.2rem;">カテゴリから探す</p>
 <div class="category">
     <ul class="slider">
     @foreach ($categories as $category)
