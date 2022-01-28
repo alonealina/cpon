@@ -109,6 +109,7 @@ class CponController extends Controller
         $area = null;
         $open_only = null;
         $highly_rated = null;
+        $freeword = null;
 
         if (isset($filter_array['area'])) {
             $area = $filter_array['area'];
@@ -120,7 +121,10 @@ class CponController extends Controller
             $highly_rated = $filter_array['highly_rated'];
         }
 
-        $freeword = $filter_array['freeword'];
+        if (isset($filter_array['freeword'])) {
+            $freeword = $filter_array['freeword'];
+        }
+
         $category_id = $filter_array['category_id'];
         $open = $filter_array['open'];
         $close = $filter_array['close'];

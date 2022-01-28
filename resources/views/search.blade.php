@@ -27,7 +27,7 @@
     @endforeach
 </div>
 <div class="d-flex justify-content-center">
-{{ $restaurants->links('pagination::default') }}
+{{ $restaurants->appends(request()->query())->links('pagination::default') }}
 </div>
 @endsection
 
@@ -59,7 +59,7 @@
     @endforeach
 </div>
 <div class="d-flex justify-content-center">
-{{ $restaurants->links('pagination::default') }}
+{{ $restaurants->appends(request()->query())->links('pagination::default') }}
 </div>
 @endsection
 
@@ -97,6 +97,6 @@
     @endforeach
 </div>
 <div class="d-flex justify-content-center">
-{{ $restaurants->links('pagination::default') }}
+{{ $restaurants->appends(request()->query())->links('pagination::default') }}
 </div>
 @endsection
