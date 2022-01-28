@@ -4,6 +4,32 @@
         <meta charset="utf-8">
         <title>Cポンお店ナビ</title>
         <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes" />
+        
+        <!-- SEO Meta Tags -->
+        <meta name="description" content="Cポン（シーポン）専用の加盟店検索サイト「Cポンお店ナビ」は、Cポンをチャージしてお支払いすると20％以上おトクにサービスをご利用いただけます。"/>
+        <meta name="author" content="Don Jung">
+        <meta name="keywords" content="CPONNAVI"/>
+        
+        <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+ -->
+        <meta property="og:site_name" content="Cポンお店ナビ" /> <!-- website name -->
+        <meta property="og:title" content="Cポンお店ナビ | どのサービスも20%以上おトク！"/> <!-- title shown in the actual shared post -->
+        <meta property="og:description" content="Cポン（シーポン）専用の加盟店検索サイト「Cポンお店ナビ」は、Cポンをチャージしてお支払いすると20％以上おトクにサービスをご利用いただけます。"/> <!-- description shown in the actual shared post -->
+        <meta property="og:image" content="{{ asset('img/omisenavi_ogp.png') }}" /> <!-- image link, make sure it's jpg -->
+        <meta property="og:url" content="" /> <!-- where do you want your post to link to -->
+        <meta property="og:type" content="website" />
+        
+        <link rel="icon" type="image/png" href="{{ asset('img/omisenavi_favicon.png') }}">
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NTRR2V2QBY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NTRR2V2QBY');
+</script>
+        
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
         <link rel="icon" type="image/png" href="https://mall.cpon.co.jp/favicon.png">
