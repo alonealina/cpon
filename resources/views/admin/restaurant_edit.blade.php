@@ -117,7 +117,7 @@
 
                 <div class="regist_form_item admin_form_name2">
                     <div class="admin_form_sub">店舗名<p class="required_mark">※必須</p>30文字以内</div>
-                    {{ Form::text('name2', old('name2', $restaurant->name2), ['class' => 'name2_input', 'maxlength' => 20]) }}
+                    {{ Form::text('name2', old('name2', $restaurant->name2), ['class' => 'name2_input', 'maxlength' => 30]) }}
                 </div>
 
                 <div class="regist_form_item">

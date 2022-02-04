@@ -2765,6 +2765,22 @@ margin:10px;
     left: 0px;/*メニューを画面内へ*/
 }
 
+#lightbox img {
+    position:relative;
+    z-index: 20;
+}
+
+.lb-prev {
+    left: -80px!important;
+    position: absolute;
+    opacity:1!important;
+}
+
+.lb-next {
+    right: -80px!important; 
+    position: absolute;
+    opacity:1!important;
+}
 
 /*以下ローディング画面について*/
 

@@ -59,7 +59,8 @@ class Restaurant extends Model
         $open_time = new DateTime($this->open_time);
         $close_time = new DateTime($this->close_time);
 
-        if ($open_time <= $now_time && $close_time >= $now_time) {
+        if ($open_time <= $now_time && $close_time >= $now_time
+            || $open_time > $close_time && ($open_time <= $now_time || $close_time >= $now_time)) {
             $flg = 1;
         }
 
@@ -160,15 +161,6 @@ class Restaurant extends Model
             return $this->output_settings_array($commitments->toArray());
         }
     }
-
-
-
-
-    // public function outputCsvHeader() {
-    //     return ['ID', '名前1', '名前2', '名前3', '店舗プロフィール', '都道府県', '郵便番号', '住所', '開店時間', '閉店時間', 'カテゴリ', 'URL', 'TEL',
-    //         '備考（住所）', '備考（営業時間）', 'メイン画像', 'サブ画像1', 'サブ画像2', 'サブ画像3', 'サブ画像4', '作成日時', '更新日時', 
-    //     ];
-    // }
 
     public function outputCsvContent() {
         return [

@@ -18,6 +18,7 @@ use App\Rules\HolidayCheck;
 use App\Rules\ZipCheck;
 use App\Rules\PhoneCheck;
 use App\Rules\AlphaNumCheck;
+use App\Rules\LoginIdCheck;
 use App\Exceptions\LoginIdException;
 use DB;
 
@@ -404,7 +405,7 @@ class AdminRestaurantController extends Controller
     public function restaurant_store(Request $request)
     {
         $rules = [
-            'login_id' => ['required', new AlphaNumCheck()],
+            'login_id' => ['required', new AlphaNumCheck(), new LoginIdCheck(0)],
             'pass' => ['required', 'between:8,12', new AlphaNumCheck()],
             'name2' => 'required',
             'profile' => 'required',
@@ -607,7 +608,7 @@ class AdminRestaurantController extends Controller
         ];
 
         if (session('type') == 'operation') {
-            $rules['login_id'] = ['required', new AlphaNumCheck()];
+            $rules['login_id'] = ['required', new AlphaNumCheck(), new LoginIdCheck($request['restaurant_id'])];
         }
 
         $messages = [
