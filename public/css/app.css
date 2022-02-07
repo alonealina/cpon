@@ -1321,6 +1321,9 @@ label {
     text-align: center;
 }
 
+.search_list_sp {
+    width: 100%;
+}
 
 .recommend_list {
     margin-bottom: 10px;

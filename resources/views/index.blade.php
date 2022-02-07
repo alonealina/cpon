@@ -190,21 +190,21 @@
 <div class="recommend_list_sp">
     @foreach ($recommends as $recommend)
     <div class="recommend_restaurant_sp">
-    <a href="{{ route('restaurant.show', ['id' => $recommend->id]) }}">
-        @if (empty($recommend->main_img))
-        <img src="../../img/imgerror.jpg">
-        @else
-        <img src="../../restaurant/{{ $recommend->id }}/{{ $recommend->main_img }}">
-        @endif
-        <div class="recommend_name restaurant_name_sp">{{ $recommend->name1 }} {{ $recommend->name2 }} {{ $recommend->name3 }}</div>
-        <div class="recommend_address_sp">〒{{ $recommend->zip }} {{ $recommend->pref }}{{ $recommend->address }}</div>
-        <div class="recommend_time">【営業時間】　{{ $recommend->open_hm }} - {{ $recommend->close_hm }}</div>
-        @if($recommend->opening_flg)
-        <div class="open_mark">OPEN</div>
-        @else
-        <div class="close_mark">CLOSE</div>
-        @endif
-    </a>
+        <a href="{{ route('restaurant.show', ['id' => $recommend->id]) }}">
+            @if (empty($recommend->main_img))
+            <img src="../../img/imgerror.jpg">
+            @else
+            <img src="../../restaurant/{{ $recommend->id }}/{{ $recommend->main_img }}">
+            @endif
+            <div class="recommend_name restaurant_name_sp">{{ $recommend->name1 }} {{ $recommend->name2 }} {{ $recommend->name3 }}</div>
+            <div class="recommend_address_sp">〒{{ $recommend->zip }} {{ $recommend->pref }}{{ $recommend->address }}</div>
+            <div class="recommend_time">【営業時間】　{{ $recommend->open_hm }} - {{ $recommend->close_hm }}</div>
+            @if($recommend->opening_flg)
+            <div class="open_mark">OPEN</div>
+            @else
+            <div class="close_mark">CLOSE</div>
+            @endif
+        </a>
     </div>
     @endforeach
 </div>
