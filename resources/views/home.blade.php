@@ -72,6 +72,8 @@
 
 @yield('banner_sp')
 
+@yield('filter_search_sp')
+
 <p class="category_title_sp">カテゴリから探す</p>
 <div class="category_sp">
     <ul class="slider_sp">

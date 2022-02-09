@@ -6,6 +6,10 @@ function clickFilterButtonIpad() {
     document.forms.filter_form_ipad.submit();
 }
 
+function clickFilterButtonSp() {
+    document.forms.filter_form_sp.submit();
+}
+
 function clickFilterButtonAdmin() {
     document.forms.filter_form.submit();
 }

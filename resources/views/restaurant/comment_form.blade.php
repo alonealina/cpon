@@ -60,7 +60,7 @@
         @if($errors->has('comment_img'))
             <div class="comment_error">{{ $errors->first('comment_img') }}</div>
         @endif
-        <div class="comment_create_title">イメージ画像（5枚まで）</div>
+        <div class="comment_create_title">イメージ画像（最大5枚、各1MBまで）</div>
         <div class="file_button"><input type="file" id="file_btn_pc" accept="image/*" name="comment_img[]" onclick="fileCheck();" multiple></div>
         <div class="img_tmb"></div>
         <div class="button_black">
@@ -159,7 +159,7 @@ window.onload = function () {
         @if($errors->has('comment_img'))
             <div class="comment_error">{{ $errors->first('comment_img') }}</div>
         @endif
-        <div class="comment_create_title">イメージ画像（5枚まで）</div>
+        <div class="comment_create_title">イメージ画像（最大5枚、各1MBまで）</div>
         <div class="file_button"><input type="file" id="file_btn_ipad" accept="image/*" onclick="fileCheckIpad();" name="comment_img[]" multiple></div>
         <div class="img_tmb_ipad"></div>
         <div class="button_black">

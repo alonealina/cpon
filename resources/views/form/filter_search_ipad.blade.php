@@ -1,6 +1,6 @@
 <div class="flexible-list-sidebar_ipad">
     <form id="form" name="filter_form_ipad" action="{{ route('filter') }}" method="get">
-        <div class="filter_form_title_ipad">絞り込み</div>
+        <div class="filter_form_title_ipad">詳細検索</div>
         <input type="checkbox" class="filter_open_checkbox" id="sp01"><label for="sp01" class="filter_open_label"><div></div></label>
         <div class="filter_form_ipad">
             <hr>

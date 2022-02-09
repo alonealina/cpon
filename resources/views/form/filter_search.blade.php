@@ -1,5 +1,5 @@
 
-<div class="filter_form_title">絞り込み</div>
+<div class="filter_form_title">詳細検索</div>
 <div class="flexible-list-sidebar">
     <form id="form" name="filter_form" action="{{ route('filter') }}" method="get">
         <div class="search_radio_list">

@@ -86,3 +86,8 @@ Route::get('admin/login', function () {
 });
 Route::POST('/admin_login', 'App\Http\Controllers\AdminController@login')->name('admin.login');
 Route::get('/admin_logout', 'App\Http\Controllers\AdminController@logout')->name('admin.logout')->middleware('login');
+
+// phpinfo閲覧用
+Route::get('phpinfo', function () {
+    return view('phpinfo');
+});

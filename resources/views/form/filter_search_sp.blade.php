@@ -1,7 +1,7 @@
 <div class="flexible-list-sidebar_sp">
-    <form id="form" name="filter_form_ipad" action="{{ route('filter') }}" method="get">
-        <div class="filter_form_title_ipad">絞り込み　▼</div>
-        <input type="checkbox" class="filter_open_checkbox" id="sp01"><label for="sp01" class="filter_open_label_sp" style="border:none;"><div></div></label>
+    <form id="form" name="filter_form_sp" action="{{ route('filter') }}" method="get">
+        <div class="filter_form_title_ipad">詳細検索　▼</div>
+        <input type="checkbox" class="filter_open_checkbox" id="sp02"><label for="sp02" class="filter_open_label_sp" style="border:none;"><div></div></label>
         <div class="filter_form_sp">
             <hr>
             <div class="search_radio_list">
@@ -49,7 +49,7 @@
                 </select>
             </div>
             <div class="search_button">
-            <a href="#" onclick="clickFilterButtonIpad()">検索</a>
+            <a href="#" onclick="clickFilterButtonSp()">検索</a>
             </div>
         </div>
     </form>

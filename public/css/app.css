@@ -2589,7 +2589,7 @@ display       : none;                                   /* 非表示 */
     font-size: 15px;
     /* font-weight: bold; */
     display: block;
-    width: 375px;
+    width: 107%;
     height: 39px;
     line-height: 39px;
     background: transparent linear-gradient(
@@ -2623,7 +2623,7 @@ text-align:left;
 
 /* --- ボタンに表示する文字（閉じているとき） -------------------- */
 .filter_open_checkbox:not(:checked) + label::after {
-content       : "絞り込み";
+content       : "詳細検索";
 float:left;
 }
 
