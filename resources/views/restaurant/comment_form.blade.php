@@ -57,8 +57,8 @@
             <div class="comment_error">{{ $errors->first('comment') }}</div>
         @endif
         {{ Form::textarea('comment', old('comment'), ['class' => 'form-control comment_input', 'rows' => 6]) }}
-        @if($errors->has('comment_img'))
-            <div class="comment_error">{{ $errors->first('comment_img') }}</div>
+        @if($errors->has('comment_img.*'))
+            <div class="comment_error">{{ $errors->first('comment_img.*') }}</div>
         @endif
         <div class="comment_create_title">イメージ画像（最大5枚、各1MBまで）</div>
         <div class="file_button"><input type="file" id="file_btn_pc" accept="image/*" name="comment_img[]" onclick="fileCheck();" multiple></div>

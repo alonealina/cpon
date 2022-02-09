@@ -301,7 +301,7 @@ class RestaurantController extends Controller
             'user_name' => ['max:20', 'required'],
             'fivestar' => 'required',
             'comment' => 'required',
-            'comment_img' => 'max:10240'
+            'comment_img.*' => 'max:1024'
         ];
 
         $messages = [
@@ -309,7 +309,7 @@ class RestaurantController extends Controller
             'user_name.required' => 'お名前を入力してください',
             'fivestar.required' => '評価を選択してください',
             'comment.required' => 'クチコミを入力してください',
-            'comment_img.max' => 'ファイルは10MB未満でお願いします',
+            'comment_img.*.max' => 'ファイルは各1MB未満でお願いします',
         ];
 
         Validator::make($request->all(), $rules, $messages)->validate();
